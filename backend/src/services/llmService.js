@@ -25,12 +25,24 @@ Output schema (single job object):
 
 You may also return an array of job objects if multiple jobs are clearly present in the text.`;
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+let client;
+
+function getClient() {
+  if (client) {
+    return client;
+  }
+
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new Error('OPENAI_API_KEY is missing. Add it to backend/.env or export it in your shell before running the pipeline.');
+  }
+
+  client = new OpenAI({ apiKey });
+  return client;
+}
 
 async function generateJobDetails(jobText) {
-  const completion = await client.chat.completions.create({
+  const completion = await getClient().chat.completions.create({
     model: MODEL,
     temperature: TEMPERATURE,
     messages: [

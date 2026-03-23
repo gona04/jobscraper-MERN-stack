@@ -2,13 +2,13 @@ const path = require('node:path');
 const fs = require('fs-extra');
 const dotenv = require('dotenv');
 
+dotenv.config();
+
 const { processJobs } = require('./processors/jobProcessor');
 const { deduplicateJobs } = require('./utils/deduplicate');
 const { writeJsonFile } = require('./utils/fileWriter');
 const { writeExcelFile } = require('./utils/excelWriter');
 const { getDateStamp } = require('./utils/timestamp');
-
-dotenv.config();
 
 function parseCliArgs(argv) {
   const [inputPath, startArg, endArg] = argv;
