@@ -5,6 +5,11 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { transformCustomJobs, saveCustomJobs } from '../src/services/customJobService.mjs';
 
+function getDateFolderName() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
 test('transformCustomJobs creates custom portal jobs from pasted blocks', () => {
   const content = `Frontend Developer\nGreat team and visa sponsorship available.\nhttps://example.com/job-1\n\nBackend Developer\nNo relocation support.\nhttps://example.com/job-2`;
 
@@ -63,9 +68,12 @@ test('saveCustomJobs writes generated jobs json to target path', async () => {
   const outputPath = path.join(tempDir, 'data', 'custom', 'custom.json');
   const jobs = [{ title: 'Test role', details: { title: 'Test role', description: 'desc', visaSponsorship: false, relocationSupport: false }, link: 'https://example.com', portal: 'custom' }];
 
-  await saveCustomJobs(jobs, outputPath);
+  const savedPath = await saveCustomJobs(jobs, outputPath);
+  const expectedDate = getDateFolderName();
 
-  const saved = await readFile(outputPath, 'utf8');
+  assert.equal(savedPath, path.join(tempDir, 'data', expectedDate, 'custom', 'custom.json'));
+
+  const saved = await readFile(savedPath, 'utf8');
   const parsed = JSON.parse(saved);
 
   assert.deepEqual(parsed, jobs);
