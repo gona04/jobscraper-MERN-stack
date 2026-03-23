@@ -34,6 +34,19 @@ test('transformCustomJobs supports JSON entry arrays', () => {
   assert.equal(jobs[1].title, 'Backend Developer');
 });
 
+test('transformCustomJobs keeps array entries with blank lines together', () => {
+  const jobs = transformCustomJobs([
+    `Frontend Engineer | Senior | React | Network Department, Vilnius, Lithuania (Hybrid, Full-time) at Nord Security/NordLayer: build and improve TypeScript React codebase with tests.
+
+https://jobs.lever.co/nordsec/6633b541-2742-4823-aa4d-57f833a26715/apply?lever-source=LinkedIn`
+  ]);
+
+  assert.equal(jobs.length, 1);
+  assert.match(jobs[0].title, /Frontend Engineer/i);
+  assert.notEqual(jobs[0].title, 'Apply');
+  assert.match(jobs[0].details.description, /Network Department/i);
+});
+
 test('transformCustomJobs extracts title from long single-line content when available', () => {
   const jobs = transformCustomJobs([
     `Guardsquare • Hybrid-remote Leuven Scale-up 2y ago Front-End Engineer (React/TypeScript) Apply About the role Summary We are looking for an experienced Frontend Engineer with expertise in React and TypeScript https://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript`,

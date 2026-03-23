@@ -166,22 +166,26 @@ function parseBlockToJob(block) {
   };
 }
 
-function normalizeToSingleContent(input) {
+function normalizeToBlocks(input) {
   if (Array.isArray(input)) {
-    return input.map((item) => item.trim()).filter(Boolean).join('\n\n');
+    return input
+      .map((item) => (typeof item === 'string' ? item.trim() : ''))
+      .filter(Boolean);
   }
 
-  return typeof input === 'string' ? input : '';
-}
+  if (typeof input !== 'string') {
+    return [];
+  }
 
-export function transformCustomJobs(input) {
-  const content = normalizeToSingleContent(input);
-  const blocks = content
+  return input
     .replace(/\r\n/g, '\n')
     .split(/\n{2,}/)
     .map((block) => block.trim())
     .filter(Boolean);
+}
 
+export function transformCustomJobs(input) {
+  const blocks = normalizeToBlocks(input);
   return blocks.map(parseBlockToJob).filter(Boolean);
 }
 
