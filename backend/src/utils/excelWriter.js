@@ -59,7 +59,7 @@ async function writeExcelFile(outputPath, jobs) {
     Srno: index + 1,
     'Application Date': job?.applicationDate ?? defaultApplicationDate,
     'Country Name': job?.countryName ?? job?.country ?? '',
-    'Company Name': job?.companyName ?? job?.company ?? '',
+    'Company Name': job?.company_name ?? job?.companyName ?? job?.company ?? '',
     'Recruiter Email & Phone': toRecruiterContact(job),
     'Job Title': job?.jobTitle ?? '',
     'Job Portal/Company Website/Link': job?.job_link ?? '',
@@ -68,7 +68,7 @@ async function writeExcelFile(outputPath, jobs) {
     'Job description': job?.rolesAndResponsibilities ?? '',
     skills: toSkillsString(job?.skillsRequired),
     visa_sponsor: job?.visa_sponsorship ?? '',
-    English_only: job?.english_only ?? ''
+    English_only: job?.only_english ?? job?.english_only ?? ''
   }));
 
   const workbook = XLSX.utils.book_new();

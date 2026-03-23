@@ -3,27 +3,35 @@ const OpenAI = require('openai');
 const MODEL = 'gpt-4o-mini';
 const TEMPERATURE = 0;
 
-// NOTE: Replace with the exact Python prompt if it differs.
 const JOB_EXTRACTION_PROMPT = `You are a strict JSON extraction engine for frontend job postings.
 
-Return ONLY valid JSON.
+Return ONLY valid JSON. No markdown, no explanations, no code fences.
 
 Task:
 1) Extract structured details from the provided job text.
 2) Keep only frontend-oriented roles (React, Angular, Vue, JavaScript, TypeScript, UI-focused web roles).
-3) If not a frontend role, return [] only.
-4) Include visa_sponsorship exactly as one of: "Yes", "No", "Unknown".
+3) If the job is not frontend-focused, return [] only.
+4) Detect visa sponsorship and set visa_sponsorship exactly to one of: "Yes", "No", "Unknown".
+5) Detect if role can be done only with English and set only_english exactly to one of: "true", "false", or null.
 
-Output schema (single job object):
-{
-  "jobTitle": "string",
-  "job_link": "string",
-  "visa_sponsorship": "Yes|No|Unknown",
-  "rolesAndResponsibilities": "string",
-  "skillsRequired": ["string"]
-}
+Output schema (array of objects):
+[
+  {
+    "jobTitle": "string",
+    "job_link": "string",
+    "visa_sponsorship": "Yes|No|Unknown",
+    "only_english": "true|false|null",
+    "company_name": "string",
+    "rolesAndResponsibilities": "string",
+    "skillsRequired": ["string"]
+  }
+]
 
-You may also return an array of job objects if multiple jobs are clearly present in the text.`;
+Rules:
+- Always return a JSON array.
+- If a field is unknown, use empty string for text fields, [] for skillsRequired, and null for only_english.
+- Do not invent a job_link unless explicitly present in the text.
+- Exclude non-frontend jobs by returning [].`;
 
 let client;
 
