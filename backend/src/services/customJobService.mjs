@@ -2,6 +2,21 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const URL_REGEX = /https?:\/\/\S+/gi;
+const TITLE_HINT_REGEX = /(front\s*-?\s*end|back\s*-?\s*end|full\s*-?\s*stack|software|data|devops|qa|product|mobile|ios|android|react|node|javascript|typescript)\s+(engineer|developer|architect|manager|analyst|lead|specialist|consultant)/i;
+const ROLE_TITLE_REGEX = /(senior|junior|lead|staff|principal)?\s*(front\s*-?\s*end|back\s*-?\s*end|full\s*-?\s*stack|software|data|devops|qa|product|mobile|ios|android)\s*(engineer|developer|architect|manager|analyst)/i;
+
+const TITLE_NOISE = new Set([
+  'apply',
+  'save',
+  'show more options',
+  'about the role',
+  'about the job',
+  'summary',
+  'responsibilities',
+  'profile',
+  'bonus points for',
+  'what we offer'
+]);
 
 function inferBoolean(description, positivePattern, negativePattern) {
   if (negativePattern.test(description)) {
@@ -11,11 +26,25 @@ function inferBoolean(description, positivePattern, negativePattern) {
   return positivePattern.test(description);
 }
 
-function inferTitle(lines = [], link = '') {
-  if (lines.length > 0) {
-    return lines[0];
+function cleanLine(line = '') {
+  return line.replace(/\s+/g, ' ').trim();
+}
+
+function isLikelyJobTitle(line = '') {
+  const normalized = cleanLine(line);
+
+  if (!normalized || normalized.length < 3 || normalized.length > 120) {
+    return false;
   }
 
+  if (TITLE_NOISE.has(normalized.toLowerCase())) {
+    return false;
+  }
+
+  return TITLE_HINT_REGEX.test(normalized);
+}
+
+function inferTitleFromLink(link = '') {
   try {
     const url = new URL(link);
     const parts = url.pathname.split('/').filter(Boolean);
@@ -29,6 +58,42 @@ function inferTitle(lines = [], link = '') {
   }
 }
 
+function extractTitle(textWithoutLinks, lines, link) {
+  const candidate = lines.find((line) => isLikelyJobTitle(line));
+
+  if (candidate) {
+    return cleanLine(candidate);
+  }
+
+  const roleMatch = textWithoutLinks.match(ROLE_TITLE_REGEX);
+  if (roleMatch) {
+    return cleanLine(roleMatch[0]).replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+
+  const firstUsefulLine = lines.find((line) => !TITLE_NOISE.has(cleanLine(line).toLowerCase()));
+  if (firstUsefulLine) {
+    return cleanLine(firstUsefulLine);
+  }
+
+  return inferTitleFromLink(link);
+}
+
+function buildDescription(textWithoutLinks, title) {
+  if (!textWithoutLinks) {
+    return title;
+  }
+
+  const normalizedText = textWithoutLinks.trim();
+  const normalizedTitle = title.trim();
+
+  if (normalizedText.toLowerCase().startsWith(normalizedTitle.toLowerCase())) {
+    const stripped = normalizedText.slice(normalizedTitle.length).trim();
+    return stripped || normalizedTitle;
+  }
+
+  return normalizedText;
+}
+
 function parseBlockToJob(block) {
   const linkMatch = block.match(URL_REGEX);
 
@@ -40,11 +105,11 @@ function parseBlockToJob(block) {
   const textWithoutLinks = block.replace(URL_REGEX, '').trim();
   const lines = textWithoutLinks
     .split('\n')
-    .map((line) => line.trim())
+    .map((line) => cleanLine(line))
     .filter(Boolean);
 
-  const title = inferTitle(lines, link);
-  const description = lines.length > 1 ? lines.slice(1).join('\n') : textWithoutLinks || title;
+  const title = extractTitle(textWithoutLinks, lines, link);
+  const description = buildDescription(textWithoutLinks, title);
 
   return {
     title,
