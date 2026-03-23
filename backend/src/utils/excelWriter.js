@@ -29,12 +29,26 @@ function toSkillsString(skillsRequired) {
     .join(', ');
 }
 
-function getTodayDate() {
-  const now = new Date();
-  const year = now.getUTCFullYear();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(now.getUTCDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
+function toOrdinal(day) {
+  if (day > 3 && day < 21) {
+    return `${day}th`;
+  }
+
+  const suffixes = ['th', 'st', 'nd', 'rd'];
+  return `${day}${suffixes[Math.min(day % 10, 4)] || 'th'}`;
+}
+
+function formatDateDisplay(inputDate) {
+  const date = inputDate ? new Date(inputDate) : new Date();
+  if (Number.isNaN(date.getTime())) {
+    return typeof inputDate === 'string' ? inputDate : '';
+  }
+
+  const day = toOrdinal(date.getUTCDate());
+  const month = date.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+  const year = date.getUTCFullYear();
+
+  return `${day} ${month} ${year}`;
 }
 
 function toRecruiterContact(job) {
@@ -53,11 +67,9 @@ function toRecruiterContact(job) {
 }
 
 async function writeExcelFile(outputPath, jobs) {
-  const defaultApplicationDate = getTodayDate();
-
   const rows = (Array.isArray(jobs) ? jobs : []).map((job, index) => ({
     Srno: index + 1,
-    'Application Date': job?.applicationDate ?? defaultApplicationDate,
+    'Application Date': formatDateDisplay(job?.applicationDate),
     'Country Name': job?.countryName ?? job?.country ?? '',
     'Company Name': job?.company_name ?? job?.companyName ?? job?.company ?? '',
     'Recruiter Email & Phone': toRecruiterContact(job),
