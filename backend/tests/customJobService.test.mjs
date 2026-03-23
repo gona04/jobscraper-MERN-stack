@@ -5,6 +5,11 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { transformCustomJobs, saveCustomJobs } from '../src/services/customJobService.mjs';
 
+function getDateFolderName() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
 test('transformCustomJobs creates custom portal jobs from pasted blocks', () => {
   const content = `Frontend Developer\nGreat team and visa sponsorship available.\nhttps://example.com/job-1\n\nBackend Developer\nNo relocation support.\nhttps://example.com/job-2`;
 
@@ -27,6 +32,19 @@ test('transformCustomJobs supports JSON entry arrays', () => {
   assert.equal(jobs[0].title, 'Frontend Developer');
   assert.equal(jobs[0].details.visaSponsorship, null);
   assert.equal(jobs[1].title, 'Backend Developer');
+});
+
+test('transformCustomJobs keeps array entries with blank lines together', () => {
+  const jobs = transformCustomJobs([
+    `Frontend Engineer | Senior | React | Network Department, Vilnius, Lithuania (Hybrid, Full-time) at Nord Security/NordLayer: build and improve TypeScript React codebase with tests.
+
+https://jobs.lever.co/nordsec/6633b541-2742-4823-aa4d-57f833a26715/apply?lever-source=LinkedIn`
+  ]);
+
+  assert.equal(jobs.length, 1);
+  assert.match(jobs[0].title, /Frontend Engineer/i);
+  assert.notEqual(jobs[0].title, 'Apply');
+  assert.match(jobs[0].details.description, /Network Department/i);
 });
 
 test('transformCustomJobs extracts title from long single-line content when available', () => {
@@ -63,9 +81,12 @@ test('saveCustomJobs writes generated jobs json to target path', async () => {
   const outputPath = path.join(tempDir, 'data', 'custom', 'custom.json');
   const jobs = [{ title: 'Test role', details: { title: 'Test role', description: 'desc', visaSponsorship: false, relocationSupport: false }, link: 'https://example.com', portal: 'custom' }];
 
-  await saveCustomJobs(jobs, outputPath);
+  const savedPath = await saveCustomJobs(jobs, outputPath);
+  const expectedDate = getDateFolderName();
 
-  const saved = await readFile(outputPath, 'utf8');
+  assert.equal(savedPath, path.join(tempDir, 'data', expectedDate, 'custom', 'custom.json'));
+
+  const saved = await readFile(savedPath, 'utf8');
   const parsed = JSON.parse(saved);
 
   assert.deepEqual(parsed, jobs);

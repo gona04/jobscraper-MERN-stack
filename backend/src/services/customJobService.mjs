@@ -18,6 +18,33 @@ const TITLE_NOISE = new Set([
   'what we offer'
 ]);
 
+function getDateFolderName() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+function withDateFolderInDataPath(outputPath) {
+  const normalizedPath = path.normalize(outputPath);
+  const pathParts = normalizedPath.split(path.sep);
+  const dataIndex = pathParts.lastIndexOf('data');
+
+  if (dataIndex === -1) {
+    return normalizedPath;
+  }
+
+  const afterData = pathParts[dataIndex + 1];
+  if (/^\d{4}-\d{2}-\d{2}$/.test(afterData || '')) {
+    return normalizedPath;
+  }
+
+  pathParts.splice(dataIndex + 1, 0, getDateFolderName());
+  return pathParts.join(path.sep);
+}
+
 function inferBoolean(description, positivePattern, negativePattern, defaultValue = null) {
   if (negativePattern.test(description)) {
     return false;
@@ -139,31 +166,36 @@ function parseBlockToJob(block) {
   };
 }
 
-function normalizeToSingleContent(input) {
+function normalizeToBlocks(input) {
   if (Array.isArray(input)) {
-    return input.map((item) => item.trim()).filter(Boolean).join('\n\n');
+    return input
+      .map((item) => (typeof item === 'string' ? item.trim() : ''))
+      .filter(Boolean);
   }
 
-  return typeof input === 'string' ? input : '';
-}
+  if (typeof input !== 'string') {
+    return [];
+  }
 
-export function transformCustomJobs(input) {
-  const content = normalizeToSingleContent(input);
-  const blocks = content
+  return input
     .replace(/\r\n/g, '\n')
     .split(/\n{2,}/)
     .map((block) => block.trim())
     .filter(Boolean);
+}
 
+export function transformCustomJobs(input) {
+  const blocks = normalizeToBlocks(input);
   return blocks.map(parseBlockToJob).filter(Boolean);
 }
 
 export async function saveCustomJobs(jobs, outputPath = path.join(process.cwd(), 'data', 'custom', 'custom.json')) {
-  const outputDir = path.dirname(outputPath);
+  const resolvedOutputPath = withDateFolderInDataPath(outputPath);
+  const outputDir = path.dirname(resolvedOutputPath);
   await mkdir(outputDir, { recursive: true });
-  await writeFile(outputPath, JSON.stringify(jobs, null, 2));
+  await writeFile(resolvedOutputPath, JSON.stringify(jobs, null, 2));
 
-  return outputPath;
+  return resolvedOutputPath;
 }
 
 export async function transformAndSaveCustomJobs(input, outputPath) {
