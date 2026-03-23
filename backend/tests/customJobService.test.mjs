@@ -34,6 +34,19 @@ test('transformCustomJobs supports JSON entry arrays', () => {
   assert.equal(jobs[1].title, 'Backend Developer');
 });
 
+test('transformCustomJobs infers companyName from text and link patterns', () => {
+  const jobs = transformCustomJobs([
+    `Senior Frontend Engineer at Example Labs\nRemote role\nhttps://example.com/jobs/123`,
+    `Front-End Engineer role\nhttps://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript`
+  ]);
+
+  assert.equal(jobs.length, 2);
+  assert.equal(jobs[0].companyName, 'Example Labs');
+  assert.equal(jobs[0].details.companyName, 'Example Labs');
+  assert.equal(jobs[1].companyName, 'Guardsquare');
+  assert.equal(jobs[1].details.companyName, 'Guardsquare');
+});
+
 test('transformCustomJobs keeps array entries with blank lines together', () => {
   const jobs = transformCustomJobs([
     `Frontend Engineer | Senior | React | Network Department, Vilnius, Lithuania (Hybrid, Full-time) at Nord Security/NordLayer: build and improve TypeScript React codebase with tests.

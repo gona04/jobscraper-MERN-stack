@@ -1,5 +1,27 @@
 const { chromium } = require("playwright");
 
+function titleCaseFromSlug(slug = "") {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((chunk) => chunk.charAt(0).toUpperCase() + chunk.slice(1))
+    .join(" ");
+}
+
+function inferCompanyFromMeetFrankLink(link = "") {
+  try {
+    const parsed = new URL(link);
+    const parts = parsed.pathname.split("/").filter(Boolean);
+    if (parts[0] !== "jobs" || !parts[1]) {
+      return null;
+    }
+
+    return titleCaseFromSlug(parts[1]);
+  } catch {
+    return null;
+  }
+}
+
 // ─────────────────────────────────────────────
 // SCRAPE JOB LIST
 // ─────────────────────────────────────────────
@@ -20,8 +42,8 @@ async function scrapeMeetFrankJobs(url) {
 
     await page.goto(url, { waitUntil: "domcontentloaded" });
 
-    // Wait for job cards
-    await page.waitForSelector("a.fr", { timeout: 30000 });
+    // Wait for at least some job-linked anchors to appear
+    await page.waitForSelector("a[href*='/jobs/']", { timeout: 30000 });
 
     await page.waitForTimeout(5000);
 
@@ -31,19 +53,47 @@ async function scrapeMeetFrankJobs(url) {
       await page.waitForTimeout(2000);
     }
 
-    // Extract jobs
-    const jobs = await page.$$eval("a.fr", (cards) =>
-      cards.map((card) => {
-        const title = card.querySelector("h2")?.innerText || "";
-        const link = card.href;
+    // Extract jobs with robust selectors (MeetFrank markup changes often)
+    const rawJobs = await page.evaluate(() => {
+      const anchors = Array.from(document.querySelectorAll("a[href*='/jobs/']"));
+      const seen = new Set();
+      const jobs = [];
 
-        return {
-          title: title.trim(),
-          link,
+      for (const anchor of anchors) {
+        const href = anchor.href || "";
+        if (!href || seen.has(href)) continue;
+        if (href.includes("/for-companies") || href.includes("/about-us")) continue;
+
+        const title =
+          anchor.querySelector("h2")?.innerText?.trim() ||
+          anchor.querySelector("h1")?.innerText?.trim() ||
+          anchor.getAttribute("aria-label")?.trim() ||
+          anchor.innerText?.split("\n").map((line) => line.trim()).find((line) => line.length > 8 && line.length < 120) ||
+          "";
+
+        if (!title) continue;
+
+        const companyName =
+          anchor.querySelector("h3")?.innerText?.trim() ||
+          anchor.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
+          null;
+
+        jobs.push({
+          title,
+          companyName,
+          link: href,
           portal: "meetfrank"
-        };
-      })
-    );
+        });
+        seen.add(href);
+      }
+
+      return jobs;
+    });
+
+    const jobs = rawJobs.map((job) => ({
+      ...job,
+      companyName: job.companyName || inferCompanyFromMeetFrankLink(job.link)
+    }));
 
     console.log(`✅ Found ${jobs.length} MeetFrank jobs`);
 
@@ -77,11 +127,25 @@ async function scrapeMeetFrankJobDetails(url) {
     await page.waitForTimeout(5000);
 
     let title = "";
+    let companyName = "";
     let description = "";
 
     try {
       title = await page.locator("h1").innerText();
     } catch {}
+
+    const companySelectors = [
+      "h2",
+      "[data-testid='company-name']",
+      ".company-name"
+    ];
+
+    for (const sel of companySelectors) {
+      try {
+        companyName = (await page.locator(sel).first().innerText()).trim();
+        if (companyName) break;
+      } catch {}
+    }
 
     // Try structured description
     try {
@@ -97,6 +161,7 @@ async function scrapeMeetFrankJobDetails(url) {
 
     return {
       title,
+      companyName: companyName || inferCompanyFromMeetFrankLink(url),
       description
     };
 
