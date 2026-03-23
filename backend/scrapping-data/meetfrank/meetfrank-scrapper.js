@@ -59,12 +59,28 @@ async function scrapeMeetFrankJobs(url) {
       const seen = new Set();
       const jobs = [];
 
+      const findNearby = (startEl, selector, levels = 4) => {
+        let node = startEl;
+        for (let i = 0; i <= levels && node; i += 1) {
+          const found = node.querySelector?.(selector);
+          if (found) return found;
+          node = node.parentElement;
+        }
+        return null;
+      };
+
       for (const anchor of anchors) {
         const href = anchor.href || "";
         if (!href || seen.has(href)) continue;
         if (href.includes("/for-companies") || href.includes("/about-us")) continue;
 
+        const titleFromCard =
+          findNearby(anchor, "h2")?.innerText?.trim() ||
+          findNearby(anchor, "[data-testid='job-title']")?.innerText?.trim() ||
+          null;
+
         const title =
+          titleFromCard ||
           anchor.querySelector("h2")?.innerText?.trim() ||
           anchor.querySelector("h1")?.innerText?.trim() ||
           anchor.getAttribute("aria-label")?.trim() ||
@@ -74,6 +90,8 @@ async function scrapeMeetFrankJobs(url) {
         if (!title) continue;
 
         const companyName =
+          findNearby(anchor, "p.gN a span")?.innerText?.trim() ||
+          findNearby(anchor, "p.gN span")?.innerText?.trim() ||
           anchor.querySelector("h3")?.innerText?.trim() ||
           anchor.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
           null;
