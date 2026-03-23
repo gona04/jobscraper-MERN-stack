@@ -1,18 +1,18 @@
 import { validateScrapeRequest } from '../models/scrapeRequestModel.mjs';
-import { scrapeJobsByPortal } from '../services/jobScraperService.mjs';
+import { scrapeJobsByLinks } from '../services/jobScraperService.mjs';
 
-export function createScrapeController(service = scrapeJobsByPortal) {
+export function createScrapeController(service = scrapeJobsByLinks) {
   return async function scrapeController(req, res) {
-    const validation = validateScrapeRequest(req.query);
+    const validation = validateScrapeRequest(req.body);
 
     if (!validation.isValid) {
       return res.status(validation.status).json({ error: validation.message });
     }
 
-    const { portal, url } = validation.data;
+    const { jobLinks } = validation.data;
 
     try {
-      const jobs = await service(portal, url);
+      const jobs = await service(jobLinks);
 
       return res.json({
         success: true,
