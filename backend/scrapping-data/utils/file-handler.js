@@ -1,14 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-
-function getDateFolderName() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = String(now.getMonth() + 1).padStart(2, "0");
-  const day = String(now.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
+const { getDateFolderName, mergeJobs } = require("../merge-job-data");
 
 function sanitizeFileName(value) {
   return value
@@ -29,6 +21,8 @@ async function saveJobs(portal, jobs) {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, JSON.stringify(jobs, null, 2));
 
+    mergeJobs(getDateFolderName());
+
     console.log(`✅ Saved ${jobs.length} ${portal} jobs → ${file}`);
   } catch (err) {
     console.error("❌ File save error:", err.message);
@@ -42,6 +36,8 @@ async function saveJobDetails(portal, title, details) {
 
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, JSON.stringify(details, null, 2));
+
+    mergeJobs(getDateFolderName());
 
     console.log(`✅ Saved ${portal} job details → ${file}`);
   } catch (err) {
