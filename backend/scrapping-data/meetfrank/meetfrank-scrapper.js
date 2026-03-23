@@ -54,7 +54,7 @@ async function scrapeMeetFrankJobs(url) {
     }
 
     // Extract jobs
-    const jobs = await page.$$eval("a.fr", (cards) =>
+    const rawJobs = await page.$$eval("a.fr", (cards) =>
       cards.map((card) => {
         const title = card.querySelector("h2")?.innerText || "";
         const link = card.href;
@@ -64,12 +64,17 @@ async function scrapeMeetFrankJobs(url) {
           companyName:
             card.querySelector("h3")?.innerText?.trim() ||
             card.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
-            inferCompanyFromMeetFrankLink(link),
+            null,
           link,
           portal: "meetfrank"
         };
       })
     );
+
+    const jobs = rawJobs.map((job) => ({
+      ...job,
+      companyName: job.companyName || inferCompanyFromMeetFrankLink(job.link)
+    }));
 
     console.log(`✅ Found ${jobs.length} MeetFrank jobs`);
 
