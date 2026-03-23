@@ -91,3 +91,14 @@ test('saveCustomJobs writes generated jobs json to target path', async () => {
 
   assert.deepEqual(parsed, jobs);
 });
+
+test('saveCustomJobs default path uses shared scraper data directory with date/custom structure', async () => {
+  const jobs = [{ title: 'Default role', details: { title: 'Default role', description: 'desc', visaSponsorship: false, relocationSupport: false }, link: 'https://example.com', portal: 'custom' }];
+  const expectedDate = getDateFolderName();
+
+  const savedPath = await saveCustomJobs(jobs);
+  const normalizedSavedPath = path.normalize(savedPath);
+  const expectedSuffix = path.normalize(path.join('backend', 'scrapping-data', 'data', expectedDate, 'custom', 'custom.json'));
+
+  assert.match(normalizedSavedPath, new RegExp(`${expectedSuffix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`));
+});

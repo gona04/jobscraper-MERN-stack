@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const URL_REGEX = /https?:\/\/\S+/gi;
 const TITLE_HINT_REGEX = /(front\s*-?\s*end|back\s*-?\s*end|full\s*-?\s*stack|software|data|devops|qa|product|mobile|ios|android|react|node|javascript|typescript)\s+(engineer|developer|architect|manager|analyst|lead|specialist|consultant)/i;
@@ -17,6 +18,10 @@ const TITLE_NOISE = new Set([
   'bonus points for',
   'what we offer'
 ]);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const DEFAULT_CUSTOM_OUTPUT_PATH = path.resolve(__dirname, '../../scrapping-data/data/custom/custom.json');
 
 function getDateFolderName() {
   const now = new Date();
@@ -189,7 +194,7 @@ export function transformCustomJobs(input) {
   return blocks.map(parseBlockToJob).filter(Boolean);
 }
 
-export async function saveCustomJobs(jobs, outputPath = path.join(process.cwd(), 'data', 'custom', 'custom.json')) {
+export async function saveCustomJobs(jobs, outputPath = DEFAULT_CUSTOM_OUTPUT_PATH) {
   const resolvedOutputPath = withDateFolderInDataPath(outputPath);
   const outputDir = path.dirname(resolvedOutputPath);
   await mkdir(outputDir, { recursive: true });
