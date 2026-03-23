@@ -21,6 +21,10 @@ async function scrapeLinkedInJobs(url) {
     const jobs = await page.$$eval(".base-card", (cards) =>
       cards.map((card) => ({
         title: card.querySelector("h3")?.innerText.trim(),
+        companyName:
+          card.querySelector("h4")?.innerText?.trim() ||
+          card.querySelector(".base-search-card__subtitle")?.innerText?.trim() ||
+          null,
         link: card.querySelector("a")?.href
       }))
     );
@@ -46,11 +50,25 @@ async function scrapeLinkedInJobDetails(url) {
     await page.waitForTimeout(5000);
 
     let title = "";
+    let companyName = "";
     let description = "";
 
     try {
       title = await page.locator("h1").innerText();
     } catch {}
+
+    const companySelectors = [
+      ".topcard__org-name-link",
+      ".topcard__flavor-row .topcard__flavor",
+      ".job-details-jobs-unified-top-card__company-name"
+    ];
+
+    for (const sel of companySelectors) {
+      try {
+        companyName = (await page.locator(sel).first().innerText()).trim();
+        if (companyName) break;
+      } catch {}
+    }
 
     const selectors = [
       ".show-more-less-html__markup",
@@ -64,7 +82,7 @@ async function scrapeLinkedInJobDetails(url) {
       } catch {}
     }
 
-    return { title, description };
+    return { title, companyName, description };
 
   } finally {
     await browser.close();
