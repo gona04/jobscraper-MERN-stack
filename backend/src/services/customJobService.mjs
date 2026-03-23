@@ -18,12 +18,27 @@ const TITLE_NOISE = new Set([
   'what we offer'
 ]);
 
-function inferBoolean(description, positivePattern, negativePattern) {
+function inferBoolean(description, positivePattern, negativePattern, defaultValue = null) {
   if (negativePattern.test(description)) {
     return false;
   }
 
-  return positivePattern.test(description);
+  if (positivePattern.test(description)) {
+    return true;
+  }
+
+  return defaultValue;
+}
+
+
+function inferVisaSponsorship(description) {
+  const noSponsorshipPattern = /(no\s+visa|without\s+visa|not\s+sponsor|unable\s+to\s+provide\s+visa|must\s+be\s+authorized\s+to\s+work|authorized\s+to\s+work\s+in|work\s+authorization\s+required|citizenship\s+required|eligibility\s+to\s+work\s+in|must\s+speak\s+(?!english\b)[a-z]+|[a-z]+\s+language\s+required)/i;
+
+  if (noSponsorshipPattern.test(description)) {
+    return false;
+  }
+
+  return null;
 }
 
 function cleanLine(line = '') {
@@ -116,7 +131,7 @@ function parseBlockToJob(block) {
     details: {
       title,
       description,
-      visaSponsorship: inferBoolean(description, /(visa|sponsorship)/i, /(no\s+visa|without\s+visa|not\s+sponsor)/i),
+      visaSponsorship: inferVisaSponsorship(description),
       relocationSupport: inferBoolean(description, /(relocation|relocate)/i, /(no\s+relocation|without\s+relocation)/i)
     },
     link,
