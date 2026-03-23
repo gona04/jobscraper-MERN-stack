@@ -63,16 +63,6 @@ function inferBoolean(description, positivePattern, negativePattern, defaultValu
 }
 
 
-function inferVisaSponsorship(description) {
-  const noSponsorshipPattern = /(no\s+visa|without\s+visa|not\s+sponsor|unable\s+to\s+provide\s+visa|must\s+be\s+authorized\s+to\s+work|authorized\s+to\s+work\s+in|work\s+authorization\s+required|citizenship\s+required|eligibility\s+to\s+work\s+in|must\s+speak\s+(?!english\b)[a-z]+|[a-z]+\s+language\s+required)/i;
-
-  if (noSponsorshipPattern.test(description)) {
-    return false;
-  }
-
-  return null;
-}
-
 function cleanLine(line = '') {
   return line.replace(/\s+/g, ' ').trim();
 }
@@ -103,42 +93,6 @@ function inferTitleFromLink(link = '') {
   } catch {
     return 'Untitled Role';
   }
-}
-
-function titleCaseFromSlug(slug = '') {
-  return slug
-    .replace(/[-_]+/g, ' ')
-    .trim()
-    .replace(/\b\w/g, (match) => match.toUpperCase());
-}
-
-function inferCompanyFromLink(link = '') {
-  try {
-    const url = new URL(link);
-    const parts = url.pathname.split('/').filter(Boolean);
-
-    if (url.hostname.includes('meetfrank.com') && parts[0] === 'jobs' && parts[1]) {
-      return titleCaseFromSlug(parts[1]);
-    }
-
-    if (url.hostname.includes('linkedin.com') && parts[0] === 'jobs' && parts[1] === 'view' && parts[3]) {
-      return titleCaseFromSlug(parts[3]);
-    }
-
-    return null;
-  } catch {
-    return null;
-  }
-}
-
-function extractCompanyFromText(textWithoutLinks = '') {
-  const firstLine = textWithoutLinks.split('\n').map((line) => cleanLine(line)).find(Boolean) || '';
-  const companyMatch = firstLine.match(/\bat\s+([A-Z][\w&./-]*(?:\s+[A-Z][\w&./-]*){0,4})/);
-  if (!companyMatch) {
-    return null;
-  }
-
-  return cleanLine(companyMatch[1]);
 }
 
 function extractTitle(textWithoutLinks, lines, link) {
@@ -192,17 +146,13 @@ function parseBlockToJob(block) {
     .filter(Boolean);
 
   const title = extractTitle(textWithoutLinks, lines, link);
-  const companyName = extractCompanyFromText(textWithoutLinks) || inferCompanyFromLink(link);
   const description = buildDescription(textWithoutLinks, title);
 
   return {
     title,
-    companyName,
     details: {
       title,
-      companyName,
       description,
-      visaSponsorship: inferVisaSponsorship(description),
       relocationSupport: inferBoolean(description, /(relocation|relocate)/i, /(no\s+relocation|without\s+relocation)/i)
     },
     link,
