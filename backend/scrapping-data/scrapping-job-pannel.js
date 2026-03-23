@@ -85,10 +85,8 @@ async function scrapeJobs(portal, url) {
 
       results.push({
         title: job.title,
-        companyName: details.companyName || job.companyName || null,
         details: {
           title: details.title || job.title,
-          companyName: details.companyName || job.companyName || null,
           description: details.description || null,
           visaSponsorship: visaInfo.visaSponsorship,
           relocationSupport: visaInfo.relocationSupport
@@ -102,7 +100,6 @@ async function scrapeJobs(portal, url) {
 
       results.push({
         title: job.title,
-        companyName: job.companyName || null,
         details: null,
         link: job.link,
         portal

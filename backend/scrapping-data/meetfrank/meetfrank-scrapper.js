@@ -1,27 +1,5 @@
 const { chromium } = require("playwright");
 
-function titleCaseFromSlug(slug = "") {
-  return slug
-    .split("-")
-    .filter(Boolean)
-    .map((chunk) => chunk.charAt(0).toUpperCase() + chunk.slice(1))
-    .join(" ");
-}
-
-function inferCompanyFromMeetFrankLink(link = "") {
-  try {
-    const parsed = new URL(link);
-    const parts = parsed.pathname.split("/").filter(Boolean);
-    if (parts[0] !== "jobs" || !parts[1]) {
-      return null;
-    }
-
-    return titleCaseFromSlug(parts[1]);
-  } catch {
-    return null;
-  }
-}
-
 // ─────────────────────────────────────────────
 // SCRAPE JOB LIST
 // ─────────────────────────────────────────────
@@ -73,14 +51,8 @@ async function scrapeMeetFrankJobs(url) {
 
         if (!title) continue;
 
-        const companyName =
-          anchor.querySelector("h3")?.innerText?.trim() ||
-          anchor.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
-          null;
-
         jobs.push({
           title,
-          companyName,
           link: href,
           portal: "meetfrank"
         });
@@ -90,14 +62,9 @@ async function scrapeMeetFrankJobs(url) {
       return jobs;
     });
 
-    const jobs = rawJobs.map((job) => ({
-      ...job,
-      companyName: job.companyName || inferCompanyFromMeetFrankLink(job.link)
-    }));
+    console.log(`✅ Found ${rawJobs.length} MeetFrank jobs`);
 
-    console.log(`✅ Found ${jobs.length} MeetFrank jobs`);
-
-    return jobs;
+    return rawJobs;
 
   } catch (err) {
     console.error("❌ MeetFrank list error:", err.message);
@@ -127,25 +94,11 @@ async function scrapeMeetFrankJobDetails(url) {
     await page.waitForTimeout(5000);
 
     let title = "";
-    let companyName = "";
     let description = "";
 
     try {
       title = await page.locator("h1").innerText();
     } catch {}
-
-    const companySelectors = [
-      "h2",
-      "[data-testid='company-name']",
-      ".company-name"
-    ];
-
-    for (const sel of companySelectors) {
-      try {
-        companyName = (await page.locator(sel).first().innerText()).trim();
-        if (companyName) break;
-      } catch {}
-    }
 
     // Try structured description
     try {
@@ -161,7 +114,6 @@ async function scrapeMeetFrankJobDetails(url) {
 
     return {
       title,
-      companyName: companyName || inferCompanyFromMeetFrankLink(url),
       description
     };
 
