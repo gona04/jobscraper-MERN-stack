@@ -13,7 +13,7 @@ test('transformCustomJobs creates custom portal jobs from pasted blocks', () => 
   assert.equal(jobs.length, 2);
   assert.equal(jobs[0].title, 'Frontend Developer');
   assert.equal(jobs[0].portal, 'custom');
-  assert.equal(jobs[0].details.visaSponsorship, true);
+  assert.equal(jobs[0].details.visaSponsorship, null);
   assert.equal(jobs[1].details.relocationSupport, false);
 });
 
@@ -25,6 +25,7 @@ test('transformCustomJobs supports JSON entry arrays', () => {
 
   assert.equal(jobs.length, 2);
   assert.equal(jobs[0].title, 'Frontend Developer');
+  assert.equal(jobs[0].details.visaSponsorship, null);
   assert.equal(jobs[1].title, 'Backend Developer');
 });
 
@@ -39,6 +40,22 @@ test('transformCustomJobs extracts title from long single-line content when avai
   assert.match(jobs[1].title, /Frontend Engineer/i);
   assert.notEqual(jobs[1].title, 'Apply');
   assert.notEqual(jobs[1].details.description, jobs[1].title);
+});
+
+
+
+test('transformCustomJobs sets visaSponsorship false for restricted work authorization signals', () => {
+  const jobs = transformCustomJobs([
+    `Frontend Developer
+Only candidates already authorized to work in Croatia will be considered.
+https://example.com/job-3`,
+    `Frontend Developer
+Must speak German and English.
+https://example.com/job-4`
+  ]);
+
+  assert.equal(jobs[0].details.visaSponsorship, false);
+  assert.equal(jobs[1].details.visaSponsorship, false);
 });
 
 test('saveCustomJobs writes generated jobs json to target path', async () => {
