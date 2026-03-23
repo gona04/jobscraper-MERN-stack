@@ -38,6 +38,16 @@ function normalizeOnlyEnglish(value) {
   return null;
 }
 
+
+function normalizeIsEuRegion(value) {
+  if (typeof value !== 'string') {
+    return 'no';
+  }
+
+  const normalized = value.trim().toLowerCase();
+  return normalized === 'yes' ? 'yes' : 'no';
+}
+
 function normalizeExtractedJob(item, sourceJob) {
   const normalizedSkills = Array.isArray(item?.skillsRequired)
     ? item.skillsRequired.filter((skill) => typeof skill === 'string' && skill.trim()).map((skill) => skill.trim())
@@ -51,6 +61,7 @@ function normalizeExtractedJob(item, sourceJob) {
     visa_sponsorship: ['Yes', 'No', 'Unknown'].includes(item?.visa_sponsorship) ? item.visa_sponsorship : 'Unknown',
     only_english: normalizeOnlyEnglish(item?.only_english),
     company_name: typeof item?.company_name === 'string' ? item.company_name.trim() : '',
+    isEURegion: normalizeIsEuRegion(item?.isEURegion),
     rolesAndResponsibilities:
       typeof item?.rolesAndResponsibilities === 'string' ? item.rolesAndResponsibilities.trim() : '',
     skillsRequired: normalizedSkills

@@ -13,6 +13,7 @@ Task:
 3) If the job is not frontend-focused, return [] only.
 4) Detect visa sponsorship and set visa_sponsorship exactly to one of: "Yes", "No", "Unknown".
 5) Detect if role can be done only with English and set only_english exactly to one of: "true", "false", or null.
+6) Detect if job location is in EU region and set isEURegion to "yes" or "no".
 
 Output schema (array of objects):
 [
@@ -22,6 +23,7 @@ Output schema (array of objects):
     "visa_sponsorship": "Yes|No|Unknown",
     "only_english": "true|false|null",
     "company_name": "string",
+    "isEURegion": "yes|no",
     "rolesAndResponsibilities": "string",
     "skillsRequired": ["string"]
   }
@@ -29,7 +31,7 @@ Output schema (array of objects):
 
 Rules:
 - Always return a JSON array.
-- If a field is unknown, use empty string for text fields, [] for skillsRequired, and null for only_english.
+- If a field is unknown, use empty string for text fields, [] for skillsRequired, null for only_english, and "no" for isEURegion.
 - Do not invent a job_link unless explicitly present in the text.
 - Exclude non-frontend jobs by returning [].`;
 
