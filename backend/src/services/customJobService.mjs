@@ -59,7 +59,16 @@ function parseBlockToJob(block) {
   };
 }
 
-export function transformCustomJobs(content) {
+function normalizeToSingleContent(input) {
+  if (Array.isArray(input)) {
+    return input.map((item) => item.trim()).filter(Boolean).join('\n\n');
+  }
+
+  return typeof input === 'string' ? input : '';
+}
+
+export function transformCustomJobs(input) {
+  const content = normalizeToSingleContent(input);
   const blocks = content
     .replace(/\r\n/g, '\n')
     .split(/\n{2,}/)
@@ -77,8 +86,8 @@ export async function saveCustomJobs(jobs, outputPath = path.join(process.cwd(),
   return outputPath;
 }
 
-export async function transformAndSaveCustomJobs(content, outputPath) {
-  const jobs = transformCustomJobs(content);
+export async function transformAndSaveCustomJobs(input, outputPath) {
+  const jobs = transformCustomJobs(input);
   const savedPath = await saveCustomJobs(jobs, outputPath);
 
   return {

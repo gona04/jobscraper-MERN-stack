@@ -10,7 +10,7 @@ export function createCustomJobController(service = transformAndSaveCustomJobs) 
     }
 
     try {
-      const { jobs, savedPath } = await service(validation.data.content);
+      const { jobs, savedPath } = await service(validation.data.contents);
 
       return res.json({
         success: true,

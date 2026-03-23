@@ -17,7 +17,7 @@ function createMockResponse() {
   };
 }
 
-test('customJobController returns validation error for empty body', async () => {
+test('customJobController returns validation error for unsupported body', async () => {
   const controller = createCustomJobController(async () => ({ jobs: [], savedPath: '' }));
   const req = { body: {} };
   const res = createMockResponse();
@@ -26,22 +26,27 @@ test('customJobController returns validation error for empty body', async () => 
 
   assert.equal(res.statusCode, 400);
   assert.deepEqual(res.body, {
-    error: 'content is required and must be a non-empty string'
+    error: 'Send either {"content":"..."}, {"entries":[{"content":"..."}]}, or an array of {"content":"..."}'
   });
 });
 
-test('customJobController returns transformed and saved jobs', async () => {
+test('customJobController supports root array payload', async () => {
   const fakeJobs = [{ title: 'Frontend Developer', link: 'https://example.com', details: { title: 'Frontend Developer', description: 'desc', visaSponsorship: false, relocationSupport: false }, portal: 'custom' }];
-  const controller = createCustomJobController(async () => ({
-    jobs: fakeJobs,
-    savedPath: '/tmp/data/custom/custom.json'
-  }));
+  let receivedInput;
+  const controller = createCustomJobController(async (input) => {
+    receivedInput = input;
+    return {
+      jobs: fakeJobs,
+      savedPath: '/tmp/data/custom/custom.json'
+    };
+  });
 
-  const req = { body: { content: 'sample' } };
+  const req = { body: [{ content: 'job 1' }, { content: 'job 2' }] };
   const res = createMockResponse();
 
   await controller(req, res);
 
+  assert.deepEqual(receivedInput, ['job 1', 'job 2']);
   assert.equal(res.statusCode, 200);
   assert.deepEqual(res.body, {
     success: true,

@@ -17,6 +17,17 @@ test('transformCustomJobs creates custom portal jobs from pasted blocks', () => 
   assert.equal(jobs[1].details.relocationSupport, false);
 });
 
+test('transformCustomJobs supports JSON entry arrays', () => {
+  const jobs = transformCustomJobs([
+    `Frontend Developer\nVisa sponsorship available\nhttps://example.com/job-1`,
+    `Backend Developer\nNo relocation support\nhttps://example.com/job-2`
+  ]);
+
+  assert.equal(jobs.length, 2);
+  assert.equal(jobs[0].title, 'Frontend Developer');
+  assert.equal(jobs[1].title, 'Backend Developer');
+});
+
 test('saveCustomJobs writes generated jobs json to target path', async () => {
   const tempDir = await mkdtemp(path.join(tmpdir(), 'custom-job-test-'));
   const outputPath = path.join(tempDir, 'data', 'custom', 'custom.json');
