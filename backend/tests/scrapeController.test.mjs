@@ -17,16 +17,16 @@ function createMockResponse() {
   };
 }
 
-test('scrapeController returns validation error for missing portal', async () => {
+test('scrapeController returns validation error for missing job_links', async () => {
   const controller = createScrapeController(async () => []);
-  const req = { query: { url: 'https://example.com' } };
+  const req = { body: {} };
   const res = createMockResponse();
 
   await controller(req, res);
 
   assert.equal(res.statusCode, 400);
   assert.deepEqual(res.body, {
-    error: 'Portal is required (linkedin | meetfrank)'
+    error: 'job_links is required and must be a non-empty array'
   });
 });
 
@@ -34,9 +34,11 @@ test('scrapeController returns scrape result from service', async () => {
   const fakeJobs = [{ title: 'Engineer', link: 'https://example.com/job/1' }];
   const controller = createScrapeController(async () => fakeJobs);
   const req = {
-    query: {
-      portal: 'linkedin',
-      url: 'https://example.com'
+    body: {
+      job_links: [
+        { portal: 'linkedin', link: 'https://example.com' },
+        { portal: 'meetfrank', link: 'https://meetfrank.com/jobs' }
+      ]
     }
   };
   const res = createMockResponse();
@@ -56,9 +58,8 @@ test('scrapeController handles service failure', async () => {
     throw new Error('Service failed');
   });
   const req = {
-    query: {
-      portal: 'linkedin',
-      url: 'https://example.com'
+    body: {
+      job_links: [{ portal: 'linkedin', link: 'https://example.com' }]
     }
   };
   const res = createMockResponse();

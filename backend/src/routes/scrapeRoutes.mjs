@@ -4,7 +4,7 @@ import { createCustomJobController } from '../controllers/customJobController.mj
 
 const router = Router();
 
-router.get('/scrape', createScrapeController());
+router.post('/scrape', createScrapeController());
 router.post('/custom/jobs', createCustomJobController());
 
 export default router;
