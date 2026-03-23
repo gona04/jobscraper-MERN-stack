@@ -42,8 +42,8 @@ async function scrapeMeetFrankJobs(url) {
 
     await page.goto(url, { waitUntil: "domcontentloaded" });
 
-    // Wait for job cards
-    await page.waitForSelector("a.fr", { timeout: 30000 });
+    // Wait for at least some job-linked anchors to appear
+    await page.waitForSelector("a[href*='/jobs/']", { timeout: 30000 });
 
     await page.waitForTimeout(5000);
 
@@ -53,23 +53,42 @@ async function scrapeMeetFrankJobs(url) {
       await page.waitForTimeout(2000);
     }
 
-    // Extract jobs
-    const rawJobs = await page.$$eval("a.fr", (cards) =>
-      cards.map((card) => {
-        const title = card.querySelector("h2")?.innerText || "";
-        const link = card.href;
+    // Extract jobs with robust selectors (MeetFrank markup changes often)
+    const rawJobs = await page.evaluate(() => {
+      const anchors = Array.from(document.querySelectorAll("a[href*='/jobs/']"));
+      const seen = new Set();
+      const jobs = [];
 
-        return {
-          title: title.trim(),
-          companyName:
-            card.querySelector("h3")?.innerText?.trim() ||
-            card.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
-            null,
-          link,
+      for (const anchor of anchors) {
+        const href = anchor.href || "";
+        if (!href || seen.has(href)) continue;
+        if (href.includes("/for-companies") || href.includes("/about-us")) continue;
+
+        const title =
+          anchor.querySelector("h2")?.innerText?.trim() ||
+          anchor.querySelector("h1")?.innerText?.trim() ||
+          anchor.getAttribute("aria-label")?.trim() ||
+          anchor.innerText?.split("\n").map((line) => line.trim()).find((line) => line.length > 8 && line.length < 120) ||
+          "";
+
+        if (!title) continue;
+
+        const companyName =
+          anchor.querySelector("h3")?.innerText?.trim() ||
+          anchor.querySelector("[data-testid='company-name']")?.innerText?.trim() ||
+          null;
+
+        jobs.push({
+          title,
+          companyName,
+          link: href,
           portal: "meetfrank"
-        };
-      })
-    );
+        });
+        seen.add(href);
+      }
+
+      return jobs;
+    });
 
     const jobs = rawJobs.map((job) => ({
       ...job,
