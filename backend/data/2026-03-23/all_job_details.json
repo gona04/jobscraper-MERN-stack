@@ -1,0 +1,148 @@
+[
+  {
+    "jobTitle": "Web Engineer",
+    "job_link": "https://de.linkedin.com/jobs/view/web-engineer-html-css-javascript-at-crytek-4388573183?position=2&pageNum=0&refId=XZNCd6%2BHVZ1CE%2FlXRgIgRQ%3D%3D&trackingId=Y9l8makNC4Ovkg6NMaRDpg%3D%3D",
+    "visa_sponsorship": "Yes",
+    "only_english": "false",
+    "company_name": "Crytek",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Build reusable UI components using HTML, CSS, and JavaScript. Implement scalable UI architecture using Coherent Gameface. Translate Figma design system components into production-ready UI. Assemble UI screens from reusable components. Improve the design to development pipeline, including tooling and workflows. Collaborate with UX, UI art, and engineering to deliver a modern UI pipeline. Help define and scale the UI platform used across future Crytek projects.",
+    "skillsRequired": [
+      "HTML5",
+      "CSS",
+      "JavaScript",
+      "UI engineering",
+      "component-based UI systems",
+      "UI architecture",
+      "collaboration with design teams"
+    ]
+  },
+  {
+    "jobTitle": "Senior Front-End Developer (React/TypeScript)",
+    "job_link": "https://at.linkedin.com/jobs/view/senior-react-developer-m-f-d-at-novasign-4387448034?position=3&pageNum=0&refId=XZNCd6%2BHVZ1CE%2FlXRgIgRQ%3D%3D&trackingId=mpblUOZKWtWxsWKyP4Mafw%3D%3D",
+    "visa_sponsorship": "Yes",
+    "only_english": "true",
+    "company_name": "Novasign",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Develop and maintain modern React/TypeScript (Next.js), collaborate with back-end engineers, apply best practices, work in Agile/Scrum teams, participate in code reviews, and contribute to architectural documentation.",
+    "skillsRequired": [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "data fetching",
+      "caching",
+      "React Query",
+      "state management",
+      "UI component libraries",
+      "modern build tools",
+      "testing frameworks",
+      "CSS frameworks"
+    ]
+  },
+  {
+    "jobTitle": "Frontend Developer - Deepdesk",
+    "job_link": "https://meetfrank.com/jobs/anywhere365/frontend-developer-deepdesk-2",
+    "visa_sponsorship": "Unknown",
+    "only_english": "true",
+    "company_name": "ANYWHERE365",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Collaborate with Product Designers and Software Engineers to deliver compelling user-facing products, focusing on UX/UI for features like real-time recommendations and autocomplete.",
+    "skillsRequired": [
+      "React",
+      "Redux",
+      "HTML",
+      "CSS",
+      "TypeScript"
+    ]
+  },
+  {
+    "jobTitle": "AI Engineer (Product-focused)",
+    "job_link": "https://meetfrank.com/jobs/zeno/ai-engineer-product-focused",
+    "visa_sponsorship": "Unknown",
+    "only_english": "true",
+    "company_name": "Zeno",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Own AI-driven product capabilities end-to-end. Design and build the systems that sit between models and users.",
+    "skillsRequired": [
+      "Frontend Development",
+      "TypeScript",
+      "React"
+    ]
+  },
+  {
+    "jobTitle": "Senior Full Stack Developer",
+    "job_link": "https://meetfrank.com/jobs/foleon/senior-fullstack-developer",
+    "visa_sponsorship": "Unknown",
+    "only_english": "false",
+    "company_name": "FOLEON",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Lead the development of sophisticated new features from complex resource-based access control, high performance database schemas to UI components.",
+    "skillsRequired": [
+      "TypeScript",
+      "React"
+    ]
+  },
+  {
+    "jobTitle": "Frontend Developer",
+    "job_link": "https://meetfrank.com/jobs/withthegrid/lead-back-end-engineer",
+    "visa_sponsorship": "Unknown",
+    "only_english": null,
+    "company_name": "Withthegrid",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Work on a platform that is core infrastructure for grid operators, utilities and large asset owners. Collaborate with major players in the cleantech sector.",
+    "skillsRequired": [
+      "JavaScript",
+      "HTML & CSS",
+      "TypeScript",
+      "Angular",
+      "React",
+      "Vue"
+    ]
+  },
+  {
+    "jobTitle": "Front-End Engineer (React/TypeScript)",
+    "job_link": "https://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript",
+    "visa_sponsorship": "Unknown",
+    "only_english": null,
+    "company_name": "Guardsquare",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "Develop and maintain a user-friendly frontend using React/TypeScript and TailwindCSS. Design and implement REST and/or gRPC API integrations on the frontend. Collaborate with product managers, designers, and other developers to create innovative solutions. Participate in code reviews to ensure code quality and adherence to best practices. Write unit, integration, and end-to-end tests for code reliability and maintainability. Work with the team to set up and enhance CI/CD pipelines. Continuously improve application performance and user experience. Stay up-to-date with the latest technologies and trends in frontend development. Provide support to customers in utilizing our web applications.",
+    "skillsRequired": [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "REST API",
+      "gRPC"
+    ]
+  },
+  {
+    "jobTitle": "Senior React Developer",
+    "job_link": "https://jobs.lever.co/nordsec/6633b541-2742-4823-aa4d-57f833a26715/apply?lever-source=LinkedIn",
+    "visa_sponsorship": "Unknown",
+    "only_english": null,
+    "company_name": "Nord Security/NordLayer",
+    "isEURegion": "yes",
+    "rolesAndResponsibilities": "build and improve TypeScript React codebase with tests, lead frontend technical decisions, collaborate with backend, PMs, and designers, ensure best practices, work in Scrum",
+    "skillsRequired": [
+      "React",
+      "TypeScript",
+      "architecture",
+      "performance",
+      "REST APIs",
+      "testing",
+      "Jest",
+      "Cypress",
+      "Playwright",
+      "leadership",
+      "design systems",
+      "CI/CD",
+      "Styled-components",
+      "React Query",
+      "Router",
+      "Vite",
+      "Storybook",
+      "Testing Library",
+      "Sentry"
+    ]
+  }
+]
