@@ -2,13 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
-dotenv.config({
-path: path.join(__dirname, '..', '.env'),
-override: true,
-});
 dotenv.config();
 
-const SERPER_API_URL = 'https://google.serper.dev/search';
 const CACHE_FILENAME = 'company_cache.json';
 
 const IGNORE_DOMAINS = new Set([
@@ -21,319 +16,115 @@ const IGNORE_DOMAINS = new Set([
 'indeed.com',
 ]);
 
-const COMPANY_SUFFIX_REGEX = /\b(inc.?|ltd.?|llc.?|limited|corp.?|corporation)\b/gi;
-
-function getDateFolderName() {
-const now = new Date();
-return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(
-    now.getDate()
-  ).padStart(2, '0')}`;
-}
-
 /* ===========================
-NORMALIZATION
-=========================== */
+UTILS
 
-function normalizeJob(job) {
-return {
-...job,
-companyName: job.companyName || job.company_name || '',
-isEURegion: job.isEURegion || 'no',
-};
-}
+    const dataDir = path.join(__dirname, '..', 'data', dateFolder);
+    const inputPath = path.join(dataDir, 'all_job_details.json');
+    const outputPath = path.join(dataDir, 'enriched_job_details.json');
+    const cachePath = path.join(__dirname, '..', 'data', 'company_cache.json');
 
-function normalizeCompanyName(name) {
-return name
-.toLowerCase()
-.trim()
-.replace(COMPANY_SUFFIX_REGEX, '')
-.replace(/\s+/g, ' ')
-.trim();
-}
+    if (!fs.existsSync(inputPath)) {
+      throw new Error("Input file not found: " + inputPath);
+    }
 
-/* ===========================
-SKIP LOGIC
-=========================== */
-
-function shouldSkipJob(job) {
-if (job.isEURegion !== 'yes') {
-console.log(`⏭️ Skipping (Non-EU): ${job.jobTitle}`);
-return true;
-}
-
-if (!job.companyName) {
-console.log(`⏭️ Skipping (No Company): ${job.jobTitle}`);
-return true;
-}
-
-return false;
-}
-
-function ensureSkipFields(job) {
-return {
-...job,
-company_status: null,
-company_website: null,
-company_details: null,
-company_error: 'skipped',
-};
-}
-
-/* ===========================
-FILE HELPERS
-=========================== */
-
-function readJsonArray(filePath) {
-const raw = fs.readFileSync(filePath, 'utf8');
-return JSON.parse(raw);
-}
-
-function readCache(filePath) {
-if (!fs.existsSync(filePath)) return {};
-return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-}
-
-function saveCache(filePath, cache) {
-fs.writeFileSync(filePath, JSON.stringify(cache, null, 2));
-}
-
-/* ===========================
-URL HELPERS
-=========================== */
-
-function isIgnoredDomain(hostname) {
-  if (!hostname || typeof hostname !== 'string') return false;
-
-  const clean = hostname
-    .replace(/^https?:\/\//, '') // remove http/https if present
-    .replace(/^www\./, '')      // remove www.
-    .toLowerCase();
-
-  return [...IGNORE_DOMAINS].some(
-    (d) => clean === d || clean.endsWith(`.${d}`)
-  );
-}
-
-function getFirstValidUrl(results) {
-for (const r of results || []) {
-const link = r?.link;
-if (!link) continue;
-
-```
-try {
-  const url = new URL(link);
-  if (!isIgnoredDomain(url.hostname)) return link;
-} catch {}
-```
-
-}
-return null;
-}
-
-/* ===========================
-SCRAPING
-=========================== */
-
-function cleanHTML(html) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 5000);
-}
-
-async function scrapeWebsite(url) {
-const res = await fetch(url);
-const html = await res.text();
-
-return {
-company_status: 'success',
-company_website: url,
-company_details: cleanHTML(html),
-};
-}
-
-/* ===========================
-SERPER
-=========================== */
-
-async function fetchFromSerper(company, apiKey) {
-console.log(`🌐 SERPER: ${company}`);
-
-const res = await fetch(SERPER_API_URL, {
-method: 'POST',
-headers: {
-'X-API-KEY': apiKey,
-'Content-Type': 'application/json',
-},
-body: JSON.stringify({
-q: `${company} official website`,
-num: 5,
-}),
-});
-
-if (!res.ok) {
-throw new Error(`SERPER failed: ${res.status}`);
-}
-
-const data = await res.json();
-const url = getFirstValidUrl(data.organic);
-
-if (!url) {
-return {
-company_status: 'not_found',
-company_website: null,
-company_details: null,
-};
-}
-
-return scrapeWebsite(url);
-}
-
-/* ===========================
-MAIN
-=========================== */
-
-async function enrichJobs(dateFolder = getDateFolderName()) {
-  const dataDir = path.join(__dirname, '..', 'data', dateFolder);
-  const inputPath = path.join(dataDir, 'all_job_details.json');
-  const outputPath = path.join(dataDir, 'enriched_job_details.json');
-  const cachePath = path.join(__dirname, '..', 'data', CACHE_FILENAME);
-
-  if (!fs.existsSync(inputPath)) {
-    throw new Error(`Input file not found: ${inputPath}`);
-  }
-
-  const apiKey = process.env.SERPER_API_KEY;
-  if (!apiKey) {
-    throw new Error('❌ SERPER_API_KEY is missing in .env');
-  }
-
-  let jobs;
-  try {
-    jobs = readJsonArray(inputPath);
-  } catch (err) {
-    throw new Error(`❌ Failed to read input JSON: ${err.message}`);
-  }
-
-  const cache = readCache(cachePath);
-  const results = [];
-
-  console.log(`\n🚀 Starting enrichment for ${jobs.length} jobs...\n`);
-
-  for (let i = 0; i < jobs.length; i++) {
+    let jobs = [];
     try {
-      const rawJob = jobs[i];
-      const job = normalizeJob(rawJob);
+      const raw = fs.readFileSync(inputPath, 'utf8');
+      jobs = JSON.parse(raw);
+    } catch (e) {
+      throw new Error("Invalid JSON file");
+    }
 
-      console.log(`\n🔍 [${i + 1}/${jobs.length}] ${job.jobTitle || 'Unknown Role'}`);
+    if (!Array.isArray(jobs)) {
+      throw new Error("Jobs data is not an array");
+    }
 
-      if (shouldSkipJob(job)) {
-        results.push(ensureSkipFields(job));
+    let cache = {};
+    try {
+      if (fs.existsSync(cachePath)) {
+        cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+      }
+    } catch {
+      cache = {};
+    }
+
+    const results = [];
+
+    console.log("🚀 Starting enrichment:", jobs.length, "jobs");
+
+    for (let i = 0; i < jobs.length; i++) {
+      const job = jobs[i];
+
+      console.log("🔍 Processing:", job.jobTitle || "Unknown");
+
+      const company = job.companyName || job.company_name;
+
+      if (!company) {
+        results.push({
+          ...job,
+          company_status: 'invalid_company',
+          company_website: null,
+          company_details: null,
+        });
         continue;
       }
 
-      const rawCompany = job.companyName;
+      const key = company.toLowerCase().trim();
 
-      if (!rawCompany || typeof rawCompany !== 'string') {
-        console.log(`⚠️ Invalid company name, skipping`);
-        results.push(ensureSkipFields(job));
+      // cache check
+      if (cache[key]) {
+        console.log("⚡ Cache hit:", company);
+        results.push({ ...job, ...cache[key] });
         continue;
       }
 
-      const normalized = normalizeCompanyName(rawCompany);
+      let data;
 
-      if (!normalized) {
-        console.log(`⚠️ Normalized company empty, skipping`);
-        results.push(ensureSkipFields(job));
-        continue;
+      try {
+        data = await fetchCompanyDirect(company);
+      } catch (err) {
+        data = {
+          company_status: 'error',
+          company_website: null,
+          company_details: null,
+          company_error: err.message,
+        };
       }
 
-      /* ===========================
-         CACHE HIT
-      =========================== */
-      if (cache[normalized]) {
-        console.log(`⚡ Cache hit: ${normalized}`);
-        results.push({ ...job, ...cache[normalized] });
-        continue;
-      }
+      cache[key] = data;
 
-      /* ===========================
-         API FETCH (WITH RETRY)
-      =========================== */
-      let data = null;
-      let attempts = 0;
-      const MAX_RETRIES = 2;
-
-      while (attempts <= MAX_RETRIES) {
-        try {
-          console.log(`🌐 Fetching (${attempts + 1}) → ${rawCompany}`);
-          data = await fetchFromSerper(rawCompany, apiKey);
-          break;
-        } catch (err) {
-          attempts++;
-          console.log(`⚠️ Attempt ${attempts} failed: ${err.message}`);
-
-          if (attempts > MAX_RETRIES) {
-            throw err;
-          }
-
-          await new Promise((r) => setTimeout(r, 1500));
-        }
-      }
-
-      /* ===========================
-         SAVE RESULT
-      =========================== */
-      cache[normalized] = data;
-      saveCache(cachePath, cache);
+      try {
+        fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
+      } catch {}
 
       results.push({
         ...job,
         ...data,
       });
 
-      console.log(`✅ Success: ${rawCompany}`);
-
-    } catch (err) {
-      console.log(`❌ Job failed: ${err.message}`);
-
-      results.push({
-        ...jobs[i],
-        company_status: 'error',
-        company_website: null,
-        company_details: null,
-        company_error: err.message,
+      // small delay
+      await new Promise(function (resolve) {
+        setTimeout(resolve, 500);
       });
     }
 
-    /* ===========================
-       RATE LIMIT
-    =========================== */
-    await new Promise((r) => setTimeout(r, 1000));
-  }
-
-  /* ===========================
-     SAVE OUTPUT
-  =========================== */
-  try {
     fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
-    console.log(`\n🎉 Enrichment complete → ${outputPath}`);
+
+    console.log("✅ Done:", outputPath);
+
   } catch (err) {
-    throw new Error(`❌ Failed to write output: ${err.message}`);
+    console.error("❌ Fatal error:", err.message);
   }
 }
 
+/* ===========================
+RUN
 
 if (require.main === module) {
 const date = process.argv[2] || getDateFolderName();
 
-enrichJobs(date).catch((e) => {
-console.error(`❌ Failed: ${e.message}`);
-process.exit(1);
-});
+enrichJobs(date);
 }
 
 module.exports = { enrichJobs };
