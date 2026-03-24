@@ -1,0 +1,31 @@
+[2026-03-24T05:47:25.580Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:47:26.497Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:47:27.875Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:47:28.435Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:49:02.200Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:49:02.958Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:49:04.657Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:49:05.174Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:49:20.755Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:49:21.497Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:49:23.275Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:49:23.361Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:50:11.662Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:50:12.578Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:50:14.176Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:50:14.687Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:50:49.922Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:50:50.581Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:50:51.863Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:50:52.522Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:52:01.990Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:52:02.786Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:52:04.270Z] job_index=1 company="Nord Security/NordLayer" normalized="nord security/nordlayer" action=serper_lookup
+[2026-03-24T05:52:04.764Z] job_index=1 company="Nord Security/NordLayer" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T05:57:36.960Z] startup env=backend/.env key_present=yes key_mask=cc37***1018
+[2026-03-24T05:57:36.961Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T05:57:37.843Z] job_index=0 company="Guardsquare" status=error reason="SERPER request failed with 403: {"message":"Unauthorized.","statusCode":403} (check SERPER_API_KEY value, quota, and that the key is from serper.dev)"
+[2026-03-24T06:01:28.346Z] startup env=backend/.env key_present=yes key_mask=cc37***1018
+[2026-03-24T06:01:28.347Z] job_index=0 company="Guardsquare" normalized="guardsquare" action=serper_lookup
+[2026-03-24T06:01:29.062Z] job_index=0 company="Guardsquare" action=duckduckgo_fallback
+[2026-03-24T06:01:31.606Z] job_index=1 company="Nord Security/NordLayer" action=duckduckgo_fallback
