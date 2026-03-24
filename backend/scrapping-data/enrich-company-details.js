@@ -48,6 +48,18 @@ function normalizeApiKey(apiKey) {
   return trimmed.replace(/^['"]|['"]$/g, '');
 }
 
+function maskApiKey(apiKey) {
+  if (!apiKey) {
+    return 'missing';
+  }
+
+  if (apiKey.length <= 8) {
+    return `${apiKey.slice(0, 2)}***`;
+  }
+
+  return `${apiKey.slice(0, 4)}***${apiKey.slice(-4)}`;
+}
+
 function getCompanyName(job) {
   if (typeof job?.companyName === 'string' && job.companyName.trim() !== '') {
     return job.companyName;
@@ -269,9 +281,14 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
 
   const serperApiKey = normalizeApiKey(process.env.SERPER_API_KEY || process.env.SERPER_KEY || '');
   const jobs = readJsonArrayOrThrow(inputPath);
+  let serperUnauthorized = false;
 
   fs.mkdirSync(path.dirname(cachePath), { recursive: true });
   fs.mkdirSync(dataDir, { recursive: true });
+  appendDebugLog(
+    debugLogPath,
+    `startup env=backend/.env key_present=${serperApiKey ? 'yes' : 'no'} key_mask=${maskApiKey(serperApiKey)}`
+  );
   const cache = readJsonIfExists(cachePath, {});
   const enrichedJobs = [];
 
@@ -320,6 +337,21 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       continue;
     }
 
+    if (serperUnauthorized) {
+      const authErrorResult = {
+        company_status: 'error',
+        company_website: null,
+        company_details: null,
+      };
+
+      enrichedJobs.push({
+        ...job,
+        ...authErrorResult,
+        company_error: 'SERPER unauthorized (403). Check SERPER_API_KEY/account/quota.',
+      });
+      continue;
+    }
+
     try {
       appendDebugLog(
         debugLogPath,
@@ -340,6 +372,14 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
         company_website: null,
         company_details: null,
       };
+
+      if (
+        typeof error?.message === 'string' &&
+        (error.message.includes('SERPER request failed with 403') ||
+          error.message.includes('SERPER request failed with 401'))
+      ) {
+        serperUnauthorized = true;
+      }
 
       enrichedJobs.push({
         ...job,
