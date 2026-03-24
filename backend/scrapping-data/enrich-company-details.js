@@ -142,7 +142,9 @@ async function fetchCompanyInfoFromSerper(companyName, apiKey) {
   });
 
   if (!response.ok) {
-    throw new Error(`SERPER request failed with ${response.status}`);
+    const errorBody = await response.text();
+    const shortError = errorBody ? `: ${errorBody.slice(0, 300)}` : '';
+    throw new Error(`SERPER request failed with ${response.status}${shortError}`);
   }
 
   const searchData = await response.json();
@@ -252,9 +254,6 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
         company_website: null,
         company_details: null,
       };
-
-      cache[normalizedCompany] = errorResult;
-      fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
 
       enrichedJobs.push({
         ...job,
