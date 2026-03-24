@@ -202,12 +202,31 @@ function appendDebugLog(logPath, message) {
   fs.appendFileSync(logPath, `[${timestamp}] ${message}\n`);
 }
 
+function resolveDataPaths(dateFolder) {
+  const cwdDataDir = path.join(process.cwd(), 'data');
+  const backendDataDir = path.join(__dirname, '..', 'data');
+  const cwdDateDir = path.join(cwdDataDir, dateFolder);
+  const backendDateDir = path.join(backendDataDir, dateFolder);
+
+  if (fs.existsSync(path.join(cwdDateDir, 'all_job_details.json'))) {
+    return {
+      dataRootDir: cwdDataDir,
+      dataDir: cwdDateDir,
+    };
+  }
+
+  return {
+    dataRootDir: backendDataDir,
+    dataDir: backendDateDir,
+  };
+}
+
 async function enrichJobs(dateFolder = getDateFolderName()) {
-  const dataDir = path.join(process.cwd(), 'data', dateFolder);
+  const { dataRootDir, dataDir } = resolveDataPaths(dateFolder);
   const inputPath = path.join(dataDir, 'all_job_details.json');
   const outputPath = path.join(dataDir, 'enriched_job_details.json');
   const debugLogPath = path.join(dataDir, 'company_enrichment_debug.log');
-  const cachePath = path.join(process.cwd(), 'data', CACHE_FILENAME);
+  const cachePath = path.join(dataRootDir, CACHE_FILENAME);
 
   if (!fs.existsSync(inputPath)) {
     throw new Error(`Input file not found: ${inputPath}`);
