@@ -180,7 +180,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
     throw new Error(`Input file not found: ${inputPath}`);
   }
 
-  const serperApiKey = process.env.SERPER_API_KEY;
+  const serperApiKey = process.env.SERPER_API_KEY || process.env.SERPER_KEY || '';
   const jobs = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
 
   if (!Array.isArray(jobs)) {
@@ -218,9 +218,6 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
         company_website: null,
         company_details: null,
       };
-
-      cache[normalizedCompany] = noKeyResult;
-      fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
 
       enrichedJobs.push({
         ...job,
