@@ -35,6 +35,15 @@ function normalizeCompanyName(companyName) {
     .trim();
 }
 
+function normalizeApiKey(apiKey) {
+  if (typeof apiKey !== 'string') {
+    return '';
+  }
+
+  const trimmed = apiKey.trim();
+  return trimmed.replace(/^['"]|['"]$/g, '');
+}
+
 function getCompanyName(job) {
   if (typeof job?.companyName === 'string' && job.companyName.trim() !== '') {
     return job.companyName;
@@ -144,7 +153,11 @@ async function fetchCompanyInfoFromSerper(companyName, apiKey) {
   if (!response.ok) {
     const errorBody = await response.text();
     const shortError = errorBody ? `: ${errorBody.slice(0, 300)}` : '';
-    throw new Error(`SERPER request failed with ${response.status}${shortError}`);
+    const keyHint =
+      response.status === 403
+        ? ' (check SERPER_API_KEY value, quota, and that the key is from serper.dev)'
+        : '';
+    throw new Error(`SERPER request failed with ${response.status}${shortError}${keyHint}`);
   }
 
   const searchData = await response.json();
@@ -190,7 +203,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
     throw new Error(`Input file not found: ${inputPath}`);
   }
 
-  const serperApiKey = process.env.SERPER_API_KEY || process.env.SERPER_KEY || '';
+  const serperApiKey = normalizeApiKey(process.env.SERPER_API_KEY || process.env.SERPER_KEY || '');
   const jobs = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
 
   if (!Array.isArray(jobs)) {
