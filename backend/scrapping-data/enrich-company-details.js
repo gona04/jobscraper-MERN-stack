@@ -35,16 +35,24 @@ function normalizeCompanyName(companyName) {
     .trim();
 }
 
+function getCompanyName(job) {
+  if (typeof job?.companyName === 'string' && job.companyName.trim() !== '') {
+    return job.companyName;
+  }
+
+  if (typeof job?.company_name === 'string' && job.company_name.trim() !== '') {
+    return job.company_name;
+  }
+
+  return '';
+}
+
 function shouldSkipJob(job) {
   if (job?.isEURegion !== 'yes') {
     return true;
   }
 
-  if (typeof job?.companyName !== 'string') {
-    return true;
-  }
-
-  return job.companyName.trim() === '';
+  return getCompanyName(job) === '';
 }
 
 function ensureSkipFields(job) {
@@ -197,7 +205,8 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       continue;
     }
 
-    const normalizedCompany = normalizeCompanyName(job.companyName);
+    const rawCompanyName = getCompanyName(job);
+    const normalizedCompany = normalizeCompanyName(rawCompanyName);
 
     if (!normalizedCompany) {
       enrichedJobs.push(ensureSkipFields(job));
@@ -229,7 +238,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
     }
 
     try {
-      const result = await fetchCompanyInfoFromSerper(job.companyName, serperApiKey);
+      const result = await fetchCompanyInfoFromSerper(rawCompanyName, serperApiKey);
       cache[normalizedCompany] = result;
       fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
 
@@ -252,7 +261,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
         ...errorResult,
       });
 
-      console.warn(`⚠️ Failed company enrichment for "${job.companyName}": ${error.message}`);
+      console.warn(`⚠️ Failed company enrichment for "${rawCompanyName}": ${error.message}`);
     }
 
     const delayMs = 1000 + Math.floor(Math.random() * 1001);
