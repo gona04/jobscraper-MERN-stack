@@ -197,10 +197,16 @@ async function delay(ms) {
   });
 }
 
+function appendDebugLog(logPath, message) {
+  const timestamp = new Date().toISOString();
+  fs.appendFileSync(logPath, `[${timestamp}] ${message}\n`);
+}
+
 async function enrichJobs(dateFolder = getDateFolderName()) {
   const dataDir = path.join(process.cwd(), 'data', dateFolder);
   const inputPath = path.join(dataDir, 'all_job_details.json');
   const outputPath = path.join(dataDir, 'enriched_job_details.json');
+  const debugLogPath = path.join(dataDir, 'company_enrichment_debug.log');
   const cachePath = path.join(process.cwd(), 'data', CACHE_FILENAME);
 
   if (!fs.existsSync(inputPath)) {
@@ -215,6 +221,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
   }
 
   fs.mkdirSync(path.dirname(cachePath), { recursive: true });
+  fs.mkdirSync(dataDir, { recursive: true });
   const cache = readJsonIfExists(cachePath, {});
   const enrichedJobs = [];
 
@@ -236,6 +243,8 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       enrichedJobs.push({
         ...job,
         ...cache[normalizedCompany],
+        company_error:
+          cache[normalizedCompany].company_status === 'error' ? 'cached_error_result' : null,
       });
       continue;
     }
@@ -250,13 +259,22 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       enrichedJobs.push({
         ...job,
         ...noKeyResult,
+        company_error: 'Missing SERPER_API_KEY or SERPER_KEY',
       });
 
       console.warn(`⚠️ Missing SERPER_API_KEY for job index ${index}.`);
+      appendDebugLog(
+        debugLogPath,
+        `job_index=${index} company="${rawCompanyName}" status=error reason="missing_api_key"`
+      );
       continue;
     }
 
     try {
+      appendDebugLog(
+        debugLogPath,
+        `job_index=${index} company="${rawCompanyName}" normalized="${normalizedCompany}" action=serper_lookup`
+      );
       const result = await fetchCompanyInfoFromSerper(rawCompanyName, serperApiKey);
       cache[normalizedCompany] = result;
       fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
@@ -264,6 +282,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       enrichedJobs.push({
         ...job,
         ...result,
+        company_error: null,
       });
     } catch (error) {
       const errorResult = {
@@ -275,9 +294,14 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
       enrichedJobs.push({
         ...job,
         ...errorResult,
+        company_error: error.message,
       });
 
       console.warn(`⚠️ Failed company enrichment for "${rawCompanyName}": ${error.message}`);
+      appendDebugLog(
+        debugLogPath,
+        `job_index=${index} company="${rawCompanyName}" status=error reason="${error.message.replace(/\n/g, ' ')}"`
+      );
     }
 
     const delayMs = 1000 + Math.floor(Math.random() * 1001);
@@ -286,6 +310,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
 
   fs.writeFileSync(outputPath, JSON.stringify(enrichedJobs, null, 2));
   console.log(`✅ Enriched ${enrichedJobs.length} jobs to ${outputPath}`);
+  console.log(`🪵 Debug log written to ${debugLogPath}`);
 
   return outputPath;
 }
