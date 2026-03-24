@@ -25,8 +25,8 @@ const BLACKLIST_DOMAINS = [
   'indeed.com'
 ];
 
-const INPUT_FILE = path.resolve(__dirname, '../data/non_dutch.json');
-const CACHE_FILE = path.resolve(__dirname, '../data/company_cache.json');
+const INPUT_FILE = path.resolve(__dirname, '../data/2026-03-23/enriched_job_details.json');
+const CACHE_FILE = path.resolve(__dirname, '../data/2026-03-23/company_cache.json');
 
 const RESUME = `Goonja Gandhi
 +91 XXXXXXXX• gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi• https://github.com/gona04

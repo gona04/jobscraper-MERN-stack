@@ -1,0 +1,38 @@
+[
+  {
+    "summary": "",
+    "job_title": "Front-End Engineer (React/TypeScript)",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 XXXXXXXX",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "The Front-End Engineer role's emphasis on <b>React</b> and <b>TypeScript</b> points to challenges in crafting scalable UI architectures where reactivity and type safety prevent brittleness over time. This aligns with how I trace every framework choice back to the problem it solves — a habit formed studying Wittgenstein's shifts between rigid logical structures and fluid language games.",
+        "At Tata Consultancy Services, leading a team of five, I redesigned state management using <b>RxJS</b> and <b>TypeScript</b>, reducing unnecessary API calls by <b>40%</b> while enforcing <b>SOLID</b> principles across enterprise interfaces. This not only improved data-heavy UIs through accordion-based systems but also clarified API contracts with backend teams, minimizing frontend bottlenecks.",
+        "Building NewsAlign, I shrank the <b>React</b> bundle from <b>941KB to under 300KB</b> via <b>code splitting</b> and eliminated redundant calls, lifting Lighthouse scores from <b>73 to 95</b>. Here, frontend gains depended on backend moves like scheduled pipelines over scraping, underscoring that true performance emerges from end-to-end reasoning.",
+        "My custom reactive JS engine, replicating <b>useState</b> with <b>Object.defineProperty</b>, grew from dissecting framework internals to inform real-world decisions. This perspective would help address the role's demands for optimized, maintainable systems."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error"
+  },
+  {
+    "summary": "",
+    "job_title": "Senior React Developer",
+    "motivation_letter": {
+      "error": "Request failed for POST https://api.x.ai/v1/chat/completions: timeout of 20000ms exceeded"
+    },
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error"
+  }
+]
