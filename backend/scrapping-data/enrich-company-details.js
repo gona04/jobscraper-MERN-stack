@@ -169,6 +169,25 @@ function getFirstValidOrganicUrl(searchResponse) {
   return null;
 }
 
+function getFirstValidUrlFromCandidates(candidates) {
+  for (const link of candidates) {
+    if (!link || typeof link !== 'string') {
+      continue;
+    }
+
+    try {
+      const url = new URL(link);
+      if (!isIgnoredDomain(url.hostname)) {
+        return link;
+      }
+    } catch (error) {
+      continue;
+    }
+  }
+
+  return null;
+}
+
 function normalizeVisibleText(html) {
   return html
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ' ')
@@ -184,6 +203,23 @@ function normalizeVisibleText(html) {
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, 5000);
+}
+
+async function fetchCompanyWebsiteDetails(websiteUrl) {
+  const websiteResponse = await fetch(websiteUrl);
+
+  if (!websiteResponse.ok) {
+    throw new Error(`Website request failed with ${websiteResponse.status}`);
+  }
+
+  const html = await websiteResponse.text();
+  const details = normalizeVisibleText(html);
+
+  return {
+    company_status: details ? 'success' : 'not_found',
+    company_website: websiteUrl,
+    company_details: details || null,
+  };
 }
 
 async function fetchCompanyInfoFromSerper(companyName, apiKey) {
@@ -222,20 +258,33 @@ async function fetchCompanyInfoFromSerper(companyName, apiKey) {
     };
   }
 
-  const websiteResponse = await fetch(websiteUrl);
+  return fetchCompanyWebsiteDetails(websiteUrl);
+}
 
-  if (!websiteResponse.ok) {
-    throw new Error(`Website request failed with ${websiteResponse.status}`);
+async function fetchCompanyInfoFromDuckDuckGo(companyName) {
+  const query = encodeURIComponent(`${companyName} official website`);
+  const response = await fetch(`https://duckduckgo.com/html/?q=${query}`);
+
+  if (!response.ok) {
+    throw new Error(`DuckDuckGo request failed with ${response.status}`);
   }
 
-  const html = await websiteResponse.text();
-  const details = normalizeVisibleText(html);
+  const html = await response.text();
+  const matches = [...html.matchAll(/uddg=([^"&]+)/g)];
+  const decodedUrls = matches
+    .map((match) => decodeURIComponent(match[1]))
+    .filter((url) => url.startsWith('http://') || url.startsWith('https://'));
+  const websiteUrl = getFirstValidUrlFromCandidates(decodedUrls);
 
-  return {
-    company_status: details ? 'success' : 'not_found',
-    company_website: websiteUrl,
-    company_details: details || null,
-  };
+  if (!websiteUrl) {
+    return {
+      company_status: 'not_found',
+      company_website: null,
+      company_details: null,
+    };
+  }
+
+  return fetchCompanyWebsiteDetails(websiteUrl);
 }
 
 async function delay(ms) {
@@ -338,17 +387,28 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
     }
 
     if (serperUnauthorized) {
-      const authErrorResult = {
-        company_status: 'error',
-        company_website: null,
-        company_details: null,
-      };
-
-      enrichedJobs.push({
-        ...job,
-        ...authErrorResult,
-        company_error: 'SERPER unauthorized (403). Check SERPER_API_KEY/account/quota.',
-      });
+      try {
+        appendDebugLog(
+          debugLogPath,
+          `job_index=${index} company="${rawCompanyName}" action=duckduckgo_fallback`
+        );
+        const fallbackResult = await fetchCompanyInfoFromDuckDuckGo(rawCompanyName);
+        cache[normalizedCompany] = fallbackResult;
+        fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
+        enrichedJobs.push({
+          ...job,
+          ...fallbackResult,
+          company_error: null,
+        });
+      } catch (fallbackError) {
+        enrichedJobs.push({
+          ...job,
+          company_status: 'error',
+          company_website: null,
+          company_details: null,
+          company_error: `SERPER unauthorized and fallback failed: ${fallbackError.message}`,
+        });
+      }
       continue;
     }
 
@@ -357,7 +417,26 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
         debugLogPath,
         `job_index=${index} company="${rawCompanyName}" normalized="${normalizedCompany}" action=serper_lookup`
       );
-      const result = await fetchCompanyInfoFromSerper(rawCompanyName, serperApiKey);
+      let result;
+      try {
+        result = await fetchCompanyInfoFromSerper(rawCompanyName, serperApiKey);
+      } catch (error) {
+        const unauthorized =
+          typeof error?.message === 'string' &&
+          (error.message.includes('SERPER request failed with 403') ||
+            error.message.includes('SERPER request failed with 401'));
+
+        if (!unauthorized) {
+          throw error;
+        }
+
+        serperUnauthorized = true;
+        appendDebugLog(
+          debugLogPath,
+          `job_index=${index} company="${rawCompanyName}" action=duckduckgo_fallback`
+        );
+        result = await fetchCompanyInfoFromDuckDuckGo(rawCompanyName);
+      }
       cache[normalizedCompany] = result;
       fs.writeFileSync(cachePath, JSON.stringify(cache, null, 2));
 
