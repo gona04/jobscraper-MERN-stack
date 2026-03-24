@@ -1,0 +1,58 @@
+[
+  {
+    "jobTitle": "Front-End Engineer (React/TypeScript)",
+    "job_link": "https://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript",
+    "visa_sponsorship": "Unknown",
+    "only_english": null,
+    "company_name": "Guardsquare",
+    "rolesAndResponsibilities": "Develop and maintain a user-friendly frontend using React/TypeScript and TailwindCSS. Design and implement REST and/or gRPC API integrations on the frontend. Collaborate with product managers, designers, and other developers to create innovative solutions. Participate in code reviews to ensure code quality and adherence to best practices. Write unit, integration, and end-to-end tests for code reliability and maintainability. Work with the team to set up and enhance CI/CD pipelines. Continuously improve application performance and user experience. Stay up-to-date with the latest technologies and trends in frontend development. Provide support to customers in utilizing our web applications.",
+    "skillsRequired": [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "REST API",
+      "gRPC"
+    ],
+    "companyName": "Guardsquare",
+    "isEURegion": "no",
+    "company_status": null,
+    "company_website": null,
+    "company_details": null,
+    "company_error": "skipped"
+  },
+  {
+    "jobTitle": "Senior React Developer",
+    "job_link": "https://jobs.lever.co/nordsec/6633b541-2742-4823-aa4d-57f833a26715/apply?lever-source=LinkedIn",
+    "visa_sponsorship": "Unknown",
+    "only_english": null,
+    "company_name": "Nord Security/NordLayer",
+    "rolesAndResponsibilities": "build and improve TypeScript React codebase with tests, lead frontend technical decisions, collaborate with backend, PMs, and designers, ensure best practices, work in Scrum",
+    "skillsRequired": [
+      "React",
+      "TypeScript",
+      "architecture",
+      "performance",
+      "REST APIs",
+      "testing",
+      "Jest",
+      "Cypress",
+      "Playwright",
+      "leadership",
+      "design systems",
+      "CI/CD",
+      "Styled-components",
+      "React Query",
+      "Router",
+      "Vite",
+      "Storybook",
+      "Testing Library",
+      "Sentry"
+    ],
+    "companyName": "Nord Security/NordLayer",
+    "isEURegion": "no",
+    "company_status": null,
+    "company_website": null,
+    "company_details": null,
+    "company_error": "skipped"
+  }
+]
