@@ -83,7 +83,42 @@ function readJsonIfExists(filePath, fallback) {
   }
 
   const content = fs.readFileSync(filePath, 'utf8');
-  return JSON.parse(content);
+
+  if (!content.trim()) {
+    return fallback;
+  }
+
+  try {
+    return JSON.parse(content);
+  } catch (error) {
+    const brokenCopyPath = `${filePath}.invalid-${Date.now()}`;
+    fs.copyFileSync(filePath, brokenCopyPath);
+    console.warn(
+      `⚠️ Invalid JSON in ${filePath}. Backed up to ${brokenCopyPath} and using fallback.`
+    );
+    return fallback;
+  }
+}
+
+function readJsonArrayOrThrow(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+
+  if (!content.trim()) {
+    throw new Error(`Input file is empty: ${filePath}`);
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(content);
+  } catch (error) {
+    throw new Error(`Invalid JSON in input file ${filePath}: ${error.message}`);
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error('Input JSON must be an array of jobs.');
+  }
+
+  return parsed;
 }
 
 function isIgnoredDomain(hostname) {
@@ -233,11 +268,7 @@ async function enrichJobs(dateFolder = getDateFolderName()) {
   }
 
   const serperApiKey = normalizeApiKey(process.env.SERPER_API_KEY || process.env.SERPER_KEY || '');
-  const jobs = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
-
-  if (!Array.isArray(jobs)) {
-    throw new Error('Input JSON must be an array of jobs.');
-  }
+  const jobs = readJsonArrayOrThrow(inputPath);
 
   fs.mkdirSync(path.dirname(cachePath), { recursive: true });
   fs.mkdirSync(dataDir, { recursive: true });
