@@ -1,0 +1,218 @@
+[
+  {
+    "summary": "Mobile app security platforms, Front-End Engineer, React/TypeScript Tailwind UIs with REST/gRPC",
+    "company_name": "Guardsquare",
+    "job_title": "Front-End Engineer (React/TypeScript)",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 XXXXXXXX",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "Guardsquare's web applications equip developers to secure mobile apps, placing frontend interfaces at the heart of reliability where every integration must perform without compromise. This focus resonates with my practice of dissecting UI systems to eliminate inefficiencies, ensuring they solve core usability problems in high-stakes contexts.",
+        "At Tata Consultancy Services, I led frontend architecture for enterprise apps, redesigning state management with <b>RxJS</b> and <b>TypeScript</b> to cut <b>unnecessary API calls by 40%</b>. Collaborating with backend teams on <b>Spring Boot</b> contracts honed my ability to handle <b>REST</b> integrations efficiently—transferable to <b>gRPC</b> in your stack.",
+        "In the NewsAlign project, I optimized a <b>React</b> frontend to shrink bundle size from <b>941KB to under 300KB</b>, lifting Lighthouse scores to <b>95</b> through code splitting and caching, while incorporating <b>Jest</b> tests and backend safeguards. These steps mirror the performance and testing demands of Guardsquare's customer-facing tools built with <b>TailwindCSS</b>.",
+        "My work with <b>CI/CD pipelines</b> and accessibility-compliant UIs positions me to enhance your applications' maintainability and user experience, supporting developers in mobile security workflows."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 XXXXXXXX",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "With nearly 5 years building scalable React and TypeScript applications, I am excited to apply for the Front-End Engineer role at Guardsquare. Your focus on secure, high-performance mobile app solutions resonates with my experience optimizing frontend systems for speed and reliability. I am fully open to relocation to contribute to your team in the EU.",
+        "At Tata Consultancy Services, I redesigned state management with RxJS and TypeScript, reducing unnecessary API calls by 40%. In NewsAlign, I cut bundle size from 941KB to under 300KB (X: applied code splitting and bundle analysis, Y: eliminated redundancies, Z: Lighthouse score from 73 to 95). At Datapret, I built an accessibility-compliant system (X: integrated React/Redux with <b>REST APIs</b>, Y: focused on WCAG standards, Z: 30% compliance improvement).\n\n• Led a team of 5 in delivering responsive enterprise UIs.\n• Collaborated with design and backend teams to refine APIs.\n• Achieved 84% test coverage with Jest.",
+        "These skills directly support Guardsquare's needs: <b>React</b>/<b>TypeScript</b>/<b>TailwindCSS</b> development, <b>REST</b> integrations (eager to expand to gRPC), unit testing, CI/CD (Jenkins experience), and performance enhancements. I thrive in code reviews and cross-functional collaboration to deliver user-friendly apps."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "+91 XXXXXXXX • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • https://github.com/gona04",
+      "summary": "Frontend Engineer with ~5 years of experience building scalable web applications using <b>React</b>, <b>TypeScript</b>, and <b>TailwindCSS</b>. Expertise in <b>REST API</b> integrations, performance optimization, state management, and delivering maintainable UIs in cross-functional teams. Proven in code reviews, unit testing with Jest, and CI/CD with Jenkins. Open to Relocate",
+      "position": "Front-End Engineer (React/TypeScript)",
+      "skills": "React, TypeScript, TailwindCSS, CSS3, HTML5, JavaScript (ES6+), SCSS, Context API, Redux, RxJS, Express, Node.js, REST APIs, API optimization, bundle analysis, caching, code splitting, Jest, AWS, Jenkins, Firebase, Git, Netlify, Railway, Accessibility (WCAG), Agile",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Developed accessibility-compliant complaint resolution system using <b>React</b> and Redux, improving <b>WCAG compliance score by 30%</b>",
+            "Integrated frontend with <b>REST APIs</b> for reliable data flow in collaboration with design and product teams",
+            "Enhanced usability for diverse users through WCAG-focused optimizations"
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led team of 5 developers in frontend architecture using <b>TypeScript</b> and RxJS, enforcing SOLID principles via code reviews",
+            "Redesigned state management to <b>reduce unnecessary API calls by 40%</b>",
+            "Optimized complex data-heavy UIs with accordion architecture for improved usability",
+            "Collaborated with backend teams on <b>REST API</b> contracts using Spring Boot to eliminate frontend bottlenecks",
+            "Mentored juniors and maintained standards through regular code reviews"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (Full Stack)",
+          "points": [
+            "Built full-stack app with <b>React</b>, Node.js, PostgreSQL on AWS RDS, and <b>REST APIs</b>",
+            "Reduced frontend bundle size from 941KB to <b>&lt;300KB</b> via code splitting",
+            "Boosted Lighthouse score from 73 to <b>95</b> by optimizing API calls and auth",
+            "Implemented RAG pipeline with FAISS and LLMs; added JWT auth, rate limiting",
+            "Achieved <b>~84% test coverage</b> with Jest. GitHub: https://github.com/gona04/NewsAlignApp. Demo: https://news-align.netlify.app/"
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JS Engine (React Internals)",
+          "points": [
+            "Created lightweight reactivity system using Object.defineProperty to mimic React useState",
+            "GitHub: https://github.com/gona04/custom-js-framework"
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "points": [
+            "Developed CLI for React component boilerplate generation with zero runtime dependencies",
+            "npm: https://www.npmjs.com/package/reactli-c"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "",
+          "details": "GPA: 3.8; focused on application development fundamentals"
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript",
+    "company_website": null,
+    "company_status": "error"
+  },
+  {
+    "summary": "Cybersecurity privacy platforms, Senior React Developer, performant TypeScript React codebases",
+    "company_name": "Nord Security/NordLayer",
+    "job_title": "Senior React Developer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 XXXXXXXX",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "Nord Security's focus on embedding state-of-the-art encryption into seamless apps like NordVPN and Saily—where complex privacy controls become one-click realities—resonates with the question that has guided my path from linguistic philosophy to frontend architecture: what underlying problem does this system actually solve? In security products, where users must trust interfaces implicitly, this means designing UIs that reveal clarity amid layers of protection, without exposing the machinery beneath.",
+        "At Tata Consultancy Services, leading a team of five developers, I enforced <b>SOLID principles</b> and redesigned state management using <b>RxJS</b> and <b>TypeScript</b>, reducing unnecessary <b>REST API calls by 40%</b>. This not only improved responsiveness in data-heavy enterprise apps but also honed my ability to collaborate with backend teams on optimized contracts—skills directly suited to leading frontend decisions in Scrum teams at NordLayer.",
+        "Exploring React's internals through my custom reactivity engine, built with <b>Object.defineProperty</b> to mimic <b>useState</b>, clarified the tradeoffs in balancing reactivity with performance. Similarly, in NewsAlign, I shrank the frontend bundle from <b>941KB to under 300KB</b> via <b>code splitting</b> and eliminated redundant calls, achieving a <b>Lighthouse score of 95</b>—insights that equip me to refine TypeScript React codebases with rigorous <b>Jest</b> testing and best practices.",
+        "NordLayer's business-facing security layer presents the kind of contained complexity where frontend architecture can directly impact scalability and user control. I look forward to contributing to design systems and CI/CD pipelines that keep these interfaces reliable and intuitive."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 XXXXXXXX",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "With nearly 5 years building scalable React and TypeScript applications, I am excited to apply for the Senior React Developer role at Nord Security. Your focus on secure, high-performance tools like NordLayer aligns with my experience delivering performant UIs for data-heavy enterprise systems. I am open to relocation within the EU to contribute to your team's mission of enhancing digital privacy.",
+        "In past roles, I have led frontend architecture and optimizations that directly support your needs for improving TypeScript React codebases with strong tests and best practices:\n• At Tata Consultancy Services, I redesigned state management using RxJS and TypeScript, cutting unnecessary API calls by 40% and boosting efficiency in complex interfaces.\n• For NewsAlign, I optimized the React bundle from 941KB to under 300KB via code splitting and caching, lifting Lighthouse scores from 73 to 95 while integrating REST APIs securely.\n• Leading a team of 5 at TCS, I enforced SOLID principles through code reviews, ensuring maintainable systems collaborated with backend teams.",
+        "My Jest testing (84% coverage), CI/CD pipelines, and performance focus position me to lead technical decisions and collaborate with your backend, PMs, and designers in Scrum. I am eager to adapt my skills to tools like React Query and Storybook to drive Nord Security's frontend excellence."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "+91 XXXXXXXX • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • https://github.com/gona04",
+      "summary": "Senior React Developer with ~5 years of experience building scalable web applications using <b>React</b> and <b>TypeScript</b>. Expertise in <b>performance optimization</b>, <b>frontend architecture</b>, <b>REST APIs</b>, and <b>Jest</b> testing. Proven in reducing load times, API calls by <b>40%</b>, and leading cross-functional teams in Agile environments. Open to Relocate",
+      "position": "Senior React Developer",
+      "skills": "React, TypeScript, JavaScript (ES6+), Redux, RxJS, Context API, CSS3, HTML5, SCSS, Tailwind, REST APIs, Node.js, Express, Performance Optimization (bundle analysis, code splitting, caching), CI/CD (Jenkins), Jest (unit testing), AWS, Git, Firebase, Netlify, Railway, Accessibility (WCAG), Agile, System Design",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Built accessibility-compliant complaint resolution system using <b>React</b> and <b>Redux</b>, improving WCAG compliance score by <b>30%</b>",
+            "Integrated frontend with <b>REST APIs</b> using <b>TypeScript</b>, ensuring reliable data flow and <b>performance</b> in cross-functional collaboration",
+            "Worked with design and product teams to streamline development processes"
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led team of <b>5 developers</b>, enforcing clean code principles and <b>frontend architecture</b> with <b>TypeScript</b> and <b>RxJS</b>",
+            "Redesigned state management to reduce unnecessary <b>API calls by 40%</b> and optimize <b>REST APIs</b>",
+            "Improved usability of data-heavy interfaces via UI architecture redesign (accordion system), enhancing enterprise application performance",
+            "Collaborated with backend teams (Spring Boot) to refine <b>API contracts</b> and eliminate frontend bottlenecks",
+            "Mentored juniors and led code reviews to uphold engineering standards in Agile workflows",
+            "Delivered responsive, cross-browser applications with <b>Jest</b> testing"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (Full Stack)",
+          "points": [
+            "Designed full-stack system with <b>React</b>, <b>Node.js</b>, PostgreSQL (AWS RDS), reducing bundle size from <b>941KB to <300KB</b> via code splitting",
+            "Boosted Lighthouse score from <b>73 to 95</b> by optimizing <b>API calls</b> and auth flow",
+            "Implemented RAG pipeline with FAISS and LLM integrations; added JWT auth, rate limiting",
+            "Achieved <b>~84% test coverage</b> with <b>Jest</b>; GitHub: https://github.com/gona04/NewsAlignApp; Demo: https://news-align.netlify.app/"
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JS Engine (React Internals Exploration)",
+          "points": [
+            "Built lightweight reactivity system mimicking React useState with Object.defineProperty",
+            "Demonstrates deep understanding of state updates and rendering in modern frameworks",
+            "GitHub: https://github.com/gona04/custom-js-framework"
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "points": [
+            "Developed CLI for generating <b>React</b> component boilerplate, minimizing setup time",
+            "Zero runtime dependencies for simplicity",
+            "npm: https://www.npmjs.com/package/reactli-c"
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "",
+          "details": "GPA: 3.8"
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://jobs.lever.co/nordsec/6633b541-2742-4823-aa4d-57f833a26715/apply?lever-source=LinkedIn",
+    "company_website": null,
+    "company_status": "error"
+  }
+]
