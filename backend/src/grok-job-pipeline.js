@@ -279,25 +279,22 @@ async function callGrok(systemPrompt, userPrompt) {
 async function processJob(job, cache) {
   const rawCompany = job.companyName;
   const company = normalizeCompanyName(rawCompany);
-  const isEU = job.isEURegion === 'yes';
 
   let companyDetails = null;
   let companyWebsite = null;
   let companyStatus = 'skipped';
 
-  if (isEU) {
-    if (cache[company]) {
-      ({ status: companyStatus, website: companyWebsite, details: companyDetails } = cache[company]);
-      log(`Cache hit → ${company}`);
-    } else {
-      const scraped = await getCompanyDetails(rawCompany);
-      cache[company] = scraped;
-      await saveCache(cache);
-      await delay(DELAY_BETWEEN_REQUESTS);
-      companyStatus = scraped.status;
-      companyWebsite = scraped.website;
-      companyDetails = scraped.details;
-    }
+  if (cache[company]) {
+    ({ status: companyStatus, website: companyWebsite, details: companyDetails } = cache[company]);
+    log(`Cache hit → ${company}`);
+  } else {
+    const scraped = await getCompanyDetails(rawCompany);
+    cache[company] = scraped;
+    await saveCache(cache);
+    await delay(DELAY_BETWEEN_REQUESTS);
+    companyStatus = scraped.status;
+    companyWebsite = scraped.website;
+    companyDetails = scraped.details;
   }
 
   const coverLetterRaw = await callGrok(
@@ -312,14 +309,14 @@ async function processJob(job, cache) {
   );
   const resumeParsed = safeParseJSON(resumeRaw);
 
-  let motivationLetterParsed = null;
-  if (isEU && companyStatus === 'success' && companyDetails) {
-    const motivationRaw = await callGrok(
-      MOTIVATION_LETTER_SYSTEM_PROMPT,
-      getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, companyDetails, RESUME)
-    );
-    motivationLetterParsed = safeParseJSON(motivationRaw);
-  }
+  const motivationContext =
+    (companyStatus === 'success' && companyDetails) || job.jobDescription || JSON.stringify(job);
+
+  const motivationRaw = await callGrok(
+    MOTIVATION_LETTER_SYSTEM_PROMPT,
+    getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, motivationContext, RESUME)
+  );
+  const motivationLetterParsed = safeParseJSON(motivationRaw);
 
   const testingRaw = await callGrok(
     TESTING_SYSTEM_PROMPT,
@@ -337,7 +334,7 @@ async function processJob(job, cache) {
     summary: testingParsed?.company_summary || '',
     company_name: rawCompany,
     job_title: job.jobTitle,
-    ...(isEU && motivationLetterParsed && { motivation_letter: motivationLetterParsed }),
+    motivation_letter: motivationLetterParsed,
     cover_letter: testingParsed?.cover_letter || coverLetterParsed?.cover_letter || {},
     resume: testingParsed?.resume || resumeParsed?.resume || {},
     job_link: job.jobLink || coverLetterParsed?.job_link || '',
