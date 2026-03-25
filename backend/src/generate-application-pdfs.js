@@ -1,7 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
 const puppeteer = require('puppeteer');
-const { contentToHtml } = require('./pdf-generators/contentFormatter');
 const { buildResumeHtml } = require('./pdf-generators/resumePdf');
 const { buildLetterHtml } = require('./pdf-generators/letterPdf');
 
@@ -81,19 +80,19 @@ async function run() {
         key: 'resume',
         fileName: 'GoonjaGandhi_resume.pdf',
         label: 'Resume',
-        buildHtml: (contentHtml) => buildResumeHtml({ contentHtml, css }),
+        buildHtml: (sectionContent) => buildResumeHtml({ content: sectionContent, css }),
       },
       {
         key: 'cover_letter',
         fileName: 'GoonjaGandhi_coverLetter.pdf',
         label: 'Cover Letter',
-        buildHtml: (contentHtml) => buildLetterHtml({ contentHtml, css }),
+        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, css }),
       },
       {
         key: 'motivation_letter',
         fileName: 'GoonjaGandhi_motivationLetter.pdf',
         label: 'Motivation Letter',
-        buildHtml: (contentHtml) => buildLetterHtml({ contentHtml, css }),
+        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, css }),
       },
     ];
 
@@ -105,13 +104,11 @@ async function run() {
           continue;
         }
 
-        const contentHtml = contentToHtml(sectionContent);
-        if (!contentHtml || !contentHtml.trim()) {
+        const html = buildHtml(sectionContent);
+        if (!html || !html.trim()) {
           console.warn(`[SKIP] Job #${index + 1} (${companyDir}/${roleDir}) empty ${label}`);
           continue;
         }
-
-        const html = buildHtml(contentHtml);
         const outputPath = path.join(targetDir, fileName);
 
         await createPdf(page, outputPath, html);
