@@ -5,20 +5,23 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      font-size: 11.5px;
-      line-height: 1.5;
+      font-size: 11px;
+      line-height: 1.45;
       color: #111;
       margin: 0;
+      max-width: 800px;
     }
 
     .container {
       width: 100%;
+      padding: 20px 24px;
+      box-sizing: border-box;
     }
 
     .header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       align-items: flex-start;
     }
 
@@ -33,8 +36,10 @@
 
     h2 {
       font-size: 13px;
-      margin-top: 16px;
+      margin-top: 14px;
       margin-bottom: 6px;
+      letter-spacing: 0.5px;
+      font-weight: 700;
     }
 
     .experience {
@@ -42,7 +47,7 @@
     }
 
     .project {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .education {
@@ -57,11 +62,12 @@
 
     .exp-meta {
       text-align: right;
-      font-size: 10.5px;
+      font-size: 10px;
+      color: #555;
     }
 
     p {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
     }
 
     ul {
@@ -70,7 +76,32 @@
     }
 
     li {
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+    }
+
+    .role-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .compact .container {
+      padding: 16px 20px;
+    }
+
+    .compact h2 {
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
+
+    .compact p {
+      margin-bottom: 5px;
+    }
+
+    .compact .project,
+    .compact .experience,
+    .compact .education {
+      margin-bottom: 8px;
     }
 
     a {
@@ -92,6 +123,7 @@
       </div>
     </div>
 
+    {{roleTitle}}
     {{summarySection}}
     {{skillsSection}}
     {{projectsSection}}

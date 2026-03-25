@@ -27,10 +27,27 @@ function renderBullets(items) {
   return `<ul>${items.map((item) => `<li>${linkifyText(item)}</li>`).join('')}</ul>`;
 }
 
+function cleanFiller(text) {
+  return normalizeText(text)
+    .replace(/\bresponsible for\b/gi, '')
+    .replace(/\bworked on\b/gi, '')
+    .replace(/\binvolved in\b/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function clampLine(text, maxChars = 130) {
+  const value = cleanFiller(text);
+  if (value.length <= maxChars) return value;
+  return `${value.slice(0, maxChars - 1).trim()}…`;
+}
+
 function renderSummary(content) {
-  const paragraphs = toParagraphs(content);
+  const paragraphs = toParagraphs(content).map((item) => cleanFiller(item)).filter(Boolean);
   if (!paragraphs.length) return '';
-  return `<h2>SUMMARY</h2>${paragraphs.map((p) => `<p>${linkifyText(p)}</p>`).join('')}`;
+  const compact = paragraphs.join(' ');
+  const summary = clampLine(compact, 360);
+  return `<h2>SUMMARY</h2><p>${linkifyText(summary)}</p>`;
 }
 
 function renderSkills(skills) {
@@ -55,7 +72,7 @@ function renderExperience(experience = []) {
       const role = normalizeText(exp.role || exp.title || '');
       const date = normalizeText(exp.duration || exp.date || '');
       const location = normalizeText(exp.location || exp.country || '');
-      const points = toBullets(exp.points || exp.bullets || []);
+      const points = toBullets(exp.points || exp.bullets || []).map((item) => clampLine(item, 120)).slice(0, 5);
 
       if (!company && !role && !date && !location && !points.length) return '';
 
@@ -85,11 +102,11 @@ function renderProjects(projects = []) {
   const items = projects
     .map((project) => {
       const title = normalizeText(project.projectName || project.name || project.project_name || project.title || '');
-      const points = toBullets(project.points || project.bullets || []);
+      const points = toBullets(project.points || project.bullets || []).map((item) => clampLine(item, 115));
       const fallbackPoints = !points.length
-        ? toParagraphs(project.description || project.summary || '').filter(Boolean)
+        ? toParagraphs(project.description || project.summary || '').map((item) => clampLine(item, 115)).filter(Boolean)
         : [];
-      const projectPoints = points.length ? points : fallbackPoints;
+      const projectPoints = (points.length ? points : fallbackPoints).slice(0, 4);
       if (!title && !projectPoints.length) return '';
       const github = normalizeText(project.github_link || project.github || '');
       const live = normalizeText(project.live_link || project.live || project.url || '');
@@ -152,6 +169,7 @@ async function buildResumeHtml({ content }) {
     email: linkifyText(contact.email),
     phone: contact.phone,
     linkedin: linkifyText(contact.linkedin),
+    roleTitle: resume.position || resume.title ? `<div class="role-title">${linkifyText(cleanFiller(resume.position || resume.title))}</div>` : '',
     summarySection: renderSummary(resume.summary),
     skillsSection: renderSkills(resume.skills),
     projectsSection: renderProjects(resume.projects || []),

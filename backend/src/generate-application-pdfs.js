@@ -42,11 +42,31 @@ function getUniqueTargetDir(basePath) {
   return folderPath;
 }
 
-async function createPdf(page, outputPath, html) {
+function withBodyClass(html, className) {
+  if (!className) return html;
+  if (/<body[^>]*class=/i.test(html)) {
+    return html.replace(/<body([^>]*)class=["']([^"']*)["']([^>]*)>/i, '<body$1class="$2 ' + className + '"$3>');
+  }
+  return html.replace(/<body([^>]*)>/i, '<body$1 class="' + className + '">');
+}
+
+async function createPdf(page, outputPath, html, options = {}) {
   await page.setContent(html, {
     waitUntil: 'domcontentloaded',
     timeout: 0,
   });
+
+  if (options.enforceSinglePage) {
+    const maxContentHeight = 970;
+    const contentHeight = await page.evaluate(() => Math.max(document.body.scrollHeight, document.documentElement.scrollHeight));
+    if (contentHeight > maxContentHeight) {
+      const compactHtml = withBodyClass(html, 'compact');
+      await page.setContent(compactHtml, {
+        waitUntil: 'domcontentloaded',
+        timeout: 0,
+      });
+    }
+  }
 
   await page.pdf({
     path: outputPath,
@@ -76,6 +96,7 @@ async function run() {
 
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
+  await page.setViewport({ width: 794, height: 1123 });
 
   let generatedCount = 0;
 
@@ -94,12 +115,14 @@ async function run() {
         fileName: 'GoonjaGandhi_resume.pdf',
         label: 'Resume',
         buildHtml: (sectionContent) => buildResumeHtml({ content: sectionContent }),
+        enforceSinglePage: true,
       },
       {
         key: 'cover_letter',
         fileName: 'GoonjaGandhi_coverLetter.pdf',
         label: 'Cover Letter',
         buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, templateName: 'coverLetter.html' }),
+        enforceSinglePage: false,
       },
       {
         key: 'motivation_letter',
@@ -107,10 +130,11 @@ async function run() {
         label: 'Motivation Letter',
         buildHtml: (sectionContent) =>
           buildLetterHtml({ content: sectionContent, templateName: 'motivationLetter.html' }),
+        enforceSinglePage: false,
       },
     ];
 
-    for (const { key, fileName, label, buildHtml } of files) {
+    for (const { key, fileName, label, buildHtml, enforceSinglePage } of files) {
       try {
         const sectionContent = getSectionContent(job, key);
         if (!sectionContent) {
@@ -125,7 +149,7 @@ async function run() {
         }
 
         const outputPath = path.join(targetDir, fileName);
-        await createPdf(page, outputPath, html);
+        await createPdf(page, outputPath, html, { enforceSinglePage });
         generatedCount += 1;
         console.log(`[OK] ${label}: ${outputPath}`);
       } catch (error) {
