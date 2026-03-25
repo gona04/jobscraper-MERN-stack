@@ -84,15 +84,22 @@ function renderProjects(projects = []) {
 
   const items = projects
     .map((project) => {
-      const title = normalizeText(project.name || project.project_name || project.title || '');
+      const title = normalizeText(project.projectName || project.name || project.project_name || project.title || '');
       const points = toBullets(project.points || project.bullets || []);
       const fallbackPoints = !points.length
         ? toParagraphs(project.description || project.summary || '').filter(Boolean)
         : [];
       const projectPoints = points.length ? points : fallbackPoints;
       if (!title && !projectPoints.length) return '';
-      return `<div class="experience">
+      const github = normalizeText(project.github_link || project.github || '');
+      const live = normalizeText(project.live_link || project.live || project.url || '');
+      const links = [];
+      if (github) links.push(`Github: ${linkifyText(github)}`);
+      if (live) links.push(`Live: ${linkifyText(live)}`);
+
+      return `<div class="project">
         ${title ? `<strong>${linkifyText(title)}</strong><br/>` : ''}
+        ${links.length ? `<p>${links.join(' | ')}</p>` : ''}
         ${renderBullets(projectPoints)}
       </div>`;
     })
@@ -100,6 +107,39 @@ function renderProjects(projects = []) {
     .join('');
 
   return items ? `<h2>PROJECTS</h2>${items}` : '';
+}
+
+function renderEducation(education = []) {
+  if (!Array.isArray(education) || !education.length) return '';
+
+  const items = education
+    .map((edu) => {
+      const degree = normalizeText(edu.degree || edu.program || edu.title || '');
+      const institution = normalizeText(edu.institution || edu.school || edu.university || '');
+      const duration = normalizeText(edu.duration || edu.date || '');
+      const details = normalizeText(edu.details || edu.description || '');
+      if (!degree && !institution && !duration && !details) return '';
+
+      return `<div class="education">
+        ${degree ? `<strong>${linkifyText(degree)}</strong><br/>` : ''}
+        ${institution ? `${linkifyText(institution)}<br/>` : ''}
+        ${duration ? `${linkifyText(duration)}<br/>` : ''}
+        ${details ? `${linkifyText(details)}` : ''}
+      </div>`;
+    })
+    .filter(Boolean)
+    .join('');
+
+  return items ? `<h2>EDUCATION</h2>${items}` : '';
+}
+
+function renderCertifications(certifications) {
+  const certList = Array.isArray(certifications)
+    ? certifications.map((item) => normalizeText(item)).filter(Boolean)
+    : toParagraphs(certifications);
+
+  if (!certList.length) return '';
+  return `<h2>CERTIFICATIONS</h2>${renderBullets(certList)}`;
 }
 
 async function buildResumeHtml({ content }) {
@@ -114,8 +154,10 @@ async function buildResumeHtml({ content }) {
     linkedin: linkifyText(contact.linkedin),
     summarySection: renderSummary(resume.summary),
     skillsSection: renderSkills(resume.skills),
-    experienceSection: renderExperience(resume.experience || []),
     projectsSection: renderProjects(resume.projects || []),
+    experienceSection: renderExperience(resume.experience || []),
+    educationSection: renderEducation(resume.education || []),
+    certificationsSection: renderCertifications(resume.certifications || resume.certification || []),
   };
 
   return applyTemplate(template, values);
