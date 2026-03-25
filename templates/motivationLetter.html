@@ -3,30 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <style>
-    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 11px; line-height: 0.5; color: #111; margin: 0; }
-    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
-    .right { text-align: right; }
-    .right p { margin: 0 0 4px; font-size: 11px; }
-    p { font-size: 11px; line-height: 0.5; margin: 0 0 10px; }
-    ul { margin: 4px 0 8px 18px; padding: 0; }
-    li { font-size: 11px; line-height: 0.5; margin-bottom: 4px; }
-    a { color: #1a56db; text-decoration: underline; }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #111;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .contact {
+      text-align: right;
+    }
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    ul {
+      margin: 4px 0 10px 16px;
+      padding: 0;
+    }
+
+    a {
+      color: #1a56db;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="left"><h1>{{name}}</h1></div>
-    <div class="right">
-      <p>{{email}}</p>
-      <p>{{phone}}</p>
+  <div class="container">
+    <div class="header">
+      <div><h1>{{name}}</h1></div>
+      <div class="contact">
+        {{email}}<br/>
+        {{phone}}
+      </div>
     </div>
-  </div>
 
-  <p>Dear Hiring Manager,</p>
-  {{paragraphs}}
-  {{highlights}}
-  <p>{{closingParagraph}}</p>
-  <p>Kind regards,<br/>Goonja Gandhi</p>
+    <p>Dear Hiring Manager,</p>
+    {{paragraphs}}
+    {{highlights}}
+    <p>{{closingParagraph}}</p>
+    <p>Kind regards,<br/>Goonja Gandhi</p>
+  </div>
 </body>
 </html>

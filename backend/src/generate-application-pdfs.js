@@ -1,4 +1,5 @@
 const fs = require('fs/promises');
+const fsSync = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const { buildResumeHtml } = require('./pdf-generators/resumePdf');
@@ -19,10 +20,6 @@ function sanitizeCompany(companyName) {
   return sanitize(baseName || 'unknown-company');
 }
 
-function sanitizeRole(role) {
-  return sanitize(role || 'unknown-role');
-}
-
 function getSectionContent(job, key) {
   const value = job?.[key];
   if (!value) return null;
@@ -33,8 +30,24 @@ function getSectionContent(job, key) {
   return value;
 }
 
+function getUniqueTargetDir(basePath) {
+  let folderPath = basePath;
+  let counter = 2;
+
+  while (fsSync.existsSync(folderPath)) {
+    folderPath = `${basePath}-${counter}`;
+    counter += 1;
+  }
+
+  return folderPath;
+}
+
 async function createPdf(page, outputPath, html) {
-  await page.setContent(html, { waitUntil: 'networkidle0' });
+  await page.setContent(html, {
+    waitUntil: 'domcontentloaded',
+    timeout: 0,
+  });
+
   await page.pdf({
     path: outputPath,
     format: 'A4',
@@ -68,9 +81,11 @@ async function run() {
 
   for (const [index, job] of jobs.entries()) {
     const companyDir = sanitizeCompany(job.company_name || job.companyName || 'unknown-company');
-    const roleDir = sanitizeRole(job.jobTitle || job.role || 'unknown-role');
+    const role = job.job_title || 'unknown-role';
+    const roleDir = sanitize(role);
 
-    const targetDir = path.join(OUTPUT_BASE_DIR, today, companyDir, roleDir);
+    const baseDir = path.join(OUTPUT_BASE_DIR, today, companyDir, roleDir);
+    const targetDir = getUniqueTargetDir(baseDir);
     await fs.mkdir(targetDir, { recursive: true });
 
     const files = [
@@ -108,15 +123,13 @@ async function run() {
           console.warn(`[SKIP] Job #${index + 1} (${companyDir}/${roleDir}) empty ${label}`);
           continue;
         }
-        const outputPath = path.join(targetDir, fileName);
 
+        const outputPath = path.join(targetDir, fileName);
         await createPdf(page, outputPath, html);
         generatedCount += 1;
         console.log(`[OK] ${label}: ${outputPath}`);
       } catch (error) {
-        console.error(
-          `[ERROR] Job #${index + 1} (${companyDir}/${roleDir}) failed ${label}: ${error.message}`
-        );
+        console.error(`[ERROR] Job #${index + 1} (${companyDir}/${roleDir}) failed ${label}: ${error.message}`);
       }
     }
   }

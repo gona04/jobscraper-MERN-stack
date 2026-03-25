@@ -3,38 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <style>
-    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 11px; line-height: 0.5; color: #111; margin: 0; }
-    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
-    .right { text-align: right; }
-    .right p { margin: 0 0 4px; font-size: 11px; }
-    .role-title { font-size: 11px; font-weight: 600; margin-bottom: 5px; }
-    h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; margin-top: 18px; margin-bottom: 5px; }
-    p { font-size: 11px; line-height: 0.5; margin: 0 0 10px; }
-    ul { margin: 4px 0 8px 18px; padding: 0; }
-    li { font-size: 11px; line-height: 0.5; margin-bottom: 4px; }
-    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; }
-    .exp-meta { font-size: 10px; color: #555; text-align: right; }
-    .experience { margin-bottom: 12px; }
-    a { color: #1a56db; text-decoration: underline; }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #111;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    .contact {
+      text-align: right;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 13px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    .experience {
+      margin-bottom: 10px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .exp-meta {
+      text-align: right;
+      font-size: 10.5px;
+    }
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    ul {
+      margin: 4px 0 10px 16px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 2px;
+    }
+
+    a {
+      color: #1a56db;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <div class="left"><h1>{{name}}</h1></div>
-    <div class="right">
-      <p>{{email}}</p>
-      <p>{{phone}}</p>
-      {{linksLine}}
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>{{name}}</h1>
+      </div>
+      <div class="contact">
+        {{email}}<br/>
+        {{phone}}<br/>
+        {{linkedin}}
+      </div>
     </div>
-  </div>
 
-  {{roleTitle}}
-  {{summarySection}}
-  {{skillsSection}}
-  {{experienceSection}}
-  {{projectsSection}}
-  {{educationSection}}
-  {{certificationsSection}}
+    {{summarySection}}
+    {{skillsSection}}
+    {{experienceSection}}
+    {{projectsSection}}
+  </div>
 </body>
 </html>
