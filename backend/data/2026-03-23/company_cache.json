@@ -1,0 +1,12 @@
+{
+  "guardsquare": {
+    "status": "error",
+    "website": null,
+    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  },
+  "nord security/nordlayer": {
+    "status": "error",
+    "website": null,
+    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  }
+}
