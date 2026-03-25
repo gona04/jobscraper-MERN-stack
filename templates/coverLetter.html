@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #111;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .contact {
+      text-align: right;
+    }
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    ul {
+      margin: 4px 0 10px 16px;
+      padding: 0;
+    }
+
+    a {
+      color: #1a56db;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div><h1>{{name}}</h1></div>
+      <div class="contact">
+        {{email}}<br/>
+        {{phone}}
+      </div>
+    </div>
+
+    <p>Dear Hiring Manager,</p>
+    {{paragraphs}}
+    {{highlights}}
+    <p>{{closingParagraph}}</p>
+    <p>Kind regards,<br/>Goonja Gandhi</p>
+  </div>
+</body>
+</html>

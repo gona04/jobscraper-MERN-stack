@@ -9,7 +9,8 @@
     "merge:jobs": "node scrapping-data/merge-job-data.js",
     "jobs:pipeline": "node src/index.js",
     "jobs:enrich:company": "node scrapping-data/enrich-company-details.js",
-    "jobs:grok:pipeline": "node src/grok-job-pipeline.js"
+    "jobs:grok:pipeline": "node src/grok-job-pipeline.js",
+    "jobs:pdf:generate": "node src/generate-application-pdfs.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "openai": "^6.8.1",
     "xlsx": "^0.18.5",
     "axios": "^1.8.4",
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "puppeteer": "^24.7.1"
   }
 }
