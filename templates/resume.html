@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 11px; line-height: 0.5; color: #111; margin: 0; }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+    .right { text-align: right; }
+    .right p { margin: 0 0 4px; font-size: 11px; }
+    .role-title { font-size: 11px; font-weight: 600; margin-bottom: 5px; }
+    h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; margin-top: 18px; margin-bottom: 5px; }
+    p { font-size: 11px; line-height: 0.5; margin: 0 0 10px; }
+    ul { margin: 4px 0 8px 18px; padding: 0; }
+    li { font-size: 11px; line-height: 0.5; margin-bottom: 4px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .exp-meta { font-size: 10px; color: #555; text-align: right; }
+    .experience { margin-bottom: 12px; }
+    a { color: #1a56db; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="left"><h1>{{name}}</h1></div>
+    <div class="right">
+      <p>{{email}}</p>
+      <p>{{phone}}</p>
+      {{linksLine}}
+    </div>
+  </div>
+
+  {{roleTitle}}
+  {{summarySection}}
+  {{skillsSection}}
+  {{experienceSection}}
+  {{projectsSection}}
+  {{educationSection}}
+  {{certificationsSection}}
+</body>
+</html>

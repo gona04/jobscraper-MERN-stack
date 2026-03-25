@@ -7,58 +7,34 @@ const {
   toBullets,
   splitParagraphAndBullets,
 } = require('./contentFormatter');
+const { loadTemplate, applyTemplate } = require('./templateEngine');
 
-function buildLetterHtml({ content, css }) {
+async function buildLetterHtml({ content, templateName }) {
   const letter = typeof content === 'object' && content ? content : {};
-
-  const name = normalizeText(letter.name || 'Goonja Gandhi');
-  const email = normalizeText(letter.email || 'gandhi.goonja@gmail.com');
-  const phone = normalizePhoneValue(letter.phone || PHONE_NUMBER);
+  const template = await loadTemplate(templateName);
 
   const sourceParagraphs = toParagraphs(letter.paragraphs || letter.body || content);
   const regularParagraphs = [];
   const bulletPoints = [...toBullets(letter.highlights || [])];
 
-  for (const para of sourceParagraphs) {
-    const { paragraph, bullets } = splitParagraphAndBullets(para);
-    if (paragraph) regularParagraphs.push(paragraph);
-    if (bullets.length) bulletPoints.push(...bullets);
+  for (const paragraph of sourceParagraphs) {
+    const split = splitParagraphAndBullets(paragraph);
+    if (split.paragraph) regularParagraphs.push(split.paragraph);
+    if (split.bullets.length) bulletPoints.push(...split.bullets);
   }
 
-  const greeting = 'Dear Hiring Manager,';
+  const values = {
+    name: linkifyText(letter.name || 'Goonja Gandhi'),
+    email: linkifyText(letter.email || 'gandhi.goonja@gmail.com'),
+    phone: normalizePhoneValue(letter.phone || PHONE_NUMBER),
+    paragraphs: regularParagraphs.map((item) => `<p>${linkifyText(item)}</p>`).join(''),
+    highlights: bulletPoints.length
+      ? `<ul>${bulletPoints.map((item) => `<li>${linkifyText(item)}</li>`).join('')}</ul>`
+      : '',
+    closingParagraph: linkifyText(normalizeText(letter.closing || 'Thank you for considering my application.')),
+  };
 
-  return `<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <style>${css}</style>
-</head>
-<body>
-  <main class="page letter-page">
-    <header class="header top-header">
-      <div>
-        <h1 class="person-name">${linkifyText(name)}</h1>
-      </div>
-      <div class="contact letter-contact">
-        <div class="contact-line">${linkifyText(email)}</div>
-        <div class="contact-line">${phone}</div>
-      </div>
-    </header>
-
-    <p class="greeting">${greeting}</p>
-
-    ${regularParagraphs.map((paragraph) => `<p>${linkifyText(paragraph)}</p>`).join('')}
-
-    ${
-      bulletPoints.length
-        ? `<ul>${bulletPoints.map((point) => `<li>${linkifyText(point)}</li>`).join('')}</ul>`
-        : ''
-    }
-
-    <p class="closing">Kind regards,<br/><strong>Goonja Gandhi</strong></p>
-  </main>
-</body>
-</html>`;
+  return applyTemplate(template, values);
 }
 
 module.exports = {

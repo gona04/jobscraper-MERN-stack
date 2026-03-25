@@ -5,7 +5,6 @@ const { buildResumeHtml } = require('./pdf-generators/resumePdf');
 const { buildLetterHtml } = require('./pdf-generators/letterPdf');
 
 const OUTPUT_BASE_DIR = '/Users/workgoonja/Downloads/Resumes/automated';
-const TEMPLATE_CSS_PATH = path.resolve(__dirname, './pdf-template.css');
 
 function sanitize(str) {
   return String(str || '')
@@ -35,7 +34,7 @@ function getSectionContent(job, key) {
 }
 
 async function createPdf(page, outputPath, html) {
-  await page.setContent(html, { waitUntil: 'domcontentloaded' });
+  await page.setContent(html, { waitUntil: 'networkidle0' });
   await page.pdf({
     path: outputPath,
     format: 'A4',
@@ -62,7 +61,6 @@ async function run() {
     throw new Error('Input file must contain an array of job objects.');
   }
 
-  const css = await fs.readFile(TEMPLATE_CSS_PATH, 'utf8');
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
@@ -80,19 +78,20 @@ async function run() {
         key: 'resume',
         fileName: 'GoonjaGandhi_resume.pdf',
         label: 'Resume',
-        buildHtml: (sectionContent) => buildResumeHtml({ content: sectionContent, css }),
+        buildHtml: (sectionContent) => buildResumeHtml({ content: sectionContent }),
       },
       {
         key: 'cover_letter',
         fileName: 'GoonjaGandhi_coverLetter.pdf',
         label: 'Cover Letter',
-        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, css }),
+        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, templateName: 'coverLetter.html' }),
       },
       {
         key: 'motivation_letter',
         fileName: 'GoonjaGandhi_motivationLetter.pdf',
         label: 'Motivation Letter',
-        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, css }),
+        buildHtml: (sectionContent) =>
+          buildLetterHtml({ content: sectionContent, templateName: 'motivationLetter.html' }),
       },
     ];
 
@@ -104,7 +103,7 @@ async function run() {
           continue;
         }
 
-        const html = buildHtml(sectionContent);
+        const html = await buildHtml(sectionContent);
         if (!html || !html.trim()) {
           console.warn(`[SKIP] Job #${index + 1} (${companyDir}/${roleDir}) empty ${label}`);
           continue;
