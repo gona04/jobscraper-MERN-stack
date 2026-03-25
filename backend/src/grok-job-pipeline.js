@@ -15,6 +15,16 @@ const { TESTING_SYSTEM_PROMPT, getTestingPrompt } = require('./prompt/testingPro
 
 const DELAY_BETWEEN_REQUESTS = 1500;
 const TEXT_LIMIT = 5000;
+const XAI_TIMEOUT_MS = 60000;
+const XAI_MAX_RETRIES = 3;
+const RETRYABLE_HTTP_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
+const RETRYABLE_ERROR_CODES = new Set([
+  'ECONNABORTED',
+  'ECONNRESET',
+  'ENOTFOUND',
+  'EAI_AGAIN',
+  'ETIMEDOUT'
+]);
 const BLACKLIST_DOMAINS = [
   'linkedin.com',
   'facebook.com',
@@ -199,34 +209,52 @@ async function getCompanyDetails(companyName) {
 }
 
 async function xAI_API(systemPrompt, userPrompt) {
-  try {
-    const response = await safeRequest('https://api.x.ai/v1/chat/completions', 'post', {
-      headers: {
-        Authorization: `Bearer ${process.env.GROK_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      data: {
-        model: 'grok-4-1-fast-reasoning',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt }
-        ]
+  for (let attempt = 1; attempt <= XAI_MAX_RETRIES; attempt += 1) {
+    try {
+      const response = await safeRequest('https://api.x.ai/v1/chat/completions', 'post', {
+        timeout: XAI_TIMEOUT_MS,
+        headers: {
+          Authorization: `Bearer ${process.env.GROK_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        data: {
+          model: 'grok-4-1-fast-reasoning',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt }
+          ]
+        }
+      });
+
+      if (response.status !== 200) {
+        return JSON.stringify({ error: `Unexpected status: ${response.status}` });
       }
-    });
 
-    if (response.status !== 200) {
-      return JSON.stringify({ error: `Unexpected status: ${response.status}` });
+      const content = response?.data?.choices?.[0]?.message?.content;
+      if (typeof content !== 'string') {
+        return JSON.stringify({ error: 'Malformed response: missing choices[0].message.content' });
+      }
+
+      return content;
+    } catch (error) {
+      const statusMatch = error.message.match(/\(status (\d+)\)/);
+      const status = statusMatch ? Number(statusMatch[1]) : null;
+      const isRetryableStatus = status !== null && RETRYABLE_HTTP_STATUS.has(status);
+      const isRetryableCode = RETRYABLE_ERROR_CODES.has(error.code);
+      const isTimedOut = error.message.includes('timeout');
+      const shouldRetry = attempt < XAI_MAX_RETRIES && (isRetryableStatus || isRetryableCode || isTimedOut);
+
+      if (!shouldRetry) {
+        return JSON.stringify({ error: error.message });
+      }
+
+      const backoffMs = Math.min(2000 * 2 ** (attempt - 1), 10000);
+      log(`xAI request failed (attempt ${attempt}/${XAI_MAX_RETRIES}): ${error.message}. Retrying in ${backoffMs}ms.`);
+      await delay(backoffMs);
     }
-
-    const content = response?.data?.choices?.[0]?.message?.content;
-    if (typeof content !== 'string') {
-      return JSON.stringify({ error: 'Malformed response: missing choices[0].message.content' });
-    }
-
-    return content;
-  } catch (error) {
-    return JSON.stringify({ error: error.message });
   }
+
+  return JSON.stringify({ error: 'xAI request failed after retries.' });
 }
 
 function safeParseJSON(str) {
@@ -285,7 +313,7 @@ async function processJob(job, cache) {
   const resumeParsed = safeParseJSON(resumeRaw);
 
   let motivationLetterParsed = null;
-  if (isEU && companyDetails) {
+  if (isEU && companyStatus === 'success' && companyDetails) {
     const motivationRaw = await callGrok(
       MOTIVATION_LETTER_SYSTEM_PROMPT,
       getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, companyDetails, RESUME)
