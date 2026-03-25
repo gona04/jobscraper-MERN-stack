@@ -15,8 +15,8 @@ function sanitize(str) {
     .replace(/^-|-$/g, '');
 }
 
-function sanitizeCompany(companyName) {
-  const baseName = String(companyName || '').split('/')[0];
+function sanitizeCompany(company_name) {
+  const baseName = String(company_name || '').split('/')[0];
   return sanitize(baseName || 'unknown-company');
 }
 
@@ -101,7 +101,7 @@ async function run() {
   let generatedCount = 0;
 
   for (const [index, job] of jobs.entries()) {
-    const companyDir = sanitizeCompany(job.company_name || job.companyName || 'unknown-company');
+    const companyDir = sanitizeCompany(job.company_name || job.company_name || 'unknown-company');
     const role = job.job_title || 'unknown-role';
     const roleDir = sanitize(role);
 

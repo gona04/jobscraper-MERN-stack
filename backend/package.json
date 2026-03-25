@@ -7,7 +7,7 @@
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
     "merge:jobs": "node scrapping-data/merge-job-data.js",
-    "jobs:pipeline": "node src/index.js",
+    "jobs:pipeline": "node src/grok-job-pipeline.js && node src/generate-application-pdfs.js",
     "jobs:enrich:company": "node scrapping-data/enrich-company-details.js",
     "jobs:grok:pipeline": "node src/grok-job-pipeline.js",
     "jobs:pdf:generate": "node src/generate-application-pdfs.js"
@@ -17,16 +17,16 @@
   "license": "ISC",
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.1",
-    "chromedriver": "^146.0.5",
-    "express": "^5.2.1",
-    "playwright": "^1.58.2",
-    "selenium-webdriver": "^4.41.0",
-    "dotenv": "^16.6.1",
-    "fs-extra": "^11.3.2",
-    "openai": "^6.8.1",
-    "xlsx": "^0.18.5",
     "axios": "^1.8.4",
     "cheerio": "^1.0.0",
-    "puppeteer": "^24.7.1"
+    "chromedriver": "^146.0.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "fs-extra": "^11.3.2",
+    "openai": "^6.8.1",
+    "playwright": "^1.58.2",
+    "puppeteer": "^24.7.1",
+    "selenium-webdriver": "^4.41.0",
+    "xlsx": "^0.18.5"
   }
 }

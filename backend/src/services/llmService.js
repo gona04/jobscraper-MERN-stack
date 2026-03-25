@@ -1,3 +1,4 @@
+require('dotenv').config();
 const OpenAI = require('openai');
 
 const MODEL = 'gpt-4o-mini';

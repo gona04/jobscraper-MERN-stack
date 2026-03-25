@@ -71,7 +71,7 @@ async function writeExcelFile(outputPath, jobs) {
     Srno: index + 1,
     'Application Date': formatDateDisplay(job?.applicationDate),
     'Country Name': job?.countryName ?? job?.country ?? '',
-    'Company Name': job?.company_name ?? job?.companyName ?? job?.company ?? '',
+    'Company Name': job?.company_name ?? job?.company_name ?? job?.company ?? '',
     'Recruiter Email & Phone': toRecruiterContact(job),
     'Job Title': job?.jobTitle ?? '',
     'Job Portal/Company Website/Link': job?.job_link ?? '',

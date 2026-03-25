@@ -34,17 +34,17 @@ test('transformCustomJobs supports JSON entry arrays', () => {
   assert.equal(jobs[1].title, 'Backend Developer');
 });
 
-test('transformCustomJobs infers companyName from text and link patterns', () => {
+test('transformCustomJobs infers company_name from text and link patterns', () => {
   const jobs = transformCustomJobs([
     `Senior Frontend Engineer at Example Labs\nRemote role\nhttps://example.com/jobs/123`,
     `Front-End Engineer role\nhttps://meetfrank.com/jobs/guardsquare/frontend-engineer-reacttypescript`
   ]);
 
   assert.equal(jobs.length, 2);
-  assert.equal(jobs[0].companyName, 'Example Labs');
-  assert.equal(jobs[0].details.companyName, 'Example Labs');
-  assert.equal(jobs[1].companyName, 'Guardsquare');
-  assert.equal(jobs[1].details.companyName, 'Guardsquare');
+  assert.equal(jobs[0].company_name, 'Example Labs');
+  assert.equal(jobs[0].details.company_name, 'Example Labs');
+  assert.equal(jobs[1].company_name, 'Guardsquare');
+  assert.equal(jobs[1].details.company_name, 'Guardsquare');
 });
 
 test('transformCustomJobs keeps array entries with blank lines together', () => {

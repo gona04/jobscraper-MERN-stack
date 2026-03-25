@@ -35,7 +35,8 @@ const BLACKLIST_DOMAINS = [
   'indeed.com'
 ];
 
-const INPUT_FILE = path.resolve(__dirname, '../data/2026-03-23/enriched_job_details.json');
+const TODAY = new Date().toISOString().slice(0, 10);
+const INPUT_FILE = path.resolve(__dirname, `../data/${TODAY}/enriched_job_details.json`);
 const CACHE_FILE = path.resolve(__dirname, '../data/2026-03-23/company_cache.json');
 
 const RESUME = `Goonja Gandhi
@@ -162,14 +163,14 @@ async function safeRequest(url, method, options = {}) {
   }
 }
 
-async function searchCompanyWebsite(companyName) {
+async function searchCompanyWebsite(company_name) {
   const response = await safeRequest('https://google.serper.dev/search', 'post', {
     headers: {
       'X-API-KEY': process.env.SERPER_API_KEY,
       'Content-Type': 'application/json'
     },
     data: {
-      q: `${companyName} official website`,
+      q: `${company_name} official website`,
       num: 5
     }
   });
@@ -194,9 +195,9 @@ async function scrapeSiteText(url) {
   return text.slice(0, TEXT_LIMIT);
 }
 
-async function getCompanyDetails(companyName) {
+async function getCompanyDetails(company_name) {
   try {
-    const website = await searchCompanyWebsite(companyName);
+    const website = await searchCompanyWebsite(company_name);
     if (!website) {
       return { status: 'not_found', website: null, details: null };
     }
@@ -277,7 +278,7 @@ async function callGrok(systemPrompt, userPrompt) {
 }
 
 async function processJob(job, cache) {
-  const rawCompany = job.companyName;
+  const rawCompany = job.company_name;
   const company = normalizeCompanyName(rawCompany);
 
   let companyDetails = null;
@@ -354,16 +355,16 @@ async function main() {
 
   for (let i = 0; i < jobs.length; i += 1) {
     const job = jobs[i];
-    log(`[${i + 1}/${jobs.length}] Processing → ${job.companyName || 'unknown'}`);
+    log(`[${i + 1}/${jobs.length}] Processing → ${job.company_name || 'unknown'}`);
 
     try {
       const processed = await processJob(job, cache);
       results.push(processed);
     } catch (error) {
-      log(`Error processing ${job.companyName || 'unknown'}: ${error.message}`);
+      log(`Error processing ${job.company_name || 'unknown'}: ${error.message}`);
       results.push({
         summary: '',
-        company_name: job.companyName || '',
+        company_name: job.company_name || '',
         job_title: job.jobTitle || '',
         cover_letter: {},
         resume: {},

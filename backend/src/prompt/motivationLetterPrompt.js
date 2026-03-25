@@ -116,7 +116,7 @@ TONE & STYLE
 • One or two sentences that feel genuinely observational about the company —
   the kind of thing only someone who actually thought about them would write`;
 
-function getMotivationLetterPrompt(companyName, jobTitle, location, companyInsights, resume) {
+function getMotivationLetterPrompt(company_name, jobTitle, location, companyInsights, resume) {
   const prompt = `
 Write a one-page European-style motivation letter for the following application.
 
@@ -124,7 +124,7 @@ Write a one-page European-style motivation letter for the following application.
 APPLICATION DETAILS
 ═══════════════════════════════════════
 
-Company:          ${companyName}
+Company:          ${company_name}
 Role:             ${jobTitle}
 Location:         ${location}
 

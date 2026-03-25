@@ -21,7 +21,7 @@ return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${St
 function normalizeJob(job) {
 return {
 ...job,
-companyName: job.companyName || job.company_name || '',
+company_name: job.company_name || job.company_name || '',
 };
 }
 
@@ -162,7 +162,7 @@ dateFolder = getDateFolderName();
 }
 
 const dataDir = path.join(__dirname, '..', 'data', dateFolder);
-const inputPath = path.join(dataDir, 'all_job_details.json');
+const inputPath = path.join(dataDir, 'enriched_job_details.json');
 const outputPath = path.join(dataDir, 'enriched_job_details.json');
 const cachePath = path.join(__dirname, '..', 'data', CACHE_FILENAME);
 
@@ -182,7 +182,7 @@ for (let i = 0; i < jobs.length; i++) {
 
   console.log("🔍", job.jobTitle || "Unknown");
 
-  const company = job.companyName;
+  const company = job.company_name;
 
   if (!company) {
     results.push({

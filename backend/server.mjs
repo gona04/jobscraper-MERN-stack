@@ -1,11 +1,21 @@
 import express from 'express';
+import { mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 import { registerProcessErrorHandlers } from './src/config/errorHandlers.mjs';
+
+const require = createRequire(import.meta.url);
+const { generateJobDetails } = require('./src/services/llmService.js');
+const { writeExcelFile } = require('./src/utils/excelWriter.js'); // ← adjust path if different
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3001;
 
 registerProcessErrorHandlers();
-
 app.use(express.json());
 
 app.get('/', (_req, res) => {
@@ -14,18 +24,87 @@ app.get('/', (_req, res) => {
 
 app.post('/jobs', async (req, res) => {
   try {
-    const jobs = req.body;
+    const body = req.body;
 
-    if (!jobs || !Array.isArray(jobs)) {
-      return res.status(400).json({ error: 'Invalid jobs input' });
+    const raw = Array.isArray(body)
+      ? body
+      : Array.isArray(body?.entries)
+        ? body.entries
+        : null;
+
+    if (!raw || !raw.length) {
+      return res.status(400).json({ error: 'Send { entries: [...] } or a plain array' });
     }
 
-    console.log('📥 Received jobs:', jobs.length);
+    const blocks = raw
+      .map((item) => (typeof item === 'string' ? item : item?.content))
+      .filter(Boolean);
 
-    // TODO: trigger pipeline here
-    // await runPipeline(jobs);
+    console.log(`📥 Received ${blocks.length} entries — extracting with GPT...`);
 
-    return res.json({ success: true });
+    const allJobs = [];
+
+    for (const [i, block] of blocks.entries()) {
+      try {
+        console.log(`🔍 Extracting job ${i + 1}/${blocks.length}...`);
+
+        const gptRaw = await generateJobDetails(block);
+        console.log(`🤖 GPT raw response:`, gptRaw);
+
+        const clean = gptRaw.replace(/```json/gi, '').replace(/```/g, '').trim();
+        const parsed = JSON.parse(clean);
+
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const mapped = parsed.map((job) => ({
+            companyName: job.company_name || '',
+            company_name: job.company_name || '',
+            jobTitle: job.jobTitle || '',
+            jobLink: job.job_link || '',
+            job_link: job.job_link || '',
+            location: '',
+            isEURegion: job.isEURegion || 'no',
+            visa_sponsorship: job.visa_sponsorship || 'Unknown',
+            only_english: job.only_english ?? null,
+            skillsRequired: job.skillsRequired || [],
+            rolesAndResponsibilities: job.rolesAndResponsibilities || '',
+            jobDescription: job.rolesAndResponsibilities || ''
+          }));
+          allJobs.push(...mapped);
+          console.log(`✅ Job ${i + 1} extracted: ${mapped[0]?.company_name} — ${mapped[0]?.jobTitle}`);
+        } else {
+          console.log(`⚠️  Job ${i + 1} skipped — GPT returned empty`);
+        }
+      } catch (err) {
+        console.error(`❌ GPT extraction failed for job ${i + 1}:`, err.message);
+      }
+    }
+
+    if (!allJobs.length) {
+      return res.status(422).json({ error: 'No jobs could be extracted from provided entries' });
+    }
+
+    const today = new Date().toISOString().slice(0, 10);
+    const dataDir = path.resolve(__dirname, `data/${today}`);
+    const jsonOutputPath = path.resolve(dataDir, 'enriched_job_details.json');
+    const excelOutputPath = path.resolve(dataDir, 'jobs.xlsx');
+
+    // ── Save JSON ──
+    await mkdir(dataDir, { recursive: true });
+    await writeFile(jsonOutputPath, JSON.stringify(allJobs, null, 2));
+    console.log(`✅ Saved JSON → ${jsonOutputPath}`);
+
+    // ── Save Excel immediately after ──
+    await writeExcelFile(excelOutputPath, allJobs);
+    console.log(`✅ Saved Excel → ${excelOutputPath}`);
+
+    return res.json({
+      success: true,
+      count: allJobs.length,
+      savedPath: jsonOutputPath,
+      excelPath: excelOutputPath,
+      jobs: allJobs
+    });
+
   } catch (err) {
     console.error('❌ Error:', err.message);
     return res.status(500).json({ error: err.message });
