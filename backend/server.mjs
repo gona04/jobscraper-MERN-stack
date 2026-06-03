@@ -36,19 +36,23 @@ app.post('/jobs', async (req, res) => {
       return res.status(400).json({ error: 'Send { entries: [...] } or a plain array' });
     }
 
-    const blocks = raw
-      .map((item) => (typeof item === 'string' ? item : item?.content))
-      .filter(Boolean);
-
-    console.log(`📥 Received ${blocks.length} entries — extracting with GPT...`);
+    console.log(`📥 Received ${raw.length} entries — extracting with GPT...`);
 
     const allJobs = [];
 
-    for (const [i, block] of blocks.entries()) {
+    for (const [i, item] of raw.entries()) {
       try {
-        console.log(`🔍 Extracting job ${i + 1}/${blocks.length}...`);
+        const content = typeof item === 'string' ? item : item?.content;
+        const overrideCompanyName = item?.company_name || null;
 
-        const gptRaw = await generateJobDetails(block);
+        if (!content) {
+          console.log(`⚠️  Job ${i + 1} skipped — no content`);
+          continue;
+        }
+
+        console.log(`🔍 Extracting job ${i + 1}/${raw.length}...`);
+
+        const gptRaw = await generateJobDetails(content);
         console.log(`🤖 GPT raw response:`, gptRaw);
 
         const clean = gptRaw.replace(/```json/gi, '').replace(/```/g, '').trim();
@@ -56,10 +60,8 @@ app.post('/jobs', async (req, res) => {
 
         if (Array.isArray(parsed) && parsed.length > 0) {
           const mapped = parsed.map((job) => ({
-            companyName: job.company_name || '',
-            company_name: job.company_name || '',
+            company_name: overrideCompanyName || job.company_name || '',
             jobTitle: job.jobTitle || '',
-            jobLink: job.job_link || '',
             job_link: job.job_link || '',
             location: '',
             isEURegion: job.isEURegion || 'no',

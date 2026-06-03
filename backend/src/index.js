@@ -66,36 +66,70 @@ const XAI_TIMEOUT_MS = 60000;
 const TEXT_LIMIT = 5000;
 
 const RESUME_SOURCE_OF_TRUTH = `Goonja Gandhi
-+91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • https://github.com/gona04
-Senior Frontend Engineer (React, TypeScript, Performance & Systems)
-Frontend Engineer with ~5 years of experience building high-performance, scalable web applications
-using React and TypeScript. Specializes in performance optimization, frontend architecture, and system
-design, with a proven track record of reducing load times, improving API efficiency, and delivering
-maintainable UI systems. Experienced working in cross-functional teams and owning features end-to-end,
-from architecture to deployment.
+Mumbai• +91 7718961340• gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi•
+https://github.com/gona04
+Senior Frontend Developer
+Frontend Engineer with around 5 years of experience building scalable web applications using React, Next.js,
+TypeScript, and GraphQL. Skilled in frontend architecture, performance optimization, AI integrations, and
+modern Next.js rendering paradigms including App Router, SSR, SSG, ISR, and React Server Components.
+Experienced in delivering accessible, high-performance enterprise applications.
 SKILLS
-Frontend: CSS3, HTML5, JavaScript (ES6+), React, SCSS, Tailwind, TypeScript
+Frontend: CSS3, HTML5, JavaScript ( ES6+
+) , Next. js, React. js, SCSS, Tailwind CSS, TypeScript
+Next.js & Rendering: Client Components, Dynamic Routing, ISR, Nested Layouts, Next. js App Router, React
+Server Components, Route Groups, SEO Optimization, SSG, SSR
 State Management: Context API, Redux, RxJS
-Backend: Express, Node.js, REST APIs
-Systems & Performance: API optimization, bundle analysis, caching strategies, code splitting
-AI Integration: FAISS, LangChain, LLM integrations, RAG systems
-Tools: AWS, CI/CD (Jenkins), Firebase, Git, Netlify, Railway
-Testing: Jest, unit testing
-Other: Accessibility (WCAG), Agile, system design fundamentals
+Backend & APIs: Apollo Client, Express. js, GraphQL, Node. js, REST APIs
+Performance & Architecture: API Optimization, Bundle Optimization, Caching Strategies, Code Splitting,
+Frontend Architecture, Lazy Loading, System Design
+AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic
+Search
+Cloud & DevOps: AWS, CI/ CD, Firebase, Jenkins, Netlify, Railway
+Testing & Development: Accessibility ( WCAG) , Agile Methodologies, Git, Jest, Unit Testing
 PROJECTS
-NewsAlign — AI-Powered Fact Verification System (Full Stack)
-• Designed and built a full-stack system using React, Node.js, and PostgreSQL (AWS RDS)
-• Reduced frontend bundle size from 941KB to <300KB using code splitting and optimization techniques
-• Improved system performance (Lighthouse score: 73 to 95) by eliminating redundant API calls and optimizing auth flow
-• Built a RAG-based pipeline using FAISS, semantic search, and LLM reasoning
-• Replaced runtime scraping with scheduled pipelines, significantly improving response latency
-• Implemented backend safeguards: JWT authentication, rate limiting, and usage tracking
-• Achieved ~84% test coverage using Jest
+NewsAlign — AI-Powered Fact Verification System
+• Reduced bundle size from 941KB to under 300KB using code splitting and frontend optimization
+techniques
+• Improved Lighthouse score from 73 to 95 through rendering optimization and performance tuning
+• Developed RAG pipelines using semantic search, FAISS, LangChain, NLP, Hugging Face, and LLM
+integrations
+• Implemented JWT authentication, API caching, rate limiting, and secure backend workflows
+• Achieved approximately 84% unit test coverage using Jest
+Custom Reactive JavaScript Engine
+• Built a lightweight reactive state management engine inspired by React’s useState internals
+• Demonstrated deep understanding of rendering cycles, reactivity systems, and JavaScript object
+handling
+reactli-c — React CLI Tool
+• Created a CLI tool for generating reusable React component boilerplate
+• Improved developer productivity with zero runtime dependencies
 WORK EXPERIENCE
-Datapret | 01/2024 - 03/2024 | MERN Stack Developer
-Tata Consultancy Services | 01/2019 - 04/2023 | Senior Frontend Developer
+Datapret 01/2024 - 03/2024
+MERN Stack Developer
+• Developed an accessibility-focused complaint resolution platform using React, Redux, TypeScript, and
+Node.js
+• Improved WCAG compliance by 30%, enhancing usability and inclusivity across user workflows
+• Integrated REST APIs and optimized frontend rendering performance and data handling
+• Collaborated with cross-functional Agile teams to accelerate delivery cycles and reduce rework
+Tata Consultancy Services (TCS) 01/2019 - 04/2023
+Senior Frontend Developer
+• Led a team of 5 developers and drove frontend architecture decisions using React and TypeScript
+• Built scalable enterprise applications using React, Next.js, Redux, and REST APIs
+• Implemented Next.js App Router architecture with nested layouts, dynamic routing, middleware, and
+route groups
+• Worked with rendering strategies including SSR, SSG, ISR, and React Server Components for SEO and
+performance optimization
+• Reduced API calls by 40% using RxJS and optimized complex state management workflows
+• Improved application performance through code splitting, lazy loading, caching strategies, and bundle
+optimization
+• Collaborated with backend teams using Spring Boot, REST APIs, and GraphQL to improve API efficiency
+and frontend integration
+• Conducted code reviews, mentored developers, and enforced SOLID principles and clean architecture
+standards
+• Developed accessibility-compliant, responsive, and cross-browser compatible UI systems following
+WCAG standards
 EDUCATION
-Mobile Applications Development, Cambrian College (GPA: 3.8)
+Mobile Applications Development
+Cambrian College • GPA: 3.8 Canada • 01/2023 - 01/2024
 CERTIFICATIONS
 Generative AI: Large Language Models
 AI Engineering: RAG (LangChain, FAISS, Hugging Face)

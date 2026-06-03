@@ -15,7 +15,9 @@ Audit the resume using STRICT professional standards:
 4. Identify seniority mismatches (overstated or understated)
 5. Identify ATS weaknesses or formatting risks
 6. Use <b>bold tags</b> for key impact, technologies, and results
-7. Provide realistic scoring:
+7. Next.js will ONLY come in SKILLS AND TRAINING I DO NOT HAVE EXPEREINCE IN IT SO DO NOT ADD IT IN ANY PROJECT OR ANYWHERE EXCEPT IN SKILLS
+8. IF DATES ARE MENTIONED BESIDES THE PROJECT LET THEM BE THERE DO NOT CHANGE THAT 
+9. Provide realistic scoring:
 
    • Honesty Score (1–10)
    • Alignment Score (1–10)
@@ -164,6 +166,8 @@ function getResumePrompt(oldResume, job, analysis) {
               • Ensure at least 40% measurable impact bullets
               • End summary with: Open to Relocate
               • Output ONLY valid JSON
+              • ALWAYS ADD THE DATE OF CAMBRIAN COLLEGE EDUCATION MAY 2023 - MARCH 2024
+              • ALWAYS WRITE COOP IN FRONT OF DATAPRET EG DATAPRET (COOP)
           `;
   return prompt;
 }

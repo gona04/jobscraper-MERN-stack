@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text → JSON Converter</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0f;
+    --surface: #141416;
+    --surface2: #1c1c20;
+    --border: #2a2a30;
+    --accent: #e8ff47;
+    --accent2: #47ffe8;
+    --text: #f0f0f0;
+    --muted: #666672;
+    --success: #47ff8a;
+    --error: #ff4747;
+  }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+  }
+
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .glow {
+    position: fixed; top: -200px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header {
+    margin-bottom: 48px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    border: 1px solid rgba(232,255,71,0.3);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .editor-area {
+    display: grid;
+    gap: 16px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .panel:focus-within {
+    border-color: rgba(232,255,71,0.4);
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .panel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .panel-label span {
+    color: var(--accent2);
+    margin-right: 6px;
+  }
+
+  .char-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 220px;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: vertical;
+    padding: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    caret-color: var(--accent);
+  }
+
+  textarea::placeholder { color: #3a3a44; }
+
+  /* Actions bar */
+  .actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 12px 22px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0d0d0f;
+  }
+  .btn-primary:hover { background: #f5ff6e; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(232,255,71,0.25); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  .btn svg { flex-shrink: 0; }
+
+  /* Output panel */
+  .output-panel {
+    display: none;
+    animation: fadeUp 0.35s ease both;
+  }
+
+  .output-panel.visible { display: block; }
+
+  .output-code {
+    padding: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: #c8c8d4;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .output-code .key { color: var(--accent2); }
+  .output-code .string-value { color: #c8ff9a; }
+  .output-code .brace { color: var(--muted); }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(8px);
+    background: var(--success); color: #0d0d0f;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px;
+    padding: 10px 20px; border-radius: 4px;
+    opacity: 0; pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 100;
+    white-space: nowrap;
+  }
+
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Stats row */
+  .stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--surface2);
+  }
+
+  .stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .stat strong {
+    color: var(--accent);
+    margin-left: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="glow"></div>
+
+<div class="container">
+  <header>
+    <div class="badge">⚡ utility tool</div>
+    <h1>Text <span>→</span> JSON</h1>
+    <p class="subtitle">Paste multiline text. Get a clean single-line JSON object.</p>
+  </header>
+
+  <div class="editor-area">
+    <!-- Input -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-label"><span>01</span> Input Text</div>
+        <div class="char-count" id="inputCount">0 chars</div>
+      </div>
+      <textarea
+        id="inputText"
+        placeholder="Paste your multiline text here…"
+        spellcheck="false"
+      ></textarea>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn btn-primary" onclick="convert()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        Convert to JSON
+      </button>
+      <button class="btn btn-secondary" onclick="copyJSON()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy JSON
+      </button>
+      <button class="btn btn-ghost" onclick="clearAll()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+        Clear
+      </button>
+    </div>
+
+    <!-- Output -->
+    <div class="panel output-panel" id="outputPanel">
+      <div class="panel-header">
+        <div class="panel-label"><span>02</span> JSON Output</div>
+        <div class="char-count" id="outputCount">0 chars</div>
+      </div>
+      <div class="output-code" id="outputCode"></div>
+      <div class="stats" id="statsRow"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ Copied to clipboard!</div>
+
+<script>
+  const inputEl = document.getElementById('inputText');
+  const outputPanel = document.getElementById('outputPanel');
+  const outputCode = document.getElementById('outputCode');
+  const inputCount = document.getElementById('inputCount');
+  const outputCount = document.getElementById('outputCount');
+  const statsRow = document.getElementById('statsRow');
+
+  let lastJSON = '';
+
+  inputEl.addEventListener('input', () => {
+    inputCount.textContent = inputEl.value.length.toLocaleString() + ' chars';
+  });
+
+  function convert() {
+    const raw = inputEl.value;
+    if (!raw.trim()) return;
+
+    // Collapse all whitespace/newlines into single spaces, trim
+    const oneLiner = raw
+      .replace(/\r\n|\r|\n/g, ' ')   // newlines → space
+      .replace(/\t/g, ' ')            // tabs → space
+      .replace(/ {2,}/g, ' ')         // multiple spaces → one
+      .replace(/\u00a0/g, ' ')        // non-breaking spaces
+      .trim();
+
+    const result = { content: oneLiner };
+    lastJSON = JSON.stringify(result, null, 2);
+
+    // Syntax-highlighted render
+    const escaped = escapeHTML(oneLiner);
+    outputCode.innerHTML =
+      `<span class="brace">{</span>\n  <span class="key">"content"</span>: <span class="string-value">"${escaped}"</span>\n<span class="brace">}</span>`;
+
+    outputCount.textContent = lastJSON.length.toLocaleString() + ' chars';
+
+    // Stats
+    const words = oneLiner.trim().split(/\s+/).filter(Boolean).length;
+    const lines = raw.split(/\r?\n/).filter(l => l.trim()).length;
+    statsRow.innerHTML = `
+      <div class="stat">Original lines <strong>${lines}</strong></div>
+      <div class="stat">Words <strong>${words.toLocaleString()}</strong></div>
+      <div class="stat">Content length <strong>${oneLiner.length.toLocaleString()} chars</strong></div>
+    `;
+
+    outputPanel.classList.add('visible');
+    outputPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function copyJSON() {
+    if (!lastJSON) { convert(); }
+    if (!lastJSON) return;
+    navigator.clipboard.writeText(lastJSON).then(showToast);
+  }
+
+  function clearAll() {
+    inputEl.value = '';
+    lastJSON = '';
+    outputPanel.classList.remove('visible');
+    inputCount.textContent = '0 chars';
+    inputEl.focus();
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  }
+
+  // Keyboard shortcut: Cmd/Ctrl+Enter to convert
+  inputEl.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); convert(); }
+  });
+</script>
+</body>
+</html>
