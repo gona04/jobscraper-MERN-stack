@@ -144,65 +144,10 @@
     "company_website": "https://www.builtdifferent.com",
     "company_details": "if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\\/7\\..*?rv:11/i)){let e=document.location.href;if(!e.match(/[?&]nonitro/)){if(e.indexOf(\"?\")==-1){if(e.indexOf(\"#\")==-1){document.location.href=e+\"?nonitro=1\"}else{document.location.href=e.replace(\"#\",\"?nonitro=1#\")}}else{if(e.indexOf(\"#\")==-1){document.location.href=e+\"&nonitro=1\"}else{document.location.href=e.replace(\"#\",\"&nonitro=1#\")}}}} Real Stories, Real Results. &#8212; Impossible Case Institute var NPSH,NitroScrollHelper;NPSH=NitroScrollHelper=function(){let e=null;const o=window.sessionStorage.getItem(\"nitroScrollPos\");function t(){let e=JSON.parse(window.sessionStorage.getItem(\"nitroScrollPos\"))||{};if(typeof e!==\"object\"){e={}}e[document.URL]=window.scrollY;window.sessionStorage.setItem(\"nitroScrollPos\",JSON.stringify(e))}window.addEventListener(\"scroll\",function(){if(e!==null){clearTimeout(e)}e=setTimeout(t,200)},{passive:true});let r={};r.getScrollPos=()=>{if(!o){return 0}const e=JSON.parse(o);return e[document.URL]||0};r.isScrolled=()=>{return r.getScrollPos()>document.documentElement.clientHeight*.5};return r}(); (function(){var a=false;var e=document.documentElement.classList;var i=navigator.userAgent.toLowerCase();var n=[\"android\",\"iphone\",\"ipad\"];var r=n.length;var o;var d=null;for(var t=0;t -1)d=o;if(e.contains(o)){a=true;e.remove(o)}}if(a&&d){e.add(d);if(d==\"iphone\"||d==\"ipad\"){e.add(\"ios\")}}})(); var preloadRequests=0;var remainingCount={};var baseURI=\"\";self.onmessage=function(e){switch(e.data.cmd){case\"RESOURCE_PRELOAD\":var o=e.data.requestId;remainingCount[o]=0;e.data.resources.forEach(function(e){preload(e,function(o){return function(){console.log(o+\" DONE: \"+e);if(--remainingCount[o]==0){self.postMessage({cmd:\"RESOURCE_PRELOAD\",requestId:o})}}}(o));remainingCount[o]++});break;case\"SET_BASEURI\":baseURI=e.data.uri;break}};async function preload(e,o){if(typeof URL!==\"undefined\"&&baseURI){try{var a=new URL(e,baseURI);e=a.href}catch(e){console.log(\"Worker "
   },
-  "liferaft": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "pthligreenpower": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
   "jrny": {
     "company_status": "success",
     "company_website": "https://www.jrny.com",
     "company_details": "if (!('digitalData' in window)) { var digitalData = {}; } digitalData = {\"page\":{\"pageInfo\":{\"pageName\":\"JRNY Digital Fitness Platform\",\"language\":\"en\"}},\"modal\":{},\"pause\":{},\"plan\":{},\"cancel\":{}}; function OptanonWrapper() { } --> //common/scripts.isml JRNY Digital Fitness Platform //prehiding snippet for Adobe Target with asynchronous Launch deployment (function(g,b,d,f){(function(a,c,d){if(a){var e=b.createElement(\"style\");e.id=c;e.innerHTML=d;a.appendChild(e)}})(b.getElementsByTagName(\"head\")[0],\"at-body-style\",d);setTimeout(function(){var a=b.getElementsByTagName(\"head\")[0];if(a){var c=b.getElementById(\"at-body-style\");c&&a.removeChild(c)}},f)})(window,document,\"body {opacity: 0 !important}\",3E3); *.lazy{display:none;} // */ // --> // 0) { CQuotient.cquid=split_value[0]; } if (split_value.length > 1) { CQuotient.cqeid=split_value[1]; } if (split_value.length > 2) { CQuotient.cqlid=split_value[2]; } } } } } CQuotient.getCQCookieId = function () { if(window.CQuotient.cqcid == '') window.CQuotient.initFromCookies(); return window.CQuotient.cqcid; }; CQuotient.getCQUserId = function () { if(window.CQuotient.cquid == '') window.CQuotient.initFromCookies(); return window.CQuotient.cquid; }; CQuotient.getCQHashedEmail = function () { if(window.CQuotient.cqeid == '') window.CQuotient.initFromCookies(); return window.CQuotient.cqeid; }; CQuotient.getCQHashedLogin = function () { if(window.CQuotient.cqlid == '') window.CQuotient.initFromCookies(); return window.CQuotient.cqlid; }; CQuotient.trackEventsFromAC = function (/* Object or Array */ events) { try { if (Object.prototype.toString.call(events) === \"[object Array]\") { events.forEach(_trackASingleCQEvent); } else { CQuotient._trackASingleCQEvent(events); } } catch(err) {} }; CQuotient._trackASingleCQEvent = function ( /* Object */ event) { if (event && event.id) { if (event.type === dw.ac.EV_PRD_DETAIL) { CQuotient.trackViewProduct( {id:'', alt_id: event.id, type: 'raw_sku'} ); } // not handling the other dw.ac.* e"
-  },
-  "taskify ai": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "built different": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "pt. hli green power": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "nasdaqtechnology": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "nasdaq technology": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "spotify": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "bajaj broking": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "evolutionco group | cx • design • marketing • tech • innovation": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "wissen technology": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
   },
   "restream": {
     "company_status": "success",
@@ -234,40 +179,10 @@
     "company_website": "https://www.issmarketintelligence.com",
     "company_details": "window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('consent', 'default', { 'ad_user_data': 'denied', 'ad_personalization': 'denied', 'ad_storage': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500, }); gtag('js', new Date()); gtag('config', 'G-FB0HJVZRFR'); function OptanonWrapper() { } Market Intelligence for Financial Services | ISS Market Intelligence {\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://www.issmarketintelligence.com/\",\"url\":\"https://www.issmarketintelligence.com/\",\"name\":\"Market Intelligence for Financial Services | ISS Market Intelligence\",\"isPartOf\":{\"@id\":\"https://www.issmarketintelligence.com/#website\"},\"about\":{\"@id\":\"https://www.issmarketintelligence.com/#organization\"},\"primaryImageOfPage\":{\"@id\":\"https://www.issmarketintelligence.com/#primaryimage\"},\"image\":{\"@id\":\"https://www.issmarketintelligence.com/#primaryimage\"},\"thumbnailUrl\":\"https://www.issmarketintelligence.com/wp-content/uploads/2024/01/home-mobile-hero-UPDATE-1.png\",\"datePublished\":\"2023-06-11T03:44:13+00:00\",\"dateModified\":\"2026-05-04T14:56:24+00:00\",\"description\":\"Discover powerful market intelligence solutions designed for the financial services industry—insights to drive decision-making and growth.\",\"breadcrumb\":{\"@id\":\"https://www.issmarketintelligence.com/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://www.issmarketintelligence.com/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https://www.issmarketintelligence.com/#primaryimage\",\"url\":\"https://www.issmarketintelligence.com/wp-content/uploads/2024/01/home-mobile-hero-UPDATE-1.png\",\"contentUrl\":\"https://www.issmarketintelligence.com/wp-content/uploads/2024/01/home-mobile-hero-UPDATE-1.png\",\"width\":690,\"height\":868},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://www.issmarketintelligence.com/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\"}]},{\"@type\":\"WebSite\",\"@id"
   },
-  "yo it consulting": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "ibm": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "iss market intelligence": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "bairesdev": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "bluehost": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
   "unicoconnect": {
     "company_status": "success",
     "company_website": "https://unicoconnect.com",
     "company_details": "Custom Software Development Agency | Web, Mobile &amp; AI Solutions - Unico Connect WebFont.load({ google: { families: [\"Droid Sans:400,700\",\"Bebas Neue:300,400,500,600,700\",\"Poppins:300,400,500,600,700\",\"Poppins:300,400,500,600,700\"] }}); !function(o,c){var n=c.documentElement,t=\" w-mod-\";n.className+=t+\"js\",(\"ontouchstart\"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+\"touch\")}(window,document); (function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push.apply(w[g],Array.isArray(i)?i:[i]);})(window,['G-8CT4W73JZD'],'google_tags_first_party'); window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('set', 'developer_id.dYWYxNW', true);gtag('js', new Date());gtag('config', 'G-8CT4W73JZD'); (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-TLRFG6DZ'); .list-drop:hover .arrow-div { display: block; } .dropdown-list { backdrop-filter: blur(0.5rem); } /* ---- client-overlay ---- */ .logo-holder{ transition: all .4s linear; -webkit-transition: all .4s linear; -moz-transition: all .4s linear; -o-transition: all .4s linear; } .bkack-duplicate{ height: 0px; right: 0; left:initial; width: 0px; } .logo-holder:hover .bkack-duplicate{ visibility: visible; opacity: 1; width: 100%; height: 100%; } .logo-holder:hover .bkack-duplicate { display: flex; align-items: center; color: #fff; text-decoration: none; flex-direction: column; justify-content: center; text-align: center; } @media (min-width: 992px) { html, body { overscroll-behavior-y: none; height: 100%; margin: 0; } } (function () { const origin = window.location.origin; const path = window.location.pathname .replace(/^\\/|\\/$/g, '') // remove "
-  },
-  "unico connect": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
   },
   "code": {
     "company_status": "success",
@@ -288,11 +203,6 @@
     "company_status": "success",
     "company_website": "https://www.matchmatters.com",
     "company_details": "MatchMatters.com is for sale | HugeDomains window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); /* gtag('config', 'UA-7117339-4'); */ gtag('config', 'UA-7117339-4', { 'custom_map': { 'dimension3': 'siteversion' } }); gtag('event', 'pageLoad', { 'siteversion': 'HDv3' }); Skip to main content Search for domains --> Search +1-303-893-0552 Home FAQs About us Contact us My account My favorites Shopping cart MatchMatters.com Buy now: $6,995 &#9656; Buy now Processing or &#9656; Start payment plan Processing Only $291.46/mo. for 24 months See details 30-day money back guarantee Take immediate ownership Safe and secure shopping function landerFunc3C1FF5EB2BB540B2A183E4716AC127EFFunc() { document.getElementById('landerForm3C1FF5EB2BB540B2A183E4716AC127EFCheckID').value = 42; document.getElementById('landerForm3C1FF5EB2BB540B2A183E4716AC127EFID').submit(); } MatchMatters.com This domain is for sale: $6,995 Buy now for $6,995 or pay $291.46 per month for 24 months &#9656; Buy now Processing or &#9656; Start payment plan Processing Make 24 monthly payments Pay 0% interest Start using the domain today. See details Make 24 monthly payments Pay 0% interest Start using the domain today. See details This domain is for sale: $6,995 &#9656; Buy now &#9656; Buy now --> Processing or &#9656; Start payment plan &#9656; Start payment plan --> Processing Only $291.46/mo. for 24 months See details Favorite Questions? Talk to a domain expert: 1&#8209;303&#8209;893&#8209;0552 Enjoy zero percent financing Quick delivery of the domain Safe and secure shopping Since 2005, we've helped thousands of people get the perfect domain name Since 2005, we've helped thousands of people get the perfect domain name --> K Great service! - Kofi Yeboah, April 22, 2026 Y Purchase went smooth. - Yvonne Perkins, April 21, 2026 T Huge domains is always a pleasure to deal with and the payment plan to pay off domains is absolutely exquisite. - Tony Ciccocelli"
-  },
-  "codeheads": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
   },
   "footlocker": {
     "company_status": "success",
@@ -319,36 +229,6 @@
     "company_website": null,
     "company_details": null
   },
-  "match matters": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "[code]heads": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "foot locker": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "expound technivo": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "unknown_company": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "nonstop io technologies pvt": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
   "figmentglobal": {
     "company_status": "success",
     "company_website": "https://www.figmentglobal.com",
@@ -359,75 +239,10 @@
     "company_website": "https://www.doodleblue.com",
     "company_details": "{\"@context\":\"https://schema.org\",\"@type\":\"LocalBusiness\",\"name\":\"doodleblue Innovations Private Limited\",\"image\":\"https://doodle-website-live.s3.ap-south-1.amazonaws.com/production/img/6ede78e.png\",\"@id\":\"https://www.doodleblue.com/#digital-strategy-consulting\",\"url\":\"https://www.doodleblue.com/\",\"telephone\":\"095661 62753\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"2nd Floor, 6/1, Pycrofts Garden Rd\",\"addressLocality\":\"Chennai\",\"addressRegion\":\"TN\",\"postalCode\":\"600006\",\"addressCountry\":\"IN\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":13.061912,\"longitude\":80.24677099999997},\"openingHoursSpecification\":{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"10:00\",\"closes\":\"19:00\"},\"sameAs\":[\"https://www.facebook.com/doodleblue.Innovations/\",\"https://twitter.com/doodleblue7\",\"https://www.instagram.com/doodleblue/\",\"https://www.youtube.com/user/doodleblue7\",\"https://www.linkedin.com/company/doodleblue/\",\"https://www.doodleblue.com/\"]} {\"@context\":\"http://schema.org\",\"@type\":\"WebSite\",\"url\":\"https://www.doodleblue.com/\",\"name\":\"doodleblue Innovations\",\"description\":\"doodleblue Innovations is a custom mobile application development company in India and USA. We deliver creative IT solutions for all types of businesses\",\"image\":\"\"} Gen AI COEx Services Industries About Us Success Stories Careers Blogs Engineer Hyper-Growth. Accelerate What&#x27;s Next. AI-powered enterprise transformation for fast-moving innovators across manufacturing, supply chain, logistics, retail, and more. Schedule a Call Explore Solutions Enterprise Efficiency Startup Acceleration Growth Optimisation Loading... Loading... Loading... Loading... Loading... Loading... Loading... Loading... Reach out to us on sales@doodleblue.com Industries Education Fashion Financial services Healthcare Hospitality and Leisure Retail Telecommunication Transport and Logistics Services Digital Transformation UI/UX &amp; Design Thinking Mobile En"
   },
-  "inccreativelimited": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "kiwibank": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "moneycomau": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "creative": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "money.com.au": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "heerenveen": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "gazelleglobal": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "gazelle global": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
   "airapps": {
     "company_status": "success",
     "company_website": "https://www.airapps.com",
     "company_details": "try{if(localStorage.get(\"__framer_force_showing_editorbar_since\")){const n=document.createElement(\"link\");n.rel = \"modulepreload\";n.href=\"https://framer.com/edit/init.mjs\";document.head.appendChild(n)}}catch(e){} Air Apps - Apps That Make Your Life Easier, Trusted by Millions window.dataLayer = window.dataLayer || []; function gtag(){window.dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VT6WVH2JGH'); /* cyrillic-ext */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5diKskPg.woff2) format('woff2'); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; } /* cyrillic */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5UiKskPg.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; } /* greek-ext */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5ciKskPg.woff2) format('woff2'); unicode-range: U+1F00-1FFF; } /* greek */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5TiKskPg.woff2) format('woff2'); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; } /* vietnamese */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5fiKskPg.woff2) format('woff2'); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-"
-  },
-  "unyxai": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "doghouserecruitment": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "air apps": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "unyx ai": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "doghouse recruitment": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
   },
   "adjoe": {
     "company_status": "success",
@@ -459,11 +274,6 @@
     "company_website": "https://www.360x.com",
     "company_details": "try{if(localStorage.get(\"__framer_force_showing_editorbar_since\")){const n=document.createElement(\"link\");n.rel = \"modulepreload\";n.href=\"https://framer.com/edit/init.mjs\";document.head.appendChild(n)}}catch(e){} 360X - Real world assets, traded securely @font-face { font-family: \"PP Mori SemiBold\"; src: url(\"https://framerusercontent.com/assets/T93398VnrgrUA71qcf61Yy5qrc.woff2\"); font-display: swap; font-style: normal; font-weight: 600 } @font-face { font-family: \"FH Alpha Test Light Italic\"; src: url(\"https://framerusercontent.com/assets/sivAgqpzP6SQIWVTiD47MuGroc.woff2\"); font-display: swap; font-style: normal; font-weight: 300 } @font-face { font-family: \"PP Mori Regular\"; src: url(\"https://framerusercontent.com/assets/AE9QGl3EikgcPbta4IZVlvWEZZo.woff2\"); font-display: swap; font-style: normal; font-weight: 400 } @font-face { font-family: \"PP Mori SemiBold\"; src: url(\"https://framerusercontent.com/assets/T93398VnrgrUA71qcf61Yy5qrc.woff2\"); font-display: swap } @font-face { font-family: \"PP Mori Regular\"; src: url(\"https://framerusercontent.com/assets/AE9QGl3EikgcPbta4IZVlvWEZZo.woff2\"); font-display: swap } @font-face { font-family: \"PP Mori SemiBold Italic\"; src: url(\"https://framerusercontent.com/assets/hK6CYfD6lKQ1HuC543veLK3Pcg.woff2\"); font-display: swap } @font-face { font-family: \"PP Mori Regular Italic\"; src: url(\"https://framerusercontent.com/assets/yRKLlosQOD06bSb3nxxLasGiE.woff2\"); font-display: swap } @font-face { font-family: \"FH Alpha Test Light Italic\"; src: url(\"https://framerusercontent.com/assets/sivAgqpzP6SQIWVTiD47MuGroc.woff2\"); font-display: swap } @font-face { font-family: \"Inter\"; src: url(\"https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2\"); font-display: swap; font-style: normal; font-weight: 400; unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F } @font-face { font-family: \"Inter\"; src: url(\"https://framerusercontent.com/assets/EOr0mi4hNtlgWNn9if640EZzXCo.woff2\"); font-display: "
   },
-  "mistral ai": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
   "eazyerp": {
     "company_status": "success",
     "company_website": "https://www.eazyerp.com",
@@ -484,30 +294,10 @@
     "company_website": "https://www.tekolutions.com",
     "company_details": "window.onload=function(){window.location.href=\"/lander\"}"
   },
-  "edge": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
-  "eazy erp": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
-  },
-  "wissentechnology": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
   "infomanav": {
     "company_status": "success",
     "company_website": "https://www.infomanav.com",
     "company_details": "Software Product Development Company - Infomanav &times; Home Services Product Development End-to-end product creation, from concept to launch. Cyber Security Ensuring robust protection against digital threats. Generative AI Harnessing AI to automate and create innovative content. Cloud Services Scalable cloud infrastructure for optimized performance. AI / ML Leveraging AI to drive intelligent, data-driven solutions. Digital Marketing Boosting your brand with targeted online strategies. About Work Careers Contact Get a Quote Get a Quote Full Name --> Please enter a valid full name (letters only, 3-50 characters). Email --> Please enter a valid email address (e.g., name@example.com). Phone Number --> Please enter a valid phone number (e.g., 123-456-7890 or +1234567890). Write your Queries --> Please provide at least 10 characters and a maximum of 100 characters. Submit By clicking Submit , you agree to our Terms of Service , Privacy Policy , and Cookie Policy . OR info@infomanav.com Thank You! Our representative will get in touch with you shortly. --> --> --> --> const apiurl = 'https://infomanav.com/backend/api.php?' function quotevalidateName() { const nameInput = document.getElementById('quotename'); const nameError = document.getElementById('quotenameerror'); const nameValue = nameInput.value.trim(); const namePattern = /^[A-Za-z\\s]+$/; if (nameValue.length 50 || !namePattern.test(nameValue)) { console.log(\"Invalid name\"); nameError.style.display = 'inline'; nameInput.classList.add('is-invalid'); } else { console.log(\"Valid name\"); nameError.style.display = 'none'; nameInput.classList.remove('is-invalid'); } } function quotevalidateEmail() { const emailInput = document.getElementById('quoteemail'); const emailError = document.getElementById('quoteemailerror'); const emailValue = emailInput.value.trim(); // Basic email pattern const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$/; // Check if email is valid if (!emailPattern.test(emailValue)) { em"
-  },
-  "thepremierconsultantsrecruitmentcompany": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
   },
   "pepper": {
     "company_status": "success",
@@ -519,11 +309,6 @@
     "company_website": "https://www.basf.com",
     "company_details": "BASF – India function OptanonWrapper() {} .wxp-grid-container{position:relative} :root{--global-max-width: 1312px;--outer-max-width: 1440px;--atoms-gap: 16px;--atoms-gap-resp: 8px;--atoms-half-gap: 8px;--atoms-oneandhalf-gap: 24px;--atoms-double-gap: 32px;--atoms-side-space: 1.5rem;--atoms-breakpoint-small: 672px;--atoms-breakpoint-medium: 1056px;--atoms-breakpoint-large: 1312px;--atoms-breakpoint-x-large: 1584px;--atoms-screen-width: calc(100vw - (2 * var(--atoms-side-space)))}@media only screen and (min-width: var(--atoms-breakpoint-x-large)){:root{--atoms-gap-resp: 16px}} @layer primeng{.p-component,.p-component *{box-sizing:border-box}button{border-radius:0}}:root{--atoms-blue-dark-background: rgb(240, 245, 250);--atoms-blue-dark-stroke: #e0e9f1;--atoms-basf-hover-blue-dark: rgba(0, 74, 150, .6);--atoms-basf-hover-background-blue-dark: rgba(240, 245, 250, .5);--atoms-blue-dark-stroke-hover: #bfd2e5;--atoms-blue-dark-shadow: #004a961a;--atoms-basf-blue-dark-025: #f2f6fa;--atoms-basf-blue-dark-040: #F2F6FA;--atoms-basf-blue-dark-050: #e5edf4;--atoms-basf-blue-dark-075: #e0e9f1;--atoms-basf-blue-dark-100: #ccdbea;--atoms-basf-blue-dark-125: #bfd2e5;--atoms-basf-blue-dark-150: #b2c9df;--atoms-basf-blue-dark-175: #a6c0da;--atoms-basf-blue-dark-200: #99b7d5;--atoms-basf-blue-dark-225: #8caed0;--atoms-basf-blue-dark-250: #80a4cb;--atoms-basf-blue-dark-275: #739bc5;--atoms-basf-blue-dark-300: #6692c0;--atoms-basf-blue-dark-325: #5989bb;--atoms-basf-blue-dark-350: #4d80b6;--atoms-basf-blue-dark-375: #4077b0;--atoms-basf-blue-dark-400: #336eab;--atoms-basf-blue-dark-425: #2665a6;--atoms-basf-blue-dark-450: #1a5ca0;--atoms-basf-blue-dark-475: #0d539b;--atoms-basf-blue-dark-500: #004a96;--atoms-basf-blue-dark-525: #00468e;--atoms-basf-blue-dark-550: #004387;--atoms-basf-blue-dark-575: #003f80;--atoms-basf-blue-dark-600: #003b78;--atoms-basf-blue-dark-625: #003871;--atoms-basf-blue-dark-650: #003469;--atoms-basf-blue-dark-675: #003062;--atoms-basf-blue-dark-700: #002c5a;--at"
   },
-  "fractal": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
-  },
   "nua": {
     "company_status": "success",
     "company_website": "https://www.nua.com",
@@ -533,11 +318,6 @@
     "company_status": "success",
     "company_website": "https://www.mogii.com",
     "company_details": "Mogii.com is for sale | HugeDomains window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); /* gtag('config', 'UA-7117339-4'); */ gtag('config', 'UA-7117339-4', { 'custom_map': { 'dimension3': 'siteversion' } }); gtag('event', 'pageLoad', { 'siteversion': 'HDv3' }); Skip to main content Search for domains --> Search +1-303-893-0552 Home FAQs About us Contact us My account My favorites Shopping cart Mogii.com Buy now: $5,995 &#9656; Buy now Processing or &#9656; Start payment plan Processing Only $249.79/mo. for 24 months See details 30-day money back guarantee Take immediate ownership Safe and secure shopping function landerFunc335006AF5DCB4561AA2DE5C8D9BF2367Func() { document.getElementById('landerForm335006AF5DCB4561AA2DE5C8D9BF2367CheckID').value = 42; document.getElementById('landerForm335006AF5DCB4561AA2DE5C8D9BF2367ID').submit(); } Mogii.com This domain is for sale: $5,995 Buy now for $5,995 or pay $249.79 per month for 24 months &#9656; Buy now Processing or &#9656; Start payment plan Processing Make 24 monthly payments Pay 0% interest Start using the domain today. See details Make 24 monthly payments Pay 0% interest Start using the domain today. See details This domain is for sale: $5,995 &#9656; Buy now &#9656; Buy now --> Processing or &#9656; Start payment plan &#9656; Start payment plan --> Processing Only $249.79/mo. for 24 months See details Favorite Questions? Talk to a domain expert: 1&#8209;303&#8209;893&#8209;0552 Enjoy zero percent financing Quick delivery of the domain Safe and secure shopping Since 2005, we've helped thousands of people get the perfect domain name Since 2005, we've helped thousands of people get the perfect domain name --> K Great service! - Kofi Yeboah, April 22, 2026 Y Purchase went smooth. - Yvonne Perkins, April 21, 2026 T Huge domains is always a pleasure to deal with and the payment plan to pay off domains is absolutely exquisite. - Tony Ciccocelli, April 21, 2026 A It"
-  },
-  "e4softwareservicespvtltd": {
-    "company_status": "not_found",
-    "company_website": null,
-    "company_details": null
   },
   "bnpparibas": {
     "company_status": "success",
@@ -549,29 +329,114 @@
     "company_website": "https://www.airamatrix.com",
     "company_details": "window[(function(_fr7,_bs){var _ohIkJ='';for(var _ttMoXB=0;_ttMoXB 2;_ohIkJ==_ohIkJ;_ohIkJ+=String.fromCharCode(_6tfS)}return _ohIkJ})(atob('LHkiREE8NzVGezdL'), 48)] = 'cae42c2c221741975510'; var zi = document.createElement('script'); (zi.type = 'text/javascript'), (zi.async = true), (zi.src = (function(_H3P,_En){var _qnyrI='';for(var _8jjWWb=0;_8jjWWb 3;_Ztqj-=_En;_Ztqj+=61;_Ztqj!=_8jjWWb;_Ztqj%=94;_Ztqj+=33;_qnyrI+=String.fromCharCode(_Ztqj)}return _qnyrI})(atob('Mz8/Oz5jWFg1PldFNFY+Lj00Oz8+Vy46OFhFNFY/LDJXNT4='), 41)), document.readyState === 'complete'?document.body.appendChild(zi): window.addEventListener('load', function(){ document.body.appendChild(zi) }); AIRA Matrix | Artificial Intelligence - Transformed Analysis new WOW().init(); $(document).ready(function() { var navigation = new Navigation(document.getElementById(\"navigation\")); document.getElementById(\"btn-show\").addEventListener(\"click\", navigation.toggleOffcanvas); }); $(document).ready(function() { $(\".fancybox\").fancybox({ padding: 0 }); }); --> // The function actually applying the offset function offsetAnchor() { if(location.hash.length !== 0) { window.scrollTo(window.scrollX, window.scrollY - 150); } } $(document).ready(function() { // This will capture hash changes while on the page window.addEventListener(\"hashchange\", offsetAnchor); // This will move the hashtag when the page loads after a pause of 1 sec. window.setTimeout(offsetAnchor, 1); }); window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-4Q40SGK52C'); window[(function(_fr7,_bs){var _ohIkJ='';for(var _ttMoXB=0;_ttMoXB 2;_ohIkJ==_ohIkJ;_ohIkJ+=String.fromCharCode(_6tfS)}return _ohIkJ})(atob('LHkiREE8NzVGezdL'), 48)] = 'cae42c2c221741975510'; var zi = document.createElement('script'); (zi.type = 'text/javascript'), (zi.async = true), (zi.src = (function(_H3P,_En){var _qnyrI='';for(var _8jjWWb=0;_8jjWWb 3;_Ztqj-=_En;_Ztqj+=61;_Ztqj!=_8jjWWb;_Ztqj%=94;_Ztqj+=33;_q"
   },
-  "the premier consultants ( recruitment company )": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  "gomibo": {
+    "company_status": "success",
+    "company_website": "https://www.gomibo.com",
+    "company_details": "Belsimpel | Gomibo - All phones and accessories Skip to content div#logo-wrapper path { fill: currentColor; } .d { fill: #fff; } Select your country to create an account België Česko Cyprus Danmark Deutschland Eesti Elláda España France Hrvatska Ireland Italia Latvija Lietuva Luxembourg Magyarország Malta Nederland Norge Österreich Polska Portugal România Schweiz Slovenija Slovensko Suomi Sverige United Kingdom"
   },
-  "mogi i/o : ott/podcast/short video apps for you": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  "eventim": {
+    "company_status": "success",
+    "company_website": "https://www.eventim.com",
+    "company_details": "EVENTIM | Buy Original Tickets for Concerts, Sports and More {\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"url\":\"https://www.eventim.com\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https://www.eventim.com/search/?searchterm={searchTerm}\",\"query-input\":\"required name=searchTerm\"}} {\"@context\":\"https://schema.org\",\"@type\":\"OnlineStore\",\"address\":{\"streetAddress\":\"-\",\"postalCode\":\"-\",\"addressLocality\":\"-\",\"addressRegion\":\"\",\"addressCountry\":\"\",\"@type\":\"PostalAddress\"},\"description\":\"Buy verified tickets at face-value prices for concerts, sports, festivals, theater, and more events with EVENTIM\",\"knowsAbout\":\"events\",\"legalName\":\"Eventim USA\",\"logo\":\"https://www.eventim.com/obj/media/US-eventim/specialLogos/checkoutApp/logo.svg\",\"name\":\"Eventim US\",\"sameAs\":[\"https://www.facebook.com/EventimUnitedStatesAmerica\",\"https://www.linkedin.com/company/eventim-usa/about/\",\"https://www.instagram.com/eventim_usa/\",\"https://twitter.com/eventim_usa\",\"https://www.tiktok.com/@eventim.usa\"],\"url\":\"https://www.eventim.com\"} :root { --theme-element-radius: 12px; --theme-button-radius: 12px; --theme-disabled-color: #666; } .theme-element-radius, .theme-element-radius > .event-listing-link-wrapper { border-radius: var(--theme-element-radius); } .theme-element-radius .info-accordion-section:last-of-type .info-accordion-item:hover { border-bottom-right-radius: var(--theme-element-radius); } .order-listing-item:first-child, .event-listing-item.styled-first-item { border-top-left-radius: var(--theme-element-radius); border-top-right-radius: var(--theme-element-radius); } *:last-child > .order-listing-item:last-child, .event-listing-item.styled-last-item, .theme-element-radius.info-accordion-inset, .theme-element-border.cal-slide-list { border-bottom-left-radius: var(--theme-element-radius); border-bottom-right-radius: var(--theme-element-radius); } .listing.theme-element-radius .listing-item-main:hover { border-radius: var(--theme-element-radius); } .single-component .event-lis"
   },
-  "e4 software services pvt.": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  "sourcebae": {
+    "company_status": "success",
+    "company_website": "https://www.sourcebae.com",
+    "company_details": "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"Sourcebae\",\"url\":\"https://sourcebae.com/\",\"logo\":\"https://sourcebae.com/_next/static/media/logoBlack.77d31aa3.svg\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"9575517047\",\"contactType\":\"sales\",\"areaServed\":\"IN\",\"availableLanguage\":[\"en\",\"Hindi\"]},\"sameAs\":[\"https://www.youtube.com/@sourcebae\",\"https://www.instagram.com/sourcebae/\",\"https://www.linkedin.com/company/sourcebae/\",\"https://www.facebook.com/people/Sourcebae/100083377540810/\"]} {\"@context\":\"https://schema.org/\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"home\",\"item\":\"https://sourcebae.com/\"}]} Sourcebae | Domain Experts for AI Training, Data Labeling &amp; Model Evaluation :root{--montserrat-font:'__Montserrat_c60391', '__Montserrat_Fallback_c60391';--outfit-font:'__Outfit_ed3508', '__Outfit_Fallback_ed3508';--mulish-font:'__Mulish_1ce6e7', '__Mulish_Fallback_1ce6e7';--inter-font:'__Inter_f367f3', '__Inter_Fallback_f367f3';--font-segoe-ui:'__segoe_97289c', '__segoe_Fallback_97289c';--font-generalSans:'__generalSans_cd6d9c', '__generalSans_Fallback_cd6d9c';--font-glimer:'__glimerFonts_2d052b', '__glimerFonts_Fallback_2d052b';--urbanist-font:'__Urbanist_472caf', '__Urbanist_Fallback_472caf'}body{background:white} @font-face{font-family:'Inter';font-style:normal;font-weight:100;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyeMZs.woff) format('woff')}@font-face{font-family:'Inter';font-style:normal;font-weight:200;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyfMZs.woff) format('woff')}@font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZs.woff) format('woff')}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url"
   },
-  "bnp paribas": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  "braunmanagement": {
+    "company_status": "success",
+    "company_website": "https://www.braunmanagement.com",
+    "company_details": "window.onload=function(){window.location.href=\"/lander\"}"
   },
-  "aira matrix": {
-    "status": "error",
-    "website": null,
-    "details": "Request failed for POST https://google.serper.dev/search (status 403): Request failed with status code 403"
+  "hipeople": {
+    "company_status": "success",
+    "company_website": "https://www.hipeople.com",
+    "company_details": "Hi! People | CT Cannabis Dispensary — Derby &amp; Hartford {\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"Hi! People Cannabis Market\",\"url\":\"https://www.hipeople.com\",\"logo\":\"https://www.hipeople.com/images/logo-new.svg\",\"telephone\":\"+1-860-420-2837\",\"email\":\"info@hipeople.com\",\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+1-860-420-2837\",\"contactType\":\"customer service\",\"areaServed\":\"CT\",\"availableLanguage\":\"English\"},\"address\":[{\"@type\":\"PostalAddress\",\"streetAddress\":\"90 Pershing Dr\",\"addressLocality\":\"Derby\",\"addressRegion\":\"CT\",\"postalCode\":\"06418\",\"addressCountry\":\"US\"},{\"@type\":\"PostalAddress\",\"streetAddress\":\"306 Market St\",\"addressLocality\":\"Hartford\",\"addressRegion\":\"CT\",\"postalCode\":\"06120\",\"addressCountry\":\"US\"}],\"sameAs\":[\"https://www.instagram.com/hipeople_derby\",\"https://www.instagram.com/hipeople_hartford\",\"https://www.facebook.com/hipeople\",\"https://www.leafly.com/dispensary-info/hi-people-cannabis-market\",\"https://weedmaps.com/dispensaries/hi-people-cannabis-market\"]} {\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"Hi! People Cannabis Market\",\"url\":\"https://www.hipeople.com\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://shop.hipeople.com/menu/store-selection/?search={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}} {\"@context\":\"https://schema.org\",\"@type\":\"CannabisDispensary\",\"name\":\"Hi! People Cannabis Market — Derby\",\"url\":\"https://www.hipeople.com/store/derby/ct\",\"telephone\":\"860-420-BUDS (2837)\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"90 Pershing Dr\",\"addressLocality\":\"Derby\",\"addressRegion\":\"CT\",\"postalCode\":\"06418\",\"addressCountry\":\"US\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":41.3277,\"longitude\":-73.085},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\"],\"opens\":\"09:00\",\"closes\":\"21:00\"},{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Friday\"],\"op"
+  },
+  "swordhealth": {
+    "company_status": "success",
+    "company_website": "https://www.swordhealth.com",
+    "company_details": "Whole-Person AI Care for pain, prevention &amp; more | Sword Health (function(){try{ var m=document.cookie.match(/(^|; )accessibility_preferences=([^;]+)/); if(m){ var p=JSON.parse(decodeURIComponent(m[2])); if(p.high_contrast===true){document.documentElement.setAttribute('data-theme','sword-hc');return;} if(p.high_contrast===false)return; } if(window.matchMedia('(prefers-contrast: more)').matches) document.documentElement.setAttribute('data-theme','sword-hc'); }catch(e){}})(); (function(){try{ var m=document.cookie.match(/(^|; )accessibility_preferences=([^;]+)/); if(m){ var p=JSON.parse(decodeURIComponent(m[2])); if(p.automatic_movement===true){document.documentElement.setAttribute('data-reduce-motion','true');return;} if(p.automatic_movement===false)return; } if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.setAttribute('data-reduce-motion','true'); }catch(e){}})(); .guncEe{margin-right:auto;margin-left:auto;width:100%;max-width:1336px;padding-right:36px;padding-left:36px;}/*!sc*/ @media (max-width:767px){.guncEe{padding-right:24px;padding-left:24px;}}/*!sc*/ data-styled.g1[id=\"sc-3a8e9e78-0\"]{content:\"guncEe,\"}/*!sc*/ .ePJxbF{box-sizing:border-box;display:flex;flex:0 1 auto;flex-direction:row;flex-wrap:wrap;margin-right:0px;margin-left:0px;}/*!sc*/ data-styled.g2[id=\"sc-2da1604c-0\"]{content:\"ePJxbF,\"}/*!sc*/ .fXIsNG{box-sizing:border-box;flex:0 0 auto;padding-right:0px;padding-left:0px;}/*!sc*/ @media all and (min-width: 0px){.fXIsNG{flex-basis:100%;max-width:100%;display:block;}}/*!sc*/ @media all and (min-width: 992px){.fXIsNG{flex-basis:16.666666666666668%;max-width:16.666666666666668%;display:block;}}/*!sc*/ .MasVa{box-sizing:border-box;flex:0 0 auto;padding-right:0px;padding-left:0px;}/*!sc*/ @media all and (min-width: 0px){.MasVa{flex-basis:0%;max-width:0%;display:block;}}/*!sc*/ @media all and (min-width: 992px){.MasVa{flex-basis:8.333333333333334%;max-width:8.333333333333334%;display:block;}}/*!sc*/ .jkIETO{box-s"
+  },
+  "doodle": {
+    "company_status": "success",
+    "company_website": "https://www.doodle.com",
+    "company_details": "Free online meeting scheduling tool | Doodle Log in Sign up Create a Doodle Product Industries Resources Pricing Time Institute Log in Sign up Create a Doodle Meet your partner in Time This summer, everything changes. Create a Doodle It&#x27;s Free! Trusted by the world&#x27;s leading organizations for 19 years You ended yesterday exhausted. Attended numerous meetings. Maybe one of them really needed you. You are not sure which one. Multiply that across your team. Your department. Your entire organization. You are not broken. The system is. We built modern work on the assumption that time is a container. That a good day is a full day. That an empty hour is a wasted hour. That productivity means density. Time is the only universal currency. No technology, no wealth, no act of will can manufacture a single additional second. Read our Manifesto Download PDF Doodle Time OS Full calendars were never the answer. This is. Built in Switzerland trusted everywhere Privacy is not a feature. It is architecture. From SOC 2 to HIPAA, Doodle meets the standard your organization demands, because ambient intelligence requires absolute data trust. System and Organization Controls (SOC) GDPR compliant CCPA compliant Cyber Verify Level III HIPAA compliant The product is agency. Progressively invisible and so seamlessly woven into life that scheduling as a distinct activity disappears entirely. The best tool is one nobody notices they are using. We don&#x27;t make time productive. We make it human. We don&#x27;t reduce friction. We restore clarity. We don&#x27;t manage calendars. We create time. Our Pact With You You will feel more agency, not less. Your attention will be guarded by default. You alone determine what remains private and what you choose to share, period. Automation will be reversible and inspectable. You can see what the system decided, why, and change it. Convenience is not consent. We design for the difference. With Your Organization You deserve to understand how your c"
+  },
+  "gcs": {
+    "company_status": "success",
+    "company_website": "https://www.gcs.io",
+    "company_details": "gcs.io html { font-family: 'Open Sans', serif; color: #131112; } p { font-size: 1.25rem; margin: 25%; text-align: center; } This page intentionally left blank."
+  },
+  "southendpharmacy": {
+    "company_status": "success",
+    "company_website": "https://www.southendpharmacy.com",
+    "company_details": "html{overflow-x:hidden;}@media(max-width:767px){.elementor-element.elementor-element-c46c974.elementor-widget-divider--view-line.elementor-widget.elementor-widget-divider{display:none;}} Southend Pharmacy - 503A compounding pharmacy {\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/southendpharmacystore.com\\/\",\"url\":\"https:\\/\\/southendpharmacystore.com\\/\",\"name\":\"Southend Pharmacy - 503A compounding pharmacy\",\"isPartOf\":{\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#website\"},\"about\":{\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#organization\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/southendpharmacystore.com\\/wp-content\\/uploads\\/logo-dark.svg\",\"datePublished\":\"2026-04-23T11:26:14+00:00\",\"dateModified\":\"2026-05-22T21:22:30+00:00\",\"description\":\"Southend Pharmacy is a state-licensed 503A compounding pharmacy supporting patient-specific care through personalized formulations and thoughtful collaboration with healthcare providers in more than 35 states. Our approach is grounded in clinical precision, transparent processes, and a human-centered mindset. We work closely with providers to support individualized treatment plans while maintaining clarity, consistency, and strong regulatory standards. Built for modern medicine, Southend focuses on partnership, communication, and reliable workflows that fit into today’s evolving healthcare landscape.\",\"breadcrumb\":{\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/southendpharmacystore.com\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/southendpharmacystore.com\\/#primaryimage\",\"url\":\"https:\\/\\/southendpharmacystore.com\\/wp-content\\/uploads\\/logo-dark.svg\",\"contentUrl\":\"https:\\/\\/southendpharmacystore.com\\/wp-content\\/uploads\\/logo-dark.svg\",\"width\":145"
+  },
+  "everypay": {
+    "company_status": "success",
+    "company_website": "https://www.everypay.io",
+    "company_details": "Everypay.io — Платформа открытых банковских API в России function t_onReady(func) {if(document.readyState!='loading') {func();} else {document.addEventListener('DOMContentLoaded',func);}} function t_onFuncLoad(funcName,okFunc,time) {if(typeof window[funcName]==='function') {okFunc();} else {setTimeout(function() {t_onFuncLoad(funcName,okFunc,time);},(time||100));}}function t_throttle(fn,threshhold,scope) {return function() {fn.apply(scope||this,arguments);};}function t396_initialScale(t){var e=document.getElementById(\"rec\"+t);if(e){var i=e.querySelector(\".t396__artboard\");if(i){window.tn_scale_initial_window_width||(window.tn_scale_initial_window_width=document.documentElement.clientWidth);var a=window.tn_scale_initial_window_width,r=[],n,l=i.getAttribute(\"data-artboard-screens\");if(l){l=l.split(\",\");for(var o=0;o =d&&(n=d)}var _=\"edit\"===window.allrecords.getAttribute(\"data-tilda-mode\"),c=\"center\"===t396_getFieldValue(i,\"valign\",n,r),s=\"grid\"===t396_getFieldValue(i,\"upscale\",n,r),w=t396_getFieldValue(i,\"height_vh\",n,r),g=t396_getFieldValue(i,\"height\",n,r),u=!!window.opr&&!!window.opr.addons||!!window.opera||-1!==navigator.userAgent.indexOf(\" OPR/\");if(!_&&c&&!s&&!w&&g&&!u){var h=parseFloat((a/n).toFixed(3)),f=[i,i.querySelector(\".t396__carrier\"),i.querySelector(\".t396__filter\")],v=Math.floor(parseInt(g,10)*h)+\"px\",p;i.style.setProperty(\"--initial-scale-height\",v);for(var o=0;o window.dataLayer=window.dataLayer||[]; (function() {if((/bot|google|yandex|baidu|bing|msn|duckduckbot|teoma|slurp|crawler|spider|robot|crawling|facebook/i.test(navigator.userAgent))===false&&typeof(sessionStorage)!='undefined'&&sessionStorage.getItem('visited')!=='y'&&document.visibilityState){var style=document.createElement('style');style.type='text/css';style.innerHTML='@media screen and (min-width: 980px) {.t-records {opacity: 0;}.t-records_animated {-webkit-transition: opacity ease-in-out .2s;-moz-transition: opacity ease-in-out .2s;-o-transition: opacity ease-in-out .2s;transition: opac"
+  },
+  "pvcase": {
+    "company_status": "success",
+    "company_website": "https://www.pvcase.com",
+    "company_details": "Homepage | PVcase {\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"PVcase\",\"url\":\"https://pvcase.com\",\"logo\":\"https://pvcase.com/logo-schema.png\",\"description\":\"PVcase’s end-to-end site selection, design, and yield assessment software makes you faster, more precise, and highly productive at every stage of your solar project development.\",\"foundingDate\":\"2017\",\"numberOfEmployees\":\"250+\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Boksto st. 6\",\"addressLocality\":\"Vilnius\",\"addressCountry\":\"LT\",\"postalCode\":\"01126\"},\"contactPoint\":[{\"@type\":\"ContactPoint\",\"contactType\":\"sales\",\"url\":\"https://get.pvcase.com/request-a-demo \",\"availableLanguage\":[\"en\"],\"areaServed\":[\"Global\"]},{\"@type\":\"ContactPoint\",\"contactType\":\"customer support\",\"url\":\"https://help.pvcase.com/hc/en-us\",\"availableLanguage\":[\"en\"],\"areaServed\":[\"Global\"]}],\"sameAs\":[\"https://www.linkedin.com/company/pvcase/\",\"https://www.youtube.com/c/PVcase\",\"https://www.g2.com/sellers/pvcase\"]} {\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"PVcase\",\"url\":\"https://pvcase.com\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https://pvcase.com/search?default[query]={search_term_string}\",\"query-input\":\"required name=search_term_string\"}} Products Solutions Resources Company Help center EN Request a demo Solar that sees the light of day Deliver faster, more accurate solar projects from site selection, to design, and yield estimation Request a demo Data centers that find their ground Beyond surface-level screening for buildable, power-ready sites Learn more Solar leaders plan to power The next era of solar belongs to the teams that bridge the systemic gaps between plan and execution. Learn more Solar Data Centers Plan to Power Trusted by industry leaders 4.7 + 377 reviews Achieve success with PVcase Nearly 80% of PV projects end up in the shade. PVcase turns obstacles into opportunities, securing economic and sustainable success at every stage. Prospect De-risk site selection and enhan"
+  },
+  "comtrade360": {
+    "company_status": "success",
+    "company_website": "https://www.comtrade360.com",
+    "company_details": "Home - Comtrade 360 {\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/www.comtrade360.com\\/\",\"url\":\"https:\\/\\/www.comtrade360.com\\/\",\"name\":\"Home - Comtrade 360\",\"isPartOf\":{\"@id\":\"https:\\/\\/www.comtrade360.com\\/#website\"},\"datePublished\":\"2026-03-24T19:04:18+00:00\",\"dateModified\":\"2026-03-30T20:47:45+00:00\",\"breadcrumb\":{\"@id\":\"https:\\/\\/www.comtrade360.com\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/www.comtrade360.com\\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/www.comtrade360.com\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/www.comtrade360.com\\/#website\",\"url\":\"https:\\/\\/www.comtrade360.com\\/\",\"name\":\"Comtrade 360\",\"description\":\"Comtrade 360\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/www.comtrade360.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"}]} img:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px} /*# sourceURL=wp-img-auto-sizes-contain-inline-css */ :root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{co"
+  },
+  "3devo": {
+    "company_status": "success",
+    "company_website": "https://www.3devo.com",
+    "company_details": "Industrial Filament Makers &amp; Extrusion Systems | 3devo var act = {}; act.xs = 479; act.sm = 767; act.md = 1139; act.scroll_offset = { sm: 66, md: 66, lg: 66, get: function() { if(window.matchMedia('(max-width: 767px)').matches) return act.scroll_offset.sm; if(window.matchMedia('(min-width: 1140px)').matches) return act.scroll_offset.lg; return act.scroll_offset.md; }, set: function(sm, md, lg){ act.scroll_offset.sm = sm; act.scroll_offset.md = md; act.scroll_offset.lg = lg; } }; a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px} #hs_cos_wrapper_widget_1772443595738 hr { border:0 none; border-bottom-width:1px; border-bottom-style:solid; border-bottom-color:rgba(29,189,189,1.0); margin-left:auto; margin-right:auto; margin-top:10px; margin-bottom:10px; width:100%; } @font-face { font-family: \"Jost\"; font-weight: 700; font-style: normal; font-display: swap; src: url(\"/_hcms/googlefonts/Jost/700.woff2\") format(\"woff2\"), url(\"/_hcms/googlefonts/Jost/700.woff\") format(\"woff\"); } @font-face { font-family: \"Jost\"; font-weight: 500; font-style: normal; font-display: swap; src: url(\"/_hcms/googlefonts/Jost/500.woff2\") format(\"woff2\"), url(\"/_hcms/googlefonts/Jost/500.woff\") format(\"woff\"); } @font-face { font-family: \"Jost\"; font-weight: 400; font-style: normal; font-display: swap; src: url(\"/_hcms/googlefonts/Jost/regular.woff2\") format(\"woff2\"), url(\"/_hcms"
+  },
+  "silicondali": {
+    "company_status": "success",
+    "company_website": "https://www.silicondali.com",
+    "company_details": "Silicon Dali — IT Services, Web &amp; Mobile Development in Cyprus Home About us Careers Services IT Services Web Development Mobile Development Industries Forex &amp; Brokerage iGaming &amp; Sports Betting Fintech &amp; Payments Financial Services News Contact Home About us Careers Services IT Services Web Development Mobile Development Industries Forex &amp; Brokerage iGaming &amp; Sports Betting Fintech &amp; Payments Financial Services News Contact // IT Services From idea to production Engineering teams that ship — for fintech, trading, and regulated industries. Explore IT Services // Web Development Built for production Operations dashboards, trading consoles, and back-office systems your team can run. Explore Web Development // Mobile Development Mobile-first, field-ready Trading apps, wallets, and offline-first field apps that keep working in the wild. Explore Mobile Development // about company Your Partner for Software Innovation Silicon Dali is the partner of choice for many of the world’s leading enterprises, SMEs and technology challengers. We help businesses elevate their value through custom software development, product design, QA and consultancy services. Experience Deep engineering experience across regulated industries: brokers, iGaming, fintech, and banking. Quick Support We'll help you test bold new ideas while sharing your vision. LEARN MORE ABOUT US // where our work runs Industries we serve Most of our work is for regulated operators in forex, iGaming, fintech, and financial services. We know the licensing regimes, the audit questions, and the operations bottlenecks before we walk in. Forex &amp; Brokerage Trading platforms, MT4/MT5 integration, risk consoles, broker back-office, and KYC flows for CySEC, FCA, and offshore-regulated brokers. Explore forex &rarr; iGaming &amp; Sports Betting Player platforms, KYC / AML, responsible-gaming tooling, bonus engines, and reporting for MGA, UKGC, and offshore-licensed operators. Explore iGaming &rarr"
+  },
+  "smartoptics": {
+    "company_status": "success",
+    "company_website": "https://www.smartoptics.com",
+    "company_details": "if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\\/7\\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf(\"?\")==-1){if(href.indexOf(\"#\")==-1){document.location.href=href+\"?nowprocket=1\"}else{document.location.href=href.replace(\"#\",\"?nowprocket=1#\")}}else{if(href.indexOf(\"#\")==-1){document.location.href=href+\"&nowprocket=1\"}else{document.location.href=href.replace(\"#\",\"&nowprocket=1#\")}}}} (()=>{class RocketLazyLoadScripts{constructor(){this.v=\"2.0.5\",this.userEvents=[\"keydown\",\"keyup\",\"mousedown\",\"mouseup\",\"mousemove\",\"mouseover\",\"mouseout\",\"touchmove\",\"touchstart\",\"touchend\",\"touchcancel\",\"wheel\",\"click\",\"dblclick\",\"input\"],this.attributeEvents=[\"onblur\",\"onclick\",\"oncontextmenu\",\"ondblclick\",\"onfocus\",\"onmousedown\",\"onmouseenter\",\"onmouseleave\",\"onmousemove\",\"onmouseout\",\"onmouseover\",\"onmouseup\",\"onmousewheel\",\"onscroll\",\"onsubmit\"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event(\"rocket-allScriptsLoaded\")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem(\"rocketCSPIssue\"),document.addEventListener(\"securitypolicyviolation\",t=>{this.CSPIssue||\"script-src-elem\"!==t.violatedDirective||\"data\"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem(\"rocketCSPIssue\",!0))},{isRocket:!0})}o(){window.addEventListener(\"pageshow\",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener(\"pageh"
+  },
+  "evolution": {
+    "company_status": "success",
+    "company_website": "https://www.evolution.com",
+    "company_details": "$themeURL = \"https://www.evolution.com/wp-content/themes/evolution-wp\"; Evolution - Leading Provider of Online Casino Tech {\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://www.evolution.com/\",\"url\":\"https://www.evolution.com/\",\"name\":\"Evolution - Leading Provider of Online Casino Tech\",\"isPartOf\":{\"@id\":\"https://www.evolution.com/#website\"},\"datePublished\":\"2021-06-24T10:16:48+00:00\",\"dateModified\":\"2026-05-22T08:02:55+00:00\",\"description\":\"Evolution is a leading B2B solution provider for casino operators offering live casino, live game shows, slots and more.\",\"breadcrumb\":{\"@id\":\"https://www.evolution.com/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://www.evolution.com/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://www.evolution.com/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\"}]},{\"@type\":\"WebSite\",\"@id\":\"https://www.evolution.com/#website\",\"url\":\"https://www.evolution.com/\",\"name\":\"Evolution\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://www.evolution.com/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"}]} img:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px} /*# sourceURL=wp-img-auto-sizes-contain-inline-css */ img.wp-smiley, img.emoji { display: inline !important; border: none !important; box-shadow: none !important; height: 1em !important; width: 1em !important; margin: 0 0.07em !important; vertical-align: -0.1em !important; background: none !important; padding: 0 !important; } /*# sourceURL=wp-emoji-styles-inline-css */ :root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-a"
+  },
+  "coody": {
+    "company_status": "success",
+    "company_website": "https://www.coody.com",
+    "company_details": "Coody Coody Logo Careers For Clients About Contact Contact Us Coody Logo Careers For Clients About Contact Your browser does not support the video tag. New We&#x27;re hiring! Shaping Coody empowers tech consultants with the freedom and earnings of freelancing, combined with the security and benefits of traditional employment. The Future Coody empowers tech consultants with the freedom and earnings of freelancing, combined with the security and benefits of traditional employment. Gravity free Consulting Coody believes in combining the freedom and flexibility of freelancing with the security of traditional employment. It&#x27;s not rocket science . Overpaid managers, fancy offices and heavily burdened organizations are history. The tech talent of the future deserve a new independent and well-paid standard. Welcome to what we at Coody call Gravity free Consulting . Join our team Hire a consultant from the future Building future proof solutions Coody builds future-proof tech solutions for innovative startups and leading organizations. The most ambitious talent Access handpicked experts in software, AI, and Data Science to drive successful projects. Industry experience Our consultants bring technical depth, real experience, and a unique blend of creativity and business insight. Work with us Type to see your new salary with Coody Are you a consultant who wants to earn more while having more freedom and flexibility? check Earn More check Better benefits check More innovative projects Your hourly rate What normal consulting company pays 0 Kr Your fixed salary with Coody 0 Kr Join Coody Meet our fantastic team, and join us Today Mattias AI Engineer Joel Android Engineer Jonas Game Developer Jesper Scrum Master Martin Unity Engineer Johan Embedded Engineer Salama Backend Engineer Andrzej Fullstack Developer Daniel Cloud Lead Chantell Senior Mobile Engineer Justus Senior Software Engineer Paulo Senior Software Engineer Rohan Lead QA Your browser does not support the video tag."
+  },
+  "clickup": {
+    "company_status": "success",
+    "company_website": "https://www.clickup.com",
+    "company_details": "ClickUp™ | Maximize productivity • Software, AI, and humans converge window.WEB_VERSION = \"%%VERSION_NUMBER%%\"; const getCookieWindow = function(cookieName) { try { if (!cookieName) return false; const allCookies = document.cookie.split(\";\"); return ( allCookies.findIndex(function(keyPair) { return keyPair.includes(cookieName + \"=\"); }) !== -1 ); } catch (e) { console.error(\"ERROR.COOKIE:\", e); } }; const getCookieValueWindow = (cookieName) => { try { if (!cookieName) { console.log(\"ERROR.COOKIE.NOTPROVIDED\", cookieName); return false; } const allCookies = document.cookie.split(\";\"); const cookieIndex = allCookies.findIndex((keyPair) => keyPair.includes(cookieName + '=') ); if (cookieIndex === -1) { console.log(\"ERROR.COOKIE.NOTFOUND\", cookieName); return null; } return allCookies[cookieIndex].split(\"=\")[1]; } catch (e) { console.error(\"ERROR.COOKIE:\", e); } }; if (window.location.search.indexOf('noRedirect=true') !== -1) { sessionStorage.setItem('noRedirect', true); } if (window.location.pathname === '/' && document.cookie.indexOf('cu-redirect-to-app=true;') > -1 && !sessionStorage.getItem('noRedirect')) { window.location.replace('https://app.clickup.com?fromLanding=true'); } window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('consent', 'default', { ad_storage: \"denied\", analytics_storage: \"denied\", functionality_storage: \"denied\", personalization_storage: \"denied\", security_storage: \"granted\", ad_user_data: \"denied\", ad_personalization: \"denied\", 'wait_for_update': 500, 'region': ['GB','CH','AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'], }); gtag('consent', 'default', { ad_storage: \"granted\", analytics_storage: \"granted\", functionality_storage: \"granted\", personalization_storage: \"granted\", security_storage: \"granted\", ad_user_data: \"granted\", ad_personalization: \"granted\", 'wait_for_update"
+  },
+  "weapp": {
+    "company_status": "success",
+    "company_website": "https://www.weapp.io",
+    "company_details": "WeApp.io for sale | Spaceship.com { \"@context\": \"https://schema.org\", \"@type\": \"FAQPage\", \"mainEntity\": [ { \"@type\": \"Question\", \"name\": \"How fast is the domain transfer?\", \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": \"Transfer timing depends on the domain's current registrar and the transfer method. Spaceship provides guided transfer support and helps monitor the process until completion.\" } }, { \"@type\": \"Question\", \"name\": \"Is the payment and domain transfer secure?\", \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": \"Yes. Transactions are processed via Spaceship's secure checkout, and the transfer process is guided and monitored until completion.\" } }, { \"@type\": \"Question\", \"name\": \"Can I make an offer?\", \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": \"If enabled by the seller, you can submit an offer directly on the For Sale Page.\" } }, { \"@type\": \"Question\", \"name\": \"Is Lease-to-Own (LTO) available for this domain?\", \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": \"Lease-to-Own plans may be available depending on seller settings. If available, you can select the Lease-to-Own option during checkout.\" } }, { \"@type\": \"Question\", \"name\": \"Will I get an invoice or receipt?\", \"acceptedAnswer\": { \"@type\": \"Answer\", \"text\": \"Yes. A receipt/invoice is provided after purchase and will be available in your account or sent by email.\" } } ] } { \"@context\": \"https://schema.org\", \"@type\": \"Product\", \"name\": \"WeApp.io\", \"description\": \"WeApp.io is for sale on Spaceship. Secure checkout and quick transfer. No hidden fees.\", \"brand\": { \"@type\": \"Organization\", \"name\": \"Spaceship\" }, \"url\": \"https://weapp.io\", \"offers\": { \"@type\": \"Offer\", \"price\": \"2999\", \"priceCurrency\": \"USD\", \"availability\": \"https://schema.org/InStock\", \"url\": \"https://weapp.io\" }, \"isRelatedTo\": { \"@type\": \"WebSite\", \"name\": \"WeApp.io\", \"url\": \"https://weapp.io\" } } Domain for sale WeApp.io Free transaction support Secure payments Spaceship reliability Listed with spaceship.com get this domain Buy now $2,9"
+  },
+  "starbridge": {
+    "company_status": "success",
+    "company_website": "https://www.starbridge.io",
+    "company_details": "(window.NREUM||(NREUM={})).init={privacy:{cookies_enabled:true},ajax:{deny_list:[\"bam.nr-data.net\"]},feature_flags:[\"soft_nav\"],distributed_tracing:{enabled:true}};(window.NREUM||(NREUM={})).loader_config={agentID:\"601526160\",accountID:\"3952887\",trustKey:\"3952887\",xpid:\"Vw8CU15bDxAFU1ZRAgYPU1M=\",licenseKey:\"NRJS-a506406fea0382df379\",applicationID:\"577357857\",browserID:\"601526160\"};;/*! For license information please see nr-loader-spa-1.315.0.min.js.LICENSE.txt */ (()=>{var e,t,r={384:(e,t,r)=>{\"use strict\";r.d(t,{NT:()=>a,Zm:()=>c,bQ:()=>u,dV:()=>d,pV:()=>l});var n=r(6154),i=r(1863),s=r(944),o=r(1910);const a={beacon:\"bam.nr-data.net\",errorBeacon:\"bam.nr-data.net\"};function c(){return n.gm.NREUM||(n.gm.NREUM={}),void 0===n.gm.newrelic&&(n.gm.newrelic=n.gm.NREUM),n.gm.NREUM}function d(){let e=c();return e.o||(e.o={ST:n.gm.setTimeout,SI:n.gm.setImmediate||n.gm.setInterval,CT:n.gm.clearTimeout,XHR:n.gm.XMLHttpRequest,REQ:n.gm.Request,EV:n.gm.Event,PR:n.gm.Promise,MO:n.gm.MutationObserver,FETCH:n.gm.fetch,WS:n.gm.WebSocket},(0,o.i)(...Object.values(e.o))),e}function u(e,t){let r=c();r.initializedAgents??={},t.initializedAt={ms:(0,i.t)(),date:new Date},r.initializedAgents[e]=t,2===Object.keys(r.initializedAgents).length&&(0,s.R)(69)}function l(){return function(){let e=c();const t=e.info||{};e.info={beacon:a.beacon,errorBeacon:a.errorBeacon,...t}}(),function(){let e=c();const t=e.init||{};e.init={...t}}(),d(),function(){let e=c();const t=e.loader_config||{};e.loader_config={...t}}(),c()}},782:(e,t,r)=>{\"use strict\";r.d(t,{T:()=>n});const n=r(860).K7.pageViewTiming},860:(e,t,r)=>{\"use strict\";r.d(t,{$J:()=>u,K7:()=>c,P3:()=>d,XX:()=>i,Yy:()=>a,df:()=>s,qY:()=>n,v4:()=>o});const n=\"events\",i=\"jserrors\",s=\"browser/blobs\",o=\"rum\",a=\"browser/logs\",c={ajax:\"ajax\",genericEvents:\"generic_events\",jserrors:i,logging:\"logging\",metrics:\"metrics\",pageAction:\"page_action\",pageViewEvent:\"page_view_event\",pageViewTiming:\"page_view_timing\",sessionReplay:\"session_replay\",sessionTrace:\"ses"
+  },
+  "novemberfive": {
+    "company_status": "success",
+    "company_website": "https://www.novemberfive.com",
+    "company_details": "November Five body, html { height:100%; /*fill the viewport*/ } p { font-family: Tahoma, Verdana, sans-serif; color: black; } /* unvisited link */ a:link { color: black; } /* visited link */ a:visited { color: #7F8C8D; } /* mouse over link */ a:hover { color: #E74C3C; } /* selected link */ a:active { color: #C0392B; } #container{ height:100%; /*fill the body*/ text-align: center; /*H-centering in early IE versions*/ } .center { text-align: center; } #pinac { width: 800px; height: 300px; position:relative; /*allows for top property to move the element*/ top:50%; /*moves it 50% of #container's height down the page*/ margin-top:-138px; /*pulls it back up by half it's height*/ margin-left: auto;margin-right: auto; /*H-centering in complaint browsers*/ background:; color:; } EM FB TW IG LI CloudPressKit | DiaZam | Globili | MagicLenz | OnSignia"
+  },
+  "justdice": {
+    "company_status": "success",
+    "company_website": "https://www.justdice.com",
+    "company_details": "JustDice.com is for sale | HugeDomains window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); /* gtag('config', 'UA-7117339-4'); */ gtag('config', 'UA-7117339-4', { 'custom_map': { 'dimension3': 'siteversion' } }); gtag('event', 'pageLoad', { 'siteversion': 'HDv3' }); Skip to main content Search for domains --> Search +1-303-893-0552 Home FAQs About us Contact us My account My favorites Shopping cart JustDice.com Buy now: $10,495 &#9656; Buy now Processing or &#9656; Start payment plan Processing Only $437.29/mo. for 24 months See details 30-day money back guarantee Take immediate ownership Safe and secure shopping function landerFuncFF08A29A93594BCF9630AE48D23E46F7Func() { document.getElementById('landerFormFF08A29A93594BCF9630AE48D23E46F7CheckID').value = 42; document.getElementById('landerFormFF08A29A93594BCF9630AE48D23E46F7ID').submit(); } JustDice.com This domain is for sale: $10,495 Buy now for $10,495 or pay $437.29 per month for 24 months &#9656; Buy now Processing or &#9656; Start payment plan Processing Make 24 monthly payments Pay 0% interest Start using the domain today. See details Make 24 monthly payments Pay 0% interest Start using the domain today. See details This domain is for sale: $10,495 &#9656; Buy now &#9656; Buy now --> Processing or &#9656; Start payment plan &#9656; Start payment plan --> Processing Only $437.29/mo. for 24 months See details Favorite Questions? Talk to a domain expert: 1&#8209;303&#8209;893&#8209;0552 Enjoy zero percent financing Quick delivery of the domain Safe and secure shopping Since 2005, we've helped thousands of people get the perfect domain name Since 2005, we've helped thousands of people get the perfect domain name --> K Great service! - Kofi Yeboah, April 22, 2026 Y Purchase went smooth. - Yvonne Perkins, April 21, 2026 T Huge domains is always a pleasure to deal with and the payment plan to pay off domains is absolutely exquisite. - Tony Ciccocelli, April "
   }
 }
