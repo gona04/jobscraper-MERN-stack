@@ -10,21 +10,25 @@ const { loadTemplate, applyTemplate } = require('./templateEngine');
 
 function parseContact(resume = {}) {
   const rawContact = normalizeText(resume.contact || '');
-  const tokens = rawContact ? rawContact.split(/[•|]/).map((item) => item.trim()).filter(Boolean) : [];
+  const tokens = rawContact
+    ? rawContact.split(/[•|]/).map((item) => item.trim()).filter(Boolean)
+    : [];
 
-  const email = resume.email || tokens.find((item) => /@/.test(item)) || 'gandhi.goonja@gmail.com';
+  const email =
+    resume.email ||
+    tokens.find((item) => /@/.test(item)) ||
+    'gandhi.goonja@gmail.com';
+
   const phoneToken = resume.phone || tokens.find((item) => /\d{10}/.test(item));
   const phone = normalizePhoneValue(phoneToken || PHONE_NUMBER);
+
   const linkedin = normalizeText(
-    resume.linkedin || tokens.find((item) => /linkedin|github|https?:\/\//i.test(item)) || 'linkedin.com/in/goonja-gandhi'
+    resume.linkedin ||
+      tokens.find((item) => /linkedin|github|https?:\/\//i.test(item)) ||
+      'linkedin.com/in/goonja-gandhi'
   );
 
   return { email, phone, linkedin };
-}
-
-function renderBullets(items) {
-  if (!items.length) return '';
-  return `<ul>${items.map((item) => `<li>${linkifyText(item)}</li>`).join('')}</ul>`;
 }
 
 function cleanFiller(text) {
@@ -36,18 +40,17 @@ function cleanFiller(text) {
     .trim();
 }
 
-function clampLine(text, maxChars = 130) {
-  const value = cleanFiller(text);
-  if (value.length <= maxChars) return value;
-  return `${value.slice(0, maxChars - 1).trim()}…`;
+function renderBullets(items) {
+  if (!items || !items.length) return '';
+  return `<ul>${items.map((item) => `<li>${linkifyText(cleanFiller(item))}</li>`).join('')}</ul>`;
 }
 
 function renderSummary(content) {
-  const paragraphs = toParagraphs(content).map((item) => cleanFiller(item)).filter(Boolean);
+  const paragraphs = toParagraphs(content)
+    .map((item) => cleanFiller(item))
+    .filter(Boolean);
   if (!paragraphs.length) return '';
-  const compact = paragraphs.join(' ');
-  const summary = clampLine(compact, 360);
-  return `<h2>SUMMARY</h2><p>${linkifyText(summary)}</p>`;
+  return `<h2>SUMMARY</h2><p>${linkifyText(paragraphs.join(' '))}</p>`;
 }
 
 function renderSkills(skills) {
@@ -72,7 +75,9 @@ function renderExperience(experience = []) {
       const role = normalizeText(exp.role || exp.title || '');
       const date = normalizeText(exp.duration || exp.date || '');
       const location = normalizeText(exp.location || exp.country || '');
-      const points = toBullets(exp.points || exp.bullets || []).map((item) => clampLine(item, 120)).slice(0, 5);
+      const points = toBullets(exp.points || exp.bullets || []).map((item) =>
+        cleanFiller(item)
+      );
 
       if (!company && !role && !date && !location && !points.length) return '';
 
@@ -101,15 +106,33 @@ function renderProjects(projects = []) {
 
   const items = projects
     .map((project) => {
-      const title = normalizeText(project.projectName || project.name || project.project_name || project.title || '');
-      const points = toBullets(project.points || project.bullets || []).map((item) => clampLine(item, 115));
-      const fallbackPoints = !points.length
-        ? toParagraphs(project.description || project.summary || '').map((item) => clampLine(item, 115)).filter(Boolean)
-        : [];
-      const projectPoints = (points.length ? points : fallbackPoints).slice(0, 4);
+      const title = normalizeText(
+        project.projectName ||
+          project.name ||
+          project.project_name ||
+          project.title ||
+          ''
+      );
+
+      const points = toBullets(project.points || project.bullets || []).map((item) =>
+        cleanFiller(item)
+      );
+
+      const fallbackPoints =
+        points.length === 0
+          ? toParagraphs(project.description || project.summary || '')
+              .map((item) => cleanFiller(item))
+              .filter(Boolean)
+          : [];
+
+      const projectPoints = points.length ? points : fallbackPoints;
+
       if (!title && !projectPoints.length) return '';
+
       const github = normalizeText(project.github_link || project.github || '');
-      const live = normalizeText(project.live_link || project.live || project.url || '');
+      const live = normalizeText(
+        project.live_link || project.live || project.url || ''
+      );
       const links = [];
       if (github) links.push(`Github: ${linkifyText(github)}`);
       if (live) links.push(`Live: ${linkifyText(live)}`);
@@ -132,9 +155,12 @@ function renderEducation(education = []) {
   const items = education
     .map((edu) => {
       const degree = normalizeText(edu.degree || edu.program || edu.title || '');
-      const institution = normalizeText(edu.institution || edu.school || edu.university || '');
+      const institution = normalizeText(
+        edu.institution || edu.school || edu.university || ''
+      );
       const duration = normalizeText(edu.duration || edu.date || '');
       const details = normalizeText(edu.details || edu.description || '');
+
       if (!degree && !institution && !duration && !details) return '';
 
       return `<div class="education">
@@ -169,13 +195,18 @@ async function buildResumeHtml({ content }) {
     email: linkifyText(contact.email),
     phone: contact.phone,
     linkedin: linkifyText(contact.linkedin),
-    roleTitle: resume.position || resume.title ? `<div class="role-title">${linkifyText(cleanFiller(resume.position || resume.title))}</div>` : '',
+    roleTitle:
+      resume.position || resume.title
+        ? `<div class="role-title">${linkifyText(cleanFiller(resume.position || resume.title))}</div>`
+        : '',
     summarySection: renderSummary(resume.summary),
     skillsSection: renderSkills(resume.skills),
     projectsSection: renderProjects(resume.projects || []),
     experienceSection: renderExperience(resume.experience || []),
     educationSection: renderEducation(resume.education || []),
-    certificationsSection: renderCertifications(resume.certifications || resume.certification || []),
+    certificationsSection: renderCertifications(
+      resume.certifications || resume.certification || []
+    ),
   };
 
   return applyTemplate(template, values);
