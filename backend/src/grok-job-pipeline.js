@@ -113,69 +113,94 @@ function openAICompatibleMethods() {
 
 // ─── Paths ────────────────────────────────────────────────────────────────────
 
-const INPUT_FILE = path.resolve(__dirname, '../data/2026-06-05/enriched_job_details.json');
+const TODAY = new Date().toISOString().slice(0, 10);
+const INPUT_FILE = path.resolve(__dirname, `../data/${TODAY}/enriched_job_details.json`);
 const CACHE_FILE = path.resolve(__dirname, '../data/company_cache.json');
 
 // ─── Resume ───────────────────────────────────────────────────────────────────
 
-const RESUME = `Goonja Gandhi
-+91 XXXXXXXX• gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi• https://github.com/gona04
-Senior Frontend Engineer (React, TypeScript, Performance & Systems)
-Frontend Engineer with ~5 years of experience building high-performance, scalable web applications
-using React and TypeScript. Specializes in performance optimization, frontend architecture, and system
-design, with a proven track record of reducing load times, improving API efficiency, and delivering
-maintainable UI systems. Experienced working in cross-functional teams and owning features end-to-end,
-from architecture to deployment.
+const RESUME = `GOONJA GANDHI
+Mumbai• +91 7718961340• gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi•
+https://github.com/gona04
+Sr Front-end Developer
+Senior Frontend Engineer with 5 years of experience delivering scalable, high-performance web
+applications using React, Next.js, TypeScript, GraphQL, and modern frontend architectures. Expertise in
+frontend optimization, accessibility, AI integrations, SSR/SSG/ISR, React Server Components, and
+enterprise-grade UI delivery within Agile environments.
 SKILLS
 Frontend: CSS3, HTML5, JavaScript ( ES6+
-) , React, SCSS, Tailwind, TypeScript
+) , Next. js, React. js, SCSS, Tailwind CSS, TypeScript
+Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO
+Optimization, SSG, SSR
 State Management: Context API, Redux, RxJS
-Backend: Express, Node. js, REST APIs
-Systems & Performance: API optimization, bundle analysis, caching strategies, Code splitting
-AI Integration: FAISS, LangChain, LLM integrations, RAG systems
-Tools: AWS, CI/ CD ( Jenkins) , Firebase, Git, Netlify, Railway
-Testing: Jest, unit testing
-Other: Accessibility ( WCAG) , Agile, system design fundamentals
+Backend & APIs: Apollo Client, Express. js, GraphQL, Node. js, REST APIs
+Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend
+Architecture, Lazy Loading, Performance Optimization, System Design
+AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic
+Search
+Cloud & DevOps: AWS, CI/ CD, Firebase, Jenkins, Netlify, Railway
+Testing & Development: Accessibility ( WCAG) , Agile Methodologies, Git, Jest, Unit Testing
 PROJECTS
-NewsAlign — AI-Powered Fact Verification System (Full Stack)
-• Designed and built a full-stack system using React, Node.js, and PostgreSQL (AWS RDS)
-• Reduced frontend bundle size from 941KB → <300KB using code splitting and optimization techniques
-• Improved system performance (Lighthouse score: 73 → 95) by eliminating redundant API calls and
-optimizing auth flow
-• Built a RAG-based pipeline using FAISS, semantic search, and LLM reasoning
-• Replaced runtime scraping with scheduled pipelines, significantly improving response latency
-• Implemented backend safeguards: JWT authentication, rate limiting, and usage tracking
-• Achieved ~84% test coverage using Jest
-• Github: https://github.com/gona04/NewsAlignApp: https://news-align.netlify.app/
-Custom Reactive JS Engine (React Internals Exploration)
-• Built a lightweight reactivity system mimicking useState behavior using Object.defineProperty
-• Demonstrates understanding of how modern frameworks handle state updates and rendering
-• Github: https://github.com/gona04/custom-js-framework
-reactli-c — React CLI Tool
-• Developed a CLI tool to generate React component boilerplate, reducing repetitive setup
-• Designed for simplicity and zero runtime dependencies
-• npm: https://www.npmjs.com/package/reactli-c
+NewsAlign — AI-Powered Fact Verification System 02/2026
+Personal Project
+• Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS,
+Hugging Face, NLP, and RAG pipelines.
+• Shrank bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization
+strategies.
+• Elevated Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching
+mechanisms, and Core Web Vitals improvements.
+• Integrated JWT authentication, API caching, and secure backend workflows to support scalable
+application performance.
+• Attained approximately 84% unit test coverage using Jest and automated testing practices.
+reactli-c — React CLI Tool 01/2026
+Personal Project
+• Created a CLI tool that generates reusable React component boilerplates, accelerating project setup
+and development workflows.
+• Increased developer efficiency through zero-runtime-dependency architecture and automated
+component scaffolding.
+Custom Reactive JavaScript Engine 08/2025
+Personal Project
+• Architected a lightweight reactive state management engine inspired by React'
+s useState internals.
+• Showcased expertise in rendering cycles, reactivity systems, JavaScript memory management, and
+frontend architecture patterns.
 WORK EXPERIENCE
 Datapret 01/2024 - 03/2024
-MERN Stack Developer
-• Built an accessibility-compliant complaint resolution system using React and Redux
-• Improved WCAG compliance score by 30%, enhancing usability for diverse user groups
-• Integrated frontend with REST APIs, ensuring reliable and performant data flow
-• Collaborated with design/product teams to reduce rework and improve delivery speed
-Tata Consultancy Services 01/2019 - 04/2023
+MERN Stack Developer (Co-op)
+• Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript,
+Node.js, and REST APIs.
+• Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across
+critical workflows.
+• Accelerated application responsiveness through frontend rendering optimizations, efficient API
+integrations, and streamlined data handling.
+• Coordinated with cross-functional Agile teams to speed feature delivery and minimize development
+rework.
+• Successfully completed the engagement upon project delivery.
+Tata Consultancy Services (TCS) 01/2019 - 04/2023
 Senior Frontend Developer
-• Led a team of 5 developers, contributing to frontend architecture and enforcing clean code and SOLID
-principles
-• Reduced unnecessary API calls by 40% by redesigning state management using RxJS and TypeScript
-• Improved usability of complex data-heavy interfaces by redesigning UI architecture (accordion-based
-system)
-• Delivered responsive, cross-browser compatible applications used in enterprise environments
-• Collaborated closely with backend teams (Spring Boot) to optimize API contracts and reduce frontend
-bottlenecks
-• Mentored junior developers and conducted code reviews to maintain engineering standards
+• Directed a team of 5 developers while shaping frontend architecture decisions using Angular and
+TypeScript.
+• Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable
+component frameworks.
+• Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.
+• Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing
+state management efficiency.
+• Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle
+optimization techniques.
+• Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature
+delivery timelines.
+• Guided and mentored 5 developers, strengthening code quality standards and expediting review
+cycles.
+• Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and
+development practices.
+• Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance.
 EDUCATION
 Mobile Applications Development
-Cambrian College • GPA: 3.8 Canada
+Cambrian College • GPA: 3.8 Cambrian College, Canada • 01/2023 - 03/2024
+• Completed advanced coursework in mobile application development, responsive UI design, and
+frontend engineering.
+• Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts
+across academic projects.
 CERTIFICATIONS
 Generative AI: Large Language Models
 AI Engineering: RAG (LangChain, FAISS, Hugging Face)
@@ -456,7 +481,7 @@ async function main() {
   log(`Using provider: ${providerConfig.provider}, model: ${providerConfig.model}`);
 
   const results = [];
-
+  console.log(rawJobs.length);
   for (let i = 0; i < rawJobs.length; i++) {
     const job = rawJobs[i];
     log(`[${i + 1}/${rawJobs.length}] Processing → ${job.company_name ?? 'unknown'}`);

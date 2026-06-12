@@ -168,6 +168,7 @@ function getResumePrompt(oldResume, job, analysis) {
               • Output ONLY valid JSON
               • ALWAYS ADD THE DATE OF CAMBRIAN COLLEGE EDUCATION MAY 2023 - MARCH 2024
               • ALWAYS WRITE COOP IN FRONT OF DATAPRET EG DATAPRET (COOP)
+              . NEVER MAKE IT 5YRS OF EXPIRENCE **(NEVER)** it is nearly (other adjectives) 5YRS
           `;
   return prompt;
 }
