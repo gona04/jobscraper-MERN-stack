@@ -47,7 +47,6 @@ const fsSync = require('node:fs');
 const path = require('node:path');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const XLSX = require('xlsx');
 const puppeteer = require('puppeteer');
 
 const { COVER_LETTER_SYSTEM_PROMPT, getCoverLetterPrompt } = require('./prompt/coverLetterPrompt');
@@ -58,6 +57,7 @@ const {
 } = require('./prompt/motivationLetterPrompt');
 const { buildResumeHtml } = require('./pdf-generators/resumePdf');
 const { buildLetterHtml } = require('./pdf-generators/letterPdf');
+const { writeExcelFile } = require('./utils/excelWriter');
 
 const OUTPUT_BASE_DIR = '/Users/workgoonja/Downloads/Resumes/automated';
 const GLOBAL_CACHE_FILE = path.resolve(__dirname, '../data/company_cache.json');
@@ -341,20 +341,7 @@ async function step2EnrichCompanies(inputPath, outputPath) {
 
 async function step3GenerateExcel(inputPath, outputPath) {
   const jobs = toArray(await readJsonFile(inputPath, 'STEP-3'));
-  const rows = jobs.map((job) => ({
-    'Job Title': job.jobTitle || '',
-    'Company Name': job.company_name || '',
-    'Job Link': job.job_link || '',
-    Skills: Array.isArray(job.skillsRequired) ? job.skillsRequired.join(', ') : String(job.skillsRequired || ''),
-    'Visa Sponsorship': job.visa_sponsorship || 'Unknown',
-    'Company Website': job.company_website || ''
-  }));
-
-  const workbook = XLSX.utils.book_new();
-  const worksheet = XLSX.utils.json_to_sheet(rows);
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Jobs');
-  await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  XLSX.writeFile(workbook, outputPath);
+  await writeExcelFile(outputPath, jobs);
   log('STEP-3', `Wrote ${outputPath}`);
 }
 
