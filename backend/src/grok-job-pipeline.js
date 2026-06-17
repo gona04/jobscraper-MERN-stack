@@ -309,12 +309,41 @@ async function processJob(job, cache) {
   );
   const resumeParsed = safeParseJSON(resumeRaw);
 
-  const motivationContext =
+  const hasFinancialObjectives =
+    job.financial_research_status === 'success' &&
+    Array.isArray(job.strategic_objectives) &&
+    job.strategic_objectives.length > 0;
+  const financialContext = hasFinancialObjectives
+    ? [
+        'Financial research pipeline identified current strategic objectives from authoritative company reporting.',
+        `Primary source: ${job.financial_research_source || 'Not specified'}`,
+        'Top strategic objectives:',
+        ...job.strategic_objectives.map((item) =>
+          `${item.rank || '-'}. ${item.objective}${item.source ? ` (Source: ${item.source})` : ''}`
+        ),
+        job.financial_research_summary ? `Summary:
+${job.financial_research_summary}` : ''
+      ]
+        .filter(Boolean)
+        .join('\n')
+    : '';
+  const baseMotivationContext =
     (companyStatus === 'success' && companyDetails) || job.jobDescription || JSON.stringify(job);
+  const motivationContext = hasFinancialObjectives
+    ? `${financialContext}\n\nFallback company context:
+${baseMotivationContext}`
+    : baseMotivationContext;
 
   const motivationRaw = await callGrok(
     MOTIVATION_LETTER_SYSTEM_PROMPT,
-    getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, motivationContext, RESUME)
+    getMotivationLetterPrompt(
+      rawCompany,
+      job.jobTitle,
+      job.location,
+      motivationContext,
+      RESUME,
+      hasFinancialObjectives
+    )
   );
   const motivationLetterParsed = safeParseJSON(motivationRaw);
 
