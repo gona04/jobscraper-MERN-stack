@@ -15,8 +15,8 @@ const { TESTING_SYSTEM_PROMPT, getTestingPrompt } = require('./prompt/testingPro
 
 const DELAY_BETWEEN_REQUESTS = 1500;
 const TEXT_LIMIT = 5000;
-const XAI_TIMEOUT_MS = 60000;
-const XAI_MAX_RETRIES = 3;
+const AI_TIMEOUT_MS = 60000;
+const AI_MAX_RETRIES = 3;
 const RETRYABLE_HTTP_STATUS = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
 const RETRYABLE_ERROR_CODES = new Set([
   'ECONNABORTED',
@@ -208,53 +208,117 @@ async function getCompanyDetails(companyName) {
   }
 }
 
-async function xAI_API(systemPrompt, userPrompt) {
-  for (let attempt = 1; attempt <= XAI_MAX_RETRIES; attempt += 1) {
-    try {
-      const response = await safeRequest('https://api.x.ai/v1/chat/completions', 'post', {
-        timeout: XAI_TIMEOUT_MS,
+function buildAIRequest(providerConfig, systemPrompt, userPrompt) {
+  const provider = String(providerConfig?.provider || '').toLowerCase();
+  const apiKey = providerConfig?.apiKey;
+  const model = providerConfig?.model;
+
+  if (!provider || !apiKey || !model) {
+    throw new Error('AI provider configuration requires provider, apiKey, and model.');
+  }
+
+  if (provider === 'claude') {
+    return {
+      provider,
+      url: 'https://api.anthropic.com/v1/messages',
+      options: {
+        timeout: AI_TIMEOUT_MS,
         headers: {
-          Authorization: `Bearer ${process.env.GROK_API_KEY}`,
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
           'Content-Type': 'application/json'
         },
         data: {
-          model: 'grok-4-1-fast-reasoning',
+          model,
+          max_tokens: 1000,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: userPrompt }]
+        }
+      },
+      parseResponse(response) {
+        const content = response?.data?.content
+          ?.map((part) => (part?.type === 'text' && typeof part.text === 'string' ? part.text : ''))
+          .join('')
+          .trim();
+
+        if (typeof content !== 'string' || !content) {
+          throw new Error('Malformed response: missing content text');
+        }
+
+        return content;
+      }
+    };
+  }
+
+  if (provider === 'grok' || provider === 'openai') {
+    const url = provider === 'grok'
+      ? 'https://api.x.ai/v1/chat/completions'
+      : 'https://api.openai.com/v1/chat/completions';
+
+    return {
+      provider,
+      url,
+      options: {
+        timeout: AI_TIMEOUT_MS,
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json'
+        },
+        data: {
+          model,
           messages: [
             { role: 'system', content: systemPrompt },
             { role: 'user', content: userPrompt }
           ]
         }
-      });
+      },
+      parseResponse(response) {
+        const content = response?.data?.choices?.[0]?.message?.content;
+        if (typeof content !== 'string') {
+          throw new Error('Malformed response: missing choices[0].message.content');
+        }
+
+        return content;
+      }
+    };
+  }
+
+  throw new Error(`Unsupported AI provider: ${providerConfig.provider}`);
+}
+
+async function callAI(providerConfig, systemPrompt, userPrompt) {
+  const request = buildAIRequest(providerConfig, systemPrompt, userPrompt);
+
+  for (let attempt = 1; attempt <= AI_MAX_RETRIES; attempt += 1) {
+    try {
+      const response = await safeRequest(request.url, 'post', request.options);
 
       if (response.status !== 200) {
-        return JSON.stringify({ error: `Unexpected status: ${response.status}` });
+        throw new Error(`Unexpected status: ${response.status}`);
       }
 
-      const content = response?.data?.choices?.[0]?.message?.content;
-      if (typeof content !== 'string') {
-        return JSON.stringify({ error: 'Malformed response: missing choices[0].message.content' });
-      }
-
+      const content = request.parseResponse(response);
+      await delay(DELAY_BETWEEN_REQUESTS);
       return content;
     } catch (error) {
-      const statusMatch = error.message.match(/\(status (\d+)\)/);
+      const statusMatch = error.message.match(/\(status (\d+)\)/) || error.message.match(/Unexpected status: (\d+)/);
       const status = statusMatch ? Number(statusMatch[1]) : null;
       const isRetryableStatus = status !== null && RETRYABLE_HTTP_STATUS.has(status);
       const isRetryableCode = RETRYABLE_ERROR_CODES.has(error.code);
       const isTimedOut = error.message.includes('timeout');
-      const shouldRetry = attempt < XAI_MAX_RETRIES && (isRetryableStatus || isRetryableCode || isTimedOut);
+      const shouldRetry = attempt < AI_MAX_RETRIES && (isRetryableStatus || isRetryableCode || isTimedOut);
 
       if (!shouldRetry) {
-        return JSON.stringify({ error: error.message });
+        throw error;
       }
 
       const backoffMs = Math.min(2000 * 2 ** (attempt - 1), 10000);
-      log(`xAI request failed (attempt ${attempt}/${XAI_MAX_RETRIES}): ${error.message}. Retrying in ${backoffMs}ms.`);
+      log(`${request.provider} request failed (attempt ${attempt}/${AI_MAX_RETRIES}): ${error.message}. Retrying in ${backoffMs}ms.`);
       await delay(backoffMs);
     }
   }
 
-  return JSON.stringify({ error: 'xAI request failed after retries.' });
+  throw new Error(`${request.provider} request failed after retries.`);
 }
 
 function safeParseJSON(str) {
@@ -270,13 +334,7 @@ function safeParseJSON(str) {
   }
 }
 
-async function callGrok(systemPrompt, userPrompt) {
-  const raw = await xAI_API(systemPrompt, userPrompt);
-  await delay(DELAY_BETWEEN_REQUESTS);
-  return raw;
-}
-
-async function processJob(job, cache) {
+async function processJob(job, cache, providerConfig) {
   const rawCompany = job.companyName;
   const company = normalizeCompanyName(rawCompany);
 
@@ -297,13 +355,15 @@ async function processJob(job, cache) {
     companyDetails = scraped.details;
   }
 
-  const coverLetterRaw = await callGrok(
+  const coverLetterRaw = await callAI(
+    providerConfig,
     COVER_LETTER_SYSTEM_PROMPT,
     getCoverLetterPrompt(job, RESUME)
   );
   const coverLetterParsed = safeParseJSON(coverLetterRaw);
 
-  const resumeRaw = await callGrok(
+  const resumeRaw = await callAI(
+    providerConfig,
     RESUME_SYSTEM_PROMPT,
     getResumePrompt(RESUME, job, coverLetterParsed.analysis || '')
   );
@@ -312,13 +372,15 @@ async function processJob(job, cache) {
   const motivationContext =
     (companyStatus === 'success' && companyDetails) || job.jobDescription || JSON.stringify(job);
 
-  const motivationRaw = await callGrok(
+  const motivationRaw = await callAI(
+    providerConfig,
     MOTIVATION_LETTER_SYSTEM_PROMPT,
     getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, motivationContext, RESUME)
   );
   const motivationLetterParsed = safeParseJSON(motivationRaw);
 
-  const testingRaw = await callGrok(
+  const testingRaw = await callAI(
+    providerConfig,
     TESTING_SYSTEM_PROMPT,
     getTestingPrompt(
       JSON.stringify(resumeParsed?.resume || {}),
@@ -350,6 +412,11 @@ async function main() {
   const rawJobs = await fs.readFile(INPUT_FILE, 'utf8');
   const jobs = JSON.parse(rawJobs);
   const cache = await loadCache();
+  const providerConfig = {
+    provider: process.env.AI_PROVIDER,
+    apiKey: process.env.AI_API_KEY,
+    model: process.env.AI_MODEL
+  };
   const results = [];
 
   for (let i = 0; i < jobs.length; i += 1) {
@@ -357,7 +424,7 @@ async function main() {
     log(`[${i + 1}/${jobs.length}] Processing → ${job.companyName || 'unknown'}`);
 
     try {
-      const processed = await processJob(job, cache);
+      const processed = await processJob(job, cache, providerConfig);
       results.push(processed);
     } catch (error) {
       log(`Error processing ${job.companyName || 'unknown'}: ${error.message}`);
@@ -395,7 +462,8 @@ module.exports = {
   searchCompanyWebsite,
   scrapeSiteText,
   getCompanyDetails,
-  xAI_API,
+  buildAIRequest,
+  callAI,
   safeParseJSON,
   processJob,
   main
