@@ -4,6 +4,7 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const { buildResumeHtml } = require('./pdf-generators/resumePdf');
 const { buildLetterHtml } = require('./pdf-generators/letterPdf');
+const { isIndiaBasedJob } = require('./utils/indiaLocation');
 
 const OUTPUT_BASE_DIR = '/Users/workgoonja/Downloads/Resumes/automated';
 
@@ -109,6 +110,7 @@ async function run() {
     const targetDir = getUniqueTargetDir(baseDir);
     await fs.mkdir(targetDir, { recursive: true });
 
+    const skipLetters = Boolean(job.india_based_job) || isIndiaBasedJob(job);
     const files = [
       {
         key: 'resume',
@@ -117,22 +119,30 @@ async function run() {
         buildHtml: (sectionContent) => buildResumeHtml({ content: sectionContent }),
         enforceSinglePage: true,
       },
-      {
-        key: 'cover_letter',
-        fileName: 'GoonjaGandhi_coverLetter.pdf',
-        label: 'Cover Letter',
-        buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, templateName: 'coverLetter.html' }),
-        enforceSinglePage: false,
-      },
-      {
-        key: 'motivation_letter',
-        fileName: 'GoonjaGandhi_motivationLetter.pdf',
-        label: 'Motivation Letter',
-        buildHtml: (sectionContent) =>
-          buildLetterHtml({ content: sectionContent, templateName: 'motivationLetter.html' }),
-        enforceSinglePage: false,
-      },
+      ...(!skipLetters
+        ? [
+            {
+              key: 'cover_letter',
+              fileName: 'GoonjaGandhi_coverLetter.pdf',
+              label: 'Cover Letter',
+              buildHtml: (sectionContent) => buildLetterHtml({ content: sectionContent, templateName: 'coverLetter.html' }),
+              enforceSinglePage: false,
+            },
+            {
+              key: 'motivation_letter',
+              fileName: 'GoonjaGandhi_motivationLetter.pdf',
+              label: 'Motivation Letter',
+              buildHtml: (sectionContent) =>
+                buildLetterHtml({ content: sectionContent, templateName: 'motivationLetter.html' }),
+              enforceSinglePage: false,
+            },
+          ]
+        : []),
     ];
+
+    if (skipLetters) {
+      console.log(`[SKIP] Job #${index + 1} (${companyDir}/${roleDir}) is India-based; generating resume only.`);
+    }
 
     for (const { key, fileName, label, buildHtml, enforceSinglePage } of files) {
       try {

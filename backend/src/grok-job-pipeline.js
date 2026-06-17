@@ -12,6 +12,7 @@ const {
   getMotivationLetterPrompt
 } = require('./prompt/motivationLetterPrompt');
 const { TESTING_SYSTEM_PROMPT, getTestingPrompt } = require('./prompt/testingPrompt');
+const { isIndiaBasedJob } = require('./utils/indiaLocation');
 
 const DELAY_BETWEEN_REQUESTS = 1500;
 const TEXT_LIMIT = 5000;
@@ -297,11 +298,20 @@ async function processJob(job, cache) {
     companyDetails = scraped.details;
   }
 
-  const coverLetterRaw = await callGrok(
-    COVER_LETTER_SYSTEM_PROMPT,
-    getCoverLetterPrompt(job, RESUME)
-  );
-  const coverLetterParsed = safeParseJSON(coverLetterRaw);
+  const skipLetters = isIndiaBasedJob(job);
+  let coverLetterParsed = {};
+  let motivationLetterParsed = {};
+  let testingParsed = {};
+
+  if (skipLetters) {
+    log(`India-based job detected → skipping cover letter and motivation letter for ${rawCompany || 'unknown company'}.`);
+  } else {
+    const coverLetterRaw = await callGrok(
+      COVER_LETTER_SYSTEM_PROMPT,
+      getCoverLetterPrompt(job, RESUME)
+    );
+    coverLetterParsed = safeParseJSON(coverLetterRaw);
+  }
 
   const resumeRaw = await callGrok(
     RESUME_SYSTEM_PROMPT,
@@ -309,37 +319,40 @@ async function processJob(job, cache) {
   );
   const resumeParsed = safeParseJSON(resumeRaw);
 
-  const motivationContext =
-    (companyStatus === 'success' && companyDetails) || job.jobDescription || JSON.stringify(job);
+  if (!skipLetters) {
+    const motivationContext =
+      (companyStatus === 'success' && companyDetails) || job.jobDescription || JSON.stringify(job);
 
-  const motivationRaw = await callGrok(
-    MOTIVATION_LETTER_SYSTEM_PROMPT,
-    getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, motivationContext, RESUME)
-  );
-  const motivationLetterParsed = safeParseJSON(motivationRaw);
+    const motivationRaw = await callGrok(
+      MOTIVATION_LETTER_SYSTEM_PROMPT,
+      getMotivationLetterPrompt(rawCompany, job.jobTitle, job.location, motivationContext, RESUME)
+    );
+    motivationLetterParsed = safeParseJSON(motivationRaw);
 
-  const testingRaw = await callGrok(
-    TESTING_SYSTEM_PROMPT,
-    getTestingPrompt(
-      JSON.stringify(resumeParsed?.resume || {}),
-      JSON.stringify(coverLetterParsed?.cover_letter || {}),
-      JSON.stringify(motivationLetterParsed || {}),
-      job.jobDescription || JSON.stringify(job),
-      RESUME
-    )
-  );
-  const testingParsed = safeParseJSON(testingRaw);
+    const testingRaw = await callGrok(
+      TESTING_SYSTEM_PROMPT,
+      getTestingPrompt(
+        JSON.stringify(resumeParsed?.resume || {}),
+        JSON.stringify(coverLetterParsed?.cover_letter || {}),
+        JSON.stringify(motivationLetterParsed || {}),
+        job.jobDescription || JSON.stringify(job),
+        RESUME
+      )
+    );
+    testingParsed = safeParseJSON(testingRaw);
+  }
 
   return {
     summary: testingParsed?.company_summary || '',
     company_name: rawCompany,
     job_title: job.jobTitle,
-    motivation_letter: motivationLetterParsed,
-    cover_letter: testingParsed?.cover_letter || coverLetterParsed?.cover_letter || {},
+    motivation_letter: skipLetters ? null : motivationLetterParsed,
+    cover_letter: skipLetters ? null : testingParsed?.cover_letter || coverLetterParsed?.cover_letter || {},
     resume: testingParsed?.resume || resumeParsed?.resume || {},
     job_link: job.jobLink || coverLetterParsed?.job_link || '',
     company_website: companyWebsite,
-    company_status: companyStatus
+    company_status: companyStatus,
+    india_based_job: skipLetters
   };
 }
 
