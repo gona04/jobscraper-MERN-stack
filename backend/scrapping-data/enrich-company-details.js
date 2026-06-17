@@ -6,6 +6,41 @@ CONFIG
 =========================== */
 
 const CACHE_FILENAME = 'company_cache.json';
+const FINANCIAL_TEXT_LIMIT = 12000;
+const SERPER_SEARCH_URL = 'https://google.serper.dev/search';
+const FINANCIAL_SEARCH_TERMS = [
+  'latest annual report investor relations',
+  'financial report investor relations',
+  'shareholder letter annual report',
+  'earnings report presentation',
+  'strategic outlook investor relations'
+];
+const FINANCIAL_KEYWORDS = [
+  'strategy',
+  'strategic',
+  'priority',
+  'priorities',
+  'growth',
+  'improve',
+  'improvement',
+  'optimize',
+  'optimization',
+  'transform',
+  'transformation',
+  'modernize',
+  'efficiency',
+  'cost',
+  'margin',
+  'retention',
+  'customer',
+  'risk',
+  'challenge',
+  'headwind',
+  'investment',
+  'innovation',
+  'digital',
+  'operational'
+];
 
 /* ===========================
 UTILS
@@ -27,6 +62,27 @@ companyName: job.companyName || job.company_name || '',
 
 function normalizeCompanyName(name) {
 return (name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function uniqueBy(items, keyFn) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = keyFn(item);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function stripHTML(html) {
+  return String(html || '')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /* ===========================
@@ -67,11 +123,7 @@ HTML CLEAN (SAFE)
 function cleanHTML(html) {
 if (!html) return '';
 
-return html
-.replace(/<[^>]*>/g, ' ')
-.replace(/\s+/g, ' ')
-.trim()
-.slice(0, 2000);
+return stripHTML(html).slice(0, 2000);
 }
 
 /* ===========================
@@ -152,6 +204,155 @@ async function fetchCompanyDirect(company) {
 }
 
 /* ===========================
+FINANCIAL RESEARCH PIPELINE
+=========================== */
+
+function getFinancialFallback(status, error) {
+  return {
+    financial_research_status: status,
+    financial_research_error: error || null,
+    financial_research_source: null,
+    financial_research_sources: [],
+    financial_research_summary: null,
+    strategic_objectives: []
+  };
+}
+
+async function serperSearch(query) {
+  if (!process.env.SERPER_API_KEY) {
+    throw new Error('SERPER_API_KEY is not configured');
+  }
+
+  const res = await fetch(SERPER_SEARCH_URL, {
+    method: 'POST',
+    headers: {
+      'X-API-KEY': process.env.SERPER_API_KEY,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ q: query, num: 5 })
+  });
+
+  if (!res.ok) {
+    throw new Error(`Serper HTTP ${res.status}`);
+  }
+
+  const data = await res.json();
+  return Array.isArray(data.organic) ? data.organic : [];
+}
+
+function scoreFinancialSource(result) {
+  const haystack = `${result.title || ''} ${result.link || ''} ${result.snippet || ''}`.toLowerCase();
+  let score = 0;
+
+  if (/investors?|investor-relations|ir\./.test(haystack)) score += 35;
+  if (/annual report|10-k|form 10-k/.test(haystack)) score += 30;
+  if (/sec\.gov|edgar/.test(haystack)) score += 25;
+  if (/earnings|presentation|shareholder letter/.test(haystack)) score += 20;
+  if (/financial report|quarterly report|results/.test(haystack)) score += 15;
+  if (/pdf/.test(haystack)) score += 5;
+  if (/linkedin|facebook|instagram|wikipedia|glassdoor|indeed/.test(haystack)) score -= 50;
+
+  return score;
+}
+
+async function findFinancialSources(company) {
+  const searches = FINANCIAL_SEARCH_TERMS.map((term) => serperSearch(`${company} ${term}`));
+  const settled = await Promise.allSettled(searches);
+  const results = settled
+    .filter((result) => result.status === 'fulfilled')
+    .flatMap((result) => result.value)
+    .map((result) => ({
+      title: result.title || '',
+      link: result.link || '',
+      snippet: result.snippet || '',
+      score: scoreFinancialSource(result)
+    }))
+    .filter((result) => result.link && result.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  return uniqueBy(results, (result) => result.link).slice(0, 5);
+}
+
+async function scrapeFinancialSource(source) {
+  const res = await fetch(source.link, {
+    headers: { 'User-Agent': 'Mozilla/5.0' }
+  });
+
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+
+  const contentType = res.headers.get('content-type') || '';
+  if (contentType.includes('application/pdf') || source.link.toLowerCase().endsWith('.pdf')) {
+    return `${source.title}. ${source.snippet}`;
+  }
+
+  return stripHTML(await res.text()).slice(0, FINANCIAL_TEXT_LIMIT);
+}
+
+function extractStrategicObjectives(text, sources) {
+  const sentences = String(text || '')
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length >= 60 && sentence.length <= 320);
+
+  const ranked = sentences
+    .map((sentence) => {
+      const lower = sentence.toLowerCase();
+      const score = FINANCIAL_KEYWORDS.reduce(
+        (total, keyword) => total + (lower.includes(keyword) ? 1 : 0),
+        0
+      );
+      return { sentence, score };
+    })
+    .filter(({ score }) => score >= 2)
+    .sort((a, b) => b.score - a.score)
+    .map(({ sentence }) => sentence);
+
+  return uniqueBy(ranked, (sentence) => sentence.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 90))
+    .slice(0, 3)
+    .map((objective, index) => ({
+      rank: index + 1,
+      objective,
+      source: sources[0]?.link || null
+    }));
+}
+
+async function researchFinancialInsights(company) {
+  try {
+    const sources = await findFinancialSources(company);
+    if (sources.length === 0) {
+      return getFinancialFallback('not_found', 'No authoritative financial sources found');
+    }
+
+    const scraped = await Promise.allSettled(sources.map((source) => scrapeFinancialSource(source)));
+    const documents = scraped
+      .filter((result) => result.status === 'fulfilled' && result.value)
+      .map((result) => result.value);
+
+    if (documents.length === 0) {
+      return getFinancialFallback('parse_failed', 'Financial sources could not be parsed');
+    }
+
+    const strategicObjectives = extractStrategicObjectives(documents.join(' '), sources);
+    if (strategicObjectives.length === 0) {
+      return getFinancialFallback('no_clear_priorities', 'No clear strategic objectives extracted');
+    }
+
+    return {
+      financial_research_status: 'success',
+      financial_research_error: null,
+      financial_research_source: sources[0].link,
+      financial_research_sources: sources,
+      financial_research_summary: strategicObjectives.map((item) => `${item.rank}. ${item.objective}`).join('\n'),
+      strategic_objectives: strategicObjectives
+    };
+  } catch (err) {
+    return getFinancialFallback('error', err.message);
+  }
+}
+
+/* ===========================
 MAIN
 =========================== */
 
@@ -190,26 +391,58 @@ for (let i = 0; i < jobs.length; i++) {
       company_status: 'invalid_company',
       company_website: null,
       company_details: null,
+      ...getFinancialFallback('skipped', 'Missing company name'),
     });
     continue;
   }
 
   const key = normalizeCompanyName(company);
+  const cached = cache[key];
 
-  if (cache[key]) {
+  const companyPromise = cached
+    ? Promise.resolve({
+        company_status: cached.company_status,
+        company_website: cached.company_website,
+        company_details: cached.company_details,
+        company_error: cached.company_error,
+      })
+    : fetchCompanyDirect(company);
+
+  const financialPromise = cached?.financial_research_status
+    ? Promise.resolve({
+        financial_research_status: cached.financial_research_status,
+        financial_research_error: cached.financial_research_error,
+        financial_research_source: cached.financial_research_source,
+        financial_research_sources: cached.financial_research_sources || [],
+        financial_research_summary: cached.financial_research_summary,
+        strategic_objectives: cached.strategic_objectives || [],
+      })
+    : researchFinancialInsights(company);
+
+  if (cached) {
     console.log("⚡ Cache:", company);
-    results.push({ ...job, ...cache[key] });
-    continue;
   }
 
-  const data = await fetchCompanyDirect(company);
+  const [companyResult, financialResult] = await Promise.allSettled([companyPromise, financialPromise]);
+  const data = companyResult.status === 'fulfilled'
+    ? companyResult.value
+    : {
+        company_status: 'error',
+        company_website: null,
+        company_details: null,
+        company_error: companyResult.reason?.message || 'Company enrichment failed',
+      };
+  const financialData = financialResult.status === 'fulfilled'
+    ? financialResult.value
+    : getFinancialFallback('error', financialResult.reason?.message || 'Financial research failed');
 
-  cache[key] = data;
+  cache[key] = { ...data, ...financialData };
   saveCache(cachePath, cache);
 
   results.push({
     ...job,
     ...data,
+    ...financialData,
   });
 
   await new Promise((resolve) => setTimeout(resolve, 500));
@@ -234,4 +467,4 @@ const date = process.argv[2];
 enrichJobs(date);
 }
 
-module.exports = { enrichJobs };
+module.exports = { enrichJobs, researchFinancialInsights, extractStrategicObjectives };

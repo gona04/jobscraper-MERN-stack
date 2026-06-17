@@ -116,7 +116,7 @@ TONE & STYLE
 • One or two sentences that feel genuinely observational about the company —
   the kind of thing only someone who actually thought about them would write`;
 
-function getMotivationLetterPrompt(companyName, jobTitle, location, companyInsights, resume) {
+function getMotivationLetterPrompt(companyName, jobTitle, location, companyInsights, resume, hasFinancialObjectives = false) {
   const prompt = `
 Write a one-page European-style motivation letter for the following application.
 
@@ -131,6 +131,8 @@ Location:         ${location}
 Company / Role Context:
 ${companyInsights}
 
+Financial objectives available: ${hasFinancialObjectives ? 'yes' : 'no'}
+
 Resume (factual source of truth — do not invent beyond this):
 ${resume}
 
@@ -139,8 +141,12 @@ WRITING INSTRUCTIONS
 ═══════════════════════════════════════
 
 Step 1 — Read the company context carefully.
-  Identify 1–2 specific, non-generic observations about this company's direction,
-  product philosophy, domain challenges, or values. These must come from the context
+  If financial objectives are available, prioritize the top strategic objectives,
+  management challenges, risks, improvement areas, or transformation goals in that
+  context. Build the letter around how Goonja can contribute to those current-year
+  business priorities. If financial objectives are not available, identify 1–2
+  specific, non-generic observations about this company's direction, product
+  philosophy, domain challenges, or values. These must come from the context
   provided — not from general knowledge of the industry.
 
 Step 2 — Identify genuine alignment.
@@ -152,6 +158,8 @@ Step 3 — Write the letter.
   The letter must:
   • Use <b>bold tags</b> for key impact, technologies, and results
   • Open with a specific observation about the company — not with "I am applying for"
+  • When financial objectives are available, connect the opening observation to one
+    of the stated goals, challenges, risks, improvements, or transformation priorities
   • Explain why that observation resonates with Goonja's mindset or trajectory
   • Connect her relevant experience to what the role actually requires
   • If a pre-tech experience is relevant, surface it naturally — one sentence is enough
