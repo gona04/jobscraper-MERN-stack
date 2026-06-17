@@ -1,0 +1,104 @@
+[
+  {
+    "summary": "Customer engagement platforms, Senior Frontend Architect role, real-time collaborative editing systems",
+    "company_name": "Unico Connect",
+    "job_title": "Senior Frontend Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "Unico Connect's approach to frontend architecture—particularly building UIs that render dynamically from <b>intermediate representations or schema-driven definitions</b>, alongside handling <b>canvas-based interactions</b>, <b>drag-and-resize</b>, and <b>real-time collaborative state</b>—mirrors the kind of systems where choices about state and rendering must directly address the underlying problem each paradigm solves.",
+        "This perspective took shape early, through Wittgenstein's question of what concept a system is resolving, which later guided my shift across roles: from designing syllabi that adapted to children's needs, to composing songs as modular structures, and now engineering reactive frontends. In building a <b>custom reactive JavaScript engine</b> mimicking React's <b>useState</b> internals, I dissected rendering cycles and reactivity not as features to adopt, but as solutions to specific tradeoffs in memory and updates—much like deciding between <b>Zustand</b>, <b>Jotai</b>, or <b>Redux</b> for complex, collaborative applications.",
+        "At TCS, I led a team of five in frontend architecture using <b>React</b>, <b>Next.js App Router</b>, and <b>TypeScript</b>, implementing <b>SSR</b>, <b>SSG</b>, <b>ISR</b>, and <b>React Server Components</b> while cutting API calls by <b>40%</b> with <b>RxJS</b> and optimising bundles through code splitting and caching. These efforts, combined with mentoring on <b>SOLID principles</b> and enforcing testing standards, prepared me to own decisions on build tooling, profile <b>time-to-interactive</b> and memory, and set conventions across pods.",
+        "I see myself contributing by documenting these architectural choices for customer engagements, running code reviews that elevate the bar, and representing Unico Connect in technical discussions where schema-driven UIs meet real-world constraints."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "With around 5 years as a Senior Frontend Engineer building scalable React and Next.js applications, I am eager to join Unico Connect and own frontend architecture for your customer engagements. My work on AI-powered platforms like NewsAlign, using TypeScript, GraphQL, and performance optimizations, aligns with your complex UI needs. I am fully open to relocation.",
+        "At TCS, I led a team of 5 developers in enterprise apps: designed Next.js App Router with SSR/SSG/ISR and dynamic routing, applied code splitting, lazy loading, and RxJS for state efficiency, cutting API calls by 40% and enhancing SEO/performance. In NewsAlign, I reduced bundle size from 941KB to under 300KB via optimization techniques, boosting Lighthouse scores from 73 to 95. Key impacts:\n• Achieved 84% unit test coverage with Jest while ensuring WCAG compliance.\n• Mentored juniors on SOLID principles, streamlining code reviews and feature delivery.\n• Integrated GraphQL/REST APIs, partnering with backend for seamless scalability.",
+        "My experience in frontend architecture, state management, performance profiling for rendering, bundle size, time-to-interactive, and memory, plus leading testing standards and mentoring, positions me to tackle editor surfaces, canvas interactions, real-time collaborative state, and schema-driven UIs at Unico Connect. I am ready to set conventions, run code reviews, mentor mid-level engineers, and represent in customer discussions."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with around 5 years building scalable web applications using React, Next.js, TypeScript, Redux, GraphQL, and modern frontend architecture. Expertise in frontend architecture, performance optimization, SSR/SSG/ISR, React Server Components, Jest testing, WCAG compliance, state management with RxJS, and mentoring in Agile environments. Open to Relocate",
+      "position": "Senior Frontend Engineer",
+      "skills": "JavaScript (ES6+), TypeScript, React, Next.js, Redux, Context API, RxJS, GraphQL, Apollo Client, REST APIs, Jest, WCAG Accessibility, SSR/SSG/ISR, App Router, React Server Components, Code Splitting, Lazy Loading, Bundle Optimization, Caching Strategies, Performance Profiling",
+      "experience": [
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led team of 5 developers in frontend architecture using React, Next.js, and TypeScript, enforcing SOLID principles and streamlining code reviews.",
+            "Implemented Next.js App Router with nested layouts, dynamic routing, middleware, and route groups for scalable enterprise applications.",
+            "Optimized performance with SSR, SSG, ISR, React Server Components, code splitting, lazy loading, and caching strategies, improving SEO and speed.",
+            "Reduced API calls by 40% using RxJS for efficient state management and lower latency.",
+            "Built WCAG-compliant responsive UIs with cross-browser compatibility and zero accessibility violations.",
+            "Mentored 5 developers and collaborated with backend teams on GraphQL and Spring Boot APIs, accelerating feature releases."
+          ]
+        },
+        {
+          "company": "Datapret (COOP)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Developed accessibility-focused platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Raised WCAG compliance by 30%, enhancing inclusive user experiences.",
+            "Optimized frontend rendering and API integrations for better responsiveness and scalability in Agile teams."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "points": [
+            "Built platform with React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size from 941KB to under 300KB via code splitting and optimization.",
+            "Boosted Lighthouse score from 73 to 95 with SSR, caching, and Core Web Vitals improvements.",
+            "Achieved 84% unit test coverage using Jest."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "points": [
+            "Built lightweight reactive state management engine inspired by React’s useState internals.",
+            "Demonstrated deep understanding of rendering cycles, reactivity systems, JavaScript memory handling, and frontend architecture principles."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College • GPA: 3.8 Canada",
+          "duration": "01/2023 - 01/2024",
+          "details": "Studied mobile UI patterns, frontend development, responsive design, modern JavaScript frameworks, and API integrations."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error"
+  }
+]

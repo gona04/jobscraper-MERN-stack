@@ -1,0 +1,79 @@
+[
+  {
+    "company_name": "Air Apps",
+    "jobTitle": "Frontend Web Developer",
+    "job_link": "https://www.linkedin.com/jobs/view/4408030586/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&trk=d_flagship3_search_srp_jobs&refId=ZsL3eCITP9Tp2tMB7PE0OQ%3D%3D&trackingId=PCRL97yA8wrpJul%2BDPTx2A%3D%3D",
+    "location": "",
+    "isEURegion": "yes",
+    "visa_sponsorship": "Yes",
+    "only_english": "false",
+    "skillsRequired": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Vue",
+      "Angular",
+      "Redux",
+      "Vuex",
+      "SASS",
+      "LESS",
+      "Webpack",
+      "Vite",
+      "RESTful APIs",
+      "GraphQL",
+      "Git"
+    ],
+    "rolesAndResponsibilities": "Develop and maintain responsive, user-friendly web applications using HTML, CSS, and JavaScript frameworks such as React, Vue, or Angular. Collaborate with UI/UX designers to translate design concepts into interactive and accessible web interfaces. Optimize applications for performance, scalability, and cross-browser compatibility. Implement reusable components and maintainable front-end architectures. Work closely with back-end developers to integrate APIs and ensure seamless data flow. Stay up-to-date with emerging front-end technologies, trends, and best practices. Debug and resolve front-end issues to ensure a smooth user experience.",
+    "jobDescription": "Develop and maintain responsive, user-friendly web applications using HTML, CSS, and JavaScript frameworks such as React, Vue, or Angular. Collaborate with UI/UX designers to translate design concepts into interactive and accessible web interfaces. Optimize applications for performance, scalability, and cross-browser compatibility. Implement reusable components and maintainable front-end architectures. Work closely with back-end developers to integrate APIs and ensure seamless data flow. Stay up-to-date with emerging front-end technologies, trends, and best practices. Debug and resolve front-end issues to ensure a smooth user experience.",
+    "company_status": "success",
+    "company_website": "https://www.airapps.com",
+    "company_details": "try{if(localStorage.get(\"__framer_force_showing_editorbar_since\")){const n=document.createElement(\"link\");n.rel = \"modulepreload\";n.href=\"https://framer.com/edit/init.mjs\";document.head.appendChild(n)}}catch(e){} Air Apps - Apps That Make Your Life Easier, Trusted by Millions window.dataLayer = window.dataLayer || []; function gtag(){window.dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-VT6WVH2JGH'); /* cyrillic-ext */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5diKskPg.woff2) format('woff2'); unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; } /* cyrillic */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5UiKskPg.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; } /* greek-ext */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5ciKskPg.woff2) format('woff2'); unicode-range: U+1F00-1FFF; } /* greek */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5TiKskPg.woff2) format('woff2'); unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF; } /* vietnamese */ @font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/intertight/v9/NGShv5HMAFg6IuGlBNMjxLsC66ZMtb8hyW62x0ylGB5fiKskPg.woff2) format('woff2'); unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-"
+  },
+  {
+    "company_name": "UNYX AI",
+    "jobTitle": "Senior Frontend Engineer",
+    "job_link": "https://www.linkedin.com/jobs/view/4412120188/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&trk=d_flagship3_search_srp_jobs&refId=ZsL3eCITP9Tp2tMB7PE0OQ%3D%3D&trackingId=E9A53%2BNxviRmDLhLcae3TA%3D%3D",
+    "location": "",
+    "isEURegion": "yes",
+    "visa_sponsorship": "Unknown",
+    "only_english": "true",
+    "skillsRequired": [
+      "React",
+      "Angular",
+      "TypeScript",
+      "Tailwind CSS",
+      "WebSockets",
+      "Zustand",
+      "Redux"
+    ],
+    "rolesAndResponsibilities": "You will own the frontend engineering domain for our internal operational console and partner interfaces. Your daily focus will center on data density, real-time visualization, and preventing user error in high-risk financial workflows: Design High-Density Operational Dashboards, Enforce the 'No-Edit' Immutability Engine, Build Schema-Driven Configuration Editors, Orchestrate Client-Side Execution Integrity, Develop Hybrid Webview Interfaces, Engineer Real-Time Synchronization & Verification Gauges, Construct Compliant Document Pipelines, Program Structural Veto Gates.",
+    "jobDescription": "You will own the frontend engineering domain for our internal operational console and partner interfaces. Your daily focus will center on data density, real-time visualization, and preventing user error in high-risk financial workflows: Design High-Density Operational Dashboards, Enforce the 'No-Edit' Immutability Engine, Build Schema-Driven Configuration Editors, Orchestrate Client-Side Execution Integrity, Develop Hybrid Webview Interfaces, Engineer Real-Time Synchronization & Verification Gauges, Construct Compliant Document Pipelines, Program Structural Veto Gates.",
+    "company_status": "not_found",
+    "company_website": null,
+    "company_details": null
+  },
+  {
+    "company_name": "Doghouse Recruitment",
+    "jobTitle": "Javascript Developer",
+    "job_link": "https://www.linkedin.com/jobs/view/4407905810/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&trk=d_flagship3_search_srp_jobs&refId=ZsL3eCITP9Tp2tMB7PE0OQ%3D%3D&trackingId=qGBFqBsksC3wQ25XTvxHag%3D%3D",
+    "location": "",
+    "isEURegion": "yes",
+    "visa_sponsorship": "Yes",
+    "only_english": null,
+    "skillsRequired": [
+      "Node.js",
+      "TypeScript",
+      "AWS SDK",
+      "DDD",
+      "ReactJS",
+      "Python",
+      "Flutter"
+    ],
+    "rolesAndResponsibilities": "You’ll join a core backend team of 4 developers (all around 30, with 4+ years of experience). You will help lead the way in how the system is designed and built. You’ll shape a new notification system, help split off and refactor parts of the old backend, and guide the team on how to apply Domain-Driven Design in practice.",
+    "jobDescription": "You’ll join a core backend team of 4 developers (all around 30, with 4+ years of experience). You will help lead the way in how the system is designed and built. You’ll shape a new notification system, help split off and refactor parts of the old backend, and guide the team on how to apply Domain-Driven Design in practice.",
+    "company_status": "not_found",
+    "company_website": null,
+    "company_details": null
+  }
+]
