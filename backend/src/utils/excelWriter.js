@@ -18,6 +18,72 @@ const EXCEL_HEADERS = [
   'English_only'
 ];
 
+const LINKEDIN_COUNTRY_BY_SUBDOMAIN = {
+  ae: 'United Arab Emirates',
+  ar: 'Argentina',
+  at: 'Austria',
+  au: 'Australia',
+  be: 'Belgium',
+  br: 'Brazil',
+  ca: 'Canada',
+  ch: 'Switzerland',
+  cl: 'Chile',
+  cn: 'China',
+  co: 'Colombia',
+  cz: 'Czechia',
+  de: 'Germany',
+  dk: 'Denmark',
+  es: 'Spain',
+  fi: 'Finland',
+  fr: 'France',
+  hk: 'Hong Kong',
+  ie: 'Ireland',
+  in: 'India',
+  it: 'Italy',
+  jp: 'Japan',
+  mx: 'Mexico',
+  my: 'Malaysia',
+  nl: 'Netherlands',
+  no: 'Norway',
+  nz: 'New Zealand',
+  ph: 'Philippines',
+  pl: 'Poland',
+  pt: 'Portugal',
+  se: 'Sweden',
+  sg: 'Singapore',
+  uk: 'United Kingdom',
+  za: 'South Africa'
+};
+
+function firstNonEmptyString(...values) {
+  const value = values.find((candidate) => typeof candidate === 'string' && candidate.trim());
+  return value ? value.trim() : '';
+}
+
+function inferCountryNameFromJobLink(jobLink) {
+  if (typeof jobLink !== 'string' || !jobLink.trim()) {
+    return '';
+  }
+
+  try {
+    const hostname = new URL(jobLink).hostname.toLowerCase();
+    const [, countrySubdomain] = hostname.match(/^([a-z]{2})\.linkedin\.com$/) || [];
+    return LINKEDIN_COUNTRY_BY_SUBDOMAIN[countrySubdomain] || '';
+  } catch (_error) {
+    return '';
+  }
+}
+
+function toCountryName(job) {
+  return firstNonEmptyString(
+    job?.countryName,
+    job?.country_name,
+    job?.country,
+    job?.['Country Name'],
+    inferCountryNameFromJobLink(job?.job_link)
+  );
+}
+
 function toSkillsString(skillsRequired) {
   if (!Array.isArray(skillsRequired)) {
     return '';
@@ -70,7 +136,7 @@ async function writeExcelFile(outputPath, jobs) {
   const rows = (Array.isArray(jobs) ? jobs : []).map((job, index) => ({
     Srno: index + 1,
     'Application Date': formatDateDisplay(job?.applicationDate),
-    'Country Name': job?.countryName ?? job?.country ?? '',
+    'Country Name': toCountryName(job),
     'Company Name': job?.company_name ?? job?.company_name ?? job?.company ?? '',
     'Recruiter Email & Phone': toRecruiterContact(job),
     'Job Title': job?.jobTitle ?? '',
@@ -115,5 +181,6 @@ async function writeExcelFile(outputPath, jobs) {
 
 module.exports = {
   writeExcelFile,
-  EXCEL_HEADERS
+  EXCEL_HEADERS,
+  toCountryName
 };

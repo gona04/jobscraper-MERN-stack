@@ -63,6 +63,7 @@ app.post('/jobs', async (req, res) => {
             company_name: overrideCompanyName || job.company_name || '',
             jobTitle: job.jobTitle || '',
             job_link: job.job_link || '',
+            country_name: job.country_name || '',
             location: '',
             isEURegion: job.isEURegion || 'no',
             visa_sponsorship: job.visa_sponsorship || 'Unknown',
