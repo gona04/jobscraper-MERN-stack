@@ -1,0 +1,13 @@
+[
+  {
+    "summary": "",
+    "company_name": "Qblox",
+    "job_title": "Software Engineering Team Lead",
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error",
+    "error": "POST http://localhost:11434/v1/chat/completions (status 429) failed: Request failed with status code 429"
+  }
+]

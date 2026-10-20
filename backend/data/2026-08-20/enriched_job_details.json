@@ -1,0 +1,23 @@
+[
+  {
+    "company_name": "Redwood Software",
+    "jobTitle": "Frontend Developer",
+    "job_link": "https://www.linkedin.com/jobs/view/4455433158/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=kmcN0dQIILAwNFd3Pop9pA%3D%3D&trackingId=2n5gaQ3mcGdIgvmyDDxLQA%3D%3D",
+    "country_name": "Netherlands",
+    "location": "",
+    "isEURegion": "yes",
+    "visa_sponsorship": "Unknown",
+    "only_english": "null",
+    "skillsRequired": [
+      "React",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "RESTful API",
+      "Playwright"
+    ],
+    "rolesAndResponsibilities": "Design, develop, and maintain responsive, intuitive front-end user interfaces and applications using React and related technologies. Actively contribute to and leverage our shareable Design System to build high-quality, reusable UI components, ensuring a unified and consistent user experience across the product portfolio. Collaborate with product management and UX designers to translate requirements and mockups into high-quality technical specifications and user experiences. Utilize AI coding assistants to accelerate development, focusing on complex UI components and offloading repetitive front-end tasks. Rigorously review, debug, and optimize AI-generated UI code for performance, accessibility, security, and adherence to established UI/UX standards. Apply prompt engineering techniques to maximize the efficacy of generative AI tools for writing comprehensive unit/end-to-end tests (e.g., Playwright) and drafting technical documentation for front-end systems. Contribute to UI architectural discussions and decisions to ensure scalability, security, and performance. Write clean, maintainable, and well-documented code following best practices. Implement and maintain automated tests (unit, integration, and end-to-end) to ensure code quality and reliability. Troubleshoot, debug, and resolve software defects and production issues. Stay up-to-date with emerging technologies and industry trends, and advocate for their adoption where appropriate. Mentor less experienced developers and contribute to a culture of continuous learning and improvement.",
+    "jobDescription": "Design, develop, and maintain responsive, intuitive front-end user interfaces and applications using React and related technologies. Actively contribute to and leverage our shareable Design System to build high-quality, reusable UI components, ensuring a unified and consistent user experience across the product portfolio. Collaborate with product management and UX designers to translate requirements and mockups into high-quality technical specifications and user experiences. Utilize AI coding assistants to accelerate development, focusing on complex UI components and offloading repetitive front-end tasks. Rigorously review, debug, and optimize AI-generated UI code for performance, accessibility, security, and adherence to established UI/UX standards. Apply prompt engineering techniques to maximize the efficacy of generative AI tools for writing comprehensive unit/end-to-end tests (e.g., Playwright) and drafting technical documentation for front-end systems. Contribute to UI architectural discussions and decisions to ensure scalability, security, and performance. Write clean, maintainable, and well-documented code following best practices. Implement and maintain automated tests (unit, integration, and end-to-end) to ensure code quality and reliability. Troubleshoot, debug, and resolve software defects and production issues. Stay up-to-date with emerging technologies and industry trends, and advocate for their adoption where appropriate. Mentor less experienced developers and contribute to a culture of continuous learning and improvement."
+  }
+]

@@ -1,0 +1,40 @@
+{
+    "entries": [
+        {
+            "company_name": "Doghouse Recruitment",
+            "content": "Senior Frontend Engineer - React/Next.js at Doghouse Recruitment - Netherlands. Join a well-funded AI startup in Amsterdam as a Senior Frontend Engineer to build a revolutionary AI product from the ground up. As a founding engineer, you will work directly with and report to the founders. The tech stack includes Python/Node.js, React/Next, AWS, and containerization with Docker/Kubernetes. You will be focused solely on the frontend (React/Next) and UX (Figma, Tailwind, Shadcn). Requirements: 5+ years of professional experience with React and Next, 2+ years of experience in a leadership/principal role, Experience with an AI native product, Experience with building scalable apps on cloud (AWS, Azure, GCP), Experience with containerization (Docker) and orchestration (Kubernetes), Experience with UX, An entrepreneurial mindset. Benefits: Up to 120k base (incl. holiday allowance), 25 vacation days, A good pension scheme, Travel expense reimbursement, VISA sponsorship and support with the 30% ruling for expats. Location: Amsterdam, Netherlands. https://mail.jaabz.com/jobs/182923-senior-frontend-developer"
+        },
+        {
+            "company_name": "Doghouse Recruitment",
+            "content": "Senior Full Stack Developer (Node.js, TypeScript, React.js) at Doghouse Recruitment - Netherlands. Join a SaaS E-Learning company in Utrecht, as a Senior Full Stack Developer to build a new compensation transparency module. Take ownership of features from design to production, working with a modern stack including Node.js, TypeScript, and React.js. Contribute to architectural decisions and work with a dynamic team. Requirements: 3+ years of full stack development experience, Strong backend focus with solid Node.js and TypeScript skills, Comfortable owning features from design to production, Experience with GCP or other cloud platforms is a plus, Based in the Netherlands, Available hybrid (3 days per week in the office). Benefits: Salary up to €84K yearly, Good pension scheme, Travel allowance, Visa sponsorship and 30% ruling support (if eligible), Hybrid setup (3x office). Location: Utrecht, Netherlands. https://mail.jaabz.com/jobs/220969-javascript-developer"
+        },
+        {
+            "company_name": "Jobtogether",
+            "content": "Senior Frontend Engineer (React/TypeScript) - Remote in Germany at Jobtogether. Build and evolve user-facing web features for a global product used by 11M+ people. Own frontend architecture, performance, and user experience from design to release. Collaborate closely with Product and Design in a small, autonomous team. Technical Skills Required: JavaScript, TypeScript, React. Benefits: Fully remote role in Germany, Full-time employment, Equity participation, Visa sponsorship. Location: Germany (Remote). https://jaabz.com/jobs/268969-senior-software-engineer-frontend"
+        },
+        {
+            "company_name": "TextCortex AI",
+            "content": "Senior Frontend Engineer at TextCortex AI - Berlin, Germany. TextCortex AI is looking for a Senior Frontend Engineer to lead the development of their innovative AI knowledge platform, which already serves over 2 million users. Key benefits: Relocation and onboarding assistance to help you settle smoothly in Berlin, Stock options in one of Europe's hottest AI startups, Free Urban Sports Club membership, High-ownership culture using cutting-edge AI dev tools like Cursor and Copilot. Requirements: 5+ years of experience with React and TypeScript. Location: Berlin, Germany. https://www.linkedin.com/posts/sara-rahimi-4b042a267_jobvisasponsor-berlintech-relocationgermany-activity-7469665539443970049-eTCG"
+        },
+        {
+            "company_name": "Zalando",
+            "content": "Senior Software Frontend Engineer at Zalando - Berlin, Germany. Zalando is hiring a Senior Software Frontend Engineer for their Lounge team, offering relocation support. Key benefits: Relocation assistance available to help you settle smoothly in Berlin, Hybrid work model with up to 60% remote flexibility and 30 days of work-from-abroad per year, Amazing perks including 40% employee discount and comprehensive health and wellbeing support, Professional growth in a high-scale environment using React, TypeScript, and AWS. This is a one-year fixed-term position covering maternity leave. Location: Berlin, Germany. https://www.linkedin.com/posts/jobmetasearch_visasponsorship-relocation-germanyjobs-activity-7466455891802841089-ESas"
+        },
+        {
+            "company_name": "Bonnie",
+            "content": "Frontend Engineer (AI-Native) at Bonnie - Amsterdam, Netherlands. Bonnie is looking for their first dedicated Frontend Engineer to join their AI-native team in Amsterdam. You will ship the Dashboard that hundreds of restaurants already use daily, build the end-user channels (WhatsApp widget, web chat), and help evolve how Bonnie is configured. Requirements: 3+ years of React/TypeScript experience, passion for UX. Benefits: Visa sponsorship, Relocation opportunity to Amsterdam, on-site preferred. Location: Amsterdam, Netherlands. https://www.linkedin.com/posts/jobmetasearch_visasponsorship-relocation-netherlandsjobs-activity-7463510107687944192-CtYr"
+        },
+        {
+            "company_name": "Swisscom",
+            "content": "Frontend Engineer at Swisscom - Rotterdam, Netherlands. Swisscom is offering an incredible relocation package for Frontend Engineers to join their Rotterdam team. Help build cutting-edge digital identity products like eID and digital signatures. Key benefits: Full relocation support (Housing, settling in, etc.) for you and your family, Generous allowances: €275/month for health insurance and €200/month for internet/telephone, Work-life balance: 25 days vacation, 1 month yearly work from abroad, Professional growth: 5 paid training days. Requirements: 5+ years of experience with React, Vue, or Angular and a passion for UX-focused engineering. Location: Rotterdam, Netherlands. https://www.linkedin.com/posts/sara-rahimii_visasponsorship-relocation-netherlands-activity-7473326353157853185-mZe_"
+        },
+        {
+            "company_name": "MUBI",
+            "content": "Senior Frontend Engineer at MUBI - London, UK. Build and operate MUBI's global web platform using React, TypeScript, and Next.js. Develop streaming, discovery, catalogue, player, and editorial features; optimize performance, Core Web Vitals, rendering, caching, and media playback. Develop engineers into technical leaders, influence product strategy, and define standards for AI-assisted frontend development. The role requires deep TypeScript, React, Next.js, CSS, testing, performance, and production-scale web application expertise. Location: London, UK (Hybrid). https://builtinlondon.uk/jobs/dev-engineering/search/front-end-developer"
+        },
+        {
+            "company_name": "Aave Labs",
+            "content": "Senior Frontend Engineer, React/Typescript at Aave Labs - London, UK. Build and optimize ZOE's customer-facing website using TypeScript, React, and Next.js, with a strong focus on accessibility, performance, responsive design, and design-system development. Collaborate with designers, analysts, and product teams on user experiences and A/B testing. Location: London, UK (Remote). https://builtinlondon.uk/jobs/dev-engineering/search/front-end-developer"
+        }
+    ]
+}

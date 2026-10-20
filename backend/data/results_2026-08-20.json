@@ -1,0 +1,108 @@
+[
+  {
+    "summary": "Enterprise process automation, Frontend React role, design-system-driven AI-assisted UI development",
+    "company_name": "Redwood Software",
+    "job_title": "Frontend Developer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "The most interesting phrase in Redwood's positioning is not 'automation' — it's 'single pane of glass.' When a platform is trusted to orchestrate mission-critical SAP and finance workflows, from job scheduling to record-to-report, simplicity is not a design preference; it is an operational necessity. That is why Redwood's move toward agentic orchestration matters: the more autonomous a system becomes, the more its interface has to show what is actually running, why it is running, and where human attention is required.",
+        "I studied linguistic philosophy before becoming an engineer, and it left me with a habit I still use: I ask what problem a concept is solving before I decide how to build with it. Enterprise frontend work rewards that habit. At TCS, leading a team of five developers on large Angular applications, I reduced API calls by 40% by designing state flow around the actual problem rather than the available pattern, and enforced WCAG standards until QA reported zero accessibility violations. Both were eventually about the same thing: making complex systems legible to the people depending on them.",
+        "I have been exploring the same boundary in my own work with AI systems. I built NewsAlign, a fact-verification platform using <b>LangChain, FAISS, Hugging Face, and RAG pipelines</b>; the central design insight was that retrieval and reasoning are different operations, and the interface had to make that distinction visible. An AI outcome you cannot inspect is not operational — it is just a claim. When I read Redwood's work on what it takes to make enterprise AI operational, that is exactly the question I recognized: models need orchestration, and orchestration needs transparency. A frontend developer who understands this distinction can help build interfaces where automation feels trustworthy rather than opaque.",
+        "I am not looking for a frontend role where the work stops at rendering. I want to build interfaces that carry complex systems without asking users to carry that complexity. That means taking performance seriously — I cut a large application's bundle from <b>941KB to under 300KB</b> and raised its Lighthouse score from <b>73 to 95</b> — and it means treating accessibility as part of reliability. Redwood's platform sits in the middle of some of its customers' most critical processes. I would like to help make that platform clearer, faster, and easier to trust."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "I am a frontend developer with five years of experience building React and TypeScript applications. I am open to relocating to the Netherlands, and I am drawn to Redwood Software because your shareable design system and AI-assisted development match my own focus on reusable UI and modern tooling.",
+        "At Tata Consultancy Services, I led a team of five developers while shaping frontend architecture. By introducing RxJS-based state management and caching strategies, I reduced API calls by 40% and improved application responsiveness. I also mentored junior developers and guided them through code reviews.",
+        "More recently, I built an AI-powered fact-checking platform with Next.js, LangChain, and RAG pipelines. This gave me hands-on experience with AI tools and performance work:\n- Reduced bundle size from 941KB to under 300KB using code splitting and lazy loading.\n- Raised Lighthouse performance from 73 to 95 through SSR and caching improvements.\n- Achieved about 84% unit test coverage with Jest.",
+        "I also increased WCAG compliance by 30% in a React/Redux product while at Datapret, so accessibility is part of my definition of done. There, I collaborated with Agile teams and translated business needs into responsive interfaces. I have built real products with AI models and would enjoy focusing that experience on reviewing and optimizing AI-generated UI code within your design system."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai, India | +91 7718961340 | gandhi.goonja@gmail.com | linkedin.com/in/goonja-gandhi | github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience building responsive, accessible, high-performance web applications using React, TypeScript, Next.js, and modern frontend architectures. Skilled in reusable component development, performance optimization, AI-powered feature integration, and unit testing with Jest. Experienced in Agile collaboration, mentoring developers, and shaping scalable UI architecture.",
+      "position": "Frontend Developer",
+      "skills": "Frontend: HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, SCSS, Tailwind CSS, Responsive Design\nNext.js & Rendering: App Router, SSR, SSG, ISR, React Server Components, SEO Optimization\nState Management: Redux, Context API, RxJS\nBackend & APIs: REST APIs, GraphQL, Apollo Client, Node.js, Express.js\nTesting & Quality: Jest, Unit Testing, Accessibility (WCAG)\nAI & Data: Generative AI, LangChain, FAISS, Hugging Face, NLP, RAG Systems\nPerformance & Architecture: Code Splitting, Lazy Loading, Caching Strategies, Bundle Optimization, Performance Optimization, Frontend Architecture, System Design\nCloud & DevOps: AWS, Firebase, Jenkins, Netlify, Railway, CI/CD\nMethodologies: Agile, Git",
+      "experience": [
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Developed an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by approximately 30%, improving accessibility scores and usability across critical workflows.",
+            "Improved application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to accelerate feature delivery and reduce development rework.",
+            "Completed the engagement successfully with the project delivered on schedule."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led a team of 5 developers and contributed to frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign - AI-Powered Fact Verification System",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by approximately 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Achieved approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development (GPA: 3.8)",
+          "institution": "Cambrian College, Canada",
+          "duration": "January 2023 - March 2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering; applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://www.linkedin.com/jobs/view/4455433158/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=kmcN0dQIILAwNFd3Pop9pA%3D%3D&trackingId=2n5gaQ3mcGdIgvmyDDxLQA%3D%3D",
+    "company_website": "https://www.redwood.com/",
+    "company_status": "success"
+  }
+]

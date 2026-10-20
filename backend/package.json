@@ -10,7 +10,7 @@
     "jobs:pipeline": "node src/index.js",
     "jobs:enrich:company": "node scrapping-data/enrich-company-details.js",
     "jobs:grok:pipeline": "node src/grok-job-pipeline.js",
-    "jobs:pdf:generate": "node src/generate-application-pdfs.js"
+    "jobs:pdf:generate": "arch -arm64 zsh -lc 'unset npm_config_prefix && source \"$HOME/.nvm/nvm.sh\" && nvm use 22.21.1 >/dev/null && node src/generate-application-pdfs.js'"
   },
   "keywords": [],
   "author": "",

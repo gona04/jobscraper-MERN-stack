@@ -1,0 +1,131 @@
+[
+  {
+    "summary": "Agricultural SaaS product design, Principal Design role, farmer-centric systems and field-validated UX leadership",
+    "company_name": "Halter",
+    "job_title": "Principal Product Designer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Halter Team,",
+      "paragraphs": [
+        "Halter's approach to farm management stands on an unusual premise: the best data comes not from dashboards but from the paddock, which usually means gumboots. This framing is revealing. It suggests that the company understands the gap between what software reports and what farmers actually experience—and that closing that gap requires design rooted in genuine context rather than abstract metrics. That separation between abstraction and reality is something I have spent my career learning to navigate.",
+        "My background in frontend engineering has been driven by a single question: what problem is this abstraction solving? When I reduced bundle sizes by 68% through code splitting and optimization, the point was not optimization for its own sake—it was recognizing that performance is part of usability. When I increased accessibility compliance by 30% at TCS, it was not about compliance scores; it was about understanding that a feature that excludes someone is not yet a complete feature. Similarly, during my work on AI-powered systems, I learned that retrieval and reasoning are not interchangeable—architecture must reflect how humans actually need to use information. These experiences have taught me that the distance between 'what works' and 'what works for the farmer' is exactly where design lives.",
+        "What Halter is building requires someone who can hold two tensions simultaneously: the ability to push complexity beneath the surface so the interface feels simple and trustworthy, and the judgment to know when complexity should remain visible because the farmer needs to understand it. This is not a frontend problem disguised as a design problem. It requires understanding the entire system—the farmer's workflow, the business logic underneath, the constraints of the product, the data flowing through it. I have built systems with that kind of integration across multiple surfaces: managing state and interaction across React applications, working within constraints of performance and accessibility, collaborating with backend and product teams to define what should be built. The work at Halter asks for something deeper: design leadership that shapes not just how things look, but what gets built and why.",
+        "I recognize that this role is asking for design thinking and product vision, not a frontend engineer trying to transition into design. I approach it differently. I have spent five years observing how technical decisions affect user experience, how abstractions can obscure or clarify, how systems can be built to honor complexity without surrendering clarity. The opportunity to take that understanding into the paddock, to sit with farmers and translate their needs into product decisions, and to lead design across an entire system—this is the logical next step in how I have been developing as someone who cares about closing the gap between what systems say and what they mean. Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Halter Hiring Team,",
+      "paragraphs": [
+        "I am writing to express my strong interest in exploring how my background in frontend engineering and system thinking might contribute to Halter's product vision. While my experience is rooted in software engineering rather than product design, I have developed a deep appreciation for how technical decisions shape user experience—and how understanding constraints is essential to designing for real-world contexts.",
+        "My experience demonstrates the kind of systems thinking this role requires: At TCS, I led architecture decisions across complex applications while mentoring 5 developers, reducing API calls by 40% through intelligent state management. This required understanding both individual feature needs and broader technical ecosystem constraints. At Datapret, I delivered an accessibility-focused platform in close partnership with Product and Engineering, focusing on how design choices affect actual usability. These experiences taught me that the distance between 'what works technically' and 'what works for the user' is where thoughtful decisions live.",
+        "However, I recognize this role requires 8+ years of product design expertise with 2+ years in senior design leadership—neither of which I currently possess. I have 5 years of software engineering experience and no formal product design portfolio, prototyping work, or design systems leadership. Rather than overstate my qualifications, I want to acknowledge this gap directly. If you are open to exploring how frontend systems thinking might complement your design team, or if there are mid-level Product Design or Design Engineer opportunities where I can build authentic design credentials, I would welcome that conversation."
+      ],
+      "closing": "Thank you for considering my application. I remain genuinely interested in Halter's mission and open to discussing how I might contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": {
+        "location": "Mumbai",
+        "phone": "+91 7718961340",
+        "email": "gandhi.goonja@gmail.com",
+        "linkedin": "linkedin.com/in/goonja-gandhi",
+        "github": "https://github.com/gona04"
+      },
+      "headline": "Senior Frontend Engineer with 5 years of experience delivering scalable, high-performance web applications using React, Next.js, TypeScript, GraphQL, and modern frontend architectures. Expertise in frontend optimization, accessibility, AI integrations, SSR/SSG/ISR, React Server Components, and enterprise-grade UI delivery within Agile environments.",
+      "summary": "Frontend architect skilled in translating complex technical constraints into intuitive user experiences. Proven ability to balance individual feature needs with broader system architecture while maintaining accessibility and performance standards across enterprise and product-focused applications.",
+      "skills": {
+        "frontend": "CSS3, HTML5, JavaScript (ES6+), Next.js, React.js, SCSS, Tailwind CSS, TypeScript",
+        "rendering": "App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR",
+        "state_management": "Context API, Redux, RxJS",
+        "backend_apis": "Apollo Client, Express.js, GraphQL, Node.js, REST APIs",
+        "performance_architecture": "Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design",
+        "ai_data": "FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search",
+        "cloud_devops": "AWS, CI/CD, Firebase, Jenkins, Netlify, Railway",
+        "testing_development": "Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing"
+      },
+      "work_experience": [
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        },
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimize development rework."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "name": "NewsAlign — AI-Powered Fact Verification System",
+          "date": "02/2026",
+          "type": "Personal Project",
+          "description": "Full-stack AI system demonstrating the distinction between information retrieval and reasoning in complex problem-solving.",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Shrank bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies—translating performance gains into tangible user experience improvements.",
+            "Elevated Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "name": "Custom Reactive JavaScript Engine",
+          "date": "08/2025",
+          "type": "Personal Project",
+          "description": "Lightweight reactive state management engine demonstrating deep understanding of rendering cycles and system architecture.",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Showcased expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns.",
+            "Demonstrates principled thinking about how abstractions should be structured to serve user needs without unnecessary complexity."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "program": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "gpa": "3.8",
+          "points": [
+            "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering.",
+            "Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+          ]
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nz.linkedin.com/jobs/view/principal-product-designer-at-halter-4457416308?position=27&pageNum=0&refId=MqJU3lQhobTFBB31Q1UVBA%3D%3D&trackingId=MHMNER5f1A3a%2FCHqGMbwXQ%3D%3D"
+  }
+]

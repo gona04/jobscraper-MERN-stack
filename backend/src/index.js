@@ -1,45 +1,3 @@
-import express from 'express';
-import { registerProcessErrorHandlers } from './src/config/errorHandlers.mjs';
-
-const app = express();
-const PORT = 3001;
-
-registerProcessErrorHandlers();
-
-app.use(express.json());
-
-app.get('/', (_req, res) => {
-  res.send('Server is running');
-});
-
-app.post('/jobs', async (req, res) => {
-  try {
-    const jobs = req.body;
-
-    if (!jobs || !Array.isArray(jobs)) {
-      return res.status(400).json({ error: 'Invalid jobs input' });
-    }
-
-    console.log('📥 Received jobs:', jobs.length);
-
-    // TODO: trigger pipeline here
-    // await runPipeline(jobs);
-
-    return res.json({ success: true });
-  } catch (err) {
-    console.error('❌ Error:', err.message);
-    return res.status(500).json({ error: err.message });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
-backend/src/index.js
-backend/src/index.js
-+463
--45
-
 require('dotenv').config();
 
 const fs = require('node:fs/promises');
@@ -61,78 +19,79 @@ const { writeExcelFile } = require('./utils/excelWriter');
 
 const OUTPUT_BASE_DIR = '/Users/workgoonja/Downloads/Resumes/automated';
 const GLOBAL_CACHE_FILE = path.resolve(__dirname, '../data/company_cache.json');
-const XAI_MODEL = 'grok-4-1-fast-reasoning';
-const XAI_TIMEOUT_MS = 60000;
+const AI_TIMEOUT_MS = 60000;
 const TEXT_LIMIT = 5000;
 
-const RESUME_SOURCE_OF_TRUTH = `Goonja Gandhi
-Mumbai• +91 7718961340• gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi•
+const RESUME_SOURCE_OF_TRUTH = `
+GOONJA GANDHI
+Mumbai
++91 7718961340
+gandhi.goonja@gmail.com
+linkedin.com/in/goonja-gandhi
 https://github.com/gona04
+Sr Front-end Developer
+Senior Frontend Engineer with nearly 5 years of professional experience building enterprise and AI-powered applications using React, Angular, Next.js, TypeScript, and Node.js. Experienced in frontend architecture, reusable component design, reactive state management, API integration, accessibility, automated testing, and performance optimization. Led a 5-engineer frontend team, delivered enterprise-scale Angular applications, reduced API requests by 40%, reduced JavaScript bundle size by 68%, and improved Lighthouse performance from 73 to 95. Hands-on experience building AI applications using RAG, LLM integration, LangChain, FAISS, Hugging Face, and OpenAI.
+
+Skills
+Frontend: Angular, CSS3, HTML5, JavaScript, Next.​js, React, React ​Native, Tailwind ​CSS, TypeScript
+Architecture & State: Component ​Design, Context ​API, Frontend ​Architecture, Redux ​Toolkit, RxJS, Zustand
+Backend & APIs: Event-​Driven ​Architecture, Express.​js, GraphQL, HTTP, Node.​js, REST ​APIs
+AI & LLM: FAISS, Hugging ​Face, LangChain, LLM ​Integration, OpenAI, Prompt ​Engineering, RAG
+Testing & DevOps: AWS, CI/​CD, Firebase, Git, Jenkins, Jest, Vercel
+Performance & Accessibility: Bundle ​Optimization, Code ​Splitting, Core ​Web ​Vitals, ISR, Lighthouse, SSG, SSR, WCAG
+Databases & Networking: Buffers, DNS, MongoDB, PostgreSQL, SQL, Streams, TCP/​IP, UDP
+Projects
+NewsAlign — AI Fact-Verification Platform
+Built an AI-powered fact-verification platform using Retrieval-Augmented Generation (RAG) to support evidence-based responses.
+
+Reduced JavaScript bundle size by 68% through frontend performance optimization.
+
+Improved Lighthouse performance from 73 to 95 using SSR, caching, and Core Web Vitals optimization.
+
+Applied modern rendering and performance techniques to improve application loading and runtime efficiency.
+
+AI Game Concierge — AI Recommendation Application
+Built an AI-powered game recommendation application using a hybrid recommendation engine and explainable AI responses.
+
+Developed 152 automated tests achieving 93%+ test coverage, emphasizing maintainability and production readiness.
+
+Designed the application with a focus on reliable, testable frontend architecture.
+
+JobFinder — Conversational Job Application Platform
+Built a conversational application using OpenAI, Server-Sent Events (SSE), Zustand, and voice input.
+
+Automated candidate profile extraction and job-application workflows through conversational interactions.
+
+Integrated real-time application behavior using streaming responses and client-side state management.
+
+Work Experience
+Datapret
+01/2024 - 03/2024
+MERN Stack Developer (Co-op)
+Canada
+Developed an accessibility-first complaint management platform using React, TypeScript, Redux, and Node.js.
+Improved WCAG compliance by 30% across critical customer workflows.
+Optimized rendering performance, API interactions, and state management to improve application efficiency.
+Collaborated with designers and backend engineers to deliver production-ready features within Agile sprints.
+Tata Consultancy Services (TCS)
+01/2019 - 04/2023
 Senior Frontend Developer
-Frontend Engineer with around 5 years of experience building scalable web applications using React, Next.js,
-TypeScript, and GraphQL. Skilled in frontend architecture, performance optimization, AI integrations, and
-modern Next.js rendering paradigms including App Router, SSR, SSG, ISR, and React Server Components.
-Experienced in delivering accessible, high-performance enterprise applications.
-SKILLS
-Frontend: CSS3, HTML5, JavaScript ( ES6+
-) , Next. js, React. js, SCSS, Tailwind CSS, TypeScript
-Next.js & Rendering: Client Components, Dynamic Routing, ISR, Nested Layouts, Next. js App Router, React
-Server Components, Route Groups, SEO Optimization, SSG, SSR
-State Management: Context API, Redux, RxJS
-Backend & APIs: Apollo Client, Express. js, GraphQL, Node. js, REST APIs
-Performance & Architecture: API Optimization, Bundle Optimization, Caching Strategies, Code Splitting,
-Frontend Architecture, Lazy Loading, System Design
-AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic
-Search
-Cloud & DevOps: AWS, CI/ CD, Firebase, Jenkins, Netlify, Railway
-Testing & Development: Accessibility ( WCAG) , Agile Methodologies, Git, Jest, Unit Testing
-PROJECTS
-NewsAlign — AI-Powered Fact Verification System
-• Reduced bundle size from 941KB to under 300KB using code splitting and frontend optimization
-techniques
-• Improved Lighthouse score from 73 to 95 through rendering optimization and performance tuning
-• Developed RAG pipelines using semantic search, FAISS, LangChain, NLP, Hugging Face, and LLM
-integrations
-• Implemented JWT authentication, API caching, rate limiting, and secure backend workflows
-• Achieved approximately 84% unit test coverage using Jest
-Custom Reactive JavaScript Engine
-• Built a lightweight reactive state management engine inspired by React’s useState internals
-• Demonstrated deep understanding of rendering cycles, reactivity systems, and JavaScript object
-handling
-reactli-c — React CLI Tool
-• Created a CLI tool for generating reusable React component boilerplate
-• Improved developer productivity with zero runtime dependencies
-WORK EXPERIENCE
-Datapret 01/2024 - 03/2024
-MERN Stack Developer
-• Developed an accessibility-focused complaint resolution platform using React, Redux, TypeScript, and
-Node.js
-• Improved WCAG compliance by 30%, enhancing usability and inclusivity across user workflows
-• Integrated REST APIs and optimized frontend rendering performance and data handling
-• Collaborated with cross-functional Agile teams to accelerate delivery cycles and reduce rework
-Tata Consultancy Services (TCS) 01/2019 - 04/2023
-Senior Frontend Developer
-• Led a team of 5 developers and drove frontend architecture decisions using React and TypeScript
-• Built scalable enterprise applications using React, Next.js, Redux, and REST APIs
-• Implemented Next.js App Router architecture with nested layouts, dynamic routing, middleware, and
-route groups
-• Worked with rendering strategies including SSR, SSG, ISR, and React Server Components for SEO and
-performance optimization
-• Reduced API calls by 40% using RxJS and optimized complex state management workflows
-• Improved application performance through code splitting, lazy loading, caching strategies, and bundle
-optimization
-• Collaborated with backend teams using Spring Boot, REST APIs, and GraphQL to improve API efficiency
-and frontend integration
-• Conducted code reviews, mentored developers, and enforced SOLID principles and clean architecture
-standards
-• Developed accessibility-compliant, responsive, and cross-browser compatible UI systems following
-WCAG standards
-EDUCATION
-Mobile Applications Development
-Cambrian College • GPA: 3.8 Canada • 01/2023 - 01/2024
-CERTIFICATIONS
+India
+Led a 5-engineer frontend team, driving frontend architecture, reusable component development, code quality, technical standards, and engineering practices.
+Delivered 2 enterprise-scale Angular applications using TypeScript, RxJS, and REST APIs.
+Reduced API requests by 40% through reactive data-flow optimization and efficient state management with RxJS.
+Improved application performance through lazy loading, code splitting, caching, bundle optimization, and rendering optimization.
+Delivered responsive, WCAG-compliant interfaces with zero accessibility defects during QA.
+Collaborated with backend engineers and designers to deliver production-ready features within Agile development cycles.
+Mentored junior developers through code reviews, technical guidance, and frontend best practices.
+Education
+Graduate Certificate — Mobile Applications Development
+Cambrian College
+GPA: 3.8/4.0
+Canada
+Certifications
 Generative AI: Large Language Models
-AI Engineering: RAG (LangChain, FAISS, Hugging Face)
+AI Engineering: RAG — LangChain, FAISS, Hugging Face
 NLP Programming`;
 
 function log(step, message) {
@@ -345,27 +304,134 @@ async function step3GenerateExcel(inputPath, outputPath) {
   log('STEP-3', `Wrote ${outputPath}`);
 }
 
-async function callGrok(systemPrompt, userPrompt) {
-  if (!process.env.GROK_API_KEY) {
-    throw new Error('GROK_API_KEY is missing');
+// ---------------------------------------------------------------------------
+// Multi-provider AI client — driven entirely by AI_PROVIDER / AI_MODEL in .env
+// ---------------------------------------------------------------------------
+
+function resolveProviderConfig() {
+  const provider = (process.env.AI_PROVIDER || 'grok').toLowerCase();
+  const model = process.env.AI_MODEL;
+
+  if (!model) {
+    throw new Error(`AI_MODEL is missing in .env for provider "${provider}"`);
   }
 
-  const response = await safeRequest('https://api.x.ai/v1/chat/completions', 'post', {
-    timeout: XAI_TIMEOUT_MS,
+  const configs = {
+    grok: {
+      url: 'https://api.x.ai/v1/chat/completions',
+      apiKey: process.env.GROK_API_KEY,
+      keyName: 'GROK_API_KEY',
+      shape: 'openai'
+    },
+    openai: {
+      url: 'https://api.openai.com/v1/chat/completions',
+      apiKey: process.env.OPENAI_API_KEY,
+      keyName: 'OPENAI_API_KEY',
+      shape: 'openai'
+    },
+    deepseek: {
+      url: 'https://api.deepseek.com/chat/completions',
+      apiKey: process.env.DEEPSEEK_API_KEY,
+      keyName: 'DEEPSEEK_API_KEY',
+      shape: 'openai'
+    },
+    claude: {
+      url: 'https://api.anthropic.com/v1/messages',
+      apiKey: process.env.CLAUDE_API_KEY,
+      keyName: 'CLAUDE_API_KEY',
+      shape: 'anthropic'
+    },
+    ollama: {
+      // Native Ollama chat API works with both local and Cloud models.
+      url: `${process.env.OLLAMA_BASE_URL || 'http://localhost:11434'}/api/chat`,
+      apiKey: process.env.OLLAMA_API_KEY,
+      keyName: 'OLLAMA_API_KEY',
+      shape: 'ollama'
+    }
+  };
+
+  const config = configs[provider];
+  if (!config) {
+    throw new Error(`Unknown AI_PROVIDER "${provider}". Expected one of: ${Object.keys(configs).join(', ')}`);
+  }
+  if (!config.apiKey && provider !== 'ollama') {
+    throw new Error(`${config.keyName} is missing in .env for provider "${provider}"`);
+  }
+
+  return { provider, model, ...config };
+}
+
+function buildRequest({ shape, model, apiKey }, systemPrompt, userPrompt) {
+  if (shape === 'anthropic') {
+    return {
+      headers: {
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'Content-Type': 'application/json'
+      },
+      data: {
+        model,
+        max_tokens: 4096,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userPrompt }]
+      }
+    };
+  }
+
+  if (shape === 'ollama') {
+    return {
+      headers: {
+        ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {}),
+        'Content-Type': 'application/json'
+      },
+      data: {
+        model,
+        stream: false,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ]
+      }
+    };
+  }
+
+  // 'openai' shape — covers grok, openai, deepseek (all OpenAI-compatible chat completions)
+  return {
     headers: {
-      Authorization: `Bearer ${process.env.GROK_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     },
     data: {
-      model: XAI_MODEL,
+      model,
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt }
       ]
     }
+  };
+}
+
+function extractContent(shape, responseData) {
+  if (shape === 'anthropic') {
+    return responseData?.content?.[0]?.text || '{}';
+  }
+  if (shape === 'ollama') {
+    return responseData?.message?.content || '{}';
+  }
+  return responseData?.choices?.[0]?.message?.content || '{}';
+}
+
+async function callAI(systemPrompt, userPrompt) {
+  const config = resolveProviderConfig();
+  const { headers, data } = buildRequest(config, systemPrompt, userPrompt);
+
+  const response = await safeRequest(config.url, 'post', {
+    timeout: AI_TIMEOUT_MS,
+    headers,
+    data
   });
 
-  return response?.data?.choices?.[0]?.message?.content || '{}';
+  return extractContent(config.shape, response.data);
 }
 
 function parseJsonSafe(raw) {
@@ -382,10 +448,10 @@ async function step4GenerateApplications(inputPath, outputPath) {
 
   for (const [index, job] of jobs.entries()) {
     try {
-      const coverRaw = await callGrok(COVER_LETTER_SYSTEM_PROMPT, getCoverLetterPrompt(job, RESUME_SOURCE_OF_TRUTH));
+      const coverRaw = await callAI(COVER_LETTER_SYSTEM_PROMPT, getCoverLetterPrompt(job, RESUME_SOURCE_OF_TRUTH));
       const coverParsed = parseJsonSafe(coverRaw);
 
-      const resumeRaw = await callGrok(
+      const resumeRaw = await callAI(
         RESUME_SYSTEM_PROMPT,
         getResumePrompt(RESUME_SOURCE_OF_TRUTH, job, coverParsed.analysis || '')
       );
@@ -399,7 +465,7 @@ async function step4GenerateApplications(inputPath, outputPath) {
       };
 
       if (String(job.isEURegion || '').toLowerCase() === 'yes') {
-        const motivationRaw = await callGrok(
+        const motivationRaw = await callAI(
           MOTIVATION_LETTER_SYSTEM_PROMPT,
           getMotivationLetterPrompt(
             job.company_name || '',
@@ -547,5 +613,7 @@ module.exports = {
   deepNormalize,
   parseDateArg,
   sanitizeSegment,
-  getUniqueTargetDir
+  getUniqueTargetDir,
+  resolveProviderConfig,
+  callAI
 };

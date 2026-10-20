@@ -1,4 +1,4 @@
-require('dotenv').config();
+/* require('dotenv').config();
 const OpenAI = require('openai');
 
 const MODEL = 'gpt-4o-mini';
@@ -64,6 +64,54 @@ async function generateJobDetails(jobText) {
   });
 
   return completion.choices?.[0]?.message?.content ?? '';
+}
+
+module.exports = {
+  generateJobDetails,
+  JOB_EXTRACTION_PROMPT
+};
+ */
+
+require('dotenv').config();
+const { callAI } = require('../features/shared/aiclient'); // adjust relative path to match your tree
+
+const TEMPERATURE = 0;
+
+const JOB_EXTRACTION_PROMPT = `You are a strict JSON extraction engine for frontend job postings.
+
+Return ONLY valid JSON. No markdown, no explanations, no code fences.
+
+Task:
+1) Extract structured details from the provided job text..
+2) Detect visa sponsorship and set visa_sponsorship exactly to one of: "Yes", "No", "Unknown".
+3) Detect if role can be done only with English and set only_english exactly to one of: "true", "false", or null.
+4) Detect if job location is in EU region and set isEURegion to "yes" or "no".
+
+Output schema (array of objects):
+[
+  {
+    "jobTitle": "string",
+    "job_link": "string",
+    "country_name":"string",
+    "visa_sponsorship": "Yes|No|Unknown",
+    "only_english": "true|false|null",
+    "company_name": "string",
+    "isEURegion": "yes|no",
+    "rolesAndResponsibilities": "string",
+    "recruiters_email":"string",
+    "recruiters_number":"string",
+    "skillsRequired": ["string"]
+  }
+]
+
+Rules:
+- Always return a JSON array.
+- If a field is unknown, use empty string for text fields, [] for skillsRequired, null for only_english, and "no" for isEURegion.
+- Do not invent a job_link unless explicitly present in the text.
+- Exclude non-frontend jobs by returning [].`;
+
+async function generateJobDetails(jobText) {
+  return callAI(JOB_EXTRACTION_PROMPT, jobText, { temperature: TEMPERATURE });
 }
 
 module.exports = {

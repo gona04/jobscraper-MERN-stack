@@ -1,0 +1,1429 @@
+[
+  {
+    "summary": "AI knowledge platform, Lead Frontend Engineer role, React/TypeScript UI ownership with performance, mentorship, and AI platform UX",
+    "company_name": "Textcortex Ai At Textcortex Ai",
+    "job_title": "Senior Frontend Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "An AI knowledge platform carries a unique frontend burden: its credibility depends as much on how clearly the UI surfaces uncertainty and source context as on the underlying model's accuracy. That is not a detail that can be polished at the end; it has to be designed into the information architecture from the first wireframe. This is the same question that drew me to linguistic philosophy before I ever wrote code — 'what problem is this concept solving?' — and it is the lens I bring to every interface, especially for AI systems.",
+        "At Tata Consultancy Services I led a five-person frontend team building enterprise applications in Angular and TypeScript, where I learned to own performance budgets and accessibility as core deliverables rather than afterthoughts. I reduced API calls by 40% through RxJS-driven state management and maintained zero accessibility violations across releases. Later, at Datapret, I shipped an accessibility-focused complaint resolution platform in React and Redux, increasing WCAG compliance by 30% while coordinating closely with product and design.",
+        "More recently I built NewsAlign, an AI-powered fact verification system with React, Next.js, TypeScript, LangChain, FAISS, and vector retrieval. The most useful lesson was that retrieval is not reasoning: the UI needed to show not just a verdict but why the system believed it, which forced deliberate choices about how to present citations, confidence, and counter-evidence. I also reduced the bundle from 941KB to under 300KB, raised the Lighthouse score from 73 to 95, and held Jest coverage near 84%. That project gave me a realistic feel for where AI coding tools genuinely accelerate delivery and where human judgment has to take over.",
+        "Textcortex's direction resonates with me specifically because you are building an AI knowledge platform that thousands of people rely on daily, and you are explicitly investing in frontend tooling and experimentation as a way to increase velocity without sacrificing quality. I would contribute by designing clean, componentized architecture, coaching developers to prevent debugging marathons before they begin, treating peer reviews as shared ownership, and diving into backend code whenever an API shape makes the frontend harder than it needs to be."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Textcortex AI Hiring Team,",
+      "paragraphs": [
+        "I am a frontend engineer with 5 years of experience building React and TypeScript applications in enterprise settings and AI-powered projects. Your role stood out because it combines senior frontend ownership with AI innovation—two areas I have worked in deeply.",
+        "At Tata Consultancy Services, I led a team of five frontend developers, shaped architecture decisions, and delivered accessible, scalable enterprise applications. I cut API calls by 40% with RxJS-based state management and accelerated performance through code splitting and lazy loading. At Datapret, I increased WCAG compliance by 30% while building an accessibility-focused platform with React, Redux, and TypeScript.",
+        "I recently built NewsAlign, an AI fact-checking platform using React, Next.js, TypeScript, LangChain, FAISS, and RAG pipelines. Key results: shrank bundle size by 68%, from 941KB to under 300KB, using code splitting and frontend optimizations; raised Lighthouse score from 73 to 95 by improving SSR, caching, and Core Web Vitals; and achieved approximately 84% unit test coverage with Jest. I also built a React CLI tool to automate component scaffolding and improve developer experience.",
+        "I enjoy taking features from concept to release and working closely with product, design, and backend teams. I have mentored junior developers, strengthened code review cycles, and invested in frontend tooling—so I can help Textcortex keep shipping high-quality code quickly. I am open to relocation opportunities."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai, India | +91 7718961340 | gandhi.goonja@gmail.com | linkedin.com/in/goonja-gandhi | github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience delivering scalable, maintainable, high-performance web applications using React, TypeScript, and modern frontend architectures. Skilled in performance optimization, accessibility (WCAG), unit testing, and AI-powered features including LLM integrations and RAG pipelines. Experienced in leading developer teams, mentoring juniors, owning frontend architecture decisions, strengthening code review cycles, and collaborating with backend teams in Agile environments. Open to relocation.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: React, React.js, Next.js, TypeScript, JavaScript (ES6+), HTML5, CSS3, SCSS, Tailwind CSS\nRendering & Next.js: App Router, SSR, SSG, ISR, React Server Components, Dynamic Routing, Nested Layouts, SEO Optimization\nState Management: Redux, Context API, RxJS\nBackend & APIs: Node.js, Express.js, GraphQL, REST APIs, Apollo Client\nPerformance & Architecture: Frontend Architecture, Performance Optimization, Bundle Optimization, Code Splitting, Lazy Loading, Caching Strategies, System Design\nAI & Data: LLM Integrations, RAG Systems, LangChain, Hugging Face, FAISS, Generative AI, NLP, Semantic Search\nCloud & DevOps: AWS, CI/CD, Jenkins, Firebase, Netlify, Railway\nTesting & Development: Unit Testing, Jest, Git, Accessibility (WCAG), Agile Methodologies",
+      "experience": [
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to speed up feature delivery and minimize development rework."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers, owning frontend architecture decisions for scalable enterprise applications built with Angular, TypeScript, RxJS, and reusable component frameworks.",
+            "Reduced API calls by 40% through advanced RxJS state management implementations, lowering latency and improving overall application responsiveness.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization to support high-traffic workflows.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices across responsive, cross-browser UI systems.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting peer review cycles.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (02/2026)",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Shrank bundle size by 68% (from 941KB to under 300KB) through code splitting and frontend optimization strategies.",
+            "Elevated Lighthouse performance score from 73 to 95 by implementing server-side rendering enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool (01/2026)",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates, accelerating project setup and development workflows.",
+            "Improved developer efficiency through a zero-runtime-dependency architecture and automated component scaffolding."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts in academic projects. GPA: 3.8."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-frontend-engineer-at-textcortex-ai-at-textcortex-ai-4451299511?position=27&pageNum=0&refId=ZxuLXw8yiB6aI4KpjKKRTA%3D%3D&trackingId=SBLpzB%2F5izd3uhmsyhJ3Yw%3D%3D",
+    "company_website": null,
+    "company_status": "error"
+  },
+  {
+    "summary": "Security compliance platform, Senior Frontend Engineer, React/TypeScript high-volume workflow UI and component library",
+    "company_name": "Oneleet",
+    "job_title": "Frontend Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Oneleet Team,",
+      "paragraphs": [
+        "Oneleet's frontend role is explicit about something many data-heavy platforms avoid: high-volume data is not a rendering problem, it is a judgment problem. The emphasis on triage, filtering, workflow flows, and posture views suggests a product that wants to help users decide, not just display. That is a design philosophy I recognize.",
+        "I came to frontend engineering from linguistic philosophy, and the question I still carry is Wittgenstein's: what problem is this concept solving? It guides how I treat component libraries — every abstraction should earn its place — and how I approach complex workflows: the interface should make it obvious what needs attention and what can wait.",
+        "At Tata Consultancy Services, I led a team of five developers building enterprise applications with Angular, TypeScript, and RxJS; reducing API calls by 40% taught me how much performance depends on state design, not just rendering. Later, at Datapret, I delivered an accessibility-focused complaint resolution platform that increased WCAG compliance by 30%. In both settings, the hardest work was making multi-step flows feel inevitable.",
+        "In a personal project, NewsAlign, I built an AI-powered fact verification system using <b>semantic search</b> and <b>RAG pipelines</b>. The core lesson was that retrieval is not reasoning — and the same distinction matters when presenting large security datasets: fetching everything is not insight. I also cut bundle size from <b>941 KB to under 300 KB</b> and raised Lighthouse from <b>73 to 95</b>, because performance is part of how users trust a workflow.",
+        "The role's emphasis on partnering with the Product Designer and backend engineers matches how I work — early, iteratively, and with real users. I see analytics and feedback loops as part of the UI, not an afterthought: they are how a workflow discovers whether it is working. I would bring that orientation to Oneleet's component library and to the process of validating UX directly with customers."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Oneleet Team,",
+      "paragraphs": [
+        "I am a Senior Frontend Engineer with five years of experience building web applications with React, TypeScript, and modern rendering strategies. My work has focused on reusable UI components, state management, accessibility, and performance tuning. Oneleet's focus on security-first compliance stands out to me, and I want to help build UI components, dashboards, and data-heavy workflows that make complex security information easier to act on.",
+        "What I bring to this role:\n- Reduced a React/Next.js bundle by 68% (941KB to under 300KB) using code splitting and caching.\n- Lifted a Lighthouse performance score from 73 to 95 through SSR, caching, and Core Web Vitals work.\n- Cut API calls by 40% with RxJS state management while delivering accessible, WCAG-compliant interfaces.",
+        "At Tata Consultancy Services, I led five developers, guided frontend architecture decisions, and integrated GraphQL and REST APIs into scalable enterprise applications. I also mentored developers and enforced WCAG-compliant practices, achieving zero accessibility violations in QA. At Datapret, I worked with cross-functional Agile teams to deliver an accessibility-focused platform, lifting WCAG compliance by 30%. This experience taught me how to balance delivery speed with long-term maintainability. I am open to relocating for this role and would welcome the opportunity to discuss how I can contribute to Oneleet's frontend."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience building scalable, accessible web applications using React, TypeScript, and modern frontend architectures. Experience includes performance optimization — reducing bundle size by 68% and improving Lighthouse scores — plus GraphQL, REST APIs, reusable component frameworks, and Agile delivery. Passionate about component libraries, clean architecture, and measurable quality outcomes. Open to relocation.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), React.js, TypeScript, Next.js, SCSS, Tailwind CSS, Component Libraries\nRendering & Architecture: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR, Frontend Architecture, System Design\nState Management: Context API, Redux, RxJS\nBackend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs\nPerformance: Bundle Optimization, Caching Strategies, Code Splitting, Lazy Loading, Performance Optimization\nAI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search\nCloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway\nTesting & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers and guided frontend architecture decisions with Angular and TypeScript, improving code quality and review cycles.",
+            "Built scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Created responsive, cross-browser UI components aligned with WCAG standards; achieved zero accessibility violations during QA.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization.",
+            "Streamlined frontend-backend integration with Spring Boot and GraphQL, shortening feature delivery timelines.",
+            "Mentored 5 developers on code quality standards, strengthening consistency and expediting review cycles.",
+            "Delivered maintainable, enterprise-scale frontend solutions across multiple product areas."
+          ]
+        },
+        {
+          "company": "Datapret (COOP)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Developed an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Improved WCAG compliance by approximately 30%, strengthening accessibility and usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to speed feature delivery and minimize development rework."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, semantic search, and RAG pipelines.",
+            "Reduced bundle size by approximately 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Achieved roughly 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "GPA: 3.8. Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nl.linkedin.com/jobs/view/frontend-engineer-at-oneleet-4438997293?position=27&pageNum=0&refId=uJ6FoAZOaGa8TkGaif1rnA%3D%3D&trackingId=61D0ExoqkeRP2O2IQgg0sg%3D%3D"
+  },
+  {
+    "summary": "EV charging software, Software Engineer role, complex algorithms and data-heavy end-to-end product development",
+    "company_name": "Greenflux",
+    "job_title": "Software Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear GreenFlux Team,",
+      "paragraphs": [
+        "GreenFlux's phrase 'squeeze the last kWh out of your grid connection' is more precise than it first appears. It suggests that smart charging is fundamentally a constraint problem: matching EV demand to available energy, not simply billing a session. That distinction—between the surface feature and the underlying problem—is exactly what I look for when I encounter a new system.",
+        "Before software, I studied linguistic philosophy, where the recurring question is the same: what problem is this concept solving? It stayed with me when I built a custom reactive engine to understand React's internals, and again when I designed NewsAlign, an AI fact-verification system. The most important decision there was separating retrieval from reasoning; the search layer could return candidates, but claims needed a separate reasoning step. That kind of boundary-consciousness is essential when a platform must handle thousands of charge points and diverse business models without coupling them too tightly.",
+        "I've spent the past five years building systems where reliability and maintainability are tied to good boundaries. At TCS I led a team of five frontend developers and made architecture choices that cut API calls by 40% and kept accessibility to zero violations. More recently I built NewsAlign from the ground up, reducing the bundle from 941KB to under 300KB and raising its Lighthouse score from 73 to 95. Those numbers matter because performance is a feature, not decoration—just as every kWh optimised by smart charging is a direct result of good software.",
+        "What I would bring to GreenFlux is not only proficiency with React or TypeScript, but a habit of asking what the system is really trying to accomplish before committing to an implementation. Your platform has to work for CPOs, MSPs, energy utilities, and drivers at the same time; that complexity requires engineers who can hold the whole picture while keeping the details reliable. I would like to help build the systems that make that possible."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "I'm Goonja Gandhi, a frontend engineer with five years of experience building scalable applications with TypeScript, React, and Node.js. GreenFlux's work on EV charging and smart energy management is exactly the kind of product where reliable software has real-world impact, and I'd like to contribute as a Software Engineer.",
+        "Some results I'm proud of:\n• At TCS, I led a team of 5 developers and reduced API calls by 40% by redesigning state management with RxJS.\n• At Datapret, I raised WCAG accessibility compliance by 30% on a complaint-resolution platform built with React, Redux, and TypeScript.\n• For an AI fact-checking tool, I reduced the frontend bundle from 941 KB to under 300 KB through code splitting, improving Lighthouse from 73 to 95.",
+        "That AI project involved building RAG pipelines for processing text from various sources, and I achieved approximately 84% unit test coverage with Jest. These are the kinds of improvements I'd bring to GreenFlux, where performance and reliability directly affect EV drivers and operators. I'm comfortable working across frontend, API integration, and deployment, using CI/CD for predictable releases. I also value self-organization, quality control, and documentation.",
+        "I'm open to relocating to the Netherlands and happy to adapt to the technologies the team uses."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Developer with 5 years of experience delivering scalable, high-performance web applications using React, Next.js, Angular, TypeScript, JavaScript, GraphQL, and Node.js. Skilled in frontend optimization, accessibility, AI integrations, SSR/SSG/ISR, React Server Components, and enterprise-grade UI delivery within Agile, self-organized teams. Hands-on experience building AI-powered applications with RAG pipelines, NLP, and semantic search. Strong focus on quality control, documentation, and end-to-end product contribution. Open to relocation.",
+      "position": "Senior Frontend Developer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), TypeScript, React.js, Next.js, Angular, SCSS, Tailwind CSS | Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR | State Management: Context API, Redux, RxJS | Backend & APIs: Node.js, Express.js, REST APIs, GraphQL, Apollo Client | Performance & Architecture: Frontend Architecture, Performance Optimization, Code Splitting, Lazy Loading, Bundle Optimization, Caching Strategies, System Design | AI & Data: Generative AI, LLM Integrations, RAG Systems, LangChain, FAISS, Hugging Face, NLP, Semantic Search | Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway | Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform end-to-end using <b>React</b>, <b>Redux</b>, <b>TypeScript</b>, <b>Node.js</b>, and <b>REST APIs</b>.",
+            "Increased <b>WCAG compliance by 30%</b>, strengthening accessibility scores and improving usability across critical workflows.",
+            "Improved application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional <b>Agile</b> teams to accelerate feature delivery and minimize development rework."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led a team of <b>5 developers</b>, shaping frontend architecture decisions using <b>Angular</b> and <b>TypeScript</b>.",
+            "Delivered scalable enterprise applications using <b>Angular</b>, <b>RxJS</b>, <b>TypeScript</b>, <b>REST APIs</b>, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with <b>WCAG</b> accessibility standards.",
+            "Reduced <b>API calls by 40%</b> through advanced <b>RxJS</b> implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance using <b>code splitting</b>, <b>lazy loading</b>, <b>caching strategies</b>, and <b>bundle optimization</b>.",
+            "Streamlined frontend-backend integrations with <b>Spring Boot</b> and <b>GraphQL</b> services, shortening feature delivery timelines.",
+            "Mentored and guided <b>5 developers</b>, raising code quality standards and expediting review cycles.",
+            "Achieved <b>zero accessibility violations</b> during QA by enforcing WCAG-compliant design and development practices."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "type": "Personal Project",
+          "points": [
+            "Engineered an AI-powered fact verification platform using <b>React</b>, <b>Next.js</b>, <b>TypeScript</b>, <b>LangChain</b>, <b>FAISS</b>, <b>Hugging Face</b>, <b>NLP</b>, and <b>RAG</b> pipelines.",
+            "Reduced <b>bundle size by 68%</b>, from <b>941KB to under 300KB</b>, through code splitting and frontend optimization.",
+            "Improved <b>Lighthouse performance score from 73 to 95</b> through SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated <b>JWT</b> authentication, API caching, and secure backend workflows for scalable application performance.",
+            "Achieved <b>approximately 84% unit test coverage</b> using <b>Jest</b> and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "duration": "01/2026",
+          "type": "Personal Project",
+          "points": [
+            "Created a <b>CLI tool</b> that generates reusable <b>React</b> component boilerplates, accelerating project setup and development workflows.",
+            "Designed a <b>zero-runtime-dependency</b> architecture that automates React component scaffolding for consistent, faster project setup."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "type": "Personal Project",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by <b>React's useState</b> internals.",
+            "Applied practical knowledge of <b>rendering cycles</b>, <b>reactivity systems</b>, <b>JavaScript memory management</b>, and <b>frontend architecture patterns</b>."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects. <b>GPA: 3.8</b>."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nl.linkedin.com/jobs/view/software-engineer-at-greenflux-4442574742?position=41&pageNum=0&refId=uJ6FoAZOaGa8TkGaif1rnA%3D%3D&trackingId=iKIHcqQkiznwZ%2BusZpcBKw%3D%3D",
+    "company_website": "https://www.greenflux.com/",
+    "company_status": "success"
+  },
+  {
+    "summary": "IT staffing and consulting, Full-Stack TypeScript / AWS Serverless Developer, AWS serverless event-driven application development",
+    "company_name": "A2g Consulting Bv A2g Technologies",
+    "job_title": "Full-Stack TypeScript / AWS Serverless Developer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear A2G Hiring Team,",
+      "paragraphs": [
+        "Your website describes candidate selection as a true win-win only when the company and the candidate are genuinely compatible. That is a stronger claim than it looks: compatibility is not a match of job titles and keywords, but a judgment about underlying needs on both sides. It is the same principle I first encountered in philosophy—asking what problem a concept is actually solving—and it has guided how I think about engineering ever since.",
+        "I moved into engineering through an unusual route: philosophy, curriculum design for children, and song composition. The transition felt continuous rather than abrupt because each shift was driven by the same instinct—solve the actual problem, not the one the framework expects you to have. As a Senior Frontend Developer at Tata Consultancy Services, I led a team of five, shaped frontend architecture, and cut API calls by <b>40%</b> through better state management choices. Later, at Datapret, I focused on accessibility and raised WCAG compliance by <b>30%</b>. In both cases, the meaningful changes came from asking what the user genuinely needed before touching the code.",
+        "The same thinking applies to full-stack TypeScript and AWS serverless work. In NewsAlign, a recent AI fact-verification project, I built the whole pipeline from React and Next.js on the front end to <b>Node.js, PostgreSQL, FAISS, and LLM reasoning</b> behind it. The most important decisions were not about individual tools but about system-level behavior: where retrieval ends and reasoning begins, how to cache responsibly, and how to keep cost under control. These are the same tradeoffs serverless development forces into the open—clarify the data flow, define the API boundary, and then let the infrastructure be as thin as possible. The results followed: a <b>68%</b> smaller bundle, a Lighthouse score that rose from 73 to 95, and about <b>84%</b> unit test coverage.",
+        "What draws me to A2G specifically is that your process—search, select, connect—treats placement as an ongoing relationship, not a transaction. Your testimonials reflect the same: guidance through interviews, onboarding, visa, and relocation. That end-to-end responsibility is how I build software as well; the work is not finished when the feature ships, but when the people relying on it are set up to succeed. I would like to contribute that mindset to the full-stack projects A2G places with its clients."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "I'm applying for the Full-Stack TypeScript / AWS Serverless Developer role at A2G Consulting. With five years of software engineering experience across TypeScript, Next.js, React, Node.js, and GraphQL, I bring a strong full-stack foundation and a clear focus on clean, scalable applications. I enjoy working across the stack and have shipped both UI-heavy platforms and API integrations. I am based in Mumbai and am open to relocating to the Netherlands for this role.",
+        "Your role calls for TypeScript end-to-end, AWS serverless, and event-driven integrations. My experience maps to the core stack, and I build with performance and maintainability in mind. A few concrete results:\n• In a personal Next.js project, I cut the bundle from 941KB to under 300KB and raised Lighthouse from 73 to 95 using code splitting, SSR, and caching.\n• At TCS, I reduced API calls by 40% using advanced RxJS implementations, lowering latency and improving state management.\n• On a React/Redux platform at Datapret, I increased WCAG compliance by 30% while coordinating with Agile teams.\nI've also worked with GraphQL, Apollo Client, Express.js, and Node.js, and I am familiar with AWS through cloud and DevOps workflows. What excites me about this role is the chance to go deeper into serverless engineering—especially AWS Lambda, AWS CDK, DynamoDB, SQS/SNS/EventBridge, and observability with CloudWatch and OpenTelemetry. I'm confident I can bring frontend depth and a backend mindset to your cloud-native projects.",
+        "I would welcome the chance to discuss how my experience can support A2G Consulting's team."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience delivering scalable, high-performance web applications using React, Next.js, TypeScript, GraphQL, and modern frontend architectures. Expertise in frontend optimization, accessibility, AI integrations, SSR/SSG/ISR, React Server Components, and enterprise-grade UI delivery within Agile environments. Open to relocation.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), Next.js, React.js, SCSS, Tailwind CSS, TypeScript. Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR. State Management: Context API, Redux, RxJS. Backend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs. Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design. AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search. Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway. Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing.",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimize development rework.",
+            "Successfully completed the engagement upon project delivery."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (02/2026)",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Elevated Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine (08/2025)",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Showcased expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "GPA: 3.8. Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nl.linkedin.com/jobs/view/full-stack-typescript-aws-serverless-developer-at-a2g-consulting-bv-a2g-technologies-4455409890?position=53&pageNum=0&refId=uJ6FoAZOaGa8TkGaif1rnA%3D%3D&trackingId=VJ%2FfZ7YZ5cBHP3nzfYQ1EA%3D%3D",
+    "company_website": "https://a2gtechnologies.com/",
+    "company_status": "success"
+  },
+  {
+    "summary": "AI knowledge platform, Senior Frontend React role, scalable React TypeScript UIs",
+    "company_name": "Textcortex Ai At Textcortex Ai",
+    "job_title": "Senior Frontend Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "The phrase 'no endless meetings, no debugging marathons – just shipping great code' stood out to me. It describes a culture where clarity of thought is a prerequisite for execution, not a nice-to-have. That resonates with how I've worked for the past five years: before choosing an architecture or building a component, I ask what problem this concept is actually solving. I learned that habit from linguistic philosophy — Wittgenstein is where I first encountered the idea that a concept is only meaningful in light of the work it does — and it has survived every technology shift since.",
+        "Textcortex's frontend carries a heavier responsibility than most: for an AI knowledge platform, the interface has to make the system's confidence, sources, and reasoning legible to users. I dealt with the same challenge in NewsAlign, a full-stack fact-checking system I built end to end. The UI sat on a <b>RAG pipeline with semantic search, FAISS, and LLM reasoning</b>, and one insight shaped everything: <b>retrieval is not reasoning</b>. Presenting evidence next to claims was as important as the underlying model. On the engineering side, that project forced the same discipline you're asking for — I reduced the bundle by <b>68% (941KB to under 300KB)</b> and lifted Lighthouse performance from <b>73 to 95</b>, alongside <b>84% unit test coverage with Jest</b>.",
+        "The role's expectation of full ownership — from concept to release, and from frontend to backend integration — matches the way I operated at TCS, where I led five developers and made architectural decisions across Angular, TypeScript, and GraphQL integrations. I reduced API calls by <b>40%</b> using RxJS-based state management, not because optimization was a metric, but because the backend contract is part of frontend performance. I also recognize your emphasis on mentorship and tooling. The React CLI I built grew out of frustration with repetitive setup, and a small reactive state engine came from wanting to understand <b>useState</b> well enough to explain it to others. That's the kind of seniority I believe in: make the team faster, not just yourself. Your explicit mention of AI coding agents like Cursor is another form of the same impulse — take the best available tool seriously, while keeping human judgment on the hard problems.",
+        "What I want to contribute at Textcortex is that combination of product awareness and engineering rigor. A platform that is gaining thousands of daily users needs a frontend that stays fast, accessible, and honest about what an AI can and cannot claim. That is a problem I know how to work on — and one I would be glad to solve inside a team that shares the same standard.",
+        "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "I'm a frontend engineer with nearly five years of experience building applications in React, TypeScript, and modern rendering patterns. I'm applying because Textcortex AI's AI knowledge platform is exactly where my work with LLM/RAG systems and performance-focused React apps becomes useful. I'm also ready to relocate to Germany and contribute from the start.",
+        "At TCS, I led a team of five developers and shaped frontend architecture for enterprise applications using TypeScript and Angular. I mentored developers through code reviews and reduced API calls by 40% with RxJS. More recently, I built an AI-powered fact verification platform with React, Next.js, LangChain, and RAG pipelines:\n- Cut bundle size from 941KB to under 300KB through code splitting.\n- Raised Lighthouse performance from 73 to 95 using SSR, caching, and Core Web Vitals improvements.\n- Reached about 84% unit test coverage with Jest while adding JWT authentication and API caching.\nA co-op role at Datapret deepened my React, Redux, and accessibility skills. I increased WCAG compliance by 30% while working with cross-functional teams, which reinforced how I like to build: with clean, testable code and performance treated as part of feature delivery.",
+        "Your senior role blends React/TypeScript ownership, mentorship, and frontend quality. That aligns with my strengths. I'd bring the same balance of architectural thinking and attention to code quality, and I'd appreciate the chance to discuss how I can help your frontend scale smoothly."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai | +91 7718961340 | gandhi.goonja@gmail.com | linkedin.com/in/goonja-gandhi | https://github.com/gona04",
+      "summary": "Senior Frontend Engineer with nearly five years of experience delivering scalable, high-performance web applications using React, Next.js, TypeScript, GraphQL, and modern frontend architectures. Skilled in frontend optimization, accessibility, AI integrations, SSR/SSG/ISR, React Server Components, and enterprise-grade UI delivery within Agile environments. Open to Relocate",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), Next.js, React, SCSS, Tailwind CSS, TypeScript | Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR | State Management: Context API, Redux, RxJS | Backend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs | Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design | AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search | Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway | Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Improved WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimize development rework."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Built responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Achieved approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects. GPA: 3.8"
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-frontend-engineer-at-textcortex-ai-at-textcortex-ai-4451299511?position=4&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=qAIYkw5%2Fs1cW9NCy%2F5ioUg%3D%3D",
+    "company_website": null,
+    "company_status": "error"
+  },
+  {
+    "summary": "",
+    "company_name": "Scalable Capital",
+    "job_title": "(Senior) Frontend Engineer - AI (m/f/x)",
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error",
+    "error": "POST https://api.deepseek.com/v1/chat/completions failed: aborted"
+  },
+  {
+    "summary": "",
+    "company_name": "Navvis",
+    "job_title": "Senior Full Stack Software Engineer - Angular/Typescript/Python + Robotics Backend (F/M/D)",
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error",
+    "error": "POST https://api.deepseek.com/v1/chat/completions failed: aborted"
+  },
+  {
+    "summary": "",
+    "company_name": "Cloudyrion",
+    "job_title": "Senior Fullstack Engineer AI (m/f/d)",
+    "cover_letter": {},
+    "resume": {},
+    "job_link": "",
+    "company_website": null,
+    "company_status": "error",
+    "error": "POST https://api.deepseek.com/v1/chat/completions failed: read ETIMEDOUT"
+  },
+  {
+    "summary": "Geospatial digital twin platform, Senior Full-Stack Software Engineer, Angular/TypeScript and Java/Spring with PostgreSQL/PostGIS geospatial data at scale",
+    "company_name": "Navvis",
+    "job_title": "Senior Full-Stack Software Engineer (F/M/D)",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "NavVis IVION treats a 3D scan not as a static picture but as an environment with structured data behind it—data that must be queried, enriched, and connected to other systems. That is the part of the platform I find most compelling, and it is also the reason I decided to apply. I came to software engineering from linguistic philosophy, where the recurring question is usually the same one I now ask about architecture: what problem is this concept actually solving? That question has shaped the way I design interfaces, choose abstractions, and evaluate tradeoffs for the last five years.",
+        "Most of my engineering experience sits at the boundary between the data layer and the user interface. At Tata Consultancy Services, I led five frontend developers building enterprise applications with <b>Angular, TypeScript, and RxJS</b>, and worked closely with <b>Spring Boot and GraphQL</b> services. I reduced API calls by <b>40%</b> using RxJS state management, cut bundle sizes through code splitting and lazy loading, and pushed the team to <b>zero accessibility violations</b> in QA. I also mentored the same developers, which taught me that seniority is less about having answers and more about asking the right clarifying questions.",
+        "More recently I built a full-stack AI fact-checking system with <b>Next.js, TypeScript, LangChain, FAISS, and RAG pipelines</b>. The central design problem was that retrieval is not reasoning; the same distinction applies to a platform like IVION, where raw geospatial data is not yet a useful environment. That project also had to be fast: I reduced the JavaScript bundle by <b>68%</b> and lifted the Lighthouse performance score from <b>73 to 95</b>. It is a reminder that in data-heavy products, performance is part of the user experience, not a separate concern.",
+        "The role also asks for contribution to the <b>PostgreSQL/PostGIS</b> data layer and the <b>Java/Spring</b> server. My direct experience is stronger on the frontend, but I have built Node.js/Express APIs, integrated frontends with Spring Boot, and designed systems where the client only asks for what the backend can meaningfully answer. I would bring the same engineering standards—code review, testing, and optimization—to those parts of the stack, while learning the geospatial specifics quickly. What I would contribute immediately is a clear view of how IVION's web client and its data services should shape each other, and a habit of mentoring that helps the whole squad move together."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear NavVis Hiring Team,",
+      "paragraphs": [
+        "I'm applying for the Senior Full-Stack Software Engineer role at NavVis. I am a frontend-focused engineer with five years of experience building enterprise web applications, including leading and mentoring a team of five developers. I've also worked across frontend and backend concerns using Node.js, GraphQL, and REST APIs, which gives me the perspective to work across your Angular/TypeScript client and your backend services.",
+        "Selected achievements:\n• Reduced API calls by 40% at Tata Consultancy Services by introducing advanced RxJS state management, lowering latency across large Angular applications.\n• Increased WCAG accessibility compliance by 30% at Datapret by rebuilding a complaint-resolution platform with React, Redux, and TypeScript.\n• Cut bundle size by 68% (from 941KB to under 300KB) on an AI fact-checking project, lifting Lighthouse performance from 73 to 95 through code splitting, SSR, and caching.",
+        "I'm drawn to NavVis because IVION combines 3D visualization, mapping, and enterprise data—areas where frontend performance and clean architecture matter. My experience with accessibility, API integration, and component design maps directly to your web client. I'm also ready to grow into the Java/Spring and PostgreSQL/PostGIS side of your stack; I have the backend fundamentals and system-design thinking to adapt quickly. I'd welcome the chance to discuss how I can help NavVis build and maintain the next generation of IVION."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • https://github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience designing, building, and scaling enterprise web applications using Angular, TypeScript, React, JavaScript, Node.js, GraphQL, and REST APIs. Strong record in frontend architecture, performance optimization, accessibility (WCAG), and Agile delivery. Experienced in integrating frontend systems with Spring Boot, GraphQL, and Node.js backends, and in leading and mentoring engineering teams. Committed to clean, maintainable, user-centered software.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Angular, SCSS, Tailwind CSS, Next.js\nRendering & Performance: SSR, SSG, ISR, React Server Components, App Router, Dynamic Routing, Nested Layouts, SEO Optimization, code splitting, lazy loading, bundle optimization, caching strategies, Core Web Vitals\nArchitecture & Design: Frontend Architecture, System Design\nState Management: Redux, Context API, RxJS\nBackend & APIs: Node.js, Express.js, GraphQL, REST APIs, Apollo Client, Spring Boot (integration)\nCloud & DevOps: AWS, Firebase, Netlify, Railway, Jenkins, CI/CD\nTesting & Quality: Jest, unit testing, WCAG accessibility, Agile methodologies, Git\nData & AI: RAG systems, LangChain, FAISS, Hugging Face, generative AI, LLM integrations, semantic search",
+      "experience": [
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs, including frontend-backend integration.",
+            "Improved WCAG compliance by 30% through semantic HTML, accessible components, and contrast improvements, strengthening usability across critical workflows.",
+            "Optimized rendering, API integration, and data handling to accelerate application responsiveness.",
+            "Collaborated with cross-functional Agile teams to align feature delivery and reduce development rework."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Led a team of 5 developers, setting frontend architecture direction using Angular, TypeScript, and reusable component design.",
+            "Delivered scalable enterprise applications with Angular, RxJS, TypeScript, REST APIs, and a component-based architecture.",
+            "Built responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance by applying code splitting, lazy loading, caching strategies, and bundle optimization.",
+            "Streamlined frontend-backend integration with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Mentored 5 developers on code quality standards, speeding up code review cycles and raising maintainability.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68%, from 941KB to under 300KB, using code splitting and frontend optimization.",
+            "Raised Lighthouse performance score from 73 to 95 by applying SSR enhancements, caching, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "duration": "01/2026",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates using a zero-runtime-dependency architecture, enabling faster project setup and consistent component scaffolding."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals, demonstrating frontend architecture, rendering cycles, and JavaScript memory management."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "GPA: 3.8. Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-full-stack-software-engineer-f-m-d-at-navvis-4390604931?position=18&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=pvVcdKTMu%2FM88Wr8%2FPU6iQ%3D%3D"
+  },
+  {
+    "summary": "Digital commerce consultancy, Senior Frontend Engineer role, Shopify enterprise commerce architecture.",
+    "company_name": "Instaffo",
+    "job_title": "Senior Frontend Engineer (m/w/d) – E-Commerce",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "Most frontend roles define the work by the technologies involved. Yours defines it by the thinking around them — architecture workshops, technical target images, and integration decisions for Shopify-based commerce platforms. That framing tells me that Instaffo values frontend engineering as a consulting discipline, and it is the main reason I am applying.",
+        "I have been a senior frontend engineer for five years, and in that time the question I most often ask is the one I brought with me from linguistic philosophy: what problem is this concept solving? I asked it while leading a team of five at Tata Consultancy Services, where I shaped architecture decisions for large Angular enterprise applications and reduced API calls by 40% through state management work. I asked it again while building an AI-powered fact verification system, where I chose to separate retrieval from reasoning, and where I brought the frontend bundle down by 68% and raised the Lighthouse performance score from 73 to 95. That habit of reasoning from problems to solutions is, I think, the core of solution architecture.",
+        "Your role description emphasizes high-quality, performant, barrier-reduced e-commerce. I take that seriously in practical terms: at TCS I achieved zero accessibility violations during QA, and I have since focused on React and Next.js because rendering strategies and frontend architecture decide whether a storefront can scale. What matters to me is not the platform alone but the integration architecture around it — apps, middleware, APIs, and how they support the business goal.",
+        "You also expect senior engineers to set standards and review the work of others. I have mentored developers, carried code quality responsibility, and found that the most useful thing I can offer is clarity — in code, in architecture discussions, and in translating business goals into technical decisions. I would welcome bringing that combination of conceptual rigour and frontend depth to Instaffo's enterprise commerce work."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "The Senior Frontend Engineer role at Instaffo stands out to me because it combines hands-on development with client-facing architecture work—exactly the kind of senior ownership I have been building toward. With five years of experience in React, Next.js, and TypeScript, I have spent most of that time on performance optimization, accessibility, and shipping maintainable frontends.",
+        "Some results I have delivered:\n• Reduced a frontend bundle from 941KB to under 300KB through code splitting and lazy loading, reducing bundle size by 68%.\n• Raised Lighthouse performance from 73 to 95 using SSR, caching, and Core Web Vitals improvements.\n• Cut API calls by 40% in a large enterprise application with RxJS-based state management and integration patterns.",
+        "Your role asks for someone who can consult clients, shape architecture, and set quality standards. At TCS, I directed a team of five developers and drove architecture decisions in Angular and TypeScript. I also coordinated with cross-functional Agile teams to speed delivery and introduced accessibility standards that kept releases free of WCAG violations. I have not worked directly in e-commerce or on Shopify, but I am comfortable taking ownership of unfamiliar domains quickly. The core engineering problems in commerce—performance, reliability, accessibility, and scalable integrations—are familiar ones. I am open to relocating to Germany for this role and am excited to bring my frontend engineering experience to Instaffo’s commerce projects."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience delivering scalable, high-performance web applications using React, Next.js, TypeScript, and modern frontend architectures. Strong background in frontend performance optimisation, accessibility (WCAG), API integration, and Agile delivery. Experienced in leading developers, shaping frontend architecture, and translating business requirements into technical solutions. Open to Relocate",
+      "position": "Senior Frontend Engineer (m/w/d) – E-Commerce",
+      "skills": "Frontend: React, TypeScript, JavaScript (ES6+), Next.js, CSS3, HTML5, SCSS, Tailwind CSS. Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR. State Management: Context API, Redux, RxJS. Backend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs. Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design. AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search. Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway. Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing.",
+      "experience": [
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by approximately 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimisations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimise development rework.",
+            "Completed the engagement successfully upon final project delivery."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by approximately 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimisation techniques.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Shrank bundle size by approximately 68%, from 941KB to under 300KB, through code splitting and frontend optimisation strategies.",
+            "Elevated Lighthouse performance score from 73 to approximately 95 by implementing SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Showcased expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering, applying modern JavaScript frameworks, API integrations, and cross-platform development concepts."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-frontend-engineer-m-w-d-%E2%80%93-e-commerce-at-instaffo-4444560274?position=20&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=ZkV4lKFDSpRXkr8Rx7ymHA%3D%3D"
+  },
+  {
+    "summary": "Applied AI venture studio, Senior AI Full Stack Engineer, production-grade AI-augmented applications and data platforms.",
+    "company_name": "Merantix Momentum",
+    "job_title": "Senior AI Full Stack Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "What draws me to Merantix Momentum is the way this role treats the system around the model as the actual product: the pipelines that curate data, the interfaces that make it explorable, and the monitoring loops that make AI defensible inside real industry constraints. That is not the glamorous part of AI, but it is the part that separates a demo from a product.",
+        "I came to engineering from linguistic philosophy, where the recurring question was Wittgenstein's: what problem is this concept solving? The same question has shaped how I work with AI. Recently I built NewsAlign, a fact-verification platform, to see what it takes to make an LLM answer defensible. The result was not a better prompt but a system: <b>semantic search</b>, <b>vector retrieval with FAISS</b>, <b>LangChain</b> and <b>Hugging Face</b> integrations, a <b>Node.js</b> backend with caching and rate limiting, and a <b>React/Next.js</b> frontend designed to present sources and reasoning without overwhelming the user. I reduced the bundle by <b>68%</b> and lifted Lighthouse from <b>73 to 95</b>, but the more lasting takeaway was that retrieval and reasoning fail differently — and each needs its own safeguards.",
+        "That is the senior perspective I would bring to this role. At TCS, I led five developers and made architecture decisions that survived contact with enterprise constraints: <b>GraphQL</b> and Spring Boot integrations that shortened delivery, RxJS patterns that cut API calls by <b>40%</b>, and WCAG compliance so consistent that audits passed with zero accessibility violations. Performance mattered, but so did the team's ability to carry the standards forward. Mentoring was part of that job, and I have approached it as a way to build collective judgment rather than to hand out answers.",
+        "The part of this role that stands out most is translating complex AI outputs into intuitive, performant user experiences. Before engineering, I designed syllabi for children; the skill that carried over was making dense material legible without flattening it into something useless. I would apply that same discipline to the products and platforms at Merantix Momentum, and to the collaboration between ML, data, and infrastructure teams."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "I am writing to apply for the Senior AI Full Stack Engineer role at Merantix Momentum. With five years of frontend and full-stack experience, I have built production-grade web applications and APIs, and I have hands-on experience turning complex AI outputs into interfaces that people can actually use.",
+        "Highlights from my recent work:\n• Built NewsAlign, an AI-powered fact-verification platform using React, Next.js, TypeScript, LangChain, FAISS, and RAG pipelines; reduced bundle size by 68% and raised Lighthouse performance from 73 to 95.\n• Reduced API calls by 40% at TCS by redesigning state management with RxJS and introducing caching strategies, which made enterprise workflows faster and more scalable.\n• Mentored and directed a team of five developers, owning frontend architecture decisions and enforcing WCAG accessibility standards with zero violations during QA.",
+        "This role appeals to me because it combines AI, full-stack engineering, and user experience — the space I want to grow in. My backend work with Node.js, GraphQL, and REST APIs, along with hands-on LLM and RAG experience, maps directly to building production-grade AI-augmented applications. I value clean code, practical documentation, and thoughtful code reviews as part of everyday engineering culture, and I enjoy collaborating with ML, data, and infrastructure teams to turn technical capabilities into intuitive product experiences.",
+        "I am open to relocating to Germany and would welcome the chance to contribute to Merantix Momentum's engineering team. I would be glad to discuss how my background can support your work."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai, India • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with nearly 5 years of experience building production-grade web applications and APIs using React, Next.js, TypeScript, Angular, Node.js, GraphQL, and REST. Hands-on AI integration work includes RAG systems, LangChain, FAISS, Hugging Face, and NLP for AI-augmented user experiences. Skilled in frontend optimization, accessibility, frontend architecture, and mentoring developers in Agile environments. Open to relocation.",
+      "position": "Senior AI Full Stack Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), React.js, TypeScript, SCSS, Tailwind CSS\nNext.js & Rendering: Next.js, App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR\nState Management: Context API, Redux, RxJS\nBackend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs\nPerformance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design\nAI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search\nCloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway\nTesting & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Datapret (COOP)",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30% through accessible component design and frontend rendering optimizations.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to reduce development rework and speed feature delivery."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered enterprise-scale applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks; integrated with Spring Boot and GraphQL services to shorten feature delivery timelines.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Built responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards, achieving zero accessibility violations during QA.",
+            "Mentored 5 developers, strengthening code quality standards and expediting review cycles."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (Personal Project, 02/2026)",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines; designed the system around semantic search and LLM reasoning, with separate safeguards for retrieval and reasoning failures.",
+            "Reduced bundle size by 68%, from ~941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 by applying SSR-level optimizations, caching, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, Node.js/PostgreSQL backend workflows, and rate limiting to support scalable application performance.",
+            "Achieved approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine (Personal Project, 08/2025)",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering; applied modern JavaScript frameworks and API integrations across academic projects. GPA: 3.8."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-ai-full-stack-engineer-m-f-d-at-merantix-momentum-4421153386?position=34&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=wnLfyvZ%2FeKbFQV%2FO1sPl7Q%3D%3D",
+    "company_website": null,
+    "company_status": "error"
+  },
+  {
+    "summary": "AI safety and research, Forward Deployed Engineer, enterprise Claude deployment and customer production systems",
+    "company_name": "Anthropic",
+    "job_title": "Forward Deployed Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Anthropic Hiring Team,",
+      "paragraphs": [
+        "Anthropic's Forward Deployed Engineer role treats deployment as a design problem, not a delivery step. An MCP server, sub-agent, or agent skill only earns its place when it changes something concrete in a customer's workflow. I have carried the same question with me from linguistic philosophy through curriculum design, music composition, and five years of engineering: <b>what problem is this concept solving?</b> I want to be where Claude's capabilities meet that workflow.",
+        "At Tata Consultancy Services, I led a team of five and made frontend architecture decisions that had to survive after the engagement ended. The lesson was simple: a solution nobody can reproduce is a demo. That lesson shaped <b>NewsAlign</b>, an AI fact-verification platform I built with <b>semantic search</b>, <b>FAISS</b>, and <b>LLM reasoning</b>. Its central insight was that <b>retrieval is not reasoning</b> — each component must solve a distinct problem before the whole system can be trusted. I applied the same discipline to production concerns: <b>cutting bundle size by 68%</b>, <b>raising Lighthouse performance from 73 to 95</b>, and keeping test coverage near 84%.",
+        "This role also asks for white-glove deployment support — patient, iterative work inside enterprise systems. I have done that work while building accessible platforms that met <b>WCAG</b> standards across critical workflows, and I have seen how quickly a well-designed feature fails when surrounding constraints are ignored. The real test is what remains in the user's hands after the engagement. Because of that, the emphasis on codifying <b>repeatable deployment patterns</b> and returning insights to Product and Engineering teams makes sense to me: the lasting output of good deployment work is not just the code, but the pattern others can follow.",
+        "I would use my experience in service of Anthropic's mission in the field: building applications with Claude that customers can own, maintain, and trust, while staying alert to new opportunities before they are formally requested. I bring the technical range to move between requirements, architecture, and implementation, and the habit of asking what problem we are actually solving."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Manager,",
+      "paragraphs": [
+        "I'm Goonja Gandhi, a senior frontend engineer with 5 years of experience building web applications in TypeScript, React, and Next.js. I'm applying for the Forward Deployed Engineer role at Anthropic because I want to put my LLM and RAG experience to work in real customer environments.",
+        "What I'd bring to Anthropic:\n• Built an AI fact-verification platform using React, Next.js, TypeScript, LangChain, FAISS, and Hugging Face, using RAG pipelines to deliver grounded answers.\n• Reduced bundle size by 68% (from 941KB to under 300KB) through code splitting and optimization, and lifted Lighthouse performance from 73 to 95.\n• Increased WCAG compliance by 30% on a complaint-resolution platform while working with cross-functional Agile teams.",
+        "I've also led a team of five developers, mentored engineers, and shaped frontend architecture for large enterprise applications using Angular, RxJS, and GraphQL. I'm comfortable in fast-moving environments and have shipped production code with an eye on maintainability, performance, and customer needs. I understand this role requires working inside customer systems and providing white-glove support, and that kind of collaborative, high-trust setting is where I do my best work. I'm particularly excited about building MCP servers, sub-agents, and agent skills that solve real customer problems. While my core stack is frontend/TypeScript, I've worked with Node.js and REST/GraphQL APIs, and I'm ready to close any gap on Python or Java quickly.",
+        "I'm open to relocation and can travel to customer sites as needed. I'd be proud to champion Anthropic's mission and help customers deploy Claude models in production workflows."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Frontend Engineer with 5 years of experience delivering scalable, accessible web applications for enterprise and customer-facing environments. Skilled in React, TypeScript, GraphQL, and LLM application development using LangChain, FAISS, Hugging Face, and RAG pipelines. Experienced in Agile delivery, frontend performance optimization, and API integrations. Open to relocation and customer-site travel.",
+      "position": "Forward Deployed Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), React.js, Next.js, SCSS, Tailwind CSS, TypeScript\nNext.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR\nState Management: Context API, Redux, RxJS\nBackend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs\nPerformance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design\nAI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search\nCloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway\nTesting & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 – 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Improved WCAG compliance by approximately 30%, strengthening accessibility across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to accelerate feature delivery and reduce rework."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 – 04/2023",
+          "points": [
+            "Directed a team of 5 developers and shaped frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance with code splitting, lazy loading, caching strategies, and bundle optimization.",
+            "Integrated frontend systems with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization.",
+            "Improved Lighthouse performance score from 73 to 95 with SSR enhancements, caching, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Achieved approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "duration": "01/2026",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates, accelerating project setup and development workflows.",
+            "Built with zero-runtime-dependency architecture to keep generated components lightweight."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated practical knowledge of rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 – 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering; applied JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects. GPA: 3.8."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/forward-deployed-engineer-at-anthropic-4454274372?position=35&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=1Tjr%2Fel1BboiDOMxYyXrTQ%3D%3D"
+  },
+  {
+    "summary": "Game engine technology, Senior Web Design Engineer (Games UI), scalable UI architecture using Coherent Gameface and design-to-development pipeline",
+    "company_name": "Crytek",
+    "job_title": "Senior Web Design Engineer (Games UI)",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Crytek Hiring Team,",
+      "paragraphs": [
+        "Most UI work fails at the translation layers, not at the component level: a design system that loses fidelity in Figma-to-code, a component that works in one screen but not another, a toolchain that slows people down just enough to make shortcuts tempting. Crytek's decision to build a shared UI platform across future projects suggests the same diagnosis — the durable deliverable is the architecture and workflow, not any single screen.",
+        "I came to this view a little differently. Before engineering, I studied linguistic philosophy, where the central question is: what problem is this concept trying to solve? In UI, that question maps directly to component design. A button is not a button because of how it looks; it is a button because it has a stable contract across states, contexts, and accessibility needs. I kept this in mind when I built a small <b>reactive state engine</b> in plain JavaScript, based on the same principles as React's <b>useState</b>. It was an exercise in understanding rendering cycles rather than avoiding frameworks, and it is the same curiosity I would bring to <b>Coherent Gameface</b>: the rendering model, the update path, the boundary between declarations and side effects.",
+        "My professional work has lived in the same space. At TCS, I led a team of five developers building enterprise applications with <b>TypeScript</b> and <b>reusable component frameworks</b>; the hard part was never the first implementation, but keeping the system coherent as the product moved. I also treated accessibility as a structural property, which led to <b>zero WCAG violations</b> in QA on delivery. And I have started to build the tooling around UI systems — a CLI that scaffolds reusable components so developers begin from a consistent structure instead of reproducing patterns by hand.",
+        "That is why I am drawn to this role's emphasis on the UI platform itself. The mandate is not only to produce polished screens, but to define conventions, workflows, and component contracts that let UX, UI art, and engineering build on each other without tripping over each other. I would bring the mindset of an engineer who treats the system as the product, and who wants to leave the platform better than I found it."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Crytek Hiring Team,",
+      "paragraphs": [
+        "I am a frontend engineer with five years of experience building scalable, accessible web interfaces, and I would welcome the chance to bring that foundation to the Senior Web Design Engineer (Games UI) role at Crytek. Most of my work has been in web products rather than game engines, but building reusable UI components from HTML, CSS, and JavaScript and assembling screens from them is exactly the work I do every day.",
+        "Key achievements from my past roles and projects:\n• Delivered an accessibility-focused complaint-resolution platform using React, Redux, TypeScript, and Node.js, increasing WCAG compliance by 30% and improving usability across critical workflows.\n• Reduced API calls by 40% at TCS by applying RxJS-based state management, lowering latency and improving responsiveness in an enterprise application.\n• Built a custom reactive state engine in JavaScript based on React's useState internals, demonstrating deep understanding of rendering cycles and component architecture.",
+        "I have experience leading technical work and collaborating across teams: at TCS, I directed a team of five developers and made frontend architecture decisions; at Datapret, I coordinated with cross-functional Agile teams. I also built a CLI that scaffolds reusable React components, which reflects my interest in improving developer workflows and the design-to-development pipeline. I am excited to apply this experience to Crytek's UI platform, including the component and pipeline challenges around Coherent Gameface and Figma-driven workflows. I am open to relocating to Germany and would welcome the chance to discuss how my UI engineering experience can help scale Crytek's UI platform."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • https://github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, JavaScript, HTML5, CSS3, and modern UI architectures. Strong track record in reusable component systems, performance optimization, accessibility (WCAG), and cross-functional collaboration within Agile teams. Seeking to apply this frontend and UI architecture expertise to a Senior Web Design Engineer (Games UI) role. Open to relocate.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: HTML5, CSS3, JavaScript (ES6+), TypeScript, React.js, Next.js, Angular, SCSS, Tailwind CSS; State Management: Redux, Context API, RxJS; Backend & APIs: Node.js, Express.js, GraphQL, REST APIs, Apollo Client; Performance & Architecture: Code Splitting, Lazy Loading, Caching Strategies, Bundle Optimization, Frontend Architecture, UI Component Reusability; Testing & Accessibility: Jest, Unit Testing, Accessibility (WCAG); Tools & DevOps: Git, CI/CD, AWS, Firebase, Netlify, Jenkins, Railway",
+      "experience": [
+        {
+          "company": "Datapret",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Built an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Raised WCAG compliance by approximately 30%, improving accessibility scores across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to accelerate feature delivery and reduce development rework.",
+            "Successfully completed the engagement upon project delivery."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers and shaped frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications with Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by approximately 40% through advanced RxJS implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integration with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Mentored 5 developers on code quality standards, strengthening review cycles and consistency.",
+            "Maintained zero accessibility violations during QA by enforcing WCAG-compliant design and development practices."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates, accelerating project setup and developer workflows.",
+            "Improved developer efficiency through a zero-runtime-dependency architecture and automated component scaffolding."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Implemented rendering cycles, reactivity systems, memory management, and frontend architecture patterns in a lightweight custom engine."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "GPA: 3.8. Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts in academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://de.linkedin.com/jobs/view/senior-web-design-engineer-games-ui-at-crytek-4429022361?position=54&pageNum=0&refId=CtUcoul7nr%2BZ%2FpjdSVnucg%3D%3D&trackingId=zqhojwca3I9%2FS1uRau2lsw%3D%3D"
+  },
+  {
+    "summary": "Geoscience 3D modelling software, Senior Frontend Engineer role, desktop-to-cloud transition with C++/React/Python and 3D rendering optimization.",
+    "company_name": "Seequent",
+    "job_title": "Senior Software Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "Seequent's move from desktop to cloud is more interesting as an architecture problem than as a product migration. The real challenge is not relocating an interface but redeciding where the model lives, where heavy 3D computation happens, and what the browser should be responsible for. That is an architectural question before it is a frontend one, and it is the kind of question I want to spend my time on.",
+        "I have spent five years building large enterprise applications, and the pattern that has stayed with me is ownership: every visible behavior should trace back to one clear owner in the system. At TCS, leading a team of five, I worked on reducing API calls by <b>40%</b> through state management and on bundle optimization, but the lesson that carried over was architectural. Before writing code I still ask the question that mattered to me first as a philosophy student: what problem is this concept solving? It has served me better than any framework.",
+        "Outside work I prefer projects that make boundaries visible. I built an AI fact-verification platform using <b>RAG</b>, <b>semantic search</b>, and LLM reasoning, where the central insight was that retrieval and reasoning are separate problems — the quality bottleneck was almost never the model but how information was stored and fetched. I also built a small reactive engine from scratch to understand rendering cycles and memory management. Both projects gave me a practical feel for the kind of boundary that exists in Seequent's own stack: a core that needs <b>C++</b>, an interface built in <b>React</b>, and the <b>Python</b> that often connects the two.",
+        "What I would bring is not just frontend performance work but a habit of questioning where computation should happen under real constraints — network, dataset size, rendering latency. I would like to help Seequent make the cloud product feel as precise and immediate as the desktop one, while keeping the architecture scalable enough for the datasets that actually matter. Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Seequent Hiring Team,",
+      "paragraphs": [
+        "I am Goonja Gandhi, a Senior Frontend Engineer with five years of experience building scalable web applications with React, TypeScript, and Node.js. I am excited about Seequent's move from desktop to cloud and the chance to help build modern, high-performance systems.",
+        "A few examples that show how I work:\n• In a personal AI fact-verification project, I cut bundle size by 68% (from 941KB to under 300KB) through code splitting and frontend optimization, and improved Lighthouse from 73 to 95.\n• At TCS, I reduced API calls by 40% using RxJS-based state management, lowering latency across enterprise Angular applications.\n• I improved WCAG compliance by 30% at Datapret and maintained zero accessibility violations during QA at TCS.",
+        "What interests me about Seequent is the combination of scalability and rendering complexity. At TCS, I led five developers and made architectural decisions that balanced performance, maintainability, and delivery speed. I also built a custom reactive JavaScript engine to explore rendering cycles and memory management. These experiences give me a strong foundation for tackling the performance-heavy work involved in cloud-based 3D applications.",
+        "I understand the role uses C++, React, and Python. My strongest production experience is in React and the modern web stack, and I am prepared to apply my frontend architecture and optimization skills to the desktop-to-cloud transition while ramping up in C++ and Python. I am open to relocating to New Zealand for this role and would welcome the chance to contribute to Seequent's engineering team."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai, India • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Senior Frontend Engineer with 5 years of experience designing scalable web applications using React, TypeScript, Angular, and modern frontend architectures. Strong focus on performance optimization, accessibility, API integrations, and frontend architecture in Agile environments. Experienced in mentoring developers, reducing bundle sizes, and shipping enterprise-grade UI systems. Open to relocation.",
+      "position": "Senior Frontend Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), React.js, Angular, Next.js, SCSS, Tailwind CSS, TypeScript, React Server Components, SSR, SSG, ISR, SEO Optimization, App Router, Dynamic Routing, Nested Layouts | State Management: Context API, Redux, RxJS | Backend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs | Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design | AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search | Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway | Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Datapret (COOP)",
+          "role": "MERN Stack Developer (COOP)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimize development rework.",
+            "Completed the engagement on schedule upon project delivery."
+          ]
+        },
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers and shaped frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and improving state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Mentored and guided 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System (02/2026)",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, Next.js, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 by applying SSR enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine (08/2025)",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Demonstrated expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "01/2023 - 03/2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering; applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects. GPA: 3.8."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nz.linkedin.com/jobs/view/senior-software-engineer-relocation-to-new-zealand-at-seequent-4415280004?position=4&pageNum=0&refId=A%2BpBIjQnVLqilloxgmvQPQ%3D%3D&trackingId=VMO7c0DKd0QP3xop8fy8gw%3D%3D"
+  },
+  {
+    "summary": "Automotive parts data infrastructure, Software Engineer, mission-critical core SaaS and API platform features",
+    "company_name": "Partly",
+    "job_title": "Software Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Partly Team,",
+      "paragraphs": [
+        "Partly's role description speaks to building mission-critical features for an API-first SaaS platform. What stands out to me is the word 'platform': it is not enough for a piece of software to work alone; it has to hold up inside a system of businesses that depend on it. That makes engineering decisions into product decisions.",
+        "I came to software from linguistic philosophy, and I still carry one question from that background: what problem is this concept solving? It is why I tend to build from first principles rather than reaching for the newest abstraction. Over five years of frontend and full-stack work, that question has helped me keep systems honest — and to know when a layer or a library is earning its place.",
+        "Most of my work has been in environments where reliability is visible to the end user. At TCS, I led a team of five and <b>reduced API calls by 40%</b> by restructuring how the frontend talked to the backend, using <b>RxJS</b> to keep state consistent without extra requests. More recently, I built an AI-powered fact-verification system where I designed a <b>RAG pipeline</b> and learned that <b>retrieval is not the same as reasoning</b> — a distinction that matters when people rely on the output. That project brought real constraints: caching, rate limits, authentication, and unit tests around 84% coverage. I would bring that same awareness of trade-offs to Partly's mission-critical features.",
+        "I also built a small <b>reactive engine</b> inspired by React's useState, because I wanted to understand rendering cycles from the inside. That instinct — going below familiar surfaces to see how a system actually behaves — is the one I trust most when building from the ground up."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Hiring Team,",
+      "paragraphs": [
+        "I'm a frontend-focused software engineer with nearly five years of experience building enterprise web applications with React, TypeScript, and Next.js. Partly's work on a core SaaS and API platform is exactly the kind of mission-critical, API-driven problem I want to help solve. I'm open to relocating to New Zealand and would be excited to contribute to your platform.",
+        "At Tata Consultancy Services, I directed a team of five developers while designing frontend architecture for enterprise applications using Angular, TypeScript, and RxJS. I reduced API calls by 40% through reactive state management and achieved zero accessibility violations during QA.",
+        "During my co-op at Datapret, I delivered an accessibility-focused complaint resolution platform with React, Redux, and Node.js, increasing WCAG compliance by 30%. More recently, I built an AI-powered fact-verification platform using React, Next.js, TypeScript, LangChain, FAISS, and RAG pipelines — cutting bundle size by 68% and raising Lighthouse performance from 73 to 95 while maintaining roughly 84% test coverage.",
+        "These experiences taught me how to turn difficult technical problems into reliable, useful software. I take ownership, collaborate across teams, and build from the ground up. I believe my frontend depth and full-stack awareness would help Partly ship world-class experiences for businesses using the platform."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "GOONJA GANDHI",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Software Engineer with nearly 5 years of experience delivering scalable, high-performance web applications using React, TypeScript, Node.js, GraphQL, and modern frontend architectures. Strong track record in frontend optimization, accessibility (WCAG), API integrations, and AI-powered features within Agile environments. Experienced leading developer teams and shipping mission-critical features for enterprise SaaS platforms. Open to Relocate",
+      "position": "Software Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), Next.js, React.js, SCSS, Tailwind CSS, TypeScript | Next.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR | State Management: Context API, Redux, RxJS | Backend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs | Performance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design | AI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search | Cloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway | Testing & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions using Angular and TypeScript.",
+            "Delivered scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks.",
+            "Crafted responsive, cross-browser-compatible UI systems aligned with WCAG accessibility standards.",
+            "Reduced API calls by 40% through advanced RxJS implementations, lowering latency and enhancing state management efficiency.",
+            "Accelerated application performance using code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integrations with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and expediting review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices.",
+            "Delivered enterprise-scale frontend solutions focused on maintainability, scalability, and performance."
+          ]
+        },
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Accelerated application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Coordinated with cross-functional Agile teams to speed feature delivery and minimize development rework.",
+            "Successfully completed the engagement upon project delivery."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System",
+          "duration": "02/2026",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Shrank bundle size by approximately 68%, from 941KB to under 300KB, through code splitting and frontend optimization strategies.",
+            "Elevated Lighthouse performance score from 73 to 95 by implementing server-side rendering enhancements, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Attained approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool",
+          "duration": "01/2026",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates, accelerating project setup and development workflows.",
+            "Increased developer efficiency through zero-runtime-dependency architecture and automated component scaffolding."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine",
+          "duration": "08/2025",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Showcased expertise in rendering cycles, reactivity systems, JavaScript memory management, and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "MAY 2023 - MARCH 2024",
+          "details": "GPA: 3.8 — Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering. Applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nz.linkedin.com/jobs/view/software-engineer-nz-at-partly-4432115347?position=51&pageNum=0&refId=A%2BpBIjQnVLqilloxgmvQPQ%3D%3D&trackingId=yFEEY5o7HnJiAM6txXC2%2Fg%3D%3D"
+  },
+  {
+    "summary": "Automotive parts data platform, Product Engineer, AI-assisted end-to-end product prototyping",
+    "company_name": "Partly",
+    "job_title": "Product Engineer",
+    "motivation_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Partly Team,",
+      "paragraphs": [
+        "An industry that still runs on phone calls, spreadsheets, and tribal knowledge does not need more software; it needs someone willing to sit where the work happens and understand what better would feel like for the people doing that work. That is the part of this role that resonates most with me. Before I wrote code, I studied linguistic philosophy and built learning syllabi for children — training grounds for the same question I now ask of every product: what problem is this concept solving, and for whom? That habit of starting from the human workflow is why I would not see time with estimators and parts managers as a distraction, but as the actual job.",
+        "Partly also stakes its approach on what AI-assisted development has made possible: the distance between an idea and a working version has collapsed. I have been building that way for over a year. NewsAlign, a full-stack fact-verification system, was built alone — from retrieval architecture to frontend — and its central lesson was that <b>retrieval is not reasoning</b>: an LLM is only as trustworthy as the grounding, cost controls, and evaluation around it. So alongside the <b>semantic search, FAISS, and RAG pipelines</b>, I built <b>caching, rate limiting, JWT authentication, and 84% unit test coverage</b>. That mix — using AI's speed without trusting it blindly — is the judgment I would bring to prototyping fast, disposable product iterations at Partly.",
+        "The role also asks you to weigh product impact against engineering effort in the same breath. That tradeoff has shaped how I work: I reduced a frontend bundle by <b>68% — from 941KB to under 300KB</b> — and raised a Lighthouse score from <b>73 to 95</b>, not for the score's sake, but because the outcome for the person using the software depended on it. I also tend to open the hood rather than accept the familiar stack: I built a custom reactive engine inspired by React's useState internals, because understanding the machinery underneath is what allows honest tradeoffs — the cheaper path to the same outcome.",
+        "I would bring that combination to Partly: a builder's fluency with AI-assisted tooling, an owner's attention to adoption and value, and the discipline of a system thinker. I am most drawn to the surfaces where the product meets the messy, human work of the automotive industry — and to turning tribal knowledge into something estimators and parts managers can actually depend on."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "cover_letter": {
+      "name": "Goonja Gandhi",
+      "email": "gandhi.goonja@gmail.com",
+      "phone": "+91 7718961340",
+      "greeting": "Dear Partly Hiring Team,",
+      "paragraphs": [
+        "I'm Goonja Gandhi, a frontend-focused engineer with nearly five years of experience building and shipping production software. Partly stands out because it combines AI infrastructure with a deeply human problem: helping repair shops and parts teams move beyond phone calls and spreadsheets. That's exactly where I want to bring my skills.\n\nA few achievements that show how I build:\n\n- Engineered an AI fact-verification platform with React, Next.js, TypeScript, LangChain, FAISS, and RAG pipelines, cutting bundle size from 941KB to under 300KB and raising Lighthouse from 73 to 95.\n- Led a team of five at TCS to ship enterprise Angular applications, reducing API calls by 40% with RxJS and using code-splitting and caching to speed up performance.\n- Delivered an accessibility-focused complaint platform at Datapret, increasing WCAG compliance by 30% while working in Agile sprints.",
+        "I've already used LLM tooling and RAG in real builds, so I can prototype quickly and turn ideas into working software. That speed matters in a product role where the goal is to learn what works rather than polish a spec. What draws me to Partly is the end-to-end ownership: talking to estimators and parts managers, making trade-offs, and measuring metrics like adoption and value delivered. That's a loop I'm excited to be part of.",
+        "I'm open to relocating to New Zealand and would love to discuss how I can contribute to Partly's mission."
+      ],
+      "closing": "Thank you for considering my application. I look forward to the opportunity to discuss how I can contribute.",
+      "signoff": "Sincerely,",
+      "signature": "Goonja Gandhi"
+    },
+    "resume": {
+      "name": "Goonja Gandhi",
+      "contact": "Mumbai • +91 7718961340 • gandhi.goonja@gmail.com • linkedin.com/in/goonja-gandhi • github.com/gona04",
+      "summary": "Product-focused frontend engineer with nearly 5 years of experience building and shipping software in production. Deep expertise in React, TypeScript, and modern frontend architecture, with working full-stack skills across Node.js, GraphQL, and REST APIs. Hands-on experience using AI and LLM-assisted tooling (LangChain, RAG, Hugging Face, FAISS) to prototype and ship intelligent features. Comfortable measuring my own work — performance, accessibility, bundle size, test coverage — and making pragmatic trade-offs between product impact and engineering effort. Excited to build products that genuinely improve real workflows. Open to Relocate",
+      "position": "Product Engineer",
+      "skills": "Frontend: CSS3, HTML5, JavaScript (ES6+), Next.js, React.js, SCSS, Tailwind CSS, TypeScript\nNext.js & Rendering: App Router, Dynamic Routing, ISR, Nested Layouts, React Server Components, SEO Optimization, SSG, SSR\nState Management: Context API, Redux, RxJS\nBackend & APIs: Apollo Client, Express.js, GraphQL, Node.js, REST APIs\nPerformance & Architecture: Bundle Optimization, Caching Strategies, Code Splitting, Frontend Architecture, Lazy Loading, Performance Optimization, System Design\nAI & Data: FAISS, Generative AI, Hugging Face, LangChain, LLM Integrations, NLP, RAG Systems, Semantic Search\nCloud & DevOps: AWS, CI/CD, Firebase, Jenkins, Netlify, Railway\nTesting & Development: Accessibility (WCAG), Agile Methodologies, Git, Jest, Unit Testing",
+      "experience": [
+        {
+          "company": "Tata Consultancy Services (TCS)",
+          "role": "Senior Frontend Developer",
+          "duration": "01/2019 - 04/2023",
+          "points": [
+            "Directed a team of 5 developers while shaping frontend architecture decisions for enterprise applications built with Angular and TypeScript.",
+            "Shipped scalable enterprise applications using Angular, RxJS, TypeScript, REST APIs, and reusable component frameworks within Agile teams.",
+            "Reduced API calls by 40% through advanced RxJS state management patterns, lowering latency and improving data-handling efficiency.",
+            "Improved application performance through code splitting, lazy loading, caching strategies, and bundle optimization techniques.",
+            "Streamlined frontend-backend integration with Spring Boot and GraphQL services, shortening feature delivery timelines.",
+            "Guided and mentored 5 developers, strengthening code quality standards and accelerating review cycles.",
+            "Achieved zero accessibility violations during QA by enforcing WCAG-compliant design and development practices."
+          ]
+        },
+        {
+          "company": "Datapret (Co-op)",
+          "role": "MERN Stack Developer (Co-op)",
+          "duration": "01/2024 - 03/2024",
+          "points": [
+            "Delivered an accessibility-focused complaint resolution platform using React, Redux, TypeScript, Node.js, and REST APIs.",
+            "Increased WCAG compliance by 30%, strengthening accessibility scores and improving usability across critical workflows.",
+            "Improved application responsiveness through frontend rendering optimizations, efficient API integrations, and streamlined data handling.",
+            "Collaborated with cross-functional Agile teams to accelerate feature delivery and minimize development rework."
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "projectName": "NewsAlign — AI-Powered Fact Verification System — Personal Project (02/2026)",
+          "points": [
+            "Engineered an AI-powered fact verification platform using React, TypeScript, LangChain, FAISS, Hugging Face, NLP, and RAG pipelines.",
+            "Reduced bundle size by 68% — from 941KB to under 300KB — through code splitting and frontend optimization strategies.",
+            "Improved Lighthouse performance score from 73 to 95 using SSR strategies, caching mechanisms, and Core Web Vitals improvements.",
+            "Integrated JWT authentication, API caching, and secure backend workflows to support scalable application performance.",
+            "Achieved approximately 84% unit test coverage using Jest and automated testing practices."
+          ]
+        },
+        {
+          "projectName": "reactli-c — React CLI Tool — Personal Project (01/2026)",
+          "points": [
+            "Created a CLI tool that generates reusable React component boilerplates, accelerating project setup and development workflows.",
+            "Designed a zero-runtime-dependency architecture with automated component scaffolding to keep the tool lightweight and fast."
+          ]
+        },
+        {
+          "projectName": "Custom Reactive JavaScript Engine — Personal Project (08/2025)",
+          "points": [
+            "Architected a lightweight reactive state management engine inspired by React's useState internals.",
+            "Implemented efficient rendering cycles and memory management, demonstrating expertise in reactivity systems and frontend architecture patterns."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "degree": "Mobile Applications Development",
+          "institution": "Cambrian College, Canada",
+          "duration": "May 2023 - March 2024",
+          "details": "Completed advanced coursework in mobile application development, responsive UI design, and frontend engineering; applied modern JavaScript frameworks, API integrations, and cross-platform development concepts across academic projects. GPA: 3.8."
+        }
+      ],
+      "certifications": [
+        "Generative AI: Large Language Models",
+        "AI Engineering: RAG (LangChain, FAISS, Hugging Face)",
+        "NLP Programming"
+      ]
+    },
+    "job_link": "https://nz.linkedin.com/jobs/view/product-engineer-nz-workshop-at-partly-4428454545?position=54&pageNum=0&refId=A%2BpBIjQnVLqilloxgmvQPQ%3D%3D&trackingId=op1R7tIR2E9WUJW%2BmhYRZw%3D%3D"
+  }
+]

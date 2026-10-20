@@ -303,10 +303,11 @@ function extractCompany(description, link){
 function processJobArray(arr){
   return arr.map(item=>{
     const title = item.title || item.details?.title || '';
-    const description = item.details?.description || item.description || '';
+    const description = item.originalJobContent || item.originalJobContent || '';
     const link = item.link || '';
+    const location = item.location;
     const company_name = extractCompany(description, link);
-    const content = [title, description, link].filter(Boolean).join(' ');
+    const content = [title, location , description, link].filter(Boolean).join(' ');
     return { company_name, content };
   });
 }
@@ -337,7 +338,7 @@ function runBulkConvert(){
   let arr;
   try{ arr = JSON.parse(raw); }catch(e){ errBox.textContent='Invalid JSON: '+e.message; errBox.classList.add('show'); return; }
   if(!Array.isArray(arr)){ errBox.textContent='Expected a JSON array [...]. Got: '+typeof arr; errBox.classList.add('show'); return; }
-
+  console.log( 'HERE IS THE ARRAY', arr)
   bulkResult = processJobArray(arr);
 
   // Preview

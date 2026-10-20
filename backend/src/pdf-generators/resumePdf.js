@@ -56,14 +56,24 @@ function renderSummary(content) {
 function renderSkills(skills) {
   const skillsList = Array.isArray(skills)
     ? skills.map((item) => normalizeText(item)).filter(Boolean)
-    : toParagraphs(skills)
-        .join(', ')
-        .split(',')
-        .map((item) => normalizeText(item))
-        .filter(Boolean);
+    : skills && typeof skills === 'object'
+      ? Object.entries(skills).flatMap(([category, values]) => {
+          const label = normalizeText(category.replace(/_/g, ' '));
+          const items = Array.isArray(values) ? values : [values];
+          const renderedItems = items.map((item) => normalizeText(item)).filter(Boolean);
+          return renderedItems.length
+            ? [`<strong>${linkifyText(label)}:</strong> ${renderedItems.map((item) => linkifyText(item)).join(', ')}`]
+            : [];
+        })
+      : toParagraphs(skills)
+          .flatMap((paragraph) => paragraph.split('|'))
+          .map((item) => normalizeText(item))
+          .filter(Boolean);
 
   if (!skillsList.length) return '';
-  return `<h2>SKILLS</h2><p>${skillsList.map((item) => linkifyText(item)).join(', ')}</p>`;
+  return `<h2>SKILLS</h2><p>${skillsList
+    .map((item) => (item.startsWith('<strong>') ? item : linkifyText(item)))
+    .join('<br/>')}</p>`;
 }
 
 function renderExperience(experience = []) {
@@ -72,10 +82,14 @@ function renderExperience(experience = []) {
   const items = experience
     .map((exp) => {
       const company = normalizeText(exp.company || '');
-      const role = normalizeText(exp.role || exp.title || '');
-      const date = normalizeText(exp.duration || exp.date || '');
+      const role = normalizeText(exp.role || exp.position || exp.title || '');
+      const date = normalizeText(
+        exp.duration || exp.date || [exp.start_date, exp.end_date].filter(Boolean).join(' - ')
+      );
       const location = normalizeText(exp.location || exp.country || '');
-      const points = toBullets(exp.points || exp.bullets || []).map((item) =>
+      const points = toBullets(
+        exp.points || exp.bullets || exp.achievements || []
+      ).map((item) =>
         cleanFiller(item)
       );
 
@@ -114,7 +128,9 @@ function renderProjects(projects = []) {
           ''
       );
 
-      const points = toBullets(project.points || project.bullets || []).map((item) =>
+      const points = toBullets(
+        project.points || project.bullets || project.achievements || []
+      ).map((item) =>
         cleanFiller(item)
       );
 
@@ -133,12 +149,15 @@ function renderProjects(projects = []) {
       const live = normalizeText(
         project.live_link || project.live || project.url || ''
       );
+      const date = normalizeText(project.date || '');
+      const type = normalizeText(project.type || '');
       const links = [];
       if (github) links.push(`Github: ${linkifyText(github)}`);
       if (live) links.push(`Live: ${linkifyText(live)}`);
 
       return `<div class="project">
         ${title ? `<strong>${linkifyText(title)}</strong><br/>` : ''}
+        ${date || type ? `<p>${[date, type].filter(Boolean).map((item) => linkifyText(item)).join(' | ')}</p>` : ''}
         ${links.length ? `<p>${links.join(' | ')}</p>` : ''}
         ${renderBullets(projectPoints)}
       </div>`;
@@ -154,20 +173,30 @@ function renderEducation(education = []) {
 
   const items = education
     .map((edu) => {
-      const degree = normalizeText(edu.degree || edu.program || edu.title || '');
+      const degree = normalizeText(
+        edu.degree || edu.program || edu.field || edu.title || ''
+      );
       const institution = normalizeText(
         edu.institution || edu.school || edu.university || ''
       );
-      const duration = normalizeText(edu.duration || edu.date || '');
-      const details = normalizeText(edu.details || edu.description || '');
+      const duration = normalizeText(
+        edu.duration || edu.date || [edu.start_date, edu.end_date].filter(Boolean).join(' - ')
+      );
+      const location = normalizeText(edu.location || '');
+      const gpa = normalizeText(edu.gpa ? `GPA: ${edu.gpa}` : '');
+      const details = toParagraphs(edu.details || edu.description || '')
+        .map((item) => cleanFiller(item))
+        .filter(Boolean);
 
-      if (!degree && !institution && !duration && !details) return '';
+      if (!degree && !institution && !duration && !location && !gpa && !details.length) return '';
 
       return `<div class="education">
         ${degree ? `<strong>${linkifyText(degree)}</strong><br/>` : ''}
         ${institution ? `${linkifyText(institution)}<br/>` : ''}
         ${duration ? `${linkifyText(duration)}<br/>` : ''}
-        ${details ? `${linkifyText(details)}` : ''}
+        ${location ? `${linkifyText(location)}<br/>` : ''}
+        ${gpa ? `${linkifyText(gpa)}<br/>` : ''}
+        ${details.length ? `${renderBullets(details)}` : ''}
       </div>`;
     })
     .filter(Boolean)
@@ -194,7 +223,9 @@ async function buildResumeHtml({ content }) {
     name: linkifyText(resume.name || 'Goonja Gandhi'),
     email: linkifyText(contact.email),
     phone: contact.phone,
+    location: linkifyText(resume.location || ''),
     linkedin: linkifyText(contact.linkedin),
+    github: linkifyText(resume.github || ''),
     roleTitle:
       resume.position || resume.title
         ? `<div class="role-title">${linkifyText(cleanFiller(resume.position || resume.title))}</div>`
@@ -202,7 +233,7 @@ async function buildResumeHtml({ content }) {
     summarySection: renderSummary(resume.summary),
     skillsSection: renderSkills(resume.skills),
     projectsSection: renderProjects(resume.projects || []),
-    experienceSection: renderExperience(resume.experience || []),
+    experienceSection: renderExperience(resume.experience || resume.work_experience || []),
     educationSection: renderEducation(resume.education || []),
     certificationsSection: renderCertifications(
       resume.certifications || resume.certification || []

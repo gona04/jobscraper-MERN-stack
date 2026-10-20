@@ -1,0 +1,29 @@
+[
+  {
+    "company_name": "Distribusion Technologies",
+    "jobTitle": "Senior Product Engineer, eComm",
+    "job_link": "https://www.linkedin.com/jobs/view/4473107267/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&refId=VBPGOvkIfxmgjU2tRFnAxw%3D%3D&trackingId=RXeAowmhfnUvJttx%2B1%2Ba4Q%3D%3D",
+    "country_name": "Germany",
+    "location": "",
+    "isEURegion": "yes",
+    "visa_sponsorship": "Yes",
+    "only_english": "false",
+    "skillsRequired": [
+      "Python",
+      "FastAPI",
+      "Django",
+      "ReactJS",
+      "Backend services",
+      "APIs",
+      "SQL databases",
+      "Docker",
+      "Kubernetes",
+      "English"
+    ],
+    "rolesAndResponsibilities": "Write clean, efficient, and well-documented Python code. Develop and maintain backend services and APIs within a web project. Successfully implement the backend of business-critical applications. Collaborate with cross-functional teams to design and implement new features. Debug, test, and optimise applications for performance and scalability. Improve development workflows: CI, PR reviews, local testing, and release processes. Partner with stakeholders across the business. Turn ambiguous problems into clear requirements and align solutions with real-world constraints.",
+    "jobDescription": "Write clean, efficient, and well-documented Python code. Develop and maintain backend services and APIs within a web project. Successfully implement the backend of business-critical applications. Collaborate with cross-functional teams to design and implement new features. Debug, test, and optimise applications for performance and scalability. Improve development workflows: CI, PR reviews, local testing, and release processes. Partner with stakeholders across the business. Turn ambiguous problems into clear requirements and align solutions with real-world constraints.",
+    "company_status": "not_found",
+    "company_website": null,
+    "company_details": null
+  }
+]
